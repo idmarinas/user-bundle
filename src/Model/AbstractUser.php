@@ -34,9 +34,6 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
-#[ORM\Entity()]
-#[Gedmo\SoftDeleteable(fieldName: 'deletedAt', timeAware: false, hardDelete: true)]
-#[UniqueEntity(fields: ['email'], message: 'email.not_unique', repositoryMethod: 'uniqueUserEmail')]
 abstract class AbstractUser implements UserInterface, PasswordAuthenticatedUserInterface, EquatableInterface, Stringable
 {
     use UuidTrait;
