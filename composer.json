@@ -23,10 +23,10 @@
         "doctrine/orm": "^2.17",
         "gedmo/doctrine-extensions": "^3.14",
         "idmarinas/common-bundle": "^2.0",
-        "symfony/config": "^5.4 | ^6.0 | ^7.0",
-        "symfony/dependency-injection": "^5.4 | ^6.0 | ^7.0",
+        "symfony/config": "^5.4 | ^6.1 | ^7.0",
+        "symfony/dependency-injection": "^5.4 | ^6.1 | ^7.0",
         "symfony/orm-pack": "^2.3",
-        "symfony/security-bundle": "^5.4 | ^6.0 | ^7.0"
+        "symfony/security-bundle": "^5.4 | ^6.1 | ^7.0"
     },
     "require-dev": {
         "matthiasnoback/symfony-config-test": "^4.2 | ^5.0",
