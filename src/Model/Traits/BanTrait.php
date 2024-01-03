@@ -22,7 +22,7 @@ trait BanTrait
 {
     /** Fecha hasta la que no puede entrar con su cuenta */
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?DateTimeInterface $bannedUntil = null;
+    protected ?DateTimeInterface $bannedUntil = null;
 
     public function getBannedUntil(): ?DateTimeInterface
     {
