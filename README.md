@@ -1,0 +1,31 @@
+[//]: # ([![Quality Gate Status]&#40;https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=alert_status&#41;]&#40;https://sonarcloud.io/dashboard?id=idmarinas_user-bundle&#41;)
+[![PHP Composer](https://github.com/idmarinas/user-bundle/actions/workflows/php.yml/badge.svg)](https://github.com/idmarinas/user-bundle/actions/workflows/php.yml)
+[![SonarCloud](https://github.com/idmarinas/user-bundle/actions/workflows/sonar-cloud.yml/badge.svg)](https://github.com/idmarinas/user-bundle/actions/workflows/sonar-cloud.yml)
+
+![GitHub release](https://img.shields.io/github/release/idmarinas/user-bundle.svg)
+![GitHub Release Date](https://img.shields.io/github/release-date/idmarinas/user-bundle.svg)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/idmarinas/user-bundle)
+[![Build in PHP](https://img.shields.io/badge/PHP-^8.0-8892BF.svg?logo=php)](http://php.net/)
+
+![GitHub issues](https://img.shields.io/github/issues/idmarinas/user-bundle.svg)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/idmarinas/user-bundle.svg)
+![Github commits (since latest release)](https://img.shields.io/github/commits-since/idmarinas/user-bundle/latest.svg)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/idmarinas/user-bundle.svg)
+![GitHub last commit](https://img.shields.io/github/last-commit/idmarinas/user-bundle.svg)
+
+![GitHub top language](https://img.shields.io/github/languages/top/idmarinas/user-bundle.svg)
+![GitHub language count](https://img.shields.io/github/languages/count/idmarinas/user-bundle.svg)
+
+[//]: # ([![Reliability Rating]&#40;https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=reliability_rating&#41;]&#40;https://sonarcloud.io/dashboard?id=idmarinas_user-bundle&#41;)
+[//]: # ([![Bugs]&#40;https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=bugs&#41;]&#40;https://sonarcloud.io/dashboard?id=idmarinas_user-bundle&#41;)
+[//]: # ([![Security Rating]&#40;https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=security_rating&#41;]&#40;https://sonarcloud.io/dashboard?id=idmarinas_user-bundle&#41;)
+[//]: # ([![Vulnerabilities]&#40;https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=vulnerabilities&#41;]&#40;https://sonarcloud.io/dashboard?id=idmarinas_user-bundle&#41;)
+[//]: # ([![Maintainability Rating]&#40;https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=sqale_rating&#41;]&#40;https://sonarcloud.io/dashboard?id=idmarinas_user-bundle&#41;)
+[//]: # ([![Technical Debt]&#40;https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=sqale_index&#41;]&#40;https://sonarcloud.io/dashboard?id=idmarinas_user-bundle&#41;)
+[//]: # ([![Code Smells]&#40;https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=code_smells&#41;]&#40;https://sonarcloud.io/dashboard?id=idmarinas_user-bundle&#41;)
+[//]: # ([![Coverage]&#40;https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=coverage&#41;]&#40;https://sonarcloud.io/dashboard?id=idmarinas_user-bundle&#41;)
+[//]: # ([![Duplicated Lines &#40;%&#41;]&#40;https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=duplicated_lines_density&#41;]&#40;https://sonarcloud.io/dashboard?id=idmarinas_user-bundle&#41;)
+
+[![PayPal.Me - The safer, easier way to pay online!](https://img.shields.io/badge/donate-help_my_project-ffaa29.svg?logo=paypal&cacheSeconds=86400)](https://www.paypal.me/idmarinas)
+[![Liberapay - Donate](https://img.shields.io/liberapay/receives/IDMarinas.svg?logo=liberapay&cacheSeconds=86400)](https://liberapay.com/IDMarinas/donate)
+[![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&cacheSeconds=86400)](https://twitter.com/idmarinas)
