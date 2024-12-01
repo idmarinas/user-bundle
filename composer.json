@@ -1,6 +1,5 @@
 {
 	"name": "idmarinas/user-bundle",
-	"description": "",
 	"type": "symfony-bundle",
 	"license": "BSD-3-Clause",
 	"keywords": [],
