@@ -1,20 +1,27 @@
 <?php
 
 /**
- * This file is part of Bundle "IdmUserBundle".
+ * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * @see https://github.com/idmarinas/user-bundle/
+ * Last modified by "IDMarinas" on 1/12/24, 22:31
  *
- * @license https://github.com/idmarinas/user-bundle/blob/master/LICENSE.txt
- * @author Iván Diaz Marinas (IDMarinas)
+ * @project IDMarinas User Bundle
+ * @see     https://github.com/idmarinas/user-bundle
  *
- * @since 1.0.0
+ * @file    AbstractUserRepository.php
+ * @date    27/12/2023
+ * @time    18:41
+ *
+ * @author  Iván Diaz Marinas (IDMarinas)
+ * @license BSD 3-Clause License
+ *
+ * @since   1.0.0
  */
 
 namespace Idm\Bundle\User\Repository;
 
-use Idm\Bundle\User\Model\AbstractUser;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Idm\Bundle\User\Entity\AbstractUser;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
@@ -29,168 +36,158 @@ use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
  */
 abstract class AbstractUserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
 {
-    public function save(AbstractUser $entity, bool $flush = false): void
-    {
-        $this->getEntityManager()->persist($entity);
+	/**
+	 * Used to upgrade (rehash) the user's password automatically over time.
+	 */
+	public function upgradePassword (PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void
+	{
+		if (!$user instanceof AbstractUser) {
+			throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', $user::class));
+		}
 
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
-    }
+		$user->setPassword($newHashedPassword);
 
-    public function remove(AbstractUser $entity, bool $flush = false): void
-    {
-        $this->getEntityManager()->remove($entity);
+		$this->getEntityManager()->persist($user);
+		$this->getEntityManager()->flush();
+	}
 
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
-    }
+	/**
+	 * Function to determine if there is another user with the same email address
+	 * by taking into account those marked as deleted.
+	 */
+	public function uniqueUserEmail ($value): array
+	{
+		$filters = $this->getEntityManager()->getFilters();
 
-    /**
-     * Used to upgrade (rehash) the user's password automatically over time.
-     */
-    public function upgradePassword(PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void
-    {
-        if ( ! $user instanceof AbstractUser) {
-            throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', $user::class));
-        }
+		if ($filters->isEnabled('softdeleteable')) {
+			$filters->disable('softdeleteable');
+		}
 
-        $newPassword = $this->userPasswordHasher->hashPassword($user, $newHashedPassword);
+		$result = $this->findBy(criteria: $value, limit: 1);
 
-        $user->setPassword($newPassword);
+		if (!$filters->isEnabled('softdeleteable')) {
+			$filters->enable('softdeleteable');
+		}
 
-        $this->save($user, true);
-    }
+		return $result;
+	}
 
-    /** Función para determinar si hay otro usuario con el mismo email teniendo en cuenta los marcados como borrados */
-    public function uniqueUserEmail($value): array
-    {
-        $filters = $this->getEntityManager()->getFilters();
+	/**
+	 * All users marked as deleted 7 or more days ago are collected.
+	 *
+	 * @return AbstractUser[]
+	 */
+	public function getUserMarkedAsDeleted (): array
+	{
+		$filters = $this->_em->getFilters();
 
-        if ($filters->isEnabled('softdeleteable')) {
-            $filters->disable('softdeleteable');
-        }
+		// -- Disable softDeleteable filtering
+		if ($filters->isEnabled('softdeleteable')) {
+			$filters->disable('softdeleteable');
+		}
 
-        $result = $this->findBy(criteria: $value, limit: 1);
+		$query = $this->createQueryBuilder('u');
+		$query
+			->select('u')
+			->where($query->expr()->lte("date_add(u.deletedAt,7,'day')", 'current_timestamp()'))
+		;
 
-        if ( ! $filters->isEnabled('softdeleteable')) {
-            $filters->enable('softdeleteable');
-        }
+		$result = $query->getQuery()->getResult();
 
-        return $result;
-    }
+		// -- Enable softDeleteable filtering
+		if (!$filters->isEnabled('softdeleteable')) {
+			$filters->enable('softdeleteable');
+		}
 
-    /**
-     * Se recopilan todos los usuarios marcados como borrados hace 7 o más días.
-     *
-     * @return AbstractUser[]
-     */
-    public function getUserMarkedAsDeleted(): array
-    {
-        $filters = $this->_em->getFilters();
+		return $result;
+	}
 
-        // -- Desactivar el filtro de softDeleteable
-        if ($filters->isEnabled('softdeleteable')) {
-            $filters->disable('softdeleteable');
-        }
+	/** Mark users as inactive if they have not logged on for more than TWELVE MONTHS. */
+	public function markUsersAsInactives (): int
+	{
+		$query = $this->createQueryBuilder('u');
 
-        $query = $this->createQueryBuilder('u');
-        $query->select('u')
-            ->where($query->expr()->lte("date_add(u.deletedAt,7,'day')", 'current_timestamp()'))
-        ;
+		$query
+			->update()
+			->set('u.isInactive', true)
+			->where($query->expr()->lte("date_add(u.lastConnection,12,'month')", 'current_timestamp()'))
+			->andWhere($query->expr()->eq('u.isInactive', false))
+		;
 
-        $result = $query->getQuery()->getResult();
+		return (int)$query->getQuery()->execute();
+	}
 
-        // -- Activar el filtro de softDeleteable
-        if ( ! $filters->isEnabled('softdeleteable')) {
-            $filters->enable('softdeleteable');
-        }
+	/**
+	 * Obtain inactive users who meet the requirement for the first notice.
+	 *
+	 * @return AbstractUser[]
+	 */
+	public function getInactiveUsersFirstNotice (): array
+	{
+		$query = $this->createQueryBuilder('u');
 
-        return $result;
-    }
+		$query
+			->select('u')
+			->where($query->expr()->lte("date_add(u.lastConnection,15,'month')", 'current_timestamp()'))
+			->andWhere($query->expr()->gte("date_add(u.lastConnection,18,'month')", 'current_timestamp()'))
+			->andWhere($query->expr()->eq('u.isInactive', true))
+		;
 
-    /** Marcar usuarios como inactivos si llevan más de DOCE MESES sin conectar */
-    public function markUsersAsInactives(): int
-    {
-        $query = $this->createQueryBuilder('u');
+		return $query->getQuery()->getResult();
+	}
 
-        $query->update()
-            ->set('u.isInactive', true)
-            ->where($query->expr()->lte("date_add(u.lastConnection,12,'month')", 'current_timestamp()'))
-            ->andWhere($query->expr()->eq('u.isInactive', false))
-        ;
+	/**
+	 * Obtain inactive users who meet the requirement for the second notice.
+	 *
+	 * @return AbstractUser[]
+	 */
+	public function getInactiveUsersSecondNotice (): array
+	{
+		$query = $this->createQueryBuilder('u');
 
-        return (int) $query->getQuery()->execute();
-    }
+		$query
+			->select('u')
+			->where($query->expr()->lte("date_add(u.lastConnection,18,'month')", 'current_timestamp()'))
+			->andWhere($query->expr()->gte("date_add(u.lastConnection,21,'month')", 'current_timestamp()'))
+			->andWhere($query->expr()->eq('u.isInactive', true))
+		;
 
-    /**
-     * Obtener usuarios inactivos que cumplen el requisito para el primer aviso.
-     *
-     * @return AbstractUser[]
-     */
-    public function getInactiveUsersFirstNotice(): array
-    {
-        $query = $this->createQueryBuilder('u');
+		return $query->getQuery()->getResult();
+	}
 
-        $query->select('u')
-            ->where($query->expr()->lte("date_add(u.lastConnection,15,'month')", 'current_timestamp()'))
-            ->andWhere($query->expr()->gte("date_add(u.lastConnection,18,'month')", 'current_timestamp()'))
-            ->andWhere($query->expr()->eq('u.isInactive', true))
-        ;
+	/**
+	 * Get inactive users who meet the requirement for the last notice.
+	 *
+	 * @return AbstractUser[]
+	 */
+	public function getInactiveUsersLastNotice (): array
+	{
+		$query = $this->createQueryBuilder('u');
 
-        return $query->getQuery()->getResult();
-    }
+		$query
+			->select('u')
+			->where($query->expr()->lte("date_add(u.lastConnection,21,'month')", 'current_timestamp()'))
+			->andWhere($query->expr()->eq('u.isInactive', true))
+		;
 
-    /**
-     * Obtener usuarios inactivos que cumplen el requisito para el segundo aviso.
-     *
-     * @return AbstractUser[]
-     */
-    public function getInactiveUsersSecondNotice(): array
-    {
-        $query = $this->createQueryBuilder('u');
+		return $query->getQuery()->getResult();
+	}
 
-        $query->select('u')
-            ->where($query->expr()->lte("date_add(u.lastConnection,18,'month')", 'current_timestamp()'))
-            ->andWhere($query->expr()->gte("date_add(u.lastConnection,21,'month')", 'current_timestamp()'))
-            ->andWhere($query->expr()->eq('u.isInactive', true))
-        ;
+	/**
+	 * We are looking for users who have been inactive for 24 months.
+	 * And proceed to delete the user
+	 *
+	 * @return AbstractUser[]
+	 */
+	public function getUserInactives (): array
+	{
+		$query = $this->createQueryBuilder('u');
+		$query
+			->select('u')
+			->where($query->expr()->lte("date_add(u.lastConnection,24,'month')", 'current_timestamp()'))
+			->andWhere($query->expr()->eq('u.isInactive', true))
+		;
 
-        return $query->getQuery()->getResult();
-    }
-
-    /**
-     * Obtener usuarios inactivos que cumplen el requisito para el último aviso.
-     *
-     * @return AbstractUser[]
-     */
-    public function getInactiveUsersLastNotice(): array
-    {
-        $query = $this->createQueryBuilder('u');
-
-        $query->select('u')
-            ->where($query->expr()->lte("date_add(u.lastConnection,21,'month')", 'current_timestamp()'))
-            ->andWhere($query->expr()->eq('u.isInactive', true))
-        ;
-
-        return $query->getQuery()->getResult();
-    }
-
-    /**
-     * Se buscan usuarios que lleven 24 meses inactivos.
-     * Y se procede a borrar al usuario
-     *
-     * @return AbstractUser[]
-     */
-    public function getUserInactives(): array
-    {
-        $query = $this->createQueryBuilder('u');
-        $query->select('u')
-            ->where($query->expr()->lte("date_add(u.lastConnection,24,'month')", 'current_timestamp()'))
-            ->andWhere($query->expr()->eq('u.isInactive', true))
-        ;
-
-        return $query->getQuery()->getResult();
-    }
+		return $query->getQuery()->getResult();
+	}
 }
