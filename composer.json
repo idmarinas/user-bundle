@@ -36,6 +36,9 @@
 		"symfony/phpunit-bridge": "^6.0",
 		"symfony/test-pack": "^1.0"
 	},
+	"conflict": {
+		"idmarinas/common-bundle": "3.0.0"
+	},
 	"config": {
 		"allow-plugins": {
 			"composer/package-versions-deprecated": true,
