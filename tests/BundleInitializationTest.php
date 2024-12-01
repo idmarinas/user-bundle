@@ -1,61 +1,68 @@
 <?php
 
 /**
- * This file is part of Bundle "IdmUserBundle".
+ * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * @see https://github.com/idmarinas/user-bundle/
+ * Last modified by "IDMarinas" on 1/12/24, 18:21
  *
- * @license https://github.com/idmarinas/user-bundle/blob/master/LICENSE.txt
- * @author Iván Diaz Marinas (IDMarinas)
+ * @project IDMarinas User Bundle
+ * @see     https://github.com/idmarinas/user-bundle
  *
- * @since 1.0.0
+ * @file    BundleInitializationTest.php
+ * @date    02/01/2024
+ * @time    19:09
+ *
+ * @author  Iván Diaz Marinas (IDMarinas)
+ * @license BSD 3-Clause License
+ *
+ * @since   1.0.0
  */
 
 namespace Idm\Bundle\User\Tests;
 
 use Idm\Bundle\User\IdmUserBundle;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Nyholm\BundleTest\TestKernel;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\HttpKernel\KernelInterface;
 
 class BundleInitializationTest extends KernelTestCase
 {
-    protected static function getKernelClass(): string
-    {
-        return TestKernel::class;
-    }
+	protected static function getKernelClass (): string
+	{
+		return TestKernel::class;
+	}
 
-    protected static function createKernel(array $options = []): KernelInterface
-    {
-        /**
-         * @var TestKernel $kernel
-         */
-        $kernel = parent::createKernel($options);
-        $kernel->addTestBundle(IdmUserBundle::class);
-        $kernel->handleOptions($options);
+	protected static function createKernel (array $options = []): KernelInterface
+	{
+		/**
+		 * @var TestKernel $kernel
+		 */
+		$kernel = parent::createKernel($options);
+		$kernel->addTestBundle(IdmUserBundle::class);
+		$kernel->handleOptions($options);
 
-        return $kernel;
-    }
+		return $kernel;
+	}
 
-    public function testInitBundle(): void
-    {
-        // Boot the kernel.
-        self::bootKernel();
+	public function testInitBundle (): void
+	{
+		// Boot the kernel.
+		self::bootKernel();
 
-        $this->assertTrue(true);
-    }
+		$this->assertTrue(true);
+	}
 
-    // public function testBundleWithDifferentConfiguration(): void
-    // {
-    //     // Boot the kernel with a config closure, the handleOptions call in createKernel is important for that to work
-    //     $kernel = self::bootKernel(['config' => static function(TestKernel $kernel){
-    //         // Add some other bundles we depend on
-    //         $kernel->addTestBundle(OtherBundle::class);
+	// public function testBundleWithDifferentConfiguration(): void
+	// {
+	//     // Boot the kernel with a config closure, the handleOptions call in createKernel is important for that to work
+	//     $kernel = self::bootKernel(['config' => static function(TestKernel $kernel){
+	//         // Add some other bundles we depend on
+	//         $kernel->addTestBundle(OtherBundle::class);
 
-    //         // Add some configuration
-    //         $kernel->addTestConfig(__DIR__.'/config.yml');
-    //     }]);
+	//         // Add some configuration
+	//         $kernel->addTestConfig(__DIR__.'/config.yml');
+	//     }]);
 
-    //     // ...
-    // }
+	//     // ...
+	// }
 }
