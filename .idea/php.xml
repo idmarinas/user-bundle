@@ -11,6 +11,13 @@
     <option name="transferred" value="true" />
   </component>
   <component name="PhpIncludePathManager">
+    <exclude_path>
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan/phpstan.phar.asc" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan/bootstrap.php" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan/phpstan" />
+      <path value="$PROJECT_DIR$/vendor/phpstan/phpstan/phpstan.phar" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80/Resources" />
+    </exclude_path>
     <include_path>
       <path value="$PROJECT_DIR$/vendor/nyholm/symfony-bundle-test" />
       <path value="$PROJECT_DIR$/vendor/nikic/php-parser" />
@@ -118,6 +125,8 @@
       <path value="$PROJECT_DIR$/vendor/gedmo/doctrine-extensions" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
       <path value="$PROJECT_DIR$/vendor/psr/clock" />
+      <path value="$PROJECT_DIR$/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />
