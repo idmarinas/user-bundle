@@ -26,6 +26,7 @@
 		"symfony/dependency-injection": "^5.4 | ^6.4 | ^7.0",
 		"symfony/form": "^5.4 | ^6.4 | ^7.0",
 		"symfony/orm-pack": "^2.3",
+		"symfony/routing": "^5.4 | ^6.4 | ^7.0",
 		"symfony/security-bundle": "^5.4 | ^6.4 | ^7.0",
 		"symfony/validator": "^5.4 | ^6.4 | ^7.0",
 		"symfonycasts/reset-password-bundle": "^1.19",
