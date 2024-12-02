@@ -25,12 +25,9 @@ use Symfony\Component\HttpFoundation\Response;
 trait LoginTrait
 {
 	/**
-	 * @param \KnpU\OAuth2ClientBundle\Client\ClientRegistry $clientRegistry Client registry
-	 * @param string                                         $clientKey      Client Key used in
-	 *                                                                       config/packages/knpu_oauth2_client.yaml
-	 * @param string                                         $scopes         The scopes you want to access
-	 *
-	 * @return \Symfony\Component\HttpFoundation\Response
+	 * @param ClientRegistry $clientRegistry Client registry
+	 * @param string         $clientKey      Client Key used in config/packages/knpu_oauth2_client.yaml
+	 * @param string         $scopes         The scopes you want to access
 	 */
 	public function socialLogin (ClientRegistry $clientRegistry, string $clientKey, string $scopes = 'profile email'):
 	Response {

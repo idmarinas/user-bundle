@@ -47,7 +47,7 @@ trait BanTrait
 	 */
 	public function isBanned (): bool
 	{
-		if (!$this->bannedUntil instanceof DateTimeInterface || '-0001-11-30' == $this->bannedUntil->format('Y-m-d')) {
+		if (!$this->bannedUntil instanceof DateTimeInterface || '-0001-11-30' === $this->bannedUntil->format('Y-m-d')) {
 			return false;
 		}
 

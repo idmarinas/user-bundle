@@ -55,8 +55,8 @@ final class EmailVerifier
 
 		try {
 			$this->mailer->send($email);
-		} catch (TransportExceptionInterface $e) {
-			$this->addFlash($e->getMessage());
+		} catch (TransportExceptionInterface $transportException) {
+			$this->addFlash($transportException->getMessage());
 		}
 	}
 
