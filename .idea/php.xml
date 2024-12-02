@@ -36,7 +36,6 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/php-invoker" />
       <path value="$PROJECT_DIR$/vendor/symfony/routing" />
       <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
-      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
       <path value="$PROJECT_DIR$/vendor/symfony/cache-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/var-exporter" />
       <path value="$PROJECT_DIR$/vendor/symfony/css-selector" />
@@ -59,7 +58,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/framework-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
       <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
-      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
       <path value="$PROJECT_DIR$/vendor/sebastian/type" />
       <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
       <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
@@ -78,15 +76,12 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/matthiasnoback/symfony-dependency-injection-test" />
-      <path value="$PROJECT_DIR$/vendor/matthiasnoback/symfony-config-test" />
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
       <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php81" />
       <path value="$PROJECT_DIR$/vendor/idmarinas/common-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/string" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php80" />
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
@@ -102,26 +97,19 @@
       <path value="$PROJECT_DIR$/vendor/doctrine/common" />
       <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
       <path value="$PROJECT_DIR$/vendor/symfony/password-hasher" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-http" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
       <path value="$PROJECT_DIR$/vendor/symfony/property-info" />
-      <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
-      <path value="$PROJECT_DIR$/vendor/friendsofphp/proxy-manager-lts" />
       <path value="$PROJECT_DIR$/vendor/symfony/orm-pack" />
       <path value="$PROJECT_DIR$/vendor/symfony/doctrine-bridge" />
       <path value="$PROJECT_DIR$/vendor/symfony/stopwatch" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
       <path value="$PROJECT_DIR$/vendor/doctrine/sql-formatter" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
       <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle" />
       <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
       <path value="$PROJECT_DIR$/vendor/gedmo/doctrine-extensions" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
-      <path value="$PROJECT_DIR$/vendor/psr/clock" />
       <path value="$PROJECT_DIR$/vendor/symfony/validator" />
       <path value="$PROJECT_DIR$/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
@@ -129,21 +117,130 @@
       <path value="$PROJECT_DIR$/vendor/symfony/options-resolver" />
       <path value="$PROJECT_DIR$/vendor/symfonycasts/verify-email-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfonycasts/reset-password-bundle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth2-client" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/knpuniversity/oauth2-client-bundle" />
+      <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mailer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/mime" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-bundle" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/symfony/service-contracts" />
+      <path value="$PROJECT_DIR$/vendor/matthiasnoback/symfony-config-test" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-guard" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/friendsofphp/proxy-manager-lts" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php81" />
+      <path value="$PROJECT_DIR$/vendor/symfony/finder" />
+      <path value="$PROJECT_DIR$/vendor/symfony/security-core" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.0" />
+  <component name="PhpInterpreters">
+    <interpreters>
+      <interpreter id="d5616491-bb4f-4b58-987a-73bb24001f75" name="php-docker" home="docker-compose://DATA" auto="false" debugger_id="php.debugger.XDebug">
+        <remote_data INTERPRETER_PATH="php" HELPERS_PATH="/opt/.phpstorm_helpers" VALID="true" RUN_AS_ROOT_VIA_SUDO="false" DOCKER_ACCOUNT_NAME="Docker" DOCKER_COMPOSE_SERVICE_NAME="php" DOCKER_REMOTE_PROJECT_PATH="/opt/project">
+          <type_data command="EXEC" />
+          <dockerComposeConfigurationPaths>
+            <item value="$PROJECT_DIR$/compose.yaml" />
+          </dockerComposeConfigurationPaths>
+          <envs />
+        </remote_data>
+      </interpreter>
+    </interpreters>
+  </component>
+  <component name="PhpInterpretersPhpInfoCache">
+    <phpInfoCache>
+      <interpreter name="php-docker">
+        <phpinfo binary_type="PHP" php_cli="/usr/local/bin/php" path_separator=":" version="8.1.31">
+          <additional_php_ini>/usr/local/etc/php/conf.d/disable_functions.ini, /usr/local/etc/php/conf.d/docker-fpm.ini, /usr/local/etc/php/conf.d/docker-php-ext-bcmath.ini, /usr/local/etc/php/conf.d/docker-php-ext-exif.ini, /usr/local/etc/php/conf.d/docker-php-ext-gd.ini, /usr/local/etc/php/conf.d/docker-php-ext-intl.ini, /usr/local/etc/php/conf.d/docker-php-ext-opcache.ini, /usr/local/etc/php/conf.d/docker-php-ext-pcntl.ini, /usr/local/etc/php/conf.d/docker-php-ext-pdo_mysql.ini, /usr/local/etc/php/conf.d/docker-php-ext-sodium.ini, /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini, /usr/local/etc/php/conf.d/docker-php-ext-xsl.ini, /usr/local/etc/php/conf.d/docker-php-ext-zip.ini, /usr/local/etc/php/conf.d/opcache.ini, /usr/local/etc/php/conf.d/php.ini</additional_php_ini>
+          <configuration_file>/usr/local/etc/php/php.ini</configuration_file>
+          <configuration_options>
+            <configuration_option name="include_path" value=".:/usr/local/lib/php" />
+          </configuration_options>
+          <debuggers>
+            <debugger_info debugger="xdebug" debugger_version="3.4.0">
+              <debug_extensions />
+            </debugger_info>
+          </debuggers>
+          <loaded_extensions>
+            <extension name="Core" />
+            <extension name="PDO" />
+            <extension name="Phar" />
+            <extension name="Reflection" />
+            <extension name="SPL" />
+            <extension name="SimpleXML" />
+            <extension name="Zend OPcache" />
+            <extension name="bcmath" />
+            <extension name="ctype" />
+            <extension name="curl" />
+            <extension name="date" />
+            <extension name="dom" />
+            <extension name="exif" />
+            <extension name="fileinfo" />
+            <extension name="filter" />
+            <extension name="ftp" />
+            <extension name="gd" />
+            <extension name="hash" />
+            <extension name="iconv" />
+            <extension name="intl" />
+            <extension name="json" />
+            <extension name="libxml" />
+            <extension name="mbstring" />
+            <extension name="mysqlnd" />
+            <extension name="openssl" />
+            <extension name="pcntl" />
+            <extension name="pcre" />
+            <extension name="pdo_mysql" />
+            <extension name="pdo_sqlite" />
+            <extension name="posix" />
+            <extension name="readline" />
+            <extension name="session" />
+            <extension name="sodium" />
+            <extension name="sqlite3" />
+            <extension name="standard" />
+            <extension name="tokenizer" />
+            <extension name="xdebug" />
+            <extension name="xml" />
+            <extension name="xmlreader" />
+            <extension name="xmlwriter" />
+            <extension name="xsl" />
+            <extension name="zip" />
+            <extension name="zlib" />
+          </loaded_extensions>
+        </phpinfo>
+      </interpreter>
+    </phpInfoCache>
+  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
   <component name="PhpRuntimeConfiguration">
     <extensions>
       <extension name="Ev" enabled="false" />
       <extension name="SQLite" enabled="false" />
       <extension name="SplType" enabled="false" />
-      <extension name="Zend OPcache" enabled="false" />
       <extension name="ZendDebugger" enabled="false" />
       <extension name="ZendUtils" enabled="false" />
       <extension name="amqp" enabled="false" />
       <extension name="apache" enabled="false" />
       <extension name="apcu" enabled="false" />
       <extension name="brotli" enabled="false" />
+      <extension name="bz2" enabled="false" />
+      <extension name="calendar" enabled="false" />
       <extension name="cassandra" enabled="false" />
       <extension name="couchbase" enabled="false" />
       <extension name="cubrid" enabled="false" />
@@ -155,8 +252,6 @@
       <extension name="fann" enabled="false" />
       <extension name="ffmpeg" enabled="false" />
       <extension name="frankenphp" enabled="false" />
-      <extension name="ftp" enabled="false" />
-      <extension name="gd" enabled="false" />
       <extension name="gearman" enabled="false" />
       <extension name="geoip" enabled="false" />
       <extension name="geos" enabled="false" />
@@ -195,10 +290,8 @@
       <extension name="oci8" enabled="false" />
       <extension name="odbc" enabled="false" />
       <extension name="opentelemetry" enabled="false" />
-      <extension name="pcntl" enabled="false" />
       <extension name="pdflib" enabled="false" />
       <extension name="pgsql" enabled="false" />
-      <extension name="posix" enabled="false" />
       <extension name="pspell" enabled="false" />
       <extension name="pthreads" enabled="false" />
       <extension name="rar" enabled="false" />
@@ -211,7 +304,6 @@
       <extension name="snmp" enabled="false" />
       <extension name="soap" enabled="false" />
       <extension name="sockets" enabled="false" />
-      <extension name="sqlite3" enabled="false" />
       <extension name="sqlsrv" enabled="false" />
       <extension name="ssh2" enabled="false" />
       <extension name="suhosin" enabled="false" />
