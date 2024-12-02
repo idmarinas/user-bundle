@@ -54,6 +54,8 @@ RUN apk add --no-cache \
 RUN install-php-extensions xdebug
 
 RUN composer global require deployer/deployer --no-interaction --no-progress \
+    && composer global config --no-plugins allow-plugins.symfony/flex true \
+    && composer global require --no-progress --no-scripts --no-plugins symfony/flex \
     && echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> /etc/bash/bashrc
 
 
