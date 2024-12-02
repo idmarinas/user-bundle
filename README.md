@@ -27,7 +27,7 @@
 [![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=flat&logo=php&logoColor=white)](https://www.php.net)
 [![Symfony](https://img.shields.io/badge/symfony-black.svg?style=flat&logo=symfony&logoColor=white)](https://www.symfony.com)
 [![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=flat&logo=tailwind-css&logoColor=white)](https://www.tailwindcss.com)
-![Turbo](https://img.shields.io/badge/turbo-5cd8e5?logo=turbo&logoColor=white&logoSize=auto)
+[![Turbo](https://img.shields.io/badge/turbo-5cd8e5?logo=turbo&logoColor=white&logoSize=auto)](https://turbo.hotwired.dev)
 
 [![PayPal.Me - The safer, easier way to pay online!](https://img.shields.io/badge/donate-help_my_project-ffaa29.svg?logo=paypal&cacheSeconds=86400)](https://www.paypal.me/idmarinas)
 [![Liberapay - Donate](https://img.shields.io/liberapay/receives/IDMarinas.svg?logo=liberapay&cacheSeconds=86400)](https://liberapay.com/IDMarinas/donate)
