@@ -24,9 +24,10 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=coverage)](https://sonarcloud.io/dashboard?id=idmarinas_user-bundle)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=idmarinas_user-bundle)
 
+![Dependabot](https://img.shields.io/badge/dependabot-025E8C?style=flat&logo=dependabot&logoColor=white)
 [![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=flat&logo=php&logoColor=white)](https://www.php.net)
+[![Doctrine](https://img.shields.io/badge/doctrine-fa6a3c?style=flat&logo=doctrine&logoColor=white)](https://www.doctrine-project.org)
 [![Symfony](https://img.shields.io/badge/symfony-black.svg?style=flat&logo=symfony&logoColor=white)](https://www.symfony.com)
-[![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=flat&logo=tailwind-css&logoColor=white)](https://www.tailwindcss.com)
 
 [![PayPal.Me - The safer, easier way to pay online!](https://img.shields.io/badge/donate-help_my_project-ffaa29.svg?logo=paypal&cacheSeconds=86400)](https://www.paypal.me/idmarinas)
 [![Liberapay - Donate](https://img.shields.io/liberapay/receives/IDMarinas.svg?logo=liberapay&cacheSeconds=86400)](https://liberapay.com/IDMarinas/donate)
