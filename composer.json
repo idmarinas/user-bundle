@@ -37,6 +37,7 @@
 		"symfonycasts/verify-email-bundle": "^1.15"
 	},
 	"require-dev": {
+		"fakerphp/faker": "^1.24",
 		"matthiasnoback/symfony-config-test": "^4.2 | ^5.0",
 		"matthiasnoback/symfony-dependency-injection-test": "^4.2 | ^5.0 | ^6.0",
 		"nyholm/symfony-bundle-test": "^2.0 | ^3.0",
