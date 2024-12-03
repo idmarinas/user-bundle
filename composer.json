@@ -47,7 +47,8 @@
 		"symfony/css-selector": "^5.4 | ^6.4 | ^7.0",
 		"symfony/framework-bundle": "^5.4 | ^6.4 | ^7.0",
 		"symfony/http-client": "^5.4 | ^6.4 | ^7.0",
-		"symfony/phpunit-bridge": "^6.0"
+		"symfony/phpunit-bridge": "^6.0",
+		"symfony/uid": "^5.4 | ^6.4 | ^7.0"
 	},
 	"conflict": {
 		"idmarinas/common-bundle": "3.0.0"
