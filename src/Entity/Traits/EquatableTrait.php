@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 1/12/24, 18:57
+ * Last modified by "IDMarinas" on 03/12/2024, 18:35
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -32,7 +32,9 @@ namespace Idm\Bundle\User\Entity\Traits;
 
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Idm\Bundle\User\Entity\AbstractUser;
 use Symfony\Component\Security\Core\User\UserInterface;
+use function count;
 
 /**
  * https://symfony.com/doc/5.4/security.html#comparing-users-manually-with-equatableinterface.
@@ -54,14 +56,38 @@ trait EquatableTrait
 		return $this;
 	}
 
+	/** @param AbstractUser $user */
 	public function isEqualTo (UserInterface $user): bool
 	{
-		// -- Solo se permite una sesión en un único dispositivo y firewall
-		return !(
-			$this->getPassword() !== $user->getPassword()
-			|| $this->getSalt() !== $user->getSalt()
-			|| $this->getUserIdentifier() !== $user->getUserIdentifier()
-			|| $this->getSessionId() !== $user->getSessionId()
-		);
+		if (!$user instanceof self) {
+			return false;
+		}
+
+		// Only 1 session from device and firewall
+		if ($this->getsessionId() !== $user->getsessionId()) {
+			return false;
+		}
+
+		if ($this->getId() !== $user->getPassword()) {
+			return false;
+		}
+
+		if ($this->getUserIdentifier() !== $user->getUserIdentifier()) {
+			return false;
+		}
+
+		if ($this->isInactive() !== $user->isInactive()) {
+			return false;
+		}
+
+		$currentRoles = array_map('strval', $this->getRoles());
+		$newRoles = array_map('strval', $user->getRoles());
+		$rolesChanged = count($currentRoles) !== count($newRoles)
+		                || count($currentRoles) !== count(array_intersect($currentRoles, $newRoles));
+		if ($rolesChanged) {
+			return false;
+		}
+
+		return true;
 	}
 }
