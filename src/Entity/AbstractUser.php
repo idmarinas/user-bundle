@@ -2,7 +2,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 1/12/24, 22:32
+ * Last modified by "IDMarinas" on 03/12/2024, 21:11
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -53,7 +53,7 @@ abstract class AbstractUser implements UserInterface, EquatableInterface, Passwo
 	protected array $roles = [];
 
 	#[ORM\Column(type: Types::BOOLEAN)]
-	protected bool $isVerified = false;
+	protected bool $verified = false;
 
 	/**
 	 * Visible name of the user.
@@ -69,8 +69,8 @@ abstract class AbstractUser implements UserInterface, EquatableInterface, Passwo
 	protected ?DateTimeInterface $lastConnection = null;
 
 	/** Indicates if the user is inactive. Affects some parts of the app */
-	#[ORM\Column]
-	protected bool $isInactive = false;
+	#[ORM\Column(type: Types::BOOLEAN)]
+	protected bool $inactive = false;
 
 	public function __toString (): string
 	{
@@ -128,12 +128,12 @@ abstract class AbstractUser implements UserInterface, EquatableInterface, Passwo
 
 	public function isVerified (): bool
 	{
-		return $this->isVerified;
+		return $this->verified;
 	}
 
-	public function setIsVerified (bool $isVerified): static
+	public function setVerified (bool $verified): static
 	{
-		$this->isVerified = $isVerified;
+		$this->verified = $verified;
 
 		return $this;
 	}
@@ -162,14 +162,14 @@ abstract class AbstractUser implements UserInterface, EquatableInterface, Passwo
 		return $this;
 	}
 
-	public function isIsInactive (): bool
+	public function isInactive (): bool
 	{
-		return $this->isInactive;
+		return $this->inactive;
 	}
 
-	public function setIsInactive (bool $isInactive): static
+	public function setInactive (bool $inactive): static
 	{
-		$this->isInactive = $isInactive;
+		$this->inactive = $inactive;
 
 		return $this;
 	}
