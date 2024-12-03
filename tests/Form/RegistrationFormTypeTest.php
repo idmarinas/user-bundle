@@ -34,7 +34,7 @@ class RegistrationFormTypeTest extends TypeTestCase
 	{
 		$password = $this->faker()->password();
 		$formData = [
-			'email'                          => $this->faker()->email,
+			'email'                          => $this->faker()->email(),
 			'plainPassword[password]'        => $password,
 			'plainPassword[password_repeat]' => $password,
 			'termsAccepted'                  => true,
