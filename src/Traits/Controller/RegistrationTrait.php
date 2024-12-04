@@ -2,12 +2,12 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/10/24, 18:30
+ * Last modified by "IDMarinas" on 04/12/2024, 12:23
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    RegistrationControllerTrait.php
+ * @file    RegistrationTrait.php
  * @date    02/12/2024
  * @time    18:30
  *
