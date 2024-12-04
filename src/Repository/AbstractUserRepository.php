@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 1/12/24, 22:31
+ * Last modified by "IDMarinas" on 04/12/2024, 11:30
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -118,7 +118,7 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 	}
 
 	/**
-	 * Obtain inactive users who meet the requirement for the first notice.
+	 * Get inactive users who meet the requirement for the first notice.
 	 *
 	 * @return AbstractUser[]
 	 */
@@ -137,7 +137,7 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 	}
 
 	/**
-	 * Obtain inactive users who meet the requirement for the second notice.
+	 * Get inactive users who meet the requirement for the second notice.
 	 *
 	 * @return AbstractUser[]
 	 */
