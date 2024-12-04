@@ -2,12 +2,12 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 1/12/24, 18:44
+ * Last modified by "IDMarinas" on 04/12/2024, 14:30
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    UserPremium.php
+ * @file    AbstractUserPremium.php
  * @date    01/12/2024
  * @time    18:44
  *
