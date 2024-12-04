@@ -29,7 +29,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
         with:
-          fetch-depth: ${{ (matrix.php == '8.1' && matrix.symfony == '5.4.*') && '0' || '1' }}
+          fetch-depth: ${{ (matrix.php == '8.1' && matrix.symfony == '6.4.*') && '0' || '1' }}
 
       - name: Setup PHP ${{ matrix.php }}
         uses: shivammathur/setup-php@v2
@@ -46,12 +46,12 @@ jobs:
         run: ./vendor/bin/phpunit
 
       - name: Fix paths for Sonar
-        if: matrix.php == '8.1' && matrix.symfony == '5.4.*'
+        if: matrix.php == '8.1' && matrix.symfony == '6.4.*'
         working-directory: ./build/reports/
         run: sed -i 's/\/home\/runner\/work\/user-bundle\/user-bundle\//\/github\/workspace\//g' phpunit.coverage.xml
 
       - name: SonarCloud Scan
-        if: matrix.php == '8.1' && matrix.symfony == '5.4.*'
+        if: matrix.php == '8.1' && matrix.symfony == '6.4.*'
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
