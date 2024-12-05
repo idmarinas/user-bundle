@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 2/12/24, 21:26
+ * Last modified by "IDMarinas" on 05/12/2024, 15:48
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -27,14 +27,17 @@ use Symfony\Component\Mailer\MailerInterface;
 use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
 
 return static function (ContainerConfigurator $container) {
+	// @formatter:off
 	$container
 		->services()
-		->set(EmailVerifier::class, EmailVerifier::class)
-		->args([
-			service(VerifyEmailHelperInterface::class),
-			service(MailerInterface::class),
-			service(EntityManagerInterface::class),
-			service(RequestStack::class),
-		])
+			->set('idm_user.service.email_verifier', EmailVerifier::class)
+				->public()
+				->args([
+					service(VerifyEmailHelperInterface::class),
+					service(MailerInterface::class),
+					service(EntityManagerInterface::class),
+					service(RequestStack::class),
+				])
 	;
+	// @formated:on
 };
