@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 14:14
+ * Last modified by "IDMarinas" on 05/12/2024, 14:27
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -89,9 +89,6 @@ class UserTest extends AbstractKernelTest
 	}
 }
 
-/**
- * @method string getUserIdentifier()
- */
 class FakeUser implements UserInterface
 {
 	use SecurityTrait;
@@ -102,6 +99,11 @@ class FakeUser implements UserInterface
 	}
 
 	public function getUsername (): string
+	{
+		return $this->getUserIdentifier();
+	}
+
+	public function getUserIdentifier (): string
 	{
 		return '';
 	}
