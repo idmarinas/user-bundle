@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 04/12/2024, 13:02
+ * Last modified by "IDMarinas" on 05/12/2024, 13:06
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,13 +21,16 @@ namespace Idm\Bundle\User\Tests\Entity;
 
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
 use Idm\Bundle\User\Entity\AbstractUser;
-use Nyholm\BundleTest\TestKernel;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Idm\Bundle\User\Tests\AbstractKernelTest;
+use ReflectionException;
 
-class UserTest extends KernelTestCase
+class UserTest extends AbstractKernelTest
 {
 	use FakerTrait;
 
+	/**
+	 * @throws ReflectionException
+	 */
 	public function testEntity ()
 	{
 		$container = static::getContainer();
@@ -42,17 +45,6 @@ class UserTest extends KernelTestCase
 		$this->assertIsArray($array);
 
 		$this->assertIsObject($serializer->denormalize($array, User::class));
-	}
-
-	protected function setUp (): void
-	{
-		parent::setUp();
-		static::bootKernel();
-	}
-
-	protected static function getKernelClass (): string
-	{
-		return TestKernel::class;
 	}
 }
 
