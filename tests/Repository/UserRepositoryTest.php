@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 04/12/2024, 11:51
+ * Last modified by "IDMarinas" on 05/12/2024, 22:01
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -30,11 +30,11 @@ use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\UnitOfWork;
 use Doctrine\Persistence\ManagerRegistry;
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
-use Idm\Bundle\User\Entity\AbstractUser;
 use Idm\Bundle\User\Repository\AbstractUserRepository;
+use Idm\Bundle\User\Tests\Fixtures\Entity\FakeUser;
+use Idm\Bundle\User\Tests\Fixtures\Entity\User;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 class UserRepositoryTest extends TestCase
 {
@@ -178,13 +178,3 @@ class UserRepositoryTest extends TestCase
 }
 
 class UserRepository extends AbstractUserRepository {}
-
-class User extends AbstractUser {}
-
-class FakeUser implements PasswordAuthenticatedUserInterface
-{
-	public function getPassword (): ?string
-	{
-		return '';
-	}
-}
