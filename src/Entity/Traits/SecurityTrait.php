@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 3/1/24, 9:27
+ * Last modified by "IDMarinas" on 05/12/2024, 13:19
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -73,12 +73,12 @@ trait SecurityTrait
 	public function eraseCredentials (): void
 	{
 		// If you store any temporary, sensitive data on the user, clear it here
-		// $this->plainPassword = null;
+		// $this->plainPassword = '';
 	}
 
 	public function eraseDataForCache (): static
 	{
-		$this->password = null;
+		$this->password = '';
 
 		return $this;
 	}
