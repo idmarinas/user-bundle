@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 13:06
+ * Last modified by "IDMarinas" on 05/12/2024, 14:14
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,10 +19,14 @@
 
 namespace Idm\Bundle\User\Tests\Entity;
 
+use DateTime;
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
 use Idm\Bundle\User\Entity\AbstractUser;
+use Idm\Bundle\User\Entity\Traits\SecurityTrait;
+use Idm\Bundle\User\Entity\Traits\Social\IDMarinasProviderTrait;
 use Idm\Bundle\User\Tests\AbstractKernelTest;
 use ReflectionException;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class UserTest extends AbstractKernelTest
 {
@@ -36,6 +40,7 @@ class UserTest extends AbstractKernelTest
 		$container = static::getContainer();
 		$serializer = $container->get('serializer');
 
+		/** @var User $entity */
 		$entity = $this->populateEntity(new User());
 		$this->assertIsObject($entity);
 
@@ -45,7 +50,64 @@ class UserTest extends AbstractKernelTest
 		$this->assertIsArray($array);
 
 		$this->assertIsObject($serializer->denormalize($array, User::class));
+
+		$entity->setBannedUntil(new DateTime('-0001-11-30'));
+		$entity->eraseCredentials();
+		$entity->eraseDataForCache();
+
+		$this->assertTrue($entity->isEqualTo($entity));
+
+		$this->assertFalse($entity->isEqualTo(new FakeUser()));
+
+		$fake = clone $entity;
+		$fake->setSessionId('fake-session-id');
+
+		$this->assertFalse($entity->isEqualTo($fake));
+
+		$entity->setSessionId($fake->getSessionId());
+		$fake->setPassword('fake-password');
+
+		$this->assertFalse($entity->isEqualTo($fake));
+
+		$entity->setPassword($fake->getPassword());
+		$fake->setRoles(['ROLE_ADMIN']);
+
+		$this->assertFalse($entity->isEqualTo($fake));
+
+		$entity->setRoles($fake->getRoles());
+		$fake->setEmail('fake@email.fk');
+
+		$this->assertFalse($entity->isEqualTo($fake));
+
+		$entity->setEmail($fake->getEmail());
+		$fake->setInactive(true);
+		$entity->setInactive(false);
+
+		$this->assertFalse($entity->isEqualTo($fake));
+
+		$this->assertIsArray($serializer->normalize($entity, 'array'));
 	}
 }
 
-class User extends AbstractUser {}
+/**
+ * @method string getUserIdentifier()
+ */
+class FakeUser implements UserInterface
+{
+	use SecurityTrait;
+
+	public function getRoles (): array
+	{
+		return [];
+	}
+
+	public function getUsername (): string
+	{
+		return '';
+	}
+}
+
+class User extends AbstractUser
+{
+	use IDMarinasProviderTrait;
+}
