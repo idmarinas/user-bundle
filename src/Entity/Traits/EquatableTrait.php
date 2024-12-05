@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 03/12/2024, 18:35
+ * Last modified by "IDMarinas" on 05/12/2024, 13:26
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -68,7 +68,7 @@ trait EquatableTrait
 			return false;
 		}
 
-		if ($this->getId() !== $user->getPassword()) {
+		if ($this->getPassword() !== $user->getPassword()) {
 			return false;
 		}
 
