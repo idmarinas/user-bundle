@@ -1,0 +1,70 @@
+<?php
+/**
+ * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ *
+ * Last modified by "IDMarinas" on 05/12/2024, 17:43
+ *
+ * @project IDMarinas User Bundle
+ * @see     https://github.com/idmarinas/user-bundle
+ *
+ * @file    TestKernel.php
+ * @date    05/12/2024
+ * @time    16:14
+ *
+ * @author  Iván Diaz Marinas (IDMarinas)
+ * @license BSD 3-Clause License
+ *
+ * @since   1.1.0
+ */
+
+namespace Idm\Bundle\User\Tests;
+
+use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
+use Idm\Bundle\User\IdmUserBundle;
+use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
+use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
+use Symfony\Component\Config\Loader\LoaderInterface;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\HttpKernel\Kernel;
+use SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle;
+
+class TestKernel extends Kernel
+{
+	use MicroKernelTrait;
+
+	public function registerBundles (): iterable
+	{
+		yield new FrameworkBundle();
+		yield new DoctrineBundle();
+		yield new SymfonyCastsVerifyEmailBundle();
+		yield new IdmUserBundle();
+	}
+
+	public function registerContainerConfiguration (LoaderInterface $loader)
+	{
+		$loader->load(function (ContainerBuilder $container) use ($loader) {
+			$container->loadFromExtension('framework', [
+				'router'     => [
+					'utf8'     => true,
+					'resource' => '',
+				],
+				'secret'     => 'test',
+				'form'       => true,
+				'validation' => true,
+				'test'       => true,
+			]);
+
+			$container->loadFromExtension('doctrine', [
+				'dbal' => [
+					'driver' => 'pdo_sqlite',
+					'url'    => 'sqlite:///' . $this->getCacheDir() . '/app.db',
+				],
+				'orm'  => [
+					'enable_lazy_ghost_objects'   => true,
+					'auto_generate_proxy_classes' => true,
+					'auto_mapping'                => true,
+				],
+			]);
+		});
+	}
+}
