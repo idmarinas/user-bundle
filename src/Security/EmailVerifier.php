@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 2/12/24, 20:08
+ * Last modified by "IDMarinas" on 05/12/2024, 21:22
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -64,7 +64,7 @@ final class EmailVerifier
 	{
 		$this->verifyEmailHelper->validateEmailConfirmationFromRequest($request, $user->getId(), $user->getEmail());
 
-		$user->setIsVerified(true);
+		$user->setVerified(true);
 
 		$this->entityManager->persist($user);
 		$this->entityManager->flush();
