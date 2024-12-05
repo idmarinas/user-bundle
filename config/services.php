@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 15:48
+ * Last modified by "IDMarinas" on 05/12/2024, 21:55
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,6 +21,8 @@
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
+use Idm\Bundle\User\Repository\ResetPasswordRequestRepository;
 use Idm\Bundle\User\Security\EmailVerifier;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Mailer\MailerInterface;
@@ -30,6 +32,7 @@ return static function (ContainerConfigurator $container) {
 	// @formatter:off
 	$container
 		->services()
+		  // Register EmailVerifier service
 			->set('idm_user.service.email_verifier', EmailVerifier::class)
 				->public()
 				->args([
@@ -37,6 +40,12 @@ return static function (ContainerConfigurator $container) {
 					service(MailerInterface::class),
 					service(EntityManagerInterface::class),
 					service(RequestStack::class),
+				])
+			// Register ResetPasswordRequestRepository service
+			->set(ResetPasswordRequestRepository::class, ResetPasswordRequestRepository::class)
+				->public()
+				->args([
+					service(ManagerRegistry::class)
 				])
 	;
 	// @formated:on
