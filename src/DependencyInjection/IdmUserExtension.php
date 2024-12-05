@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 2/12/24, 15:22
+ * Last modified by "IDMarinas" on 05/12/2024, 19:42
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,6 +20,7 @@
 
 namespace Idm\Bundle\User\DependencyInjection;
 
+use Exception;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
@@ -30,7 +31,7 @@ class IdmUserExtension extends Extension
 {
 	/**
 	 * @inheritdoc
-	 * @throws \Exception
+	 * @throws Exception
 	 */
 	public function load (array $configs, ContainerBuilder $container): void
 	{
