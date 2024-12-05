@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 17:49
+ * Last modified by "IDMarinas" on 05/12/2024, 18:00
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,8 +20,8 @@
 namespace Idm\Bundle\User\Tests\Entity;
 
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
-use Idm\Bundle\User\Entity\AbstractUserPremium;
 use Idm\Bundle\User\Tests\Fixtures\Entity\User;
+use Idm\Bundle\User\Tests\Fixtures\Entity\UserPremium;
 use ReflectionException;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
@@ -59,5 +59,3 @@ class UserPremiumTest extends KernelTestCase
 		$this->assertIsArray($array);
 	}
 }
-
-class UserPremium extends AbstractUserPremium {}
