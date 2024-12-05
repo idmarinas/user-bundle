@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 14:27
+ * Last modified by "IDMarinas" on 05/12/2024, 17:29
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -24,11 +24,11 @@ use Idm\Bundle\Common\Traits\Tool\FakerTrait;
 use Idm\Bundle\User\Entity\AbstractUser;
 use Idm\Bundle\User\Entity\Traits\SecurityTrait;
 use Idm\Bundle\User\Entity\Traits\Social\IDMarinasProviderTrait;
-use Idm\Bundle\User\Tests\AbstractKernelTest;
 use ReflectionException;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class UserTest extends AbstractKernelTest
+class UserTest extends KernelTestCase
 {
 	use FakerTrait;
 
@@ -37,6 +37,7 @@ class UserTest extends AbstractKernelTest
 	 */
 	public function testEntity ()
 	{
+		static::bootKernel();
 		$container = static::getContainer();
 		$serializer = $container->get('serializer');
 

@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 14:11
+ * Last modified by "IDMarinas" on 05/12/2024, 17:29
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -23,11 +23,11 @@ use Idm\Bundle\Common\Traits\Tool\FakerTrait;
 use Idm\Bundle\User\Entity\AbstractUser;
 use Idm\Bundle\User\Entity\AbstractUserPremium;
 use Idm\Bundle\User\Entity\Traits\UserPremiumTrait;
-use Idm\Bundle\User\Tests\AbstractKernelTest;
 use ReflectionException;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 
-class UserPremiumTest extends AbstractKernelTest
+class UserPremiumTest extends KernelTestCase
 {
 	use FakerTrait;
 
@@ -36,6 +36,7 @@ class UserPremiumTest extends AbstractKernelTest
 	 */
 	public function testEntity ()
 	{
+		static::bootKernel();
 		$container = static::getContainer();
 		$serializer = $container->get('serializer');
 
@@ -57,12 +58,6 @@ class UserPremiumTest extends AbstractKernelTest
 			AbstractNormalizer::CIRCULAR_REFERENCE_HANDLER => fn($object) => $object->getUser(),
 		]);
 		$this->assertIsArray($array);
-	}
-
-	protected function setUp (): void
-	{
-		parent::setUp();
-		static::bootKernel();
 	}
 }
 

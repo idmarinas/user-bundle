@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 13:07
+ * Last modified by "IDMarinas" on 05/12/2024, 17:27
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -22,13 +22,15 @@ namespace Idm\Bundle\User\Tests\Entity;
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
 use Idm\Bundle\User\Entity\AbstractUserConnectionLog;
 use Idm\Bundle\User\Tests\AbstractKernelTest;
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class UserConnectionLogTest extends AbstractKernelTest
+class UserConnectionLogTest extends KernelTestCase
 {
 	use FakerTrait;
 
 	public function testEntity ()
 	{
+		static::bootKernel();
 		$container = static::getContainer();
 		$serializer = $container->get('serializer');
 

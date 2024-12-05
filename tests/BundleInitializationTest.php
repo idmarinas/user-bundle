@@ -3,7 +3,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 13:04
+ * Last modified by "IDMarinas" on 05/12/2024, 17:30
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,13 +20,19 @@
 
 namespace Idm\Bundle\User\Tests;
 
-class BundleInitializationTest extends AbstractKernelTest
+use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+
+class BundleInitializationTest extends KernelTestCase
 {
 	public function testInitBundle (): void
 	{
 		// Boot the kernel.
-		self::bootKernel();
+		static::bootKernel();
 
 		$this->assertTrue(true);
+
+		$container = static::getContainer();
+
+		$this->assertTrue($container->has('idm_user.service.email_verifier'));
 	}
 }
