@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 17:29
+ * Last modified by "IDMarinas" on 05/12/2024, 17:49
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,9 +20,8 @@
 namespace Idm\Bundle\User\Tests\Entity;
 
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
-use Idm\Bundle\User\Entity\AbstractUser;
 use Idm\Bundle\User\Entity\AbstractUserPremium;
-use Idm\Bundle\User\Entity\Traits\UserPremiumTrait;
+use Idm\Bundle\User\Tests\Fixtures\Entity\User;
 use ReflectionException;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
@@ -40,8 +39,8 @@ class UserPremiumTest extends KernelTestCase
 		$container = static::getContainer();
 		$serializer = $container->get('serializer');
 
-		/** @var UserFull $user */
-		$user = $this->populateEntity(new UserFull());
+		/** @var User $user */
+		$user = $this->populateEntity(new User());
 		$userFake = clone $user;
 		$userFake->setEmail('fake@user.fk');
 
@@ -62,8 +61,3 @@ class UserPremiumTest extends KernelTestCase
 }
 
 class UserPremium extends AbstractUserPremium {}
-
-class UserFull extends AbstractUser
-{
-	use UserPremiumTrait;
-}
