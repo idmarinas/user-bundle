@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 21:10
+ * Last modified by "IDMarinas" on 05/12/2024, 21:57
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,7 +21,7 @@ namespace Idm\Bundle\User\Tests\Entity;
 
 use DateTime;
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
-use Idm\Bundle\User\Tests\Fixtures\Entity\ResetPasswordRequest;
+use Idm\Bundle\User\Entity\ResetPasswordRequest;
 use Idm\Bundle\User\Tests\Fixtures\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
