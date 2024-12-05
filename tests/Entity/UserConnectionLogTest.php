@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 17:27
+ * Last modified by "IDMarinas" on 05/12/2024, 17:48
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,7 +21,6 @@ namespace Idm\Bundle\User\Tests\Entity;
 
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
 use Idm\Bundle\User\Entity\AbstractUserConnectionLog;
-use Idm\Bundle\User\Tests\AbstractKernelTest;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class UserConnectionLogTest extends KernelTestCase
