@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 17:58
+ * Last modified by "IDMarinas" on 05/12/2024, 22:02
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,9 +20,10 @@
 namespace Idm\Bundle\User\Tests\Fixtures\Entity;
 
 use Idm\Bundle\User\Entity\Traits\SecurityTrait;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class FakeUser implements UserInterface
+class FakeUser implements UserInterface, PasswordAuthenticatedUserInterface
 {
 	use SecurityTrait;
 
@@ -37,6 +38,11 @@ class FakeUser implements UserInterface
 	}
 
 	public function getUserIdentifier (): string
+	{
+		return '';
+	}
+
+	public function getPassword (): string
 	{
 		return '';
 	}
