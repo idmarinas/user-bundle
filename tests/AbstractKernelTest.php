@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 13:06
+ * Last modified by "IDMarinas" on 05/12/2024, 15:17
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -45,6 +45,9 @@ abstract class AbstractKernelTest extends KernelTestCase
 			$container->loadFromExtension('framework', [
 				'form'       => true,
 				'validation' => true,
+				'router'     => [
+					'utf8' => true,
+				],
 			]);
 		});
 
