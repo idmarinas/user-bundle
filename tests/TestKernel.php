@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 17:43
+ * Last modified by "IDMarinas" on 06/12/2024, 10:52
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -52,6 +52,7 @@ class TestKernel extends Kernel
 				'form'       => true,
 				'validation' => true,
 				'test'       => true,
+				'mailer'     => true,
 			]);
 
 			$container->loadFromExtension('doctrine', [
