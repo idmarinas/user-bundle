@@ -1,4 +1,5 @@
 ###> idmarinas/user-bundle ###
+**/*.dist
 /build/
 /vendor/
 /var/
