@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 3/12/24, 13:08
+ * Last modified by "IDMarinas" on 08/12/2024, 20:22
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,8 +20,8 @@
 namespace Idm\Bundle\User\Tests\Form;
 
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
-use Idm\Bundle\User\Entity\AbstractUser;
 use Idm\Bundle\User\Form\AbstractRegistrationFormType;
+use Idm\Bundle\User\Model\AbstractUser;
 use Symfony\Component\Form\Test\Traits\ValidatorExtensionTrait;
 use Symfony\Component\Form\Test\TypeTestCase;
 

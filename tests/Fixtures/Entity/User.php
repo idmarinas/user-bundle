@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 17:55
+ * Last modified by "IDMarinas" on 08/12/2024, 20:22
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,9 +19,9 @@
 
 namespace Idm\Bundle\User\Tests\Fixtures\Entity;
 
-use Idm\Bundle\User\Entity\AbstractUser;
-use Idm\Bundle\User\Entity\Traits\Social\IDMarinasProviderTrait;
-use Idm\Bundle\User\Entity\Traits\UserPremiumTrait;
+use Idm\Bundle\User\Model\AbstractUser;
+use Idm\Bundle\User\Traits\Entity\IDMarinasProviderTrait;
+use Idm\Bundle\User\Traits\Entity\UserPremiumTrait;
 
 class User extends AbstractUser
 {

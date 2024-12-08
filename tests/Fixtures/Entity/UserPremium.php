@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 18:00
+ * Last modified by "IDMarinas" on 08/12/2024, 20:22
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,6 +19,6 @@
 
 namespace Idm\Bundle\User\Tests\Fixtures\Entity;
 
-use Idm\Bundle\User\Entity\AbstractUserPremium;
+use Idm\Bundle\User\Model\AbstractUserPremium;
 
 class UserPremium extends AbstractUserPremium {}

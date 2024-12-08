@@ -2,12 +2,12 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 1/12/24, 18:44
+ * Last modified by "IDMarinas" on 08/12/2024, 20:22
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    UserConnectionLogRepository.php
+ * @file    AbstractUserConnectionLogRepository.php
  * @date    01/12/2024
  * @time    18:40
  *
@@ -20,7 +20,7 @@
 namespace Idm\Bundle\User\Repository;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Idm\Bundle\User\Entity\AbstractUserConnectionLog;
+use Idm\Bundle\User\Model\AbstractUserConnectionLog;
 
 /**
  * @extends ServiceEntityRepository<AbstractUserConnectionLog>

@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 04/12/2024, 12:23
+ * Last modified by "IDMarinas" on 08/12/2024, 20:22
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,7 +20,7 @@
 namespace Idm\Bundle\User\Traits\Controller;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Idm\Bundle\User\Entity\AbstractUser;
+use Idm\Bundle\User\Model\AbstractUser;
 use Idm\Bundle\User\Security\EmailVerifier;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
