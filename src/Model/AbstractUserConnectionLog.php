@@ -3,12 +3,12 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 1/12/24, 18:40
+ * Last modified by "IDMarinas" on 08/12/2024, 20:22
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    UserConnectionLog.php
+ * @file    AbstractUserConnectionLog.php
  * @date    01/12/2024
  * @time    18:41
  *
@@ -18,7 +18,7 @@
  * @since   1.1.0
  */
 
-namespace Idm\Bundle\User\Entity;
+namespace Idm\Bundle\User\Model;
 
 use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;

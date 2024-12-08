@@ -2,7 +2,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 03/12/2024, 21:11
+ * Last modified by "IDMarinas" on 08/12/2024, 20:22
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -17,7 +17,7 @@
  * @since   1.0.0
  */
 
-namespace Idm\Bundle\User\Entity;
+namespace Idm\Bundle\User\Model;
 
 use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
@@ -25,10 +25,10 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\IpTraceable\Traits\IpTraceableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Idm\Bundle\Common\Traits\Entity\UuidTrait;
-use Idm\Bundle\User\Entity\Traits\BanTrait;
-use Idm\Bundle\User\Entity\Traits\EquatableTrait;
-use Idm\Bundle\User\Entity\Traits\LegalTrait;
-use Idm\Bundle\User\Entity\Traits\SecurityTrait;
+use Idm\Bundle\User\Traits\Entity\BanTrait;
+use Idm\Bundle\User\Traits\Entity\EquatableTrait;
+use Idm\Bundle\User\Traits\Entity\LegalTrait;
+use Idm\Bundle\User\Traits\Entity\SecurityTrait;
 use Stringable;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
