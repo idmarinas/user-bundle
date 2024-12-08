@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 1/12/24, 18:48
+ * Last modified by "IDMarinas" on 08/12/2024, 20:22
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -17,10 +17,10 @@
  * @since   1.1.0
  */
 
-namespace Idm\Bundle\User\Entity\Traits;
+namespace Idm\Bundle\User\Traits\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Idm\Bundle\User\Entity\AbstractUserPremium;
+use Idm\Bundle\User\Model\AbstractUserPremium;
 
 trait UserPremiumTrait
 {

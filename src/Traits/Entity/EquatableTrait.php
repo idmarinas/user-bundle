@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 13:26
+ * Last modified by "IDMarinas" on 08/12/2024, 20:22
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -28,11 +28,11 @@
  * @since   1.0.0
  */
 
-namespace Idm\Bundle\User\Entity\Traits;
+namespace Idm\Bundle\User\Traits\Entity;
 
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Idm\Bundle\User\Entity\AbstractUser;
+use Idm\Bundle\User\Model\AbstractUser;
 use Symfony\Component\Security\Core\User\UserInterface;
 use function count;
 
