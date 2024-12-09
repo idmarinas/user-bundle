@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Symfony2PluginSettings">
+    <option name="pathToTranslation" value="var/cache/test/translations" />
+    <option name="directoryToApp" value="src" />
     <option name="pluginEnabled" value="true" />
+    <option name="twigBundleNamespaceSupport" value="true" />
+    <option name="profilerCsvPath" value="" />
+    <option name="containerFiles">
+      <list>
+        <container_file path="var/cache/dev/Idm_Bundle_User_Tests_TestKernelDevDebugContainer.xml" />
+        <container_file path="var/cache/test/Idm_Bundle_User_Tests_TestKernelTestDebugContainer.xml" />
+      </list>
+    </option>
+    <option name="routingFiles">
+      <list>
+        <routing_file path="app/cache/dev/appDevUrlGenerator.php" />
+        <routing_file path="var/cache/dev/appDevUrlGenerator.php" />
+        <routing_file path="var/cache/dev/appDevDebugProjectContainerUrlGenerator.php" />
+        <routing_file path="var/cache/dev/srcDevDebugProjectContainerUrlGenerator.php" />
+        <routing_file path="var/cache/dev/url_generating_routes.php" />
+        <routing_file path="var/cache/dev/UrlGenerator.php" />
+      </list>
+    </option>
   </component>
 </project>
