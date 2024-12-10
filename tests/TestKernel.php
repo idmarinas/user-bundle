@@ -45,8 +45,9 @@ class TestKernel extends Kernel
 		$loader->load(function (ContainerBuilder $container) use ($loader) {
 			$container->loadFromExtension('framework', [
 				'router'     => [
+					'resource' => 'kernel::loadRoutes',
+					'type'     => 'service',
 					'utf8'     => true,
-					'resource' => '',
 				],
 				'secret'     => 'test',
 				'form'       => true,
@@ -66,6 +67,21 @@ class TestKernel extends Kernel
 					'auto_mapping'                => true,
 				],
 			]);
+
+			$container
+				->register('kernel', static::class)
+				->setPublic(true)
+			;
+
+			$kernelDefinition = $container->getDefinition('kernel');
+			$kernelDefinition->addTag('routing.route_loader');
 		});
+	}
+
+	public function configureRoutes (RoutingConfigurator $routes): void
+	{
+		$routes->import($this->getConfigDir() . '/routes.php');
+
+		$routes->add('app_home', '/')->methods(['GET']);
 	}
 }
