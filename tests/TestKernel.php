@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 06/12/2024, 10:52
+ * Last modified by "IDMarinas" on 10/12/2024, 10:29
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -23,9 +23,11 @@ use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
 use Idm\Bundle\User\IdmUserBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
+use Symfony\Bundle\TwigBundle\TwigBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
+use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 use SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle;
 
 class TestKernel extends Kernel
@@ -38,9 +40,10 @@ class TestKernel extends Kernel
 		yield new DoctrineBundle();
 		yield new SymfonyCastsVerifyEmailBundle();
 		yield new IdmUserBundle();
+		yield new TwigBundle();
 	}
 
-	public function registerContainerConfiguration (LoaderInterface $loader)
+	public function registerContainerConfiguration (LoaderInterface $loader): void
 	{
 		$loader->load(function (ContainerBuilder $container) use ($loader) {
 			$container->loadFromExtension('framework', [
