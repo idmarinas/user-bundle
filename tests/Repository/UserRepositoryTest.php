@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 22:01
+ * Last modified by "IDMarinas" on 16/12/2024, 21:49
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -34,12 +34,16 @@ use Idm\Bundle\User\Repository\AbstractUserRepository;
 use Idm\Bundle\User\Tests\Fixtures\Entity\FakeUser;
 use Idm\Bundle\User\Tests\Fixtures\Entity\User;
 use PHPUnit\Framework\TestCase;
+use ReflectionException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 
 class UserRepositoryTest extends TestCase
 {
 	use FakerTrait;
 
+	/**
+	 * @throws ReflectionException
+	 */
 	public function testUpgradePasswordSuccess ()
 	{
 		/** @var User $userO */
