@@ -52,7 +52,7 @@
 		"symfony/uid": "^5.4 | ^6.4 | ^7.0"
 	},
 	"conflict": {
-		"idmarinas/common-bundle": "3.0.0"
+		"idmarinas/common-bundle": "<=3.0.0"
 	},
 	"config": {
 		"allow-plugins": {
