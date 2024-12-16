@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 08/12/2024, 20:22
+ * Last modified by "IDMarinas" on 16/12/2024, 21:49
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -79,7 +79,7 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 	 */
 	public function getUserMarkedAsDeleted (): array
 	{
-		$filters = $this->_em->getFilters();
+		$filters = $this->getEntityManager()->getFilters();
 
 		// -- Disable softDeleteable filtering
 		if ($filters->isEnabled('softdeleteable')) {
