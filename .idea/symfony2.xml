@@ -8,7 +8,7 @@
     <option name="profilerCsvPath" value="" />
     <option name="twigNamespaces">
       <list>
-        <twig_namespace enabled="false" namespace="IdmUser" namespaceType="ADD_PATH" path="templates" />
+        <twig_namespace enabled="false" namespace="IdmUser" namespaceType="ADD_PATH" path="/var/www/html/templates" />
         <twig_namespace custom="true" namespace="IdmUser" namespaceType="BUNDLE" path="templates" />
       </list>
     </option>
