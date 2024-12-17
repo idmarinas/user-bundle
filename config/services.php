@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 21:55
+ * Last modified by "IDMarinas" on 17/12/2024, 11:34
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -22,10 +22,12 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
+use Idm\Bundle\User\Controller\ResetPasswordController;
 use Idm\Bundle\User\Repository\ResetPasswordRequestRepository;
 use Idm\Bundle\User\Security\EmailVerifier;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Mailer\MailerInterface;
+use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
 use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
 
 return static function (ContainerConfigurator $container) {
@@ -46,6 +48,13 @@ return static function (ContainerConfigurator $container) {
 				->public()
 				->args([
 					service(ManagerRegistry::class)
+				])
+			// Register ResetPasswordController
+			->set(ResetPasswordController::class, ResetPasswordController::class)
+				->public()
+				->args([
+					service(ResetPasswordHelperInterface::class),
+					service(EntityManagerInterface::class),
 				])
 	;
 	// @formated:on
