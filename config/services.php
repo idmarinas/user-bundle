@@ -56,12 +56,6 @@ return static function (ContainerConfigurator $container) {
 					service(ResetPasswordHelperInterface::class),
 					service(EntityManagerInterface::class),
 				])
-			// Register ResetPasswordRequestRepository
-			->set(ResetPasswordRequestRepository::class, ResetPasswordRequestRepository::class)
-				->public()
-				->args([
-					service(ManagerRegistry::class)
-				])
 	;
 	// @formated:on
 };
