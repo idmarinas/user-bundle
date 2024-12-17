@@ -9,6 +9,10 @@
 /vendor/ export-ignore
 /var/ export-ignore
 
+/.editorconfig export-ignore
 /.gitattributes export-ignore
 /.gitignore export-ignore
+/compose.yaml export-ignore
 /phpunit.xml.dist export-ignore
+/rector.php
+/sonar-project.properties
