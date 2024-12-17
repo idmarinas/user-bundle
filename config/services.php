@@ -57,5 +57,5 @@ return static function (ContainerConfigurator $container) {
 					service(EntityManagerInterface::class),
 				])
 	;
-	// @formated:on
+	// @formatter:on
 };
