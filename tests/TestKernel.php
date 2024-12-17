@@ -67,7 +67,7 @@ class TestKernel extends Kernel
 			$container->loadFromExtension('doctrine', [
 				'dbal' => [
 					'driver' => 'pdo_sqlite',
-					'url'    => 'sqlite:///' . $this->getCacheDir() . '/app.db',
+					'url'    => sprintf('sqlite:///%s/idm_user_%s.sqlite', $this->getDatabaseCache(), $this->environment),
 				],
 				'orm'  => [
 					'enable_lazy_ghost_objects'   => true,
