@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 21:47
+ * Last modified by "IDMarinas" on 17/12/2024, 11:46
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -24,10 +24,10 @@ use Gedmo\Loggable\Entity\MappedSuperclass\AbstractLogEntry;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'idm_user_reset_password_request_log', options: ['row_format' => 'DYNAMIC'])]
-#[ORM\Index(columns: ['object_class'], name: 'log_class_lookup_idx')]
-#[ORM\Index(columns: ['logged_at'], name: 'log_date_lookup_idx')]
-#[ORM\Index(columns: ['username'], name: 'log_user_lookup_idx')]
-#[ORM\Index(columns: ['object_id', 'object_class', 'version'], name: 'log_version_lookup_idx')]
+#[ORM\Index(name: 'log_class_lookup_idx', columns: ['object_class'])]
+#[ORM\Index(name: 'log_date_lookup_idx', columns: ['logged_at'])]
+#[ORM\Index(name: 'log_user_lookup_idx', columns: ['username'])]
+#[ORM\Index(name: 'log_version_lookup_idx', columns: ['object_id', 'object_class', 'version'])]
 class ResetPasswordRequestLog extends AbstractLogEntry
 {
 	/* All required columns are mapped through inherited superclass */
