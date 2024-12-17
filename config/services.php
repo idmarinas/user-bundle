@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:34
+ * Last modified by "IDMarinas" on 17/12/2024, 11:49
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -55,6 +55,12 @@ return static function (ContainerConfigurator $container) {
 				->args([
 					service(ResetPasswordHelperInterface::class),
 					service(EntityManagerInterface::class),
+				])
+			// Register ResetPasswordRequestRepository
+			->set(ResetPasswordRequestRepository::class, ResetPasswordRequestRepository::class)
+				->public()
+				->args([
+					service(ManagerRegistry::class)
 				])
 	;
 	// @formated:on
