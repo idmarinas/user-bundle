@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:54
+ * Last modified by "IDMarinas" on 17/12/2024, 19:53
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,6 +19,9 @@
 
 namespace Idm\Bundle\User\Tests\Fixtures\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use Idm\Bundle\User\Model\AbstractUserPremium;
 
+#[ORM\Entity]
+#[ORM\Table(name: 'idm_user_user_premium')]
 class UserPremium extends AbstractUserPremium {}
