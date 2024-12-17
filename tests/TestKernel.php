@@ -89,4 +89,17 @@ class TestKernel extends Kernel
 
 		$routes->add('app_home', '/')->methods(['GET']);
 	}
+
+	public function getDatabaseCache (): string
+	{
+		$dir = $this->getProjectDir() . '/var/cache/database';
+
+		$filesystem = new Filesystem();
+
+		if (!$filesystem->exists($dir)) {
+			$filesystem->mkdir($dir);
+		}
+
+		return $dir;
+	}
 }
