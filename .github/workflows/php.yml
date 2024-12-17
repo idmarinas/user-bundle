@@ -7,6 +7,20 @@ on:
   push:
     branches:
       - master
+    paths-ignore:
+      - '.deployer/**'
+      - '.docker/**'
+      - 'migrations/**'
+      - '**/docs/**'
+      - '**/README.md'
+      - '**/COMMANDS.md'
+      - '**/TIPS.md'
+      - '**/TODO.md'
+      - '**/LICENSE'
+      - rector.php
+      - .editorconfig
+      - .gitignore
+      - compose.yaml
 
 jobs:
   build:
