@@ -59,6 +59,9 @@ class TestKernel extends Kernel
 				'validation' => true,
 				'test'       => true,
 				'mailer'     => true,
+				'session'    => [
+					'storage_factory_id' => 'session.storage.factory.mock_file',
+				],
 			]);
 
 			$container->loadFromExtension('doctrine', [
