@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 10/12/2024, 10:29
+ * Last modified by "IDMarinas" on 16/12/2024, 22:07
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -28,6 +28,7 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
+use SymfonyCasts\Bundle\ResetPassword\SymfonyCastsResetPasswordBundle;
 use SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle;
 
 class TestKernel extends Kernel
@@ -39,6 +40,7 @@ class TestKernel extends Kernel
 		yield new FrameworkBundle();
 		yield new DoctrineBundle();
 		yield new SymfonyCastsVerifyEmailBundle();
+		yield new SymfonyCastsResetPasswordBundle();
 		yield new IdmUserBundle();
 		yield new TwigBundle();
 	}
