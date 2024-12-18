@@ -3,7 +3,7 @@
 <!--~
   ~ Copyright 2024 (C) IDMarinas - All Rights Reserved
   ~
-  ~ Last modified by "IDMarinas" on 05/12/2024, 19:38
+  ~ Last modified by "IDMarinas" on 17/12/2024, 21:21
   ~
   ~ @project IDMarinas User Bundle
   ~ @see https://github.com/idmarinas/user-bundle
@@ -65,4 +65,8 @@
 	<logging>
 		<junit outputFile="./build/reports/phpunit.xml" />
 	</logging>
+
+	<extensions>
+		<extension class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" />
+	</extensions>
 </phpunit>
