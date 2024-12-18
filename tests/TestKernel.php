@@ -20,12 +20,20 @@
 namespace Idm\Bundle\User\Tests;
 
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
+use Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle;
 use Idm\Bundle\User\IdmUserBundle;
+use Idm\Bundle\User\Model\AbstractUser;
+use Idm\Bundle\User\Model\AbstractUserConnectionLog;
+use Idm\Bundle\User\Model\AbstractUserPremium;
+use Idm\Bundle\User\Tests\Fixtures\Entity\User;
+use Idm\Bundle\User\Tests\Fixtures\Entity\UserConnectionLog;
+use Idm\Bundle\User\Tests\Fixtures\Entity\UserPremium;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Bundle\TwigBundle\TwigBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 use SymfonyCasts\Bundle\ResetPassword\SymfonyCastsResetPasswordBundle;
@@ -43,6 +51,7 @@ class TestKernel extends Kernel
 		yield new SymfonyCastsResetPasswordBundle();
 		yield new IdmUserBundle();
 		yield new TwigBundle();
+		yield new DoctrineFixturesBundle();
 	}
 
 	public function registerContainerConfiguration (LoaderInterface $loader): void
