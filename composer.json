@@ -75,7 +75,8 @@
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"Idm\\Bundle\\User\\Tests\\": "tests/"
+			"Idm\\Bundle\\User\\Tests\\": "tests/",
+			"DataFixtures\\": "fixtures/"
 		}
 	},
 	"funding": [
