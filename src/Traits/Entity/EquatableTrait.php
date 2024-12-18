@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:55
+ * Last modified by "IDMarinas" on 18/12/2024, 21:22
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -52,7 +52,7 @@ trait EquatableTrait
 			return false;
 		}
 
-		// Only 1 session from device and firewall
+		// Only 1 session active
 		if ($this->getsessionId() !== $user->getsessionId()) {
 			return false;
 		}

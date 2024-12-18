@@ -3,7 +3,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:54
+ * Last modified by "IDMarinas" on 18/12/2024, 21:55
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -29,7 +29,7 @@ trait IDMarinasProviderTrait
 	#[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true])]
 	protected int $idmarinasId = 0;
 
-	/** URL del perfil en la comunidad. */
+	/** Community profile URL. */
 	#[ORM\Column(type: Types::STRING, length: 255)]
 	protected string $idmarinasProfileUrl = '';
 
