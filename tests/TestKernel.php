@@ -81,7 +81,26 @@ class TestKernel extends Kernel
 				'orm'  => [
 					'enable_lazy_ghost_objects'   => true,
 					'auto_generate_proxy_classes' => true,
-					'auto_mapping'                => true,
+					'auto_mapping'                => false,
+					'mappings'                    => [
+						'IdmUserTestBundle' => [
+							'mapping' => true,
+							'type'    => 'attribute',
+							'dir'     => __DIR__ . '/Fixtures/Entity',
+							'prefix'  => 'Idm\Bundle\User\Tests\Fixtures\Entity',
+						],
+						'IdmUserBundle'     => [
+							'mapping' => true,
+							'type'    => 'attribute',
+							'dir'     => dirname(__DIR__) . '/src/Entity',
+							'prefix'  => 'Idm\Bundle\User\Entity',
+						],
+					],
+					'resolve_target_entities'     => [
+						AbstractUser::class              => User::class,
+						AbstractUserPremium::class       => UserPremium::class,
+						AbstractUserConnectionLog::class => UserConnectionLog::class,
+					],
 				],
 			]);
 
