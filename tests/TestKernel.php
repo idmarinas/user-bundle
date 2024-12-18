@@ -30,12 +30,14 @@ use Idm\Bundle\User\Tests\Fixtures\Entity\UserConnectionLog;
 use Idm\Bundle\User\Tests\Fixtures\Entity\UserPremium;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
+use Symfony\Bundle\SecurityBundle\SecurityBundle;
 use Symfony\Bundle\TwigBundle\TwigBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use SymfonyCasts\Bundle\ResetPassword\SymfonyCastsResetPasswordBundle;
 use SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle;
 
@@ -52,6 +54,7 @@ class TestKernel extends Kernel
 		yield new IdmUserBundle();
 		yield new TwigBundle();
 		yield new DoctrineFixturesBundle();
+		yield new SecurityBundle();
 	}
 
 	public function registerContainerConfiguration (LoaderInterface $loader): void
@@ -100,6 +103,19 @@ class TestKernel extends Kernel
 						AbstractUser::class              => User::class,
 						AbstractUserPremium::class       => UserPremium::class,
 						AbstractUserConnectionLog::class => UserConnectionLog::class,
+					],
+				],
+			]);
+
+			$container->loadFromExtension('security', [
+				'firewalls'        => [
+				],
+				'password_hashers' => [
+					PasswordAuthenticatedUserInterface::class => [
+						'algorithm'   => 'auto',
+						'cost'        => 4,
+						'time_cost'   => 3,
+						'memory_cost' => 10,
 					],
 				],
 			]);
