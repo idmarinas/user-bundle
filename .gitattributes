@@ -5,6 +5,7 @@
 /.github export-ignore
 /.idea/ export-ignore
 /build/ export-ignore
+/fixtures/ export-ignore
 /tests/ export-ignore
 /vendor/ export-ignore
 /var/ export-ignore
