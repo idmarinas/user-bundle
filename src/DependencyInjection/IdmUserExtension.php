@@ -30,7 +30,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use function dirname;
 
-class IdmUserExtension extends Extension implements PrependExtensionInterface
+final class IdmUserExtension extends Extension implements PrependExtensionInterface
 {
 	/**
 	 * @inheritdoc
