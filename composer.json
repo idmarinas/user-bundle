@@ -51,7 +51,8 @@
 		"symfony/mailer": "^5.4 | ^6.4 | ^7.0",
 		"symfony/phpunit-bridge": "^6.0",
 		"symfony/runtime": "^5.4 | ^6.4 | ^7.0",
-		"symfony/uid": "^5.4 | ^6.4 | ^7.0"
+		"symfony/uid": "^5.4 | ^6.4 | ^7.0",
+		"zenstruck/foundry": "^1.38"
 	},
 	"conflict": {
 		"idmarinas/common-bundle": "<=3.0.0"
@@ -76,7 +77,8 @@
 	"autoload-dev": {
 		"psr-4": {
 			"Idm\\Bundle\\User\\Tests\\": "tests/",
-			"DataFixtures\\": "fixtures/"
+			"DataFixtures\\": "fixtures/",
+			"Factory\\": "factories/"
 		}
 	},
 	"funding": [
