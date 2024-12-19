@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 16:45
+ * Last modified by "IDMarinas" on 19/12/2024, 17:01
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -27,6 +27,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use function dirname;
 
 class IdmUserExtension extends Extension implements PrependExtensionInterface
@@ -46,6 +47,11 @@ class IdmUserExtension extends Extension implements PrependExtensionInterface
 	{
 		$container->prependExtensionConfig('symfonycasts_reset_password', [
 			'request_password_repository' => ResetPasswordRequestRepository::class,
+		]);
+		$container->prependExtensionConfig('security', [
+			'password_hashers' => [
+				PasswordAuthenticatedUserInterface::class => 'auto',
+			],
 		]);
 	}
 }
