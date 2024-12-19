@@ -127,6 +127,7 @@ class TestKernel extends Kernel
 
 			$kernelDefinition = $container->getDefinition('kernel');
 			$kernelDefinition->addTag('routing.route_loader');
+			$loader->load($this->getConfigDir() . '/factories.php');
 			$loader->load($this->getConfigDir() . '/fixtures.php');
 		});
 	}
