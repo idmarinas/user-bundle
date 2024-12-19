@@ -40,6 +40,7 @@ use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use SymfonyCasts\Bundle\ResetPassword\SymfonyCastsResetPasswordBundle;
 use SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle;
+use Zenstruck\Foundry\ZenstruckFoundryBundle;
 
 class TestKernel extends Kernel
 {
@@ -53,8 +54,11 @@ class TestKernel extends Kernel
 		yield new SymfonyCastsResetPasswordBundle();
 		yield new IdmUserBundle();
 		yield new TwigBundle();
-		yield new DoctrineFixturesBundle();
 		yield new SecurityBundle();
+
+		// Dev-Test Bundles
+		yield new DoctrineFixturesBundle();
+		yield new ZenstruckFoundryBundle();
 	}
 
 	public function registerContainerConfiguration (LoaderInterface $loader): void
