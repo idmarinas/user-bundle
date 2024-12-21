@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:54
+ * Last modified by "IDMarinas" on 21/12/2024, 11:55
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -17,7 +17,7 @@
  * @since   2.0.0
  */
 
-namespace Idm\Bundle\User\Model;
+namespace Idm\Bundle\User\Model\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
