@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:54
+ * Last modified by "IDMarinas" on 21/12/2024, 10:59
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -118,7 +118,7 @@ class TestKernel extends Kernel
 						'security' => false,
 					],
 				],
-				'password_hashers' => [
+				'password_hashers'             => [
 					PasswordAuthenticatedUserInterface::class => [
 						'algorithm'   => 'auto',
 						'cost'        => 4,
