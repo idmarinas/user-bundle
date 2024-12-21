@@ -65,6 +65,7 @@ class TestKernel extends Kernel
 	{
 		$loader->load(function (ContainerBuilder $container) use ($loader) {
 			$container->loadFromExtension('framework', [
+				'test'       => true,
 				'router'     => [
 					'resource' => 'kernel::loadRoutes',
 					'type'     => 'service',
@@ -73,7 +74,6 @@ class TestKernel extends Kernel
 				'secret'     => 'test',
 				'form'       => true,
 				'validation' => true,
-				'test'       => true,
 				'mailer'     => true,
 				'session'    => [
 					'storage_factory_id' => 'session.storage.factory.mock_file',
