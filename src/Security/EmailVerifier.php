@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:54
+ * Last modified by "IDMarinas" on 21/12/2024, 11:55
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,7 +20,7 @@
 namespace Idm\Bundle\User\Security;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Idm\Bundle\User\Model\AbstractUser;
+use Idm\Bundle\User\Model\Entity\AbstractUser;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
