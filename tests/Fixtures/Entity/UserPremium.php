@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 19:53
+ * Last modified by "IDMarinas" on 21/12/2024, 11:55
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,7 +20,7 @@
 namespace Idm\Bundle\User\Tests\Fixtures\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Idm\Bundle\User\Model\AbstractUserPremium;
+use Idm\Bundle\User\Model\Entity\AbstractUserPremium;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'idm_user_user_premium')]

@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 21/12/2024, 10:59
+ * Last modified by "IDMarinas" on 21/12/2024, 11:55
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -22,9 +22,9 @@ namespace Idm\Bundle\User\Tests;
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
 use Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle;
 use Idm\Bundle\User\IdmUserBundle;
-use Idm\Bundle\User\Model\AbstractUser;
-use Idm\Bundle\User\Model\AbstractUserConnectionLog;
-use Idm\Bundle\User\Model\AbstractUserPremium;
+use Idm\Bundle\User\Model\Entity\AbstractUser;
+use Idm\Bundle\User\Model\Entity\AbstractUserConnectionLog;
+use Idm\Bundle\User\Model\Entity\AbstractUserPremium;
 use Idm\Bundle\User\Tests\Fixtures\Entity\User;
 use Idm\Bundle\User\Tests\Fixtures\Entity\UserConnectionLog;
 use Idm\Bundle\User\Tests\Fixtures\Entity\UserPremium;
