@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 19/12/2024, 17:01
+ * Last modified by "IDMarinas" on 19/12/2024, 23:12
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,6 +21,9 @@
 namespace Idm\Bundle\User\DependencyInjection;
 
 use Exception;
+use Idm\Bundle\User\Model\AbstractUser;
+use Idm\Bundle\User\Model\AbstractUserConnectionLog;
+use Idm\Bundle\User\Model\AbstractUserPremium;
 use Idm\Bundle\User\Repository\ResetPasswordRequestRepository;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -51,6 +54,15 @@ final class IdmUserExtension extends Extension implements PrependExtensionInterf
 		$container->prependExtensionConfig('security', [
 			'password_hashers' => [
 				PasswordAuthenticatedUserInterface::class => 'auto',
+			],
+		]);
+		$container->prependExtensionConfig('doctrine', [
+			'orm' => [
+				'resolve_target_entities' => [
+					AbstractUser::class              => 'App\Entity\User\User',
+					AbstractUserPremium::class       => 'App\Entity\User\UserPremium',
+					AbstractUserConnectionLog::class => 'App\Entity\User\UserConnectionLog',
+				],
 			],
 		]);
 	}
