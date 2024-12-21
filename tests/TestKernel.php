@@ -112,7 +112,11 @@ class TestKernel extends Kernel
 			]);
 
 			$container->loadFromExtension('security', [
-				'firewalls'        => [
+				'enable_authenticator_manager' => true,
+				'firewalls'                    => [
+					'main' => [
+						'security' => false,
+					],
 				],
 				'password_hashers' => [
 					PasswordAuthenticatedUserInterface::class => [
