@@ -3,7 +3,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:54
+ * Last modified by "IDMarinas" on 21/12/2024, 11:55
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,7 +21,7 @@
 namespace Idm\Bundle\User\Repository;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Idm\Bundle\User\Model\AbstractUserPremium;
+use Idm\Bundle\User\Model\Entity\AbstractUserPremium;
 
 /**
  * @extends ServiceEntityRepository<AbstractUserPremium>
