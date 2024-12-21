@@ -6,6 +6,7 @@
     <option name="pluginEnabled" value="true" />
     <option name="twigBundleNamespaceSupport" value="true" />
     <option name="profilerCsvPath" value="" />
+    <option name="lastServiceGeneratorLanguage" value="yaml" />
     <option name="twigNamespaces">
       <list>
         <twig_namespace custom="true" namespace="IdmUser" namespaceType="ADD_PATH" path="templates" />
