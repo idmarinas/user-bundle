@@ -2,12 +2,12 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:54
+ * Last modified by "IDMarinas" on 22/12/2024, 22:36
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    AbstractResetPasswordFormType.php
+ * @file    ResetPasswordFormType.php
  * @date    02/12/2024
  * @time    17:54
  *
@@ -27,7 +27,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-abstract class AbstractResetPasswordFormType extends AbstractType
+final class ResetPasswordFormType extends AbstractType
 {
 	public function buildForm (FormBuilderInterface $builder, array $options): void
 	{

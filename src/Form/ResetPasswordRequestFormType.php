@@ -2,12 +2,12 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:57
+ * Last modified by "IDMarinas" on 22/12/2024, 22:35
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    AbstractResetPasswordRequestFormType.php
+ * @file    ResetPasswordRequestFormType.php
  * @date    02/12/2024
  * @time    17:58
  *
@@ -26,7 +26,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
 
-abstract class AbstractResetPasswordRequestFormType extends AbstractType
+final class ResetPasswordRequestFormType extends AbstractType
 {
 	public function buildForm (FormBuilderInterface $builder, array $options): void
 	{
