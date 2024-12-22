@@ -18,3 +18,10 @@ services:
       ## PHP Conf Dev
       - ./.docker/php/conf.d/dev/php.ini:/usr/local/etc/php/conf.d/php.ini
       - ./.docker/php/conf.d/dev/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
+  mailer:
+    image: axllent/mailpit
+    ports:
+      - "1080:8025"
+    environment:
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
