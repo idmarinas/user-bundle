@@ -26,6 +26,7 @@
         <routing_file path="var/cache/dev/srcDevDebugProjectContainerUrlGenerator.php" />
         <routing_file path="var/cache/dev/url_generating_routes.php" />
         <routing_file path="var/cache/dev/UrlGenerator.php" />
+        <routing_file path="var/cache/test/url_matching_routes.php" />
       </list>
     </option>
   </component>
