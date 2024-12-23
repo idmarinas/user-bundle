@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/12/2024, 18:31
+ * Last modified by "IDMarinas" on 23/12/2024, 20:54
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -73,21 +73,30 @@ class TestKernel extends Kernel
 	{
 		$loader->load(function (ContainerBuilder $container) use ($loader) {
 			$container->loadFromExtension('framework', [
-				'test'       => true,
-				'router'     => [
+				'test'                  => true,
+				'http_method_override'  => false,
+				'handle_all_throwables' => true,
+				'php_errors'            => [
+					'log' => true,
+				],
+				'router'                => [
 					'resource' => 'kernel::loadRoutes',
 					'type'     => 'service',
 					'utf8'     => true,
 				],
-				'secret'     => 'test',
-				'form'       => true,
-				'validation' => [
+				'secret'                => 'test',
+				'form'                  => true,
+				'validation'            => [
+					'email_validation_mode'    => 'html5',
 					'not_compromised_password' => false,
 				],
-				'mailer'     => [
+				'mailer'                => [
 					'dsn' => 'null://null',
 				],
-				'session'    => [
+				'session'               => [
+					'handler_id'         => null,
+					'cookie_secure'      => true,
+					'cookie_samesite'    => 'lax',
 					'storage_factory_id' => 'session.storage.factory.mock_file',
 				],
 			]);
@@ -102,6 +111,9 @@ class TestKernel extends Kernel
 					'enable_lazy_ghost_objects'   => true,
 					'auto_generate_proxy_classes' => true,
 					'auto_mapping'                => false,
+					'controller_resolver'         => [
+						'auto_mapping' => false,
+					],
 					'mappings'                    => [
 						'IdmUserTestBundle' => [
 							'mapping' => true,
