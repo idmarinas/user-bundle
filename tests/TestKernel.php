@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/12/2024, 13:21
+ * Last modified by "IDMarinas" on 23/12/2024, 17:05
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,6 +19,7 @@
 
 namespace Idm\Bundle\User\Tests;
 
+use DAMA\DoctrineTestBundle\DAMADoctrineTestBundle;
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
 use Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle;
 use Exception;
@@ -61,6 +62,7 @@ class TestKernel extends Kernel
 
 		// Dev-Test Bundles
 		yield new DoctrineFixturesBundle();
+		yield new DAMADoctrineTestBundle();
 		yield new ZenstruckFoundryBundle();
 	}
 
@@ -92,8 +94,9 @@ class TestKernel extends Kernel
 
 			$container->loadFromExtension('doctrine', [
 				'dbal' => [
-					'driver' => 'pdo_sqlite',
-					'url'    => sprintf('sqlite:///%s/idm_user_%s.sqlite', $this->getDatabaseCache(), $this->environment),
+					'driver'         => 'pdo_sqlite',
+					'url'            => sprintf('sqlite:///%s/idm_user_%s.sqlite', $this->getDatabaseCache(), $this->environment),
+					'use_savepoints' => true,
 				],
 				'orm'  => [
 					'enable_lazy_ghost_objects'   => true,
