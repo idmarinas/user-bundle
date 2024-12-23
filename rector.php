@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 19/12/2024, 16:20
+ * Last modified by "IDMarinas" on 23/12/2024, 19:44
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -28,7 +28,7 @@ return RectorConfig::configure()
 		__DIR__ . '/src',
 		__DIR__ . '/tests',
 	])
-	->withPhpSets(php81: true)
+	->withPhpSets(php82: true)
 	->withPreparedSets(
 		deadCode           : true,
 		codeQuality        : true,
@@ -41,8 +41,9 @@ return RectorConfig::configure()
 	->withImportNames(removeUnusedImports: true)
 	->withTypeCoverageLevel(0)
 	->withSets([
-		SymfonySetList::SYMFONY_54,
+		SymfonySetList::SYMFONY_64,
 		SymfonySetList::SYMFONY_CONSTRUCTOR_INJECTION,
+		SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
 	])
 	->withRules([AddVoidReturnTypeWhereNoReturnRector::class])
 ;
