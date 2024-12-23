@@ -6,9 +6,9 @@ services:
       context: .docker/php
       target: dev
       args:
-        VERSION: '8.1'
+        VERSION: '8.2'
     environment:
-      SYMFONY_REQUIRE: '5.4.*'
+      SYMFONY_REQUIRE: '6.4.*'
     healthcheck:
       test: php -v || exit 1
     volumes:
