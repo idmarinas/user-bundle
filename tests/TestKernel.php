@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/12/2024, 18:29
+ * Last modified by "IDMarinas" on 23/12/2024, 18:31
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -85,7 +85,7 @@ class TestKernel extends Kernel
 					'not_compromised_password' => false,
 				],
 				'mailer'     => [
-					'dns' => 'null://null',
+					'dsn' => 'null://null',
 				],
 				'session'    => [
 					'storage_factory_id' => 'session.storage.factory.mock_file',
