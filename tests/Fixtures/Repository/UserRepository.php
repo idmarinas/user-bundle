@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/12/2024, 17:50
+ * Last modified by "IDMarinas" on 23/12/2024, 17:56
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -17,7 +17,7 @@
  * @since   2.0.0
  */
 
-namespace Fixtures\Repository;
+namespace Idm\Bundle\User\Tests\Fixtures\Repository;
 
 use Idm\Bundle\User\Model\Repository\AbstractUserRepository;
 
