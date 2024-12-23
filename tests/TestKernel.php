@@ -28,6 +28,7 @@ use Idm\Bundle\User\Model\Entity\AbstractUserPremium;
 use Idm\Bundle\User\Tests\Fixtures\Entity\User;
 use Idm\Bundle\User\Tests\Fixtures\Entity\UserConnectionLog;
 use Idm\Bundle\User\Tests\Fixtures\Entity\UserPremium;
+use Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Bundle\SecurityBundle\SecurityBundle;
@@ -55,6 +56,7 @@ class TestKernel extends Kernel
 		yield new IdmUserBundle();
 		yield new TwigBundle();
 		yield new SecurityBundle();
+		yield new StofDoctrineExtensionsBundle();
 
 		// Dev-Test Bundles
 		yield new DoctrineFixturesBundle();
