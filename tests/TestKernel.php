@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/12/2024, 17:05
+ * Last modified by "IDMarinas" on 23/12/2024, 18:18
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -124,14 +124,18 @@ class TestKernel extends Kernel
 				],
 			]);
 
+			$securityConfig = [];
+			if (Kernel::VERSION_ID < 60000) {
+				$securityConfig = ['enable_authenticator_manager' => true,];
+			}
 			$container->loadFromExtension('security', [
-				'enable_authenticator_manager' => true,
-				'firewalls'                    => [
+				...$securityConfig,
+				'firewalls'        => [
 					'main' => [
 						'security' => false,
 					],
 				],
-				'password_hashers'             => [
+				'password_hashers' => [
 					PasswordAuthenticatedUserInterface::class => [
 						'algorithm'   => 'auto',
 						'cost'        => 4,
