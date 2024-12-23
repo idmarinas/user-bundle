@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:54
+ * Last modified by "IDMarinas" on 22/12/2024, 22:51
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,7 +20,7 @@
 namespace Idm\Bundle\User\Tests\Form;
 
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
-use Idm\Bundle\User\Form\AbstractResetPasswordRequestFormType;
+use Idm\Bundle\User\Form\ResetPasswordRequestFormType;
 use Symfony\Component\Form\Test\Traits\ValidatorExtensionTrait;
 use Symfony\Component\Form\Test\TypeTestCase;
 
@@ -45,5 +45,3 @@ class ResetPasswordRequestFormTypeTest extends TypeTestCase
 		$this->assertEquals($formData['email'], $form->get('email')->getData());
 	}
 }
-
-class ResetPasswordRequestFormType extends AbstractResetPasswordRequestFormType {}
