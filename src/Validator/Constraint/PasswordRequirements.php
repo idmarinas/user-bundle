@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:53
+ * Last modified by "IDMarinas" on 23/12/2024, 19:45
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -28,7 +28,7 @@ final class PasswordRequirements extends Compound
 {
 	protected function getConstraints (array $options): array
 	{
-		$asserts = [
+		return [
 			new Assert\NotBlank(['message' => 'idm_user_bundle.password.not_blank']),
 			new Assert\Type('string'),
 			new Assert\Length([
@@ -38,18 +38,10 @@ final class PasswordRequirements extends Compound
 				'max'        => 4096,
 			]),
 			new Assert\NotCompromisedPassword(),
-		];
-
-		if (class_exists(Assert\NoSuspiciousCharacters::class)) {
-			$asserts[] = new Assert\NoSuspiciousCharacters(
+			new Assert\NoSuspiciousCharacters(
 				restrictionLevel: Assert\NoSuspiciousCharacters::RESTRICTION_LEVEL_HIGH
-			);
-		}
-
-		if (class_exists(Assert\PasswordStrength::class)) {
-			$asserts[] = new Assert\PasswordStrength(minScore: Assert\PasswordStrength::STRENGTH_WEAK);
-		}
-
-		return $asserts;
+			),
+			new Assert\PasswordStrength(minScore: Assert\PasswordStrength::STRENGTH_WEAK),
+		];
 	}
 }
