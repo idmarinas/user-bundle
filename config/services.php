@@ -27,7 +27,6 @@ use Idm\Bundle\User\Repository\ResetPasswordRequestRepository;
 use Idm\Bundle\User\Security\EmailVerifier;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Mailer\MailerInterface;
-use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
 use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
 
 return static function (ContainerConfigurator $container) {
@@ -56,6 +55,13 @@ return static function (ContainerConfigurator $container) {
 					service(ResetPasswordHelperInterface::class),
 					service(EntityManagerInterface::class),
 				])
+				->call('setContainer', [service_locator([
+					'router' => service('router'),
+					'request_stack' => service('request_stack'),
+					'session' => service('argument_resolver.session'),
+					'twig' => service('twig'),
+					'form.factory' => service('form.factory'),
+				])])
 	;
 	// @formatter:on
 };
