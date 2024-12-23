@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:54
+ * Last modified by "IDMarinas" on 23/12/2024, 17:53
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -29,8 +29,8 @@ use Doctrine\ORM\Query\FilterCollection;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\UnitOfWork;
 use Doctrine\Persistence\ManagerRegistry;
+use Fixtures\Repository\UserRepository;
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
-use Idm\Bundle\User\Repository\AbstractUserRepository;
 use Idm\Bundle\User\Tests\Fixtures\Entity\FakeUser;
 use Idm\Bundle\User\Tests\Fixtures\Entity\User;
 use PHPUnit\Framework\TestCase;
@@ -180,5 +180,3 @@ class UserRepositoryTest extends TestCase
 		return new UserRepository($managerRegistry, User::class);
 	}
 }
-
-class UserRepository extends AbstractUserRepository {}
