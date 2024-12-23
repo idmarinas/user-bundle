@@ -81,6 +81,13 @@
 			"Factory\\": "factories/"
 		}
 	},
+	"scripts": {
+		"test:fixtures:load": [
+			"php bin/console doctrine:schema:drop --env=test --force --ansi",
+			"php bin/console doctrine:schema:update --env=test --force --complete --ansi",
+			"php bin/console doctrine:fixtures:load --env=test -n --ansi"
+		]
+	},
 	"funding": [
 		{
 			"type": "paypal",
