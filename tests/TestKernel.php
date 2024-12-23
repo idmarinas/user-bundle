@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/12/2024, 11:03
+ * Last modified by "IDMarinas" on 23/12/2024, 13:21
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,6 +21,7 @@ namespace Idm\Bundle\User\Tests;
 
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
 use Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle;
+use Exception;
 use Idm\Bundle\User\IdmUserBundle;
 use Idm\Bundle\User\Model\Entity\AbstractUser;
 use Idm\Bundle\User\Model\Entity\AbstractUserConnectionLog;
@@ -63,6 +64,9 @@ class TestKernel extends Kernel
 		yield new ZenstruckFoundryBundle();
 	}
 
+	/**
+	 * @throws Exception
+	 */
 	public function registerContainerConfiguration (LoaderInterface $loader): void
 	{
 		$loader->load(function (ContainerBuilder $container) use ($loader) {
