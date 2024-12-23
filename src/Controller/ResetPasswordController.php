@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/12/2024, 19:48
+ * Last modified by "IDMarinas" on 23/12/2024, 20:47
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -68,7 +68,7 @@ final class ResetPasswordController extends AbstractController
 			return $this->processSendingPasswordResetEmail($email, $mailer, $twig, $translator);
 		}
 
-		return $this->renderForm('@IdmUser/reset_password/request.html.twig', [
+		return $this->render('@IdmUser/reset_password/request.html.twig', [
 			'form' => $form,
 		]);
 	}
@@ -151,7 +151,7 @@ final class ResetPasswordController extends AbstractController
 			return $this->redirectToRoute('app_home');
 		}
 
-		return $this->renderForm('@IdmUser/reset_password/reset.html.twig', [
+		return $this->render('@IdmUser/reset_password/reset.html.twig', [
 			'form' => $form,
 		]);
 	}
