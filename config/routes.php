@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:54
+ * Last modified by "IDMarinas" on 23/12/2024, 20:37
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -23,7 +23,7 @@ use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 return function (RoutingConfigurator $routes) {
 	// @formatter:off
 	$routes
-		->import(resource: ResetPasswordController::class, type: 'annotation')
+		->import(resource: ResetPasswordController::class, type: 'attribute')
 			->prefix('/user', false)
 			->namePrefix('idm_user_')
 	;
