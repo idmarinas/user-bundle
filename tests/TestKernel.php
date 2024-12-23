@@ -130,6 +130,26 @@ class TestKernel extends Kernel
 				],
 			]);
 
+			$container->loadFromExtension('stof_doctrine_extensions', [
+				'default_locale'       => '%kernel.default_locale%',
+				'translation_fallback' => true,
+				'orm'                  => [
+					# Activate the extensions you want
+					'default' => [
+						'translatable'        => false,
+						'timestampable'       => true,
+						'blameable'           => true,
+						'sluggable'           => false,
+						'tree'                => false,
+						'loggable'            => true,
+						'sortable'            => false,
+						'softdeleteable'      => true,
+						'uploadable'          => false,
+						'reference_integrity' => false,
+					],
+				],
+			]);
+
 			$container
 				->register('kernel', static::class)
 				->setPublic(true)
