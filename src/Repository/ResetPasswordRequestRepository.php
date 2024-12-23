@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 21/12/2024, 11:55
+ * Last modified by "IDMarinas" on 23/12/2024, 17:29
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,36 +19,17 @@
 
 namespace Idm\Bundle\User\Repository;
 
-use DateTimeInterface;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Idm\Bundle\User\Entity\ResetPasswordRequest;
-use Idm\Bundle\User\Model\Entity\AbstractUser;
-use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordRequestInterface;
-use SymfonyCasts\Bundle\ResetPassword\Persistence\Repository\ResetPasswordRequestRepositoryTrait;
-use SymfonyCasts\Bundle\ResetPassword\Persistence\ResetPasswordRequestRepositoryInterface;
+use Idm\Bundle\User\Model\Repository\AbstractResetPasswordRequestRepository;
 
 /**
- * @extends ServiceEntityRepository<ResetPasswordRequest>
+ * @extends AbstractResetPasswordRequestRepository<ResetPasswordRequest>
  */
-class ResetPasswordRequestRepository extends ServiceEntityRepository implements ResetPasswordRequestRepositoryInterface
+class ResetPasswordRequestRepository extends AbstractResetPasswordRequestRepository
 {
-	use ResetPasswordRequestRepositoryTrait;
-
 	public function __construct (ManagerRegistry $registry)
 	{
 		parent::__construct($registry, ResetPasswordRequest::class);
-	}
-
-	/**
-	 * @param AbstractUser $user
-	 */
-	public function createResetPasswordRequest (
-		object            $user,
-		DateTimeInterface $expiresAt,
-		string            $selector,
-		string            $hashedToken
-	): ResetPasswordRequestInterface {
-		return new ResetPasswordRequest($user, $expiresAt, $selector, $hashedToken);
 	}
 }
