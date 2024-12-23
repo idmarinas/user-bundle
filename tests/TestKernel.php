@@ -77,6 +77,9 @@ class TestKernel extends Kernel
 				'form'       => true,
 				'validation' => true,
 				'mailer'     => true,
+				'validation' => [
+					'not_compromised_password' => false,
+				],
 				'session'    => [
 					'storage_factory_id' => 'session.storage.factory.mock_file',
 				],
