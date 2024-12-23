@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 19/12/2024, 22:39
+ * Last modified by "IDMarinas" on 23/12/2024, 21:14
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -63,7 +63,7 @@ final class UserFactory extends PersistentProxyObjectFactory
 		];
 	}
 
-	protected function initialize ()
+	protected function initialize (): static
 	{
 		return parent::initialize()
 			->afterInstantiate(function (User $user) {
