@@ -52,7 +52,7 @@
 		"symfony/phpunit-bridge": "^6.0",
 		"symfony/runtime": "^6.4 | ^7.0",
 		"symfony/uid": "^6.4 | ^7.0",
-		"zenstruck/foundry": "^1.38"
+		"zenstruck/foundry": "^2.3"
 	},
 	"conflict": {
 		"idmarinas/common-bundle": "<=3.0.0"
