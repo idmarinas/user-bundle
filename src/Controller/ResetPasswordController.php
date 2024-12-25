@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 25/12/2024, 19:40
+ * Last modified by "IDMarinas" on 25/12/2024, 20:37
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -33,7 +33,6 @@ use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
@@ -54,12 +53,17 @@ final class ResetPasswordController extends AbstractController
 		private readonly EntityManagerInterface       $entityManager
 	) {}
 
+	/**
+	 * @throws SyntaxError
+	 * @throws TransportExceptionInterface
+	 * @throws RuntimeError
+	 * @throws LoaderError
+	 */
 	#[Route('', name: 'forgot_password_request', methods: ['GET', 'POST'])]
 	public function request (
-		Request             $request,
-		MailerInterface     $mailer,
-		TranslatorInterface $translator,
-		Environment         $twig,
+		Request         $request,
+		MailerInterface $mailer,
+		Environment     $twig,
 	): Response {
 		$form = $this->createForm(ResetPasswordRequestFormType::class);
 		$form->handleRequest($request);
@@ -68,7 +72,7 @@ final class ResetPasswordController extends AbstractController
 			/** @var string $email */
 			$email = $form->get('email')->getData();
 
-			return $this->processSendingPasswordResetEmail($email, $mailer, $twig, $translator);
+			return $this->processSendingPasswordResetEmail($email, $mailer, $twig);
 		}
 
 		return $this->render('@IdmUser/reset_password/request.html.twig', [
