@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 25/12/2024, 19:02
+ * Last modified by "IDMarinas" on 25/12/2024, 21:11
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -144,7 +144,9 @@ class TestKernel extends Kernel
 				...$securityConfig,
 				'firewalls'        => [
 					'main' => [
-						'security' => false,
+						'logout' => [
+							'path' => '/logout',
+						],
 					],
 				],
 				'password_hashers' => [
@@ -193,6 +195,7 @@ class TestKernel extends Kernel
 	public function configureRoutes (RoutingConfigurator $routes): void
 	{
 		$routes->import($this->getConfigDir() . '/routes.php');
+		$routes->import('security.route_loader.logout', 'service')->methods(['GET']);
 
 		$routes->add('app_home', '/')->methods(['GET']);
 	}
