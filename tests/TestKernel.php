@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 23:05
+ * Last modified by "idmarinas" on 26/12/2024, 23:08
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -72,7 +72,10 @@ class TestKernel extends Kernel
 	 */
 	public function registerContainerConfiguration (LoaderInterface $loader): void
 	{
-		$loader->load(function (ContainerBuilder $container) use ($loader) {
+		$loader->load($this->getConfigDir() . '/factories.php');
+		$loader->load($this->getConfigDir() . '/fixtures.php');
+
+		$loader->load(function (ContainerBuilder $container) {
 			$container->loadFromExtension('framework', [
 				'test'                  => true,
 				'http_method_override'  => false,
@@ -205,9 +208,6 @@ class TestKernel extends Kernel
 
 			$kernelDefinition = $container->getDefinition('kernel');
 			$kernelDefinition->addTag('routing.route_loader');
-
-			$loader->load($this->getConfigDir() . '/factories.php');
-			$loader->load($this->getConfigDir() . '/fixtures.php');
 		});
 	}
 
