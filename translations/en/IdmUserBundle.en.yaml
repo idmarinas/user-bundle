@@ -43,6 +43,41 @@ controller:
   reset_password:
   login:
     title: Login
+  profile:
+    title:
+      profile: Profile of {name}
+      change_password: Change password
+      options: Account options
+      delete: Delete account {name}
+      terms_and_privacy: Acceptance of terms and conditions
+      avatars: Lista de avatares
+
+    tab:
+      profile: Profile
+
+    profile:
+      username: User
+      email: E-mail address
+      created_at: Account creation date
+      delete:
+        note: |
+          If you no longer want to have an account with us, you can delete the account.
+          Once the account is deleted it is no longer possible to recover it.
+        button: Delete user account
+      change_password:
+        note: |
+          It is advisable to change the password from time to time, from this link you can change the password.
+        button: Cambiar contraseña
+
+    delete_user:
+      paragraph: |
+        Are you sure you want to delete the <strong>{name}</strong> account?
+        This action cannot be undone and it is not possible to recover the account data once it is deleted.
+
+        Confirm the account deletion.
+      button:
+        yes: Yes
+        no: No
 
 
 email:
