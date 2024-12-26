@@ -1,0 +1,42 @@
+{% extends '@IdmUser/base.html.twig' %}
+
+{% block title 'controller.login.title'|trans({}, 'IdmUserBundle') %}
+
+{% block body %}
+	<form action="{{ path('idm_user_login') }}" method="post" id="login_form">
+		{% if error is not empty %}
+			{{ error.messageKey|trans(error.messageData, 'security') }}
+		{% endif %}
+
+		<input
+			type="email" required autocomplete="email"
+			id="username"
+			name="_username"
+			aria-required="true"
+			aria-label="{{ 'form.login.user_name'|trans({}, 'IdmUserBundle') }}"
+			placeholder="{{ 'form.login.user_name'|trans({}, 'IdmUserBundle') }}"
+			value="{{ last_username }}"
+		/>
+
+		<input
+			type="password" required autocomplete="current-password"
+			id="password"
+			name="_password"
+			aria-required="true"
+			aria-label="{{ 'form.login.password'|trans({}, 'IdmUserBundle') }}"
+			placeholder="{{ 'form.login.password'|trans({}, 'IdmUserBundle') }}"
+		/>
+
+		<button type="submit">{{ 'form.login.button'|trans({}, 'IdmUserBundle') }}</button>
+
+		<a href="{{ path('idm_user_forgot_password_request') }}">
+			{{ 'form.link.forgot'|trans({}, 'IdmUserBundle') }}
+		</a>
+
+		<a href="{{ path('idm_user_registration_register_web') }}">
+			{{ 'form.link.not_account'|trans({}, 'IdmUserBundle') }}
+		</a>
+
+		<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
+	</form>
+{% endblock %}
