@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 23:08
+ * Last modified by "idmarinas" on 26/12/2024, 23:09
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -31,6 +31,7 @@ use Idm\Bundle\User\Security\Checker\UserChecker;
 use Idm\Bundle\User\Tests\Fixtures\Entity\User;
 use Idm\Bundle\User\Tests\Fixtures\Entity\UserConnectionLog;
 use Idm\Bundle\User\Tests\Fixtures\Entity\UserPremium;
+use Idm\Bundle\User\Tests\Fixtures\Repository\UserRepository;
 use Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
@@ -208,6 +209,13 @@ class TestKernel extends Kernel
 
 			$kernelDefinition = $container->getDefinition('kernel');
 			$kernelDefinition->addTag('routing.route_loader');
+
+			$container
+				->register(UserRepository::class, UserRepository::class)
+				->setPublic(true)
+				->setAutoconfigured(true)
+				->setAutowired(true)
+			;
 		});
 	}
 
