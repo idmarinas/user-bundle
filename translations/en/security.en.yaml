@@ -1,0 +1,6 @@
+idm_user_bundle:
+  role.insufficient: Insufficient user permissions
+  account:
+    no_exist: Your user account no longer exists
+    banned: Your user account has been banned
+  email.not_verified: You need to verify your email address

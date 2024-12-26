@@ -1,0 +1,6 @@
+idm_user_bundle:
+  role.insufficient: Permisos de usuario insuficientes
+  account:
+    no_exist: Su cuenta de usuario ya no existe
+    banned: Su cuenta de usuario ha sido bloqueada
+  email.not_verified: Necesita verificar su dirección de correo electrónico
