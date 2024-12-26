@@ -1,0 +1,60 @@
+form:
+  register:
+    email: E-mail address
+    agree_terms: Accept terms
+    agree_privacy: Accept privacy policy
+    password: Password
+    repeat_password: Repeat password
+    button: Create an account
+
+  login:
+    user_name: User
+    password: Password
+    button: Connect
+
+  reset_password:
+    new: New password
+    repeat: Repeat password
+    button: Restablecer contraseña
+
+  change_password:
+    current_password: Current password
+    new: New password
+    repeat: Repeat password
+    button: Change password
+    password:
+      current:
+        title: Your current password
+        paragraph: To prove that you are you
+      new:
+        title: New password
+        paragraph: Type the new password and repeat it to confirm.
+
+  forgot_password:
+    email: E-mail address
+    button: Send reset mail
+
+  link:
+    not_account: Don't have an account? Create an account
+    have_account: Already have an account? Log in
+    forgot: Forgot your password?
+
+controller:
+  reset_password:
+  login:
+    title: Login
+
+
+email:
+  reset_password:
+    subject: Your password reset request
+    body:
+      title: Hi!
+      paragraph: To reset your password, please visit the following link
+      expiration: This link will expire in
+      farewell: Cheers!
+
+flash:
+  error:
+    delete_user:
+      csrf: The form is invalid, please try again.
