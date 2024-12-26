@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 17:50
+ * Last modified by "idmarinas" on 26/12/2024, 17:53
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -37,9 +37,6 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
-use Twig\Error\LoaderError;
-use Twig\Error\RuntimeError;
-use Twig\Error\SyntaxError;
 use function Symfony\Component\Translation\t;
 
 #[AsController]
@@ -54,10 +51,7 @@ final class ResetPasswordController extends AbstractController
 	) {}
 
 	/**
-	 * @throws SyntaxError
 	 * @throws TransportExceptionInterface
-	 * @throws RuntimeError
-	 * @throws LoaderError
 	 */
 	#[Route('', name: 'forgot_password_request', methods: ['GET', 'POST'])]
 	public function request (
@@ -163,10 +157,7 @@ final class ResetPasswordController extends AbstractController
 	}
 
 	/**
-	 * @throws SyntaxError
 	 * @throws TransportExceptionInterface
-	 * @throws RuntimeError
-	 * @throws LoaderError
 	 */
 	private function processSendingPasswordResetEmail (
 		string              $emailFormData,
