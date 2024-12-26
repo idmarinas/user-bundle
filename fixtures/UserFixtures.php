@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 19/12/2024, 23:06
+ * Last modified by "idmarinas" on 26/12/2024, 22:42
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -40,10 +40,31 @@ final class UserFixtures extends Fixture implements FixtureGroupInterface
 	 */
 	public function load (ObjectManager $manager): void
 	{
+		// 200 additional users added
+		// 50% verified, 50% banned and 50% deleted
+		UserFactory::createMany(25, ['verified' => true]);
+		UserFactory::createMany(25, ['verified' => true, 'banned_until' => null]);
+		UserFactory::createMany(25, ['verified' => true, 'deleted_at' => null]);
+		UserFactory::createMany(25, ['verified' => true, 'banned_until' => null, 'deleted_at' => null]);
+
+		// 50% unverified, 50% banned and 50% deleted
+		UserFactory::createMany(25, ['verified' => false]);
+		UserFactory::createMany(25, ['verified' => false, 'banned_until' => null]);
+		UserFactory::createMany(25, ['verified' => false, 'deleted_at' => null]);
+		UserFactory::createMany(25, ['verified' => false, 'banned_until' => null, 'deleted_at' => null]);
+
+		$users = UserFactory::all();
+
+		foreach ($users as $key => $user) {
+			$this->addReference(self::NORMAL_USER . $key, $user->_real());
+		}
+
 		$opts = [
 			'verified'         => true,
 			'terms_accepted'   => true,
 			'privacy_accepted' => true,
+			'banned_until'     => null,
+			'deleted_at'       => null,
 			'password'         => self::USER_PASS,
 		];
 
@@ -64,34 +85,5 @@ final class UserFixtures extends Fixture implements FixtureGroupInterface
 
 		$this->addReference('user', $user->_real());
 		$this->addReference('user_admin', $admin->_real());
-
-		// 200 additional users added
-		UserFactory::createMany(200);
-		// 50% verified 50% unverified
-		$verified = UserFactory::count(['verified' => true]) - 2;
-		if (0 != $need = 100 - $verified) {
-			if ($need > 0) {
-				$more = UserFactory::repository()->findBy(['verified' => false], null, $need, 2);
-				foreach ($more as $user) {
-					$user->setVerified(true);
-					$user->_save();
-				}
-			}
-			else {
-				$less = UserFactory::repository()->findBy(['verified' => true], null, abs($need), 2);
-				foreach ($less as $user) {
-					$user->setVerified(false);
-					$user->_save();
-				}
-			}
-		}
-
-		$users = UserFactory::all();
-		unset($users[0], $users[1]);
-		sort($users);
-
-		foreach ($users as $key => $user) {
-			$this->addReference(self::NORMAL_USER . $key, $user->_real());
-		}
 	}
 }
