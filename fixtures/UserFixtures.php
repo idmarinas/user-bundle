@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 22:42
+ * Last modified by "idmarinas" on 26/12/2024, 23:52
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -40,18 +40,23 @@ final class UserFixtures extends Fixture implements FixtureGroupInterface
 	 */
 	public function load (ObjectManager $manager): void
 	{
+		$opts = [
+			'banned_until' => null,
+			'deleted_at'   => null,
+			'password'     => self::USER_PASS,
+		];
 		// 200 additional users added
 		// 50% verified, 50% banned and 50% deleted
-		UserFactory::createMany(25, ['verified' => true]);
-		UserFactory::createMany(25, ['verified' => true, 'banned_until' => null]);
-		UserFactory::createMany(25, ['verified' => true, 'deleted_at' => null]);
-		UserFactory::createMany(25, ['verified' => true, 'banned_until' => null, 'deleted_at' => null]);
+		UserFactory::createMany(25, ['verified' => true, 'password' => self::USER_PASS]);
+		UserFactory::createMany(25, ['verified' => true, 'banned_until' => null, 'password' => self::USER_PASS]);
+		UserFactory::createMany(25, ['verified' => true, 'deleted_at' => null, 'password' => self::USER_PASS]);
+		UserFactory::createMany(25, ['verified' => true, ...$opts,]);
 
 		// 50% unverified, 50% banned and 50% deleted
-		UserFactory::createMany(25, ['verified' => false]);
-		UserFactory::createMany(25, ['verified' => false, 'banned_until' => null]);
-		UserFactory::createMany(25, ['verified' => false, 'deleted_at' => null]);
-		UserFactory::createMany(25, ['verified' => false, 'banned_until' => null, 'deleted_at' => null]);
+		UserFactory::createMany(25, ['verified' => false, 'password' => self::USER_PASS]);
+		UserFactory::createMany(25, ['verified' => false, 'banned_until' => null, 'password' => self::USER_PASS]);
+		UserFactory::createMany(25, ['verified' => false, 'deleted_at' => null, 'password' => self::USER_PASS]);
+		UserFactory::createMany(25, ['verified' => false, ...$opts]);
 
 		$users = UserFactory::all();
 
