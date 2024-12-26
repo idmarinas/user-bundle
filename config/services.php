@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 21:00
+ * Last modified by "idmarinas" on 26/12/2024, 21:09
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,6 +21,7 @@
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use Idm\Bundle\User\Controller\LoginController;
+use Idm\Bundle\User\Controller\ProfileController;
 use Idm\Bundle\User\Controller\ResetPasswordController;
 use Idm\Bundle\User\Repository\ResetPasswordRequestRepository;
 use Idm\Bundle\User\Security\Checker\UserAdminChecker;
@@ -39,6 +40,8 @@ return static function (ContainerConfigurator $container) {
 		->set(ResetPasswordController::class, ResetPasswordController::class)->public()->autoconfigure()->autowire()
 		// Register LoginController
 		->set(LoginController::class, LoginController::class)->public()->autoconfigure()->autowire()
+		// Register ProfileController
+		->set(ProfileController::class, ProfileController::class)->public()->autoconfigure()->autowire()
 		// Register UserChecker
 		->set(UserChecker::class, UserChecker::class)->public()->autowire()->autoconfigure()
 		// Register UserAdminChecker
