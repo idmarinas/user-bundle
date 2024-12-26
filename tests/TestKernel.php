@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 25/12/2024, 21:11
+ * Last modified by "idmarinas" on 26/12/2024, 16:45
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -91,7 +91,13 @@ class TestKernel extends Kernel
 					'not_compromised_password' => false,
 				],
 				'mailer'                => [
-					'dsn' => $_ENV['MAILER_DSN'] ?? 'null://null',
+					'dsn'      => $_ENV['MAILER_DSN'] ?? 'null://null',
+					'envelope' => [
+						'sender' => 'idm_user@test.bundle',
+					],
+					'headers'  => [
+						'From' => 'IDMarinas User Bundle <idm_user@test.bundle>',
+					],
 				],
 				'session'               => [
 					'handler_id'         => null,
