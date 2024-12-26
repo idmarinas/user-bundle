@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 22:35
+ * Last modified by "idmarinas" on 26/12/2024, 22:45
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -71,14 +71,6 @@ final class UserFactory extends PersistentProxyObjectFactory
 			->afterInstantiate(function (User $user) {
 				$user->setPassword($this->hasher->hashPassword($user, $user->getPassword()));
 			})
-//			->afterPersist(function (User $object, array $attributes, UserFactory $factory) {
-//				// this event is only called if the object was persisted
-//				// $object is the persisted Post object
-//				// $attributes contains the attributes used to instantiate the object and any extras
-//				// $factory is the factory instance which creates the object
-//				$verified = $factory::count(['verified' => true]);
-//				$unverified = $factory::count(['verified' => false]);
-//			})
-			;
+		;
 	}
 }
