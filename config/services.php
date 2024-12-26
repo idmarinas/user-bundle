@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 19:43
+ * Last modified by "idmarinas" on 26/12/2024, 19:44
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -22,6 +22,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
+use Idm\Bundle\User\Controller\LoginController;
 use Idm\Bundle\User\Controller\ResetPasswordController;
 use Idm\Bundle\User\Repository\ResetPasswordRequestRepository;
 use Idm\Bundle\User\Security\EmailVerifier;
@@ -50,6 +51,11 @@ return static function (ContainerConfigurator $container) {
 				])
 			// Register ResetPasswordController
 			->set(ResetPasswordController::class, ResetPasswordController::class)
+				->public()
+				->autoconfigure()
+				->autowire()
+			// Register LoginController
+			->set(LoginController::class, LoginController::class)
 				->public()
 				->autoconfigure()
 				->autowire()
