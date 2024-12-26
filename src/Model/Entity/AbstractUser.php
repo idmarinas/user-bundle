@@ -2,7 +2,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 21/12/2024, 11:55
+ * Last modified by "idmarinas" on 26/12/2024, 20:41
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -23,6 +23,7 @@ use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\IpTraceable\Traits\IpTraceableEntity;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Idm\Bundle\Common\Traits\Entity\UuidTrait;
 use Idm\Bundle\User\Traits\Entity\BanTrait;
@@ -45,6 +46,7 @@ abstract class AbstractUser implements UserInterface, EquatableInterface, Passwo
 	use SecurityTrait;
 	use TimestampableEntity;
 	use IpTraceableEntity;
+	use SoftDeleteableEntity;
 
 	#[ORM\Column(length: 180, unique: true)]
 	protected ?string $email = null;
@@ -100,14 +102,6 @@ abstract class AbstractUser implements UserInterface, EquatableInterface, Passwo
 	}
 
 	/**
-	 * @deprecated since Symfony 5.3, use getUserIdentifier instead
-	 */
-	public function getUsername (): string
-	{
-		return $this->getUserIdentifier();
-	}
-
-	/**
 	 * @see UserInterface
 	 */
 	public function getRoles (): array
@@ -124,6 +118,14 @@ abstract class AbstractUser implements UserInterface, EquatableInterface, Passwo
 		$this->roles = $roles;
 
 		return $this;
+	}
+
+	/**
+	 * @deprecated since Symfony 5.3, use getUserIdentifier instead
+	 */
+	public function getUsername (): string
+	{
+		return $this->getUserIdentifier();
 	}
 
 	public function isVerified (): bool
