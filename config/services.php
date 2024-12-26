@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 20:58
+ * Last modified by "idmarinas" on 26/12/2024, 21:00
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,45 +20,29 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\Persistence\ManagerRegistry;
 use Idm\Bundle\User\Controller\LoginController;
 use Idm\Bundle\User\Controller\ResetPasswordController;
 use Idm\Bundle\User\Repository\ResetPasswordRequestRepository;
 use Idm\Bundle\User\Security\Checker\UserAdminChecker;
 use Idm\Bundle\User\Security\Checker\UserChecker;
 use Idm\Bundle\User\Security\EmailVerifier;
-use Symfony\Component\HttpFoundation\RequestStack;
-use Symfony\Component\Mailer\MailerInterface;
-use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
 
 return static function (ContainerConfigurator $container) {
 	// @formatter:off
 	$container
 		->services()
-			// Register EmailVerifier service
-			->set('idm_user.service.email_verifier', EmailVerifier::class)
-				->public()
-				->args([
-					service(VerifyEmailHelperInterface::class),
-					service(MailerInterface::class),
-					service(EntityManagerInterface::class),
-					service(RequestStack::class),
-				])
-			// Register ResetPasswordRequestRepository service
-			->set(ResetPasswordRequestRepository::class, ResetPasswordRequestRepository::class)
-				->public()
-				->args([
-					service(ManagerRegistry::class),
-				])
-			// Register ResetPasswordController
-			->set(ResetPasswordController::class, ResetPasswordController::class)->public()->autoconfigure()->autowire()
-			// Register LoginController
-			->set(LoginController::class, LoginController::class)->public()->autoconfigure()->autowire()
-			// Register UserChecker
-			->set(UserChecker::class, UserChecker::class)->public()->autowire()->autoconfigure()
-			// Register UserAdminChecker
-			->set(UserAdminChecker::class, UserAdminChecker::class)->public()->autowire()->autoconfigure()
+		// Register EmailVerifier service
+		->set('idm_user.service.email_verifier', EmailVerifier::class)->public()->autowire()->autoconfigure()
+		// Register ResetPasswordRequestRepository service
+		->set(ResetPasswordRequestRepository::class, ResetPasswordRequestRepository::class)->public()->autowire()->autoconfigure()
+		// Register ResetPasswordController
+		->set(ResetPasswordController::class, ResetPasswordController::class)->public()->autoconfigure()->autowire()
+		// Register LoginController
+		->set(LoginController::class, LoginController::class)->public()->autoconfigure()->autowire()
+		// Register UserChecker
+		->set(UserChecker::class, UserChecker::class)->public()->autowire()->autoconfigure()
+		// Register UserAdminChecker
+		->set(UserAdminChecker::class, UserAdminChecker::class)->public()->autowire()->autoconfigure()
 	;
 	// @formatter:on
 };
