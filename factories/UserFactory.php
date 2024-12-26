@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/12/2024, 21:14
+ * Last modified by "idmarinas" on 26/12/2024, 22:35
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -42,7 +42,7 @@ final class UserFactory extends PersistentProxyObjectFactory
 	protected function defaults (): array|callable
 	{
 		$createdAt = self::faker()->dateTime('-1 year');
-		$updatedAt = self::faker()->dateTimeBetween($createdAt);
+		$updatedAt = self::faker()->dateTimeBetween($createdAt, '-1 day');
 
 		return [
 			'email'                 => self::faker()->unique()->email(),
@@ -57,6 +57,8 @@ final class UserFactory extends PersistentProxyObjectFactory
 			'last_connection'       => self::faker()->dateTimeBetween($createdAt, $updatedAt),
 			'created_at'            => $createdAt,
 			'updated_at'            => $updatedAt,
+			'banned_until'          => self::faker()->dateTimeBetween('now', '+3 years'),
+			'deleted_at'            => self::faker()->dateTimeBetween($createdAt),
 			'privacy_accepted'      => self::faker()->boolean(),
 			'terms_accepted'        => self::faker()->boolean(),
 			'verified'              => self::faker()->boolean(),
@@ -69,6 +71,14 @@ final class UserFactory extends PersistentProxyObjectFactory
 			->afterInstantiate(function (User $user) {
 				$user->setPassword($this->hasher->hashPassword($user, $user->getPassword()));
 			})
-		;
+//			->afterPersist(function (User $object, array $attributes, UserFactory $factory) {
+//				// this event is only called if the object was persisted
+//				// $object is the persisted Post object
+//				// $attributes contains the attributes used to instantiate the object and any extras
+//				// $factory is the factory instance which creates the object
+//				$verified = $factory::count(['verified' => true]);
+//				$unverified = $factory::count(['verified' => false]);
+//			})
+			;
 	}
 }
