@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 19:44
+ * Last modified by "idmarinas" on 26/12/2024, 20:56
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -25,6 +25,8 @@ use Doctrine\Persistence\ManagerRegistry;
 use Idm\Bundle\User\Controller\LoginController;
 use Idm\Bundle\User\Controller\ResetPasswordController;
 use Idm\Bundle\User\Repository\ResetPasswordRequestRepository;
+use Idm\Bundle\User\Security\Checker\UserAdminChecker;
+use Idm\Bundle\User\Security\Checker\UserChecker;
 use Idm\Bundle\User\Security\EmailVerifier;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Mailer\MailerInterface;
@@ -59,6 +61,16 @@ return static function (ContainerConfigurator $container) {
 				->public()
 				->autoconfigure()
 				->autowire()
+			// Register UserChecker
+			->set(UserChecker::class, UserChecker::class)
+				->public()
+				->autowire()
+				->autoconfigure()
+			// Register UserAdminChecker
+			->set(UserAdminChecker::class, UserAdminChecker::class)
+				->public()
+				->autowire()
+				->autoconfigure()
 	;
 	// @formatter:on
 };
