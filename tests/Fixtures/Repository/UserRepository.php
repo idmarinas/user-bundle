@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/12/2024, 17:56
+ * Last modified by "idmarinas" on 26/12/2024, 23:03
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,6 +19,14 @@
 
 namespace Idm\Bundle\User\Tests\Fixtures\Repository;
 
+use Doctrine\Persistence\ManagerRegistry;
 use Idm\Bundle\User\Model\Repository\AbstractUserRepository;
+use Idm\Bundle\User\Tests\Fixtures\Entity\User;
 
-class UserRepository extends AbstractUserRepository {}
+class UserRepository extends AbstractUserRepository
+{
+	public function __construct (ManagerRegistry $registry)
+	{
+		parent::__construct($registry, User::class);
+	}
+}
