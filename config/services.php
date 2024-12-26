@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 20:56
+ * Last modified by "idmarinas" on 26/12/2024, 20:58
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -36,7 +36,7 @@ return static function (ContainerConfigurator $container) {
 	// @formatter:off
 	$container
 		->services()
-		  // Register EmailVerifier service
+			// Register EmailVerifier service
 			->set('idm_user.service.email_verifier', EmailVerifier::class)
 				->public()
 				->args([
@@ -49,28 +49,16 @@ return static function (ContainerConfigurator $container) {
 			->set(ResetPasswordRequestRepository::class, ResetPasswordRequestRepository::class)
 				->public()
 				->args([
-					service(ManagerRegistry::class)
+					service(ManagerRegistry::class),
 				])
 			// Register ResetPasswordController
-			->set(ResetPasswordController::class, ResetPasswordController::class)
-				->public()
-				->autoconfigure()
-				->autowire()
+			->set(ResetPasswordController::class, ResetPasswordController::class)->public()->autoconfigure()->autowire()
 			// Register LoginController
-			->set(LoginController::class, LoginController::class)
-				->public()
-				->autoconfigure()
-				->autowire()
+			->set(LoginController::class, LoginController::class)->public()->autoconfigure()->autowire()
 			// Register UserChecker
-			->set(UserChecker::class, UserChecker::class)
-				->public()
-				->autowire()
-				->autoconfigure()
+			->set(UserChecker::class, UserChecker::class)->public()->autowire()->autoconfigure()
 			// Register UserAdminChecker
-			->set(UserAdminChecker::class, UserAdminChecker::class)
-				->public()
-				->autowire()
-				->autoconfigure()
+			->set(UserAdminChecker::class, UserAdminChecker::class)->public()->autowire()->autoconfigure()
 	;
 	// @formatter:on
 };
