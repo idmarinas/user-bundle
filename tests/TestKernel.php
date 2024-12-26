@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 16:45
+ * Last modified by "idmarinas" on 26/12/2024, 20:44
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -27,6 +27,7 @@ use Idm\Bundle\User\IdmUserBundle;
 use Idm\Bundle\User\Model\Entity\AbstractUser;
 use Idm\Bundle\User\Model\Entity\AbstractUserConnectionLog;
 use Idm\Bundle\User\Model\Entity\AbstractUserPremium;
+use Idm\Bundle\User\Security\Checker\UserChecker;
 use Idm\Bundle\User\Tests\Fixtures\Entity\User;
 use Idm\Bundle\User\Tests\Fixtures\Entity\UserConnectionLog;
 use Idm\Bundle\User\Tests\Fixtures\Entity\UserPremium;
@@ -148,10 +149,27 @@ class TestKernel extends Kernel
 			}
 			$container->loadFromExtension('security', [
 				...$securityConfig,
+				'providers'        => [
+					'idm_user_provider' => [
+						'entity' => [
+							'class'    => User::class,
+							'property' => 'email',
+						],
+					],
+				],
 				'firewalls'        => [
 					'main' => [
-						'logout' => [
+						'logout'       => [
 							'path' => '/logout',
+						],
+						'provider'     => 'idm_user_provider',
+						'user_checker' => UserChecker::class,
+						'form_login'   => [
+							'login_path'          => 'idm_user_login',
+							'check_path'          => 'idm_user_login',
+							'enable_csrf'         => true,
+							'form_only'           => true,
+							'default_target_path' => 'idm_user_profile_index',
 						],
 					],
 				],
