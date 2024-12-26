@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/12/2024, 17:29
+ * Last modified by "idmarinas" on 26/12/2024, 14:41
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,9 +19,11 @@
 
 namespace Idm\Bundle\User\Repository;
 
+use DateTimeInterface;
 use Doctrine\Persistence\ManagerRegistry;
 use Idm\Bundle\User\Entity\ResetPasswordRequest;
 use Idm\Bundle\User\Model\Repository\AbstractResetPasswordRequestRepository;
+use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordRequestInterface;
 
 /**
  * @extends AbstractResetPasswordRequestRepository<ResetPasswordRequest>
@@ -31,5 +33,27 @@ class ResetPasswordRequestRepository extends AbstractResetPasswordRequestReposit
 	public function __construct (ManagerRegistry $registry)
 	{
 		parent::__construct($registry, ResetPasswordRequest::class);
+	}
+
+	/** @inheritDoc */
+	public function getMostRecentNonExpiredRequestDate (object $user): ?DateTimeInterface
+	{
+		// Normally there is only 1 max request per use, but written to be flexible
+		/** @var ResetPasswordRequestInterface $resetPasswordRequest */
+		$resetPasswordRequest = $this
+			->createQueryBuilder('t')
+			->where('t.user = :user')
+			->setParameter('user', $user->getId(), 'uuid')
+			->orderBy('t.requestedAt', 'DESC')
+			->setMaxResults(1)
+			->getQuery()
+			->getOneOrNullResult()
+		;
+
+		if (null !== $resetPasswordRequest && !$resetPasswordRequest->isExpired()) {
+			return $resetPasswordRequest->getRequestedAt();
+		}
+
+		return null;
 	}
 }
