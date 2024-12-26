@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/12/2024, 17:39
+ * Last modified by "idmarinas" on 26/12/2024, 19:43
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -51,13 +51,6 @@ return static function (ContainerConfigurator $container) {
 			// Register ResetPasswordController
 			->set(ResetPasswordController::class, ResetPasswordController::class)
 				->public()
-				->call('setContainer', [service_locator([
-					'router' => service('router'),
-					'request_stack' => service('request_stack'),
-					'session' => service('argument_resolver.session'),
-					'twig' => service('twig'),
-					'form.factory' => service('form.factory'),
-				])])
 				->autoconfigure()
 				->autowire()
 	;
