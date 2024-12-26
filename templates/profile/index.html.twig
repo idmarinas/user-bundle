@@ -1,0 +1,37 @@
+{% extends '@IdmUser/base.html.twig' %}
+
+{% block title 'controller.profile.title.profile'|trans({ name: app.user.displayName }, 'IdmUserBundle') %}
+
+{% block content %}
+	<dl>
+		<dt>{{ 'controller.profile.profile.username'|trans({}, 'IdmUserBundle') }}</dt>
+		<dd>{{ app.user.displayName }}</dd>
+
+		<dt>{{ 'controller.profile.profile.email'|trans({}, 'IdmUserBundle') }}</dt>
+		<dd>{{ app.user.email }}</dd>
+
+		<dt>{{ 'controller.profile.profile.created_at'|trans({}, 'IdmUserBundle') }}</dt>
+		<dd>{{ app.user.createdAt }}</dd>
+	</dl>
+
+	<h3>{{ 'controller.profile.title.options'|trans({}, 'IdmUserBundle') }}</h3>
+	<hr />
+
+	<label>
+		{{ 'controller.profile.profile.change_password.note'|trans({}, 'IdmUserBundle') }}
+	</label>
+	<div>
+		<a class="btn" href="{{ path('idm_user_profile_change_password') }}">
+			{{ 'controller.profile.profile.change_password.button'|trans({}, 'IdmUserBundle') }}
+		</a>
+	</div>
+
+	<label>
+		{{ 'controller.profile.profile.delete.note'|trans({}, 'IdmUserBundle') }}
+	</label>
+	<div>
+		<a href="{{ path('idm_user_profile_delete_user') }}">
+			{{ 'controller.profile.profile.delete.button'|trans({}, 'IdmUserBundle') }}
+		</a>
+	</div>
+{% endblock %}
