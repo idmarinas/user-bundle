@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 21:09
+ * Last modified by "IDMarinas" on 27/12/2024, 18:51
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -22,6 +22,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use Idm\Bundle\User\Controller\LoginController;
 use Idm\Bundle\User\Controller\ProfileController;
+use Idm\Bundle\User\Controller\RegistrationController;
 use Idm\Bundle\User\Controller\ResetPasswordController;
 use Idm\Bundle\User\Repository\ResetPasswordRequestRepository;
 use Idm\Bundle\User\Security\Checker\UserAdminChecker;
@@ -37,15 +38,20 @@ return static function (ContainerConfigurator $container) {
 		// Register ResetPasswordRequestRepository service
 		->set(ResetPasswordRequestRepository::class, ResetPasswordRequestRepository::class)->public()->autowire()->autoconfigure()
 		// Register ResetPasswordController
-		->set(ResetPasswordController::class, ResetPasswordController::class)->public()->autoconfigure()->autowire()
+		->set(ResetPasswordController::class, ResetPasswordController::class)->autoconfigure()->autowire()
 		// Register LoginController
-		->set(LoginController::class, LoginController::class)->public()->autoconfigure()->autowire()
+		->set(LoginController::class, LoginController::class)->autoconfigure()->autowire()
 		// Register ProfileController
-		->set(ProfileController::class, ProfileController::class)->public()->autoconfigure()->autowire()
+		->set(ProfileController::class, ProfileController::class)->autoconfigure()->autowire()
+		// Register RegistrationController
+		->set(RegistrationController::class, RegistrationController::class)
+			->arg('$emailVerifier', service('idm_user.service.email_verifier'))
+			->autoconfigure()
+			->autowire()
 		// Register UserChecker
-		->set(UserChecker::class, UserChecker::class)->public()->autowire()->autoconfigure()
+		->set(UserChecker::class, UserChecker::class)->public()->autoconfigure()->autowire()
 		// Register UserAdminChecker
-		->set(UserAdminChecker::class, UserAdminChecker::class)->public()->autowire()->autoconfigure()
+		->set(UserAdminChecker::class, UserAdminChecker::class)->public()->autoconfigure()->autowire()
 	;
 	// @formatter:on
 };
