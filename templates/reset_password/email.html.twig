@@ -5,11 +5,15 @@
 
 	<p>{{ 'email.reset_password.body.paragraph'|trans({}, 'IdmUserBundle') }}</p>
 
-	<a href="{{ url('idm_user_reset_password', {token: resetToken.token}) }}">{{ url('idm_user_reset_password', {token:
-			resetToken.token}) }}</a>
+	<a href="{{ url('idm_user_reset_password', {token: resetToken.token}) }}">
+		{{ 'email.reset_password.body.button'|trans({}, 'IdmUserBundle') }}
+	</a>
 
-	<p>{{ 'email.reset_password.body.expiration'|trans({}, 'IdmUserBundle') }}{{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}
-		.</p>
+	<p>
+		{{ 'email.reset_password.body.note'|trans({
+			expiration: resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle')
+		}, 'IdmUserBundle') }}
+	</p>
 
 	<p>{{ 'email.reset_password.body.farewell'|trans({}, 'IdmUserBundle') }}</p>
 {% endblock %}
