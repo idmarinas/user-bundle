@@ -43,6 +43,10 @@ controller:
   reset_password:
   login:
     title: Conectar
+
+  registration:
+    title: Registrate
+
   profile:
     title:
       profile: Perfil de {name}
@@ -50,10 +54,6 @@ controller:
       options: Opciones de la cuenta
       delete: Borrar cuenta {name}
       terms_and_privacy: Aceptación de términos y condiciones
-      avatars: Lista de avatares
-
-    tab:
-      profile: Perfil
 
     profile:
       username: Usuario
@@ -79,17 +79,27 @@ controller:
         yes: Sí
         no: No
 
-
 email:
   reset_password:
-    subject: Your password reset request
+    subject: Solicitud de cambio de contraseña
     body:
-      title: Hi!
-      paragraph: To reset your password, please visit the following link
-      expiration: This link will expire in
-      farewell: Cheers!
+      title: Hola, ¿Olvidó su contraseña?
+      paragraph: Suele ocurrir. Haz clic en el siguiente enlace para restablecer tu contraseña.
+      button: Restablecer contraseña
+      note: Este enlace expirará en {expiration}.
+      farewell: ¡Gracias!
+
+  verify_email:
+    subject: Por favor confirma tu correo
+    body:
+      title: Hola, Por favor confirma tu correo
+      click: Por favor confirma tu dirección de correo electrónico haciendo clic en el siguiente enlace.
+      button: Confirmar mi correo
+      note: Este enlace expirará en {expiration}, es necesario iniciar sesión para poder verificar el correo.
 
 flash:
   error:
     delete_user:
       csrf: El formulario no es válido, vuelve a intentarlo.
+  success:
+    email_verified: Su dirección de correo electrónico ha sido verificada.
