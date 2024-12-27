@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:54
+ * Last modified by "idmarinas" on 27/12/2024, 12:57
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,7 +20,7 @@
 namespace Idm\Bundle\User\Tests\Entity;
 
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
-use Idm\Bundle\User\Tests\Fixtures\Entity\UserConnectionLog;
+use Idm\Bundle\User\Tests\App\Entity\UserConnectionLog;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class UserConnectionLogTest extends KernelTestCase

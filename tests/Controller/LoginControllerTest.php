@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 23:58
+ * Last modified by "idmarinas" on 27/12/2024, 12:57
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,7 +21,7 @@ namespace Idm\Bundle\User\Tests\Controller;
 
 use DataFixtures\UserFixtures;
 use Doctrine\Common\Collections\Criteria;
-use Idm\Bundle\User\Tests\Fixtures\Repository\UserRepository;
+use Idm\Bundle\User\Tests\App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 

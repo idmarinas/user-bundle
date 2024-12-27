@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/12/2024, 17:56
+ * Last modified by "idmarinas" on 27/12/2024, 12:57
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -30,9 +30,9 @@ use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\UnitOfWork;
 use Doctrine\Persistence\ManagerRegistry;
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
-use Idm\Bundle\User\Tests\Fixtures\Entity\FakeUser;
-use Idm\Bundle\User\Tests\Fixtures\Entity\User;
-use Idm\Bundle\User\Tests\Fixtures\Repository\UserRepository;
+use Idm\Bundle\User\Tests\App\Entity\FakeUser;
+use Idm\Bundle\User\Tests\App\Entity\User;
+use Idm\Bundle\User\Tests\App\Repository\UserRepository;
 use PHPUnit\Framework\TestCase;
 use ReflectionException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
