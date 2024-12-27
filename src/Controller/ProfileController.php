@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 16:53
+ * Last modified by "IDMarinas" on 27/12/2024, 16:57
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -73,13 +73,13 @@ final class ProfileController extends AbstractController
 	//        ]);
 	//    }
 
-	#[Route(path: '/delete/user', name: 'delete_user', methods: ['GET'])]
+	#[Route(path: '/delete', name: 'delete_user', methods: ['GET'])]
 	public function deleteUser (): Response
 	{
 		return $this->render('@IdmUser/profile/delete_user.html.twig');
 	}
 
-	#[Route(path: '/delete/user/confirm', name: 'delete_user_confirm', methods: ['POST'])]
+	#[Route(path: '/delete/confirm', name: 'delete_user_confirm', methods: ['POST'])]
 	public function deleteUserAccount (Request $request, EntityManagerInterface $entityManager): Response
 	{
 		$token = $request->request->get('token');
