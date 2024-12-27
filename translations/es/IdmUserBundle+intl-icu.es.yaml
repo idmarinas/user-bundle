@@ -1,0 +1,95 @@
+form:
+  register:
+    email: Correo electrónico
+    agree_terms: Aceptar términos
+    agree_privacy: Aceptar política de privacidad
+    password: Contraseña
+    repeat_password: Repetir contraseña
+    button: Crear cuenta
+
+  login:
+    user_name: Usuario
+    password: Contraseña
+    button: Conectar
+
+  reset_password:
+    new: Nueva contraseña
+    repeat: Repetir contraseña
+    button: Restablecer contraseña
+
+  change_password:
+    current_password: Contraseña actual
+    new: Nueva contraseña
+    repeat: Repetir contraseña
+    button: Cambiar contraseña
+    password:
+      current:
+        title: Tu contraseña actual
+        paragraph: Para comprobar que eres tú
+      new:
+        title: Nueva contraseña
+        paragraph: Escribe la nueva contraseña y repítela para confirmar
+
+  forgot_password:
+    email: Correo electrónico
+    button: Enviar correo de restablecimiento
+
+  link:
+    not_account: ¿No tienes cuenta? Crea una
+    have_account: ¿Ya tienes cuenta? Conéctate
+    forgot: ¿Olvidaste tu contraseña?
+
+controller:
+  reset_password:
+  login:
+    title: Conectar
+  profile:
+    title:
+      profile: Perfil de {name}
+      change_password: Cambiar contraseña
+      options: Opciones de la cuenta
+      delete: Borrar cuenta {name}
+      terms_and_privacy: Aceptación de términos y condiciones
+      avatars: Lista de avatares
+
+    tab:
+      profile: Perfil
+
+    profile:
+      username: Usuario
+      email: Correo electrónico
+      created_at: Fecha de creación de la cuenta
+      delete:
+        note: |
+          Si ya no quieres tener una cuenta con nosotros, puedes borrar la cuenta.
+          Una vez se borre la cuenta ya no es posible recuperarla.
+        button: Borrar cuenta de usuario
+      change_password:
+        note: |
+          Es recomendable cambiar la contraseña de vez en cuando, desde este enlace puedes cambiar la contraseña.
+        button: Cambiar contraseña
+
+    delete_user:
+      paragraph: |
+        ¿Seguro que quieres borrar la cuenta <strong>{name}</strong>?
+        Está acción no se puede deshacer y no es posible recuperar los datos de la cuenta una vez se elimina.
+
+        Confirma la eliminación de la cuenta.
+      button:
+        yes: Sí
+        no: No
+
+
+email:
+  reset_password:
+    subject: Your password reset request
+    body:
+      title: Hi!
+      paragraph: To reset your password, please visit the following link
+      expiration: This link will expire in
+      farewell: Cheers!
+
+flash:
+  error:
+    delete_user:
+      csrf: El formulario no es válido, vuelve a intentarlo.
