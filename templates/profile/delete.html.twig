@@ -1,0 +1,15 @@
+{% extends '@IdmUser/base.html.twig' %}
+
+{% block title 'controller.profile.title.delete'|trans({ name: app.user.displayName }, 'IdmUserBundle') %}
+
+{% block body %}
+	{{ 'controller.profile.delete_user.paragraph'|trans({ name: app.user.displayName }, 'IdmUserBundle')|raw|nl2br }}
+	<form id="delete-user-form" action="{{ path('idm_user_profile_delete_user_confirm') }}" method="POST">
+		<input type="hidden" name="token" value="{{ csrf_token('delete-user') }}" />
+		<button type="submit">{{ 'controller.profile.delete_user.button.yes' |trans({}, 'IdmUserBundle') }}</button>
+	</form>
+
+	<a href="{{ path('idm_user_profile_index') }}">
+		{{ 'controller.profile.delete_user.button.no'|trans({}, 'IdmUserBundle') }}
+	</a>
+{% endblock %}
