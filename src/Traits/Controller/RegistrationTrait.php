@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 18:27
+ * Last modified by "IDMarinas" on 27/12/2024, 19:44
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -28,7 +28,7 @@ trait RegistrationTrait
 	{
 		$repository = $this->entityManager->getRepository(AbstractUser::class);
 
-		$displayName = 'User-' . mt_rand();
+		$displayName = 'User' . mt_rand();
 		$user = new ($repository->getClassName())();
 		$user->setDisplayName($displayName);
 
