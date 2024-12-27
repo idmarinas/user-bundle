@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 21:19
+ * Last modified by "IDMarinas" on 27/12/2024, 16:31
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -39,7 +39,7 @@ final class ProfileController extends AbstractController
 	}
 
 	#[Route(path: '/change/password', name: 'change_password', methods: ['GET', 'POST'])]
-	public function changePassword (Request $request, AbstractUserRepository $repository): Response
+	public function changePassword (Request $request, EntityManagerInterface $entityManager): Response
 	{
 		/** @var AbstractUser $user */
 		$user = $this->getUser();
@@ -47,6 +47,8 @@ final class ProfileController extends AbstractController
 		$form->handleRequest($request);
 
 		if ($form->isSubmitted() && $form->isValid()) {
+			/* @var AbstractUserRepository $repository */
+			$repository = $entityManager->getRepository(AbstractUser::class);
 			$repository->upgradePassword($user, $form->get('plainPassword')->getData());
 
 			return $this->redirectToRoute('idm_user_profile_index');
