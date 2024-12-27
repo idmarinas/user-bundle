@@ -2,14 +2,14 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 21/12/2024, 11:55
+ * Last modified by "idmarinas" on 27/12/2024, 12:51
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    UserPremium.php
+ * @file    User.php
  * @date    05/12/2024
- * @time    18:00
+ * @time    17:46
  *
  * @author  Iván Diaz Marinas (IDMarinas)
  * @license BSD 3-Clause License
@@ -20,8 +20,14 @@
 namespace Idm\Bundle\User\Tests\Fixtures\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Idm\Bundle\User\Model\Entity\AbstractUserPremium;
+use Idm\Bundle\User\Model\Entity\AbstractUser;
+use Idm\Bundle\User\Traits\Entity\IDMarinasProviderTrait;
+use Idm\Bundle\User\Traits\Entity\UserPremiumTrait;
 
 #[ORM\Entity]
-#[ORM\Table(name: 'idm_user_user_premium')]
-class UserPremium extends AbstractUserPremium {}
+#[ORM\Table(name: 'idm_user_user')]
+class User extends AbstractUser
+{
+	use IDMarinasProviderTrait;
+	use UserPremiumTrait;
+}

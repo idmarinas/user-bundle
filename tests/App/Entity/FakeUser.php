@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:54
+ * Last modified by "idmarinas" on 17/12/2024, 11:59
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -32,14 +32,14 @@ class FakeUser implements UserInterface, PasswordAuthenticatedUserInterface
 		return [];
 	}
 
-	public function getUsername (): string
-	{
-		return $this->getUserIdentifier();
-	}
-
 	public function getUserIdentifier (): string
 	{
 		return '';
+	}
+
+	public function getUsername (): string
+	{
+		return $this->getUserIdentifier();
 	}
 
 	public function getPassword (): string

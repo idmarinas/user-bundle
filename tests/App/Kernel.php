@@ -2,12 +2,12 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 23:09
+ * Last modified by "idmarinas" on 27/12/2024, 12:54
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    TestKernel.php
+ * @file    Kernel.php
  * @date    05/12/2024
  * @time    16:14
  *
@@ -17,7 +17,7 @@
  * @since   2.0.0
  */
 
-namespace Idm\Bundle\User\Tests;
+namespace Idm\Bundle\User\Tests\App;
 
 use DAMA\DoctrineTestBundle\DAMADoctrineTestBundle;
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
@@ -40,14 +40,14 @@ use Symfony\Bundle\TwigBundle\TwigBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\HttpKernel\Kernel;
+use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use SymfonyCasts\Bundle\ResetPassword\SymfonyCastsResetPasswordBundle;
 use SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle;
 use Zenstruck\Foundry\ZenstruckFoundryBundle;
 
-class TestKernel extends Kernel
+class Kernel extends BaseKernel
 {
 	use MicroKernelTrait;
 
@@ -129,7 +129,7 @@ class TestKernel extends Kernel
 						'IdmUserTestBundle' => [
 							'mapping' => true,
 							'type'    => 'attribute',
-							'dir'     => __DIR__ . '/Fixtures/Entity',
+							'dir'     => __DIR__ . '/App/Entity',
 							'prefix'  => 'Idm\Bundle\User\Tests\Fixtures\Entity',
 						],
 						'IdmUserBundle'     => [

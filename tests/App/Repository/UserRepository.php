@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 23:03
+ * Last modified by "idmarinas" on 26/12/2024, 23:10
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
