@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 16:57
+ * Last modified by "IDMarinas" on 27/12/2024, 16:59
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -76,7 +76,7 @@ final class ProfileController extends AbstractController
 	#[Route(path: '/delete', name: 'delete_user', methods: ['GET'])]
 	public function deleteUser (): Response
 	{
-		return $this->render('@IdmUser/profile/delete_user.html.twig');
+		return $this->render('@IdmUser/profile/delete.html.twig');
 	}
 
 	#[Route(path: '/delete/confirm', name: 'delete_user_confirm', methods: ['POST'])]
