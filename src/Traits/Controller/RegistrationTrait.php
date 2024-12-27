@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 21/12/2024, 11:55
+ * Last modified by "IDMarinas" on 27/12/2024, 18:27
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,39 +19,40 @@
 
 namespace Idm\Bundle\User\Traits\Controller;
 
-use Doctrine\ORM\EntityManagerInterface;
 use Idm\Bundle\User\Model\Entity\AbstractUser;
-use Idm\Bundle\User\Security\EmailVerifier;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 trait RegistrationTrait
 {
-	protected function getUserObject (AbstractUser $user): AbstractUser
+	protected function getUserObject (): AbstractUser
 	{
-		$displayName = preg_replace('/[^A-Za-z0-9]/', '', uniqid('User' . uniqid(), true));
+		$repository = $this->entityManager->getRepository(AbstractUser::class);
+
+		$displayName = 'User-' . mt_rand();
+		$user = new ($repository->getClassName())();
 		$user->setDisplayName($displayName);
 
 		return $user;
 	}
 
 	protected function registerUser (
-		EntityManagerInterface      $entityManager,
-		AbstractUser                $user,
-		UserPasswordHasherInterface $userPasswordHasher,
-		EmailVerifier               $emailVerifier,
-		TemplatedEmail              $templatedEmail,
-		string                      $plainPassword,
-		string                      $verifyEmailRouteName = 'app_user_registration_verify_email',
+		AbstractUser   $user,
+		TemplatedEmail $templatedEmail,
+		string         $plainPassword
 	): void {
 		// encode the plain password
-		$user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
+		$user->setPassword($this->passwordHasher->hashPassword($user, $plainPassword));
 
-		$entityManager->persist($user);
-		$entityManager->flush();
+		$this->entityManager->persist($user);
+		$this->entityManager->flush();
 
+		$templatedEmail
+			->to($user->getEmail())
+			->subject($this->translator->trans('email.verify_email.subject', [], 'IdmUserBundle'))
+			->htmlTemplate('@IdmUser/registration/email.html.twig')
+		;
 		// generate a signed url and email it to the user
-		$emailVerifier->sendEmailConfirmation($verifyEmailRouteName, $user, $templatedEmail);
+		$this->emailVerifier->sendEmailConfirmation('idm_user_registration_verify_email', $user, $templatedEmail);
 		// do anything else you need here, like send an email
 	}
 }
