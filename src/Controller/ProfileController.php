@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 16:31
+ * Last modified by "IDMarinas" on 27/12/2024, 16:53
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -26,6 +26,7 @@ use Idm\Bundle\User\Model\Repository\AbstractUserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use function Symfony\Component\Translation\t;
 
@@ -39,8 +40,11 @@ final class ProfileController extends AbstractController
 	}
 
 	#[Route(path: '/change/password', name: 'change_password', methods: ['GET', 'POST'])]
-	public function changePassword (Request $request, EntityManagerInterface $entityManager): Response
-	{
+	public function changePassword (
+		Request                     $request,
+		EntityManagerInterface      $entityManager,
+		UserPasswordHasherInterface $passwordHasher
+	): Response {
 		/** @var AbstractUser $user */
 		$user = $this->getUser();
 		$form = $this->createForm(ChangePasswordFormType::class, $user);
@@ -49,7 +53,7 @@ final class ProfileController extends AbstractController
 		if ($form->isSubmitted() && $form->isValid()) {
 			/* @var AbstractUserRepository $repository */
 			$repository = $entityManager->getRepository(AbstractUser::class);
-			$repository->upgradePassword($user, $form->get('plainPassword')->getData());
+			$repository->upgradePassword($user, $passwordHasher->hashPassword($user, $form->get('plainPassword')->getData()));
 
 			return $this->redirectToRoute('idm_user_profile_index');
 		}
