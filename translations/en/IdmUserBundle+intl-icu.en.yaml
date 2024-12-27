@@ -43,6 +43,10 @@ controller:
   reset_password:
   login:
     title: Login
+
+  registration:
+    title: Registration
+
   profile:
     title:
       profile: Profile of {name}
@@ -50,7 +54,6 @@ controller:
       options: Account options
       delete: Delete account {name}
       terms_and_privacy: Acceptance of terms and conditions
-      avatars: Lista de avatares
 
     tab:
       profile: Profile
@@ -79,17 +82,27 @@ controller:
         yes: Yes
         no: No
 
-
 email:
   reset_password:
     subject: Your password reset request
     body:
-      title: Hi!
-      paragraph: To reset your password, please visit the following link
-      expiration: This link will expire in
+      title: Hello, Forgot your password?
+      paragraph: It usually occurs. Click on the link below to reset your password.
+      button: Reset password
+      note: This link will expire in {expiration}.
       farewell: Cheers!
+
+  verify_email:
+    subject: Please confirm your email address
+    body:
+      title: Hello, Please confirm your mail
+      click: Please confirm your email address by clicking on the link below.
+      button: Confirm my email
+      note: This link will expire in {expiration}, login is required to verify the email.
 
 flash:
   error:
     delete_user:
       csrf: The form is invalid, please try again.
+  success:
+    email_verified: Your e-mail address has been verified.
