@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 27/12/2024, 12:57
+ * Last modified by "idmarinas" on 27/12/2024, 13:06
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -126,16 +126,17 @@ class Kernel extends BaseKernel
 						'auto_mapping' => false,
 					],
 					'mappings'                    => [
-						'IdmUserTestBundle' => [
-							'mapping' => true,
-							'type'    => 'attribute',
-							'dir'     => __DIR__ . '/App/Entity',
-							'prefix'  => 'Idm\Bundle\User\Tests\Fixtures\Entity',
+						'Tests'         => [
+							'is_bundle' => false,
+							'mapping'   => true,
+							'type'      => 'attribute',
+							'dir'       => __DIR__ . '/Entity',
+							'prefix'    => 'Idm\Bundle\User\Tests\App\Entity',
 						],
-						'IdmUserBundle'     => [
+						'IdmUserBundle' => [
 							'mapping' => true,
 							'type'    => 'attribute',
-							'dir'     => dirname(__DIR__) . '/src/Entity',
+							'dir'     => dirname(__DIR__, 2) . '/src/Entity',
 							'prefix'  => 'Idm\Bundle\User\Entity',
 						],
 					],
