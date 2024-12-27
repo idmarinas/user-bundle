@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 14:16
+ * Last modified by "IDMarinas" on 27/12/2024, 14:40
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -37,7 +37,7 @@ use SymfonyCasts\Bundle\ResetPassword\SymfonyCastsResetPasswordBundle;
 use SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle;
 use Zenstruck\Foundry\ZenstruckFoundryBundle;
 
-class Kernel extends BaseKernel
+final class Kernel extends BaseKernel
 {
 	use MicroKernelTrait;
 
