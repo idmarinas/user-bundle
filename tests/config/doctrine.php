@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 14:14
+ * Last modified by "IDMarinas" on 27/12/2024, 14:38
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -58,7 +58,7 @@ return static function (ContainerConfigurator $container) {
 					'is_bundle' => false,
 					'mapping'   => true,
 					'type'      => 'attribute',
-					'dir'       => dirname(__DIR__) . '/Entity',
+					'dir'       => dirname(__DIR__) . '/App/Entity',
 					'prefix'    => 'Idm\Bundle\User\Tests\App\Entity',
 				],
 				'IdmUserBundle' => [
