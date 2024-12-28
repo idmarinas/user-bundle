@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 28/12/2024, 12:11
+ * Last modified by "IDMarinas" on 28/12/2024, 12:15
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -152,8 +152,6 @@ class RegistrationControllerTest extends WebTestCase
 		$this->assertResponseRedirects('/');
 
 		$client->followRedirect();
-
-		var_dump($client->getResponse()->getContent());
 
 		$this->assertResponseIsSuccessful();
 		$this->assertPageTitleContains('IDMarinas User Bundle');
