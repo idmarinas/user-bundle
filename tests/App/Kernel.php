@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 28/12/2024, 11:34
+ * Last modified by "IDMarinas" on 28/12/2024, 11:55
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -67,7 +67,6 @@ final class Kernel extends BaseKernel
 	{
 		$loader->load($this->getProjectDir() . '/tests/config/framework.php');
 		$loader->load($this->getProjectDir() . '/tests/config/framework/mailer.php');
-		$loader->load($this->getProjectDir() . '/tests/config/framework/messenger.php');
 		$loader->load($this->getProjectDir() . '/tests/config/framework/router.php');
 		$loader->load($this->getProjectDir() . '/tests/config/framework/session.php');
 		$loader->load($this->getProjectDir() . '/tests/config/framework/validation.php');
