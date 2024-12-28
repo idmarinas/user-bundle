@@ -1,0 +1,9 @@
+idm_user_bundle:
+  not_tags: HTML tags are not allowed
+  agree_privacy: You must agree to our privacy policy.
+  agree_terms: You must agree to our terms.
+  password:
+    min_message: Your password must be at least {{ limit }} characters long
+    not_match: The password fields must match.
+    not_blank: Enter a password
+  email.not_unique: An account already exists with this email address
