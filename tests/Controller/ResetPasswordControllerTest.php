@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/12/2024, 16:55
+ * Last modified by "IDMarinas" on 28/12/2024, 11:58
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -40,8 +40,8 @@ class ResetPasswordControllerTest extends WebTestCase
 
 		$this->assertResponseRedirects('/user/reset-password/check-email');
 
-		// An email has to be queued
-//		$this->assertQueuedEmailCount(1);
+		// An email must have been sent
+		$this->assertEmailCount(1);
 
 		/** @var TemplatedEmail $email */
 		$email = $this->getMailerMessage();
