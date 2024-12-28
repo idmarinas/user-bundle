@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 19:44
+ * Last modified by "IDMarinas" on 28/12/2024, 11:22
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -50,6 +50,7 @@ trait RegistrationTrait
 			->to($user->getEmail())
 			->subject($this->translator->trans('email.verify_email.subject', [], 'IdmUserBundle'))
 			->htmlTemplate('@IdmUser/registration/email.html.twig')
+			->textTemplate('@IdmUser/registration/email.txt.twig')
 		;
 		// generate a signed url and email it to the user
 		$this->emailVerifier->sendEmailConfirmation('idm_user_registration_verify_email', $user, $templatedEmail);
