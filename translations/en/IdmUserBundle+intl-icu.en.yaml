@@ -55,9 +55,6 @@ controller:
       delete: Delete account {name}
       terms_and_privacy: Acceptance of terms and conditions
 
-    tab:
-      profile: Profile
-
     profile:
       username: User
       email: E-mail address
