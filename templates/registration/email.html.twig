@@ -1,0 +1,15 @@
+{% extends '@IdmUser/base.html.twig' %}
+
+{% block body %}
+	<h1>{{ 'email.verify_email.body.title'|trans({}, 'IdmUserBundle') }}</h1>
+
+	<p>{{ 'email.verify_email.body.click'|trans({}, 'IdmUserBundle') }}</p>
+
+	<a href="{{ signedUrl }}">{{ 'email.verify_email.body.button'|trans({}, 'IdmUserBundle') }}</a>
+
+	<p>
+		{{ 'email.verify_email.body.note'|trans({
+			expiration: expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle')
+		}, 'IdmUserBundle') }}
+	</p>
+{% endblock body %}

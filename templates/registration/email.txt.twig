@@ -1,0 +1,9 @@
+{{ 'email.verify_email.body.title'|trans({}, 'IdmUserBundle') }}
+
+{{ 'email.verify_email.body.click'|trans({}, 'IdmUserBundle') }}
+
+{{ signedUrl }}
+
+{{ 'email.verify_email.body.note'|trans({
+	expiration: expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle')
+}, 'IdmUserBundle') }}

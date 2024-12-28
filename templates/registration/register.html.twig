@@ -1,0 +1,22 @@
+{% extends '@IdmUser/base.html.twig' %}
+
+{% block title 'controller.registration.title'|trans({}, 'IdmUserBundle') %}
+
+{% block body %}
+	{{ form_start(form, {attr: {id: form.vars.id }}) }}
+
+	{{ form_errors(form) }}
+
+	{{ form_row(form.email) }}
+	{{ form_row(form.plainPassword) }}
+	{{ form_row(form.termsAccepted) }}
+	{{ form_row(form.privacyAccepted) }}
+
+	<a href="{{ path('idm_user_login') }}">
+		{{ 'form.link.have_account'|trans({}, 'IdmUserBundle') }}
+	</a>
+
+	{{ form_row(form.button) }}
+
+	{{ form_end(form) }}
+{% endblock %}
