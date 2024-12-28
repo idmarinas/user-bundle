@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 17:53
+ * Last modified by "IDMarinas" on 28/12/2024, 11:20
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -193,6 +193,7 @@ final class ResetPasswordController extends AbstractController
 			->to((string)$user->getEmail())
 			->subject($translator->trans('email.reset_password.subject', domain: 'IdmUserBundle'))
 			->htmlTemplate('@IdmUser/reset_password/email.html.twig')
+			->textTemplate('@IdmUser/reset_password/email.txt.twig')
 			->context([
 				'resetToken' => $resetToken,
 			])

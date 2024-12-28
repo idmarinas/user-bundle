@@ -1,0 +1,11 @@
+{{ 'email.reset_password.body.title'|trans({}, 'IdmUserBundle') }}
+
+{{ 'email.reset_password.body.paragraph'|trans({}, 'IdmUserBundle') }}
+
+{{ url('idm_user_reset_password', {token: resetToken.token}) }}
+
+{{ 'email.reset_password.body.note'|trans({
+	expiration: resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle')
+}, 'IdmUserBundle') }}
+
+{{ 'email.reset_password.body.farewell'|trans({}, 'IdmUserBundle') }}
