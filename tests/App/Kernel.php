@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 28/12/2024, 11:55
+ * Last modified by "IDMarinas" on 28/12/2024, 12:10
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -25,6 +25,7 @@ use Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle;
 use Exception;
 use Idm\Bundle\User\IdmUserBundle;
 use Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle;
+use Symfony\Bundle\FrameworkBundle\Controller\TemplateController;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Bundle\SecurityBundle\SecurityBundle;
@@ -94,6 +95,13 @@ final class Kernel extends BaseKernel
 		$routes->import($this->getConfigDir() . '/routes.php');
 		$routes->import('security.route_loader.logout', 'service')->methods(['GET']);
 
-		$routes->add('app_home', '/')->methods(['GET']);
+		$routes
+			->add('app_home', '/')
+			->methods(['GET'])
+			->controller(TemplateController::class)
+			->defaults([
+				'template' => '@IdmUser/base.html.twig',
+			])
+		;
 	}
 }
