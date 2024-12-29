@@ -74,7 +74,8 @@ return [
 ];
 ```
 
-> [!NOTE] ️🖖 Support
+> [!NOTE] ️
+> ## 🖖 Support
 >
 > 💙 If you like this project, give them a ⭐ and share them with your friends!
 >
