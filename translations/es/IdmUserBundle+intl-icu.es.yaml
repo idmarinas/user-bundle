@@ -68,6 +68,10 @@ controller:
         note: |
           Es recomendable cambiar la contraseña de vez en cuando, desde este enlace puedes cambiar la contraseña.
         button: Cambiar contraseña
+      terms_and_privacy:
+        paragraph: |
+          Para poder seguir usando está App es necesario aceptar los términos y condiciones además de la política de
+          privacidad.
 
     delete_user:
       paragraph: |

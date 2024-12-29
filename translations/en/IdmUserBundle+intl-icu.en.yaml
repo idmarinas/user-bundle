@@ -68,6 +68,10 @@ controller:
         note: |
           It is advisable to change the password from time to time, from this link you can change the password.
         button: Cambiar contraseña
+      terms_and_privacy:
+        paragraph: |
+          In order to continue using this App it is necessary to accept the terms and conditions as well as the
+          privacy policy.
 
     delete_user:
       paragraph: |
