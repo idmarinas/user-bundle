@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 18:58
+ * Last modified by "IDMarinas" on 29/12/2024, 17:51
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -46,7 +46,6 @@ return static function (ContainerConfigurator $container) {
 		// Register RegistrationController
 		->set(RegistrationController::class, RegistrationController::class)
 			->arg('$emailVerifier', service('idm_user.service.email_verifier'))
-			->bind('$formLoginAuthenticatorMain', service('security.authenticator.form_login.main'))
 			->autoconfigure()
 			->autowire()
 		// Register UserChecker
