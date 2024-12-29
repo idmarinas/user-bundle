@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 17:30
+ * Last modified by "IDMarinas" on 29/12/2024, 21:46
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -49,6 +49,14 @@ class ProfileControllerTest extends WebTestCase
 
 		$client->request(Request::METHOD_GET, '/logout');
 		$this->assertResponseRedirects('/');
+	}
+
+	public function testTermsAndConditions (): void
+	{
+		$client = static::createClient();
+		$client->request(Request::METHOD_GET, '/user/profile/accept/terms_and_privacy');
+
+		$this->assertPageTitleContains('Acceptance of terms and conditions');
 	}
 
 	public function testChangePassword (): void
