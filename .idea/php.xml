@@ -164,6 +164,8 @@
       <path value="$PROJECT_DIR$/vendor/symfony/rate-limiter" />
       <path value="$PROJECT_DIR$/vendor/symfony/lock" />
       <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/vendor/rector/rector_compare" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy_compare" />
     </include_path>
   </component>
   <component name="PhpInterpreters">
