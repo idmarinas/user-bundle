@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 29/12/2024, 21:26
+ * Last modified by "IDMarinas" on 29/12/2024, 23:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,13 +20,42 @@
 
 namespace Idm\Bundle\User;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
-use function dirname;
+use Idm\Bundle\User\Model\Entity\AbstractUser;
+use Idm\Bundle\User\Model\Entity\AbstractUserConnectionLog;
+use Idm\Bundle\User\Model\Entity\AbstractUserPremium;
+use Idm\Bundle\User\Repository\ResetPasswordRequestRepository;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
+use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
-class IdmUserBundle extends Bundle
+final class IdmUserBundle extends AbstractBundle
 {
-	public function getPath (): string
+	public function prependExtension (ContainerConfigurator $container, ContainerBuilder $builder): void
 	{
-		return dirname(__DIR__);
+		$container->extension('symfonycasts_reset_password', [
+			'request_password_repository' => ResetPasswordRequestRepository::class,
+		]);
+
+		$container->extension('security', [
+			'password_hashers' => [
+				PasswordAuthenticatedUserInterface::class => 'auto',
+			],
+		]);
+
+		$container->extension('doctrine', [
+			'orm' => [
+				'resolve_target_entities' => [
+					AbstractUser::class              => 'App\Entity\User\User',
+					AbstractUserPremium::class       => 'App\Entity\User\UserPremium',
+					AbstractUserConnectionLog::class => 'App\Entity\User\UserConnectionLog',
+				],
+			],
+		]);
+	}
+
+	public function loadExtension (array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
+	{
+		$container->import(dirname(__DIR__) . '/config/services.php');
 	}
 }
