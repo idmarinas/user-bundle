@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 16:59
+ * Last modified by "IDMarinas" on 29/12/2024, 21:29
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -63,15 +63,11 @@ final class ProfileController extends AbstractController
 		]);
 	}
 
-	//    #[Route(path: '/accept/terms_and_privacy', name: 'accept_terms_privacy')]
-	//    public function acceptTermsPrivacy(): Response
-	//    {
-	//        $this->seoPage->setTitle($this->translator->trans('title.terms_and_privacy', [], self::TRANSLATION_DOMAIN));
-	//
-	//        return $this->render('pages/user/profile/accept_terms_privacy.html.twig', [
-	//            'translation_domain' => self::TRANSLATION_DOMAIN
-	//        ]);
-	//    }
+	#[Route(path: '/accept/terms_and_privacy', name: 'accept_terms_privacy')]
+	public function acceptTermsPrivacy (): Response
+	{
+		return $this->render('@IdmUser/profile/accept_terms_privacy.html.twig');
+	}
 
 	#[Route(path: '/delete', name: 'delete_user', methods: ['GET'])]
 	public function deleteUser (): Response
