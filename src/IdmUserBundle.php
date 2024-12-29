@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 29/12/2024, 23:04
+ * Last modified by "IDMarinas" on 29/12/2024, 23:37
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -33,17 +33,17 @@ final class IdmUserBundle extends AbstractBundle
 {
 	public function prependExtension (ContainerConfigurator $container, ContainerBuilder $builder): void
 	{
-		$container->extension('symfonycasts_reset_password', [
+		$builder->prependExtensionConfig('symfonycasts_reset_password', [
 			'request_password_repository' => ResetPasswordRequestRepository::class,
 		]);
 
-		$container->extension('security', [
+		$builder->prependExtensionConfig('security', [
 			'password_hashers' => [
 				PasswordAuthenticatedUserInterface::class => 'auto',
 			],
 		]);
 
-		$container->extension('doctrine', [
+		$builder->prependExtensionConfig('doctrine', [
 			'orm' => [
 				'resolve_target_entities' => [
 					AbstractUser::class              => 'App\Entity\User\User',
