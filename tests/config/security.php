@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 14:14
+ * Last modified by "IDMarinas" on 29/12/2024, 23:09
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -35,17 +35,20 @@ return static function (ContainerConfigurator $container) {
 		],
 		'firewalls'        => [
 			'main' => [
-				'logout'       => [
+				'logout'           => [
 					'path' => '/logout',
 				],
-				'provider'     => 'idm_user_provider',
-				'user_checker' => UserChecker::class,
-				'form_login'   => [
+				'provider'         => 'idm_user_provider',
+				'user_checker'     => UserChecker::class,
+				'form_login'       => [
 					'login_path'          => 'idm_user_login',
 					'check_path'          => 'idm_user_login',
 					'enable_csrf'         => true,
 					'form_only'           => true,
 					'default_target_path' => 'idm_user_profile_index',
+				],
+				'login_throttling' => [
+					'limiter' => 'idm_user.rate_limiter.login.main',
 				],
 			],
 		],

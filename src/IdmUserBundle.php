@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 29/12/2024, 23:37
+ * Last modified by "IDMarinas" on 29/12/2024, 23:38
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -33,6 +33,8 @@ final class IdmUserBundle extends AbstractBundle
 {
 	public function prependExtension (ContainerConfigurator $container, ContainerBuilder $builder): void
 	{
+		$container->import(dirname(__DIR__) . '/config/rate_limiter.php');
+
 		$builder->prependExtensionConfig('symfonycasts_reset_password', [
 			'request_password_repository' => ResetPasswordRequestRepository::class,
 		]);
