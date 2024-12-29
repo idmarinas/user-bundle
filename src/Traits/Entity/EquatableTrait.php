@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 21/12/2024, 11:55
+ * Last modified by "IDMarinas" on 29/12/2024, 21:54
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -48,24 +48,12 @@ trait EquatableTrait
 	/** @param AbstractUser $user */
 	public function isEqualTo (UserInterface $user): bool
 	{
-		if (!$user instanceof self) {
-			return false;
-		}
-
-		// Only 1 session active
-		if ($this->getsessionId() !== $user->getsessionId()) {
-			return false;
-		}
-
-		if ($this->getPassword() !== $user->getPassword()) {
-			return false;
-		}
-
-		if ($this->getUserIdentifier() !== $user->getUserIdentifier()) {
-			return false;
-		}
-
-		if ($this->isInactive() !== $user->isInactive()) {
+		if (!$user instanceof self
+		    || $this->getsessionId() !== $user->getsessionId() // Only 1 session active
+		    || $this->getPassword() !== $user->getPassword()
+		    || $this->getUserIdentifier() !== $user->getUserIdentifier()
+		    || $this->isInactive() !== $user->isInactive()
+		) {
 			return false;
 		}
 
