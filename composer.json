@@ -34,6 +34,7 @@
 		"symfony/form": "^6.4 | ^7.0",
 		"symfony/framework-bundle": "^6.4 | ^7.0",
 		"symfony/mailer": "^6.4 | ^7.0",
+		"symfony/rate-limiter": "^6.4 | ^7.0",
 		"symfony/routing": "^6.4 | ^7.0",
 		"symfony/security-bundle": "^6.4 | ^7.0",
 		"symfony/serializer": "^6.4 | ^7.0",
