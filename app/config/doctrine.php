@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 24:06
+ * Last modified by "IDMarinas" on 30/12/2024, 24:14
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -62,11 +62,6 @@ return static function (ContainerConfigurator $container) {
 					'prefix'  => 'Idm\Bundle\User\Entity',
 				],
 			],
-			//			'resolve_target_entities'     => [
-			//				AbstractUser::class              => User::class,
-			//				AbstractUserPremium::class       => UserPremium::class,
-			//				AbstractUserConnectionLog::class => UserConnectionLog::class,
-			//			],
 		],
 	]);
 };
