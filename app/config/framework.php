@@ -2,14 +2,14 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 14:15
+ * Last modified by "IDMarinas" on 27/12/2024, 14:18
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    router.php
+ * @file    framework.php
  * @date    27/12/2024
- * @time    13:37
+ * @time    13:33
  *
  * @author  Iván Diaz Marinas (IDMarinas)
  * @license BSD 3-Clause License
@@ -21,10 +21,13 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 return static function (ContainerConfigurator $container) {
 	$container->extension('framework', [
-		'router' => [
-			'resource' => 'kernel::loadRoutes',
-			'type'     => 'service',
-			'utf8'     => true,
+		'secret'                => 'test',
+		'test'                  => true,
+		'http_method_override'  => false,
+		'handle_all_throwables' => true,
+		'php_errors'            => [
+			'log' => true,
 		],
+		'form'                  => true,
 	]);
 };

@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 27/12/2024, 12:57
+ * Last modified by "IDMarinas" on 30/12/2024, 24:07
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -17,7 +17,7 @@
  * @since   2.0.0
  */
 
-namespace Idm\Bundle\User\Tests\App\Entity;
+namespace App\Entity\User;
 
 use Idm\Bundle\User\Traits\Entity\SecurityTrait;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;

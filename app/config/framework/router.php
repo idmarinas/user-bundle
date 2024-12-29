@@ -2,14 +2,14 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 14:13
+ * Last modified by "IDMarinas" on 27/12/2024, 14:18
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    validation.php
+ * @file    router.php
  * @date    27/12/2024
- * @time    14:13
+ * @time    13:37
  *
  * @author  Iván Diaz Marinas (IDMarinas)
  * @license BSD 3-Clause License
@@ -21,9 +21,10 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 return static function (ContainerConfigurator $container) {
 	$container->extension('framework', [
-		'validation' => [
-			'email_validation_mode'    => 'html5',
-			'not_compromised_password' => false,
+		'router' => [
+			'resource' => 'kernel::loadRoutes',
+			'type'     => 'service',
+			'utf8'     => true,
 		],
 	]);
 };

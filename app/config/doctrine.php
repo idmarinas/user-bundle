@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 14:38
+ * Last modified by "IDMarinas" on 30/12/2024, 24:06
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,12 +19,6 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use Idm\Bundle\User\Model\Entity\AbstractUser;
-use Idm\Bundle\User\Model\Entity\AbstractUserConnectionLog;
-use Idm\Bundle\User\Model\Entity\AbstractUserPremium;
-use Idm\Bundle\User\Tests\App\Entity\User;
-use Idm\Bundle\User\Tests\App\Entity\UserConnectionLog;
-use Idm\Bundle\User\Tests\App\Entity\UserPremium;
 use Symfony\Component\Filesystem\Filesystem;
 
 return static function (ContainerConfigurator $container) {
@@ -58,8 +52,8 @@ return static function (ContainerConfigurator $container) {
 					'is_bundle' => false,
 					'mapping'   => true,
 					'type'      => 'attribute',
-					'dir'       => dirname(__DIR__) . '/App/Entity',
-					'prefix'    => 'Idm\Bundle\User\Tests\App\Entity',
+					'dir'       => dirname(__DIR__) . '/src/Entity',
+					'prefix'    => 'App\Entity',
 				],
 				'IdmUserBundle' => [
 					'mapping' => true,
@@ -68,11 +62,11 @@ return static function (ContainerConfigurator $container) {
 					'prefix'  => 'Idm\Bundle\User\Entity',
 				],
 			],
-			'resolve_target_entities'     => [
-				AbstractUser::class              => User::class,
-				AbstractUserPremium::class       => UserPremium::class,
-				AbstractUserConnectionLog::class => UserConnectionLog::class,
-			],
+			//			'resolve_target_entities'     => [
+			//				AbstractUser::class              => User::class,
+			//				AbstractUserPremium::class       => UserPremium::class,
+			//				AbstractUserConnectionLog::class => UserConnectionLog::class,
+			//			],
 		],
 	]);
 };

@@ -2,14 +2,14 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 27/12/2024, 12:57
+ * Last modified by "IDMarinas" on 30/12/2024, 24:07
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    UserConnectionLog.php
+ * @file    UserPremium.php
  * @date    05/12/2024
- * @time    18:01
+ * @time    18:00
  *
  * @author  Iván Diaz Marinas (IDMarinas)
  * @license BSD 3-Clause License
@@ -17,11 +17,11 @@
  * @since   2.0.0
  */
 
-namespace Idm\Bundle\User\Tests\App\Entity;
+namespace App\Entity\User;
 
 use Doctrine\ORM\Mapping as ORM;
-use Idm\Bundle\User\Model\Entity\AbstractUserConnectionLog;
+use Idm\Bundle\User\Model\Entity\AbstractUserPremium;
 
 #[ORM\Entity]
-#[ORM\Table(name: 'idm_user_user_connection_log')]
-class UserConnectionLog extends AbstractUserConnectionLog {}
+#[ORM\Table(name: 'idm_user_user_premium')]
+class UserPremium extends AbstractUserPremium {}

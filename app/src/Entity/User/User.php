@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 16:29
+ * Last modified by "IDMarinas" on 30/12/2024, 24:07
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -17,11 +17,11 @@
  * @since   2.0.0
  */
 
-namespace Idm\Bundle\User\Tests\App\Entity;
+namespace App\Entity\User;
 
+use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Idm\Bundle\User\Model\Entity\AbstractUser;
-use Idm\Bundle\User\Tests\App\Repository\UserRepository;
 use Idm\Bundle\User\Traits\Entity\IDMarinasProviderTrait;
 use Idm\Bundle\User\Traits\Entity\UserPremiumTrait;
 

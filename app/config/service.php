@@ -2,14 +2,14 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 14:15
+ * Last modified by "IDMarinas" on 29/12/2024, 23:50
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    session.php
+ * @file    service.php
  * @date    27/12/2024
- * @time    14:13
+ * @time    14:14
  *
  * @author  Iván Diaz Marinas (IDMarinas)
  * @license BSD 3-Clause License
@@ -19,13 +19,16 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use App\Repository\UserRepository;
+
 return static function (ContainerConfigurator $container) {
-	$container->extension('framework', [
-		'session' => [
-			'handler_id'         => null,
-			'cookie_secure'      => true,
-			'cookie_samesite'    => 'lax',
-			'storage_factory_id' => 'session.storage.factory.mock_file',
-		],
-	]);
+	// @formatter:off
+	$container
+		->services()
+			->set(UserRepository::class, UserRepository::class)
+				->public()
+				->autoconfigure()
+				->autowire()
+	;
+	// @formatter:on
 };

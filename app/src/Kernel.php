@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 28/12/2024, 12:10
+ * Last modified by "IDMarinas" on 30/12/2024, 24:10
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -17,7 +17,7 @@
  * @since   2.0.0
  */
 
-namespace Idm\Bundle\User\Tests\App;
+namespace App;
 
 use DAMA\DoctrineTestBundle\DAMADoctrineTestBundle;
 use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
@@ -66,16 +66,18 @@ final class Kernel extends BaseKernel
 	 */
 	public function registerContainerConfiguration (LoaderInterface $loader): void
 	{
-		$loader->load($this->getProjectDir() . '/tests/config/framework.php');
-		$loader->load($this->getProjectDir() . '/tests/config/framework/mailer.php');
-		$loader->load($this->getProjectDir() . '/tests/config/framework/router.php');
-		$loader->load($this->getProjectDir() . '/tests/config/framework/session.php');
-		$loader->load($this->getProjectDir() . '/tests/config/framework/validation.php');
-		$loader->load($this->getProjectDir() . '/tests/config/doctrine.php');
-		$loader->load($this->getProjectDir() . '/tests/config/security.php');
-		$loader->load($this->getProjectDir() . '/tests/config/stof_doctrine_extensions.php');
+		$loader->load($this->getProjectDir() . '/app/config/framework.php');
+		$loader->load($this->getProjectDir() . '/app/config/framework/mailer.php');
+		$loader->load($this->getProjectDir() . '/app/config/framework/router.php');
+		$loader->load($this->getProjectDir() . '/app/config/framework/session.php');
+		$loader->load($this->getProjectDir() . '/app/config/framework/validation.php');
+		$loader->load($this->getProjectDir() . '/app/config/doctrine.php');
+		$loader->load($this->getProjectDir() . '/app/config/security.php');
+		$loader->load($this->getProjectDir() . '/app/config/stof_doctrine_extensions.php');
 
-		$loader->load($this->getProjectDir() . '/tests/config/service.php');
+		$loader->load($this->getProjectDir() . '/app/config/service.php');
+
+		// Load Fixtures and Factories of Bundle
 		$loader->load($this->getConfigDir() . '/factories.php');
 		$loader->load($this->getConfigDir() . '/fixtures.php');
 

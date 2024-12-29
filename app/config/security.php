@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 29/12/2024, 23:09
+ * Last modified by "IDMarinas" on 30/12/2024, 24:07
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,8 +19,8 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use App\Entity\User\User;
 use Idm\Bundle\User\Security\Checker\UserChecker;
-use Idm\Bundle\User\Tests\App\Entity\User;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
 return static function (ContainerConfigurator $container) {
