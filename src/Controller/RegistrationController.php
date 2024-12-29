@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 19:45
+ * Last modified by "IDMarinas" on 29/12/2024, 17:51
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -25,13 +25,12 @@ use Idm\Bundle\User\Security\EmailVerifier;
 use Idm\Bundle\User\Traits\Controller\RegistrationTrait;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
-use Symfony\Component\Security\Http\Authenticator\FormLoginAuthenticator;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 use function Symfony\Component\Translation\t;
@@ -50,9 +49,8 @@ final class RegistrationController extends AbstractController
 
 	#[Route('/register', name: 'register_web', methods: ['GET', 'POST'])]
 	public function registerWeb (
-		Request                    $request,
-		UserAuthenticatorInterface $userAuthenticator,
-		FormLoginAuthenticator     $formLoginAuthenticatorMain
+		Request  $request,
+		Security $security,
 	): Response {
 		if ($this->getUser() instanceof UserInterface) {
 			return $this->redirectToRoute('idm_user_profile_index');
@@ -67,7 +65,7 @@ final class RegistrationController extends AbstractController
 			$templateEmail = (new TemplatedEmail())->locale($request->getLocale());
 			$this->registerUser($user, $templateEmail, $form->get('plainPassword')->getData());
 
-			return $userAuthenticator->authenticateUser($user, $formLoginAuthenticatorMain, $request);
+			return $security->login($user, 'form_login');
 		}
 
 		return $this->render('@IdmUser/registration/register.html.twig', [
