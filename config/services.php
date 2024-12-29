@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 29/12/2024, 17:51
+ * Last modified by "IDMarinas" on 29/12/2024, 22:39
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -33,25 +33,25 @@ return static function (ContainerConfigurator $container) {
 	// @formatter:off
 	$container
 		->services()
-		// Register EmailVerifier service
-		->set('idm_user.service.email_verifier', EmailVerifier::class)->public()->autowire()->autoconfigure()
-		// Register ResetPasswordRequestRepository service
-		->set(ResetPasswordRequestRepository::class, ResetPasswordRequestRepository::class)->public()->autowire()->autoconfigure()
-		// Register ResetPasswordController
-		->set(ResetPasswordController::class, ResetPasswordController::class)->autoconfigure()->autowire()
-		// Register LoginController
-		->set(LoginController::class, LoginController::class)->autoconfigure()->autowire()
-		// Register ProfileController
-		->set(ProfileController::class, ProfileController::class)->autoconfigure()->autowire()
-		// Register RegistrationController
-		->set(RegistrationController::class, RegistrationController::class)
-			->arg('$emailVerifier', service('idm_user.service.email_verifier'))
-			->autoconfigure()
-			->autowire()
-		// Register UserChecker
-		->set(UserChecker::class, UserChecker::class)->public()->autoconfigure()->autowire()
-		// Register UserAdminChecker
-		->set(UserAdminChecker::class, UserAdminChecker::class)->public()->autoconfigure()->autowire()
+			// Register EmailVerifier service
+			->set('idm_user.service.email_verifier', EmailVerifier::class)->public()->autowire()->autoconfigure()
+			// Register ResetPasswordRequestRepository service
+			->set(ResetPasswordRequestRepository::class, ResetPasswordRequestRepository::class)->public()->autowire()->autoconfigure()
+			// Register ResetPasswordController
+			->set(ResetPasswordController::class, ResetPasswordController::class)->autoconfigure()->autowire()
+			// Register LoginController
+			->set(LoginController::class, LoginController::class)->autoconfigure()->autowire()
+			// Register ProfileController
+			->set(ProfileController::class, ProfileController::class)->autoconfigure()->autowire()
+			// Register RegistrationController
+			->set(RegistrationController::class, RegistrationController::class)
+				->arg('$emailVerifier', service('idm_user.service.email_verifier'))
+				->autoconfigure()
+				->autowire()
+			// Register UserChecker
+			->set(UserChecker::class, UserChecker::class)->public()->autoconfigure()->autowire()
+			// Register UserAdminChecker
+			->set(UserAdminChecker::class, UserAdminChecker::class)->public()->autoconfigure()->autowire()
 	;
 	// @formatter:on
 };
