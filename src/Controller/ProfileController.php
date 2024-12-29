@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 29/12/2024, 21:29
+ * Last modified by "IDMarinas" on 29/12/2024, 21:41
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -63,7 +63,7 @@ final class ProfileController extends AbstractController
 		]);
 	}
 
-	#[Route(path: '/accept/terms_and_privacy', name: 'accept_terms_privacy')]
+	#[Route(path: '/accept/terms_and_privacy', name: 'accept_terms_privacy', methods: ['GET'])]
 	public function acceptTermsPrivacy (): Response
 	{
 		return $this->render('@IdmUser/profile/accept_terms_privacy.html.twig');
