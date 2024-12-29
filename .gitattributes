@@ -4,6 +4,7 @@
 /.docker/ export-ignore
 /.github export-ignore
 /.idea/ export-ignore
+/app/ export-ignore
 /build/ export-ignore
 /factories/ export-ignore
 /fixtures/ export-ignore
