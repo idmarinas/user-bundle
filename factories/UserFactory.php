@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 27/12/2024, 12:57
+ * Last modified by "IDMarinas" on 30/12/2024, 24:07
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,8 +19,8 @@
 
 namespace Factory;
 
-use Idm\Bundle\User\Tests\App\Entity\User;
-use Idm\Bundle\User\Tests\App\Entity\UserPremium;
+use App\Entity\User\User;
+use App\Entity\User\UserPremium;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
 

@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 27/12/2024, 12:57
+ * Last modified by "IDMarinas" on 30/12/2024, 24:07
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,6 +19,9 @@
 
 namespace Idm\Bundle\User\Tests\Repository;
 
+use App\Entity\User\FakeUser;
+use App\Entity\User\User;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\ClassMetadata;
@@ -30,9 +33,6 @@ use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\UnitOfWork;
 use Doctrine\Persistence\ManagerRegistry;
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
-use Idm\Bundle\User\Tests\App\Entity\FakeUser;
-use Idm\Bundle\User\Tests\App\Entity\User;
-use Idm\Bundle\User\Tests\App\Repository\UserRepository;
 use PHPUnit\Framework\TestCase;
 use ReflectionException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
