@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 29/12/2024, 22:39
+ * Last modified by "IDMarinas" on 29/12/2024, 23:05
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -50,25 +50,6 @@ return static function (ContainerConfigurator $container) {
 			],
 		],
 	]);
-
-	if ('dev' == $container->env()) {
-		$container->extension('framework', [
-			'rate_limiter' => [
-				'idm_user.login.username_ip.main'  => [
-					'limit' => 300,
-				],
-				'idm_user.login.ip.main'           => [
-					'limit' => 300,
-				],
-				'idm_user.login.username_ip.admin' => [
-					'limit' => 300,
-				],
-				'idm_user.login.ip.admin'          => [
-					'limit' => 300,
-				],
-			],
-		]);
-	}
 
 	// @formatter:off
 	$container->services()
