@@ -2,7 +2,11 @@
 	"name": "idmarinas/user-bundle",
 	"type": "symfony-bundle",
 	"license": "BSD-3-Clause",
-	"keywords": [],
+	"keywords": [
+		"user-bundle",
+		"user",
+		"symfony-bundle"
+	],
 	"authors": [
 		{
 			"name": "Iván Diaz Marinas (IDMarinas)",
