@@ -1,6 +1,6 @@
-# IDMarinas User Bundle
-
 <div align="center">
+
+# IDMarinas User Bundle
 
 [![Test Suite](https://img.shields.io/github/actions/workflow/status/idmarinas/user-bundle/php.yml?style=for-the-badge&logo=github&logoColor=white&label=IDMarinas%20User%20Bundle%20Test%20Suite
 )](https://github.com/idmarinas/user-bundle/actions/workflows/php.yml)
@@ -8,18 +8,18 @@
 
 </div>
 
+> A User Bundle to manage user basics without having to configure everything for each project, comes with a password
+> reset and email verification system.
+
 ![GitHub release](https://img.shields.io/github/release/idmarinas/user-bundle.svg)
 ![GitHub Release Date](https://img.shields.io/github/release-date/idmarinas/user-bundle.svg)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/idmarinas/user-bundle.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/idmarinas/user-bundle.svg)
+![GitHub language count](https://img.shields.io/github/languages/count/idmarinas/user-bundle.svg)
 
-![GitHub issues](https://img.shields.io/github/issues/idmarinas/user-bundle.svg)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/idmarinas/user-bundle.svg)
 ![Github commits (since latest release)](https://img.shields.io/github/commits-since/idmarinas/user-bundle/latest.svg)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/idmarinas/user-bundle.svg)
 ![GitHub last commit](https://img.shields.io/github/last-commit/idmarinas/user-bundle.svg)
-
-![GitHub top language](https://img.shields.io/github/languages/top/idmarinas/user-bundle.svg)
-![GitHub language count](https://img.shields.io/github/languages/count/idmarinas/user-bundle.svg)
 
 ### 📊 Sonar code analysis
 
