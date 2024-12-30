@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 17:26
+ * Last modified by "IDMarinas" on 30/12/2024, 17:29
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -52,13 +52,13 @@ return static function (ContainerConfigurator $container) {
 					'is_bundle' => false,
 					'mapping'   => true,
 					'type'      => 'attribute',
-					'dir'       => dirname(__DIR__) . '/src/Entity',
+					'dir'       => dirname(__DIR__, 2) . '/src/Entity',
 					'prefix'    => 'App\Entity',
 				],
 				'IdmUserBundle' => [
 					'mapping' => true,
 					'type'    => 'attribute',
-					'dir'     => dirname(__DIR__, 2) . '/src/Entity',
+					'dir'     => dirname(__DIR__, 3) . '/src/Entity',
 					'prefix'  => 'Idm\Bundle\User\Entity',
 				],
 			],
