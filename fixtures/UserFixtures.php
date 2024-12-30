@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 28/12/2024, 11:46
+ * Last modified by "IDMarinas" on 30/12/2024, 23:56
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -27,9 +27,11 @@ use ReflectionException;
 
 final class UserFixtures extends Fixture implements FixtureGroupInterface
 {
-	public const USER_EMAIL  = 'jonny.doe@example.com';
-	public const NORMAL_USER = 'normal_user_';
-	public const USER_PASS   = 'pass_1234_$%';
+	public const USER_TEST_EMAIL  = 'jonny.doe@example.com';
+	public const USER_ADMIN_EMAIL = 'john.doe@example.com';
+	public const USER_EMAIL       = 'jane.doe@example.com';
+	public const KEY_USER         = 'normal_user_';
+	public const USER_PASS        = 'pass_1234_$%';
 
 	public static function getGroups (): array
 	{
@@ -44,7 +46,7 @@ final class UserFixtures extends Fixture implements FixtureGroupInterface
 		$opts = [
 			'banned_until' => null,
 			'deleted_at'   => null,
-			'password'     => self::USER_PASS,
+			'password'     => self::KEY_USER,
 		];
 		// 200 additional users added
 		// 50% verified, 50% banned and 50% deleted
@@ -77,7 +79,7 @@ final class UserFixtures extends Fixture implements FixtureGroupInterface
 		// Add SuperAdmin user
 		$admin = UserFactory::createOne([
 			'display_name' => 'John',
-			'email'        => 'john.doe@example.com',
+			'email'        => self::USER_ADMIN_EMAIL,
 			'roles'        => ['ROLE_SUPER_ADMIN'],
 			...$opts,
 		]);
@@ -85,7 +87,7 @@ final class UserFixtures extends Fixture implements FixtureGroupInterface
 		// Add normal user
 		$user = UserFactory::createOne([
 			'display_name' => 'Jane',
-			'email'        => 'jane.doe@example.com',
+			'email'        => self::USER_EMAIL,
 			...$opts,
 		]);
 
