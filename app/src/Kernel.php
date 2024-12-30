@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 17:27
+ * Last modified by "IDMarinas" on 30/12/2024, 17:29
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -82,6 +82,6 @@ final class Kernel extends BaseKernel
 
 	private function getTestPackagesConfigDir (): string
 	{
-		return $this->getTestPackagesConfigDir() . '/packages';
+		return $this->getTestConfigDir() . '/packages';
 	}
 }
