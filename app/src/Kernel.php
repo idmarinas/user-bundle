@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 24:10
+ * Last modified by "IDMarinas" on 30/12/2024, 17:16
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,78 +19,16 @@
 
 namespace App;
 
-use DAMA\DoctrineTestBundle\DAMADoctrineTestBundle;
-use Doctrine\Bundle\DoctrineBundle\DoctrineBundle;
-use Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle;
 use Exception;
-use Idm\Bundle\User\IdmUserBundle;
-use Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle;
 use Symfony\Bundle\FrameworkBundle\Controller\TemplateController;
-use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
-use Symfony\Bundle\SecurityBundle\SecurityBundle;
-use Symfony\Bundle\TwigBundle\TwigBundle;
-use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
-use SymfonyCasts\Bundle\ResetPassword\SymfonyCastsResetPasswordBundle;
-use SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle;
-use Zenstruck\Foundry\ZenstruckFoundryBundle;
 
 final class Kernel extends BaseKernel
 {
 	use MicroKernelTrait;
-
-	public function registerBundles (): iterable
-	{
-		yield from parent::getBundles();
-
-		yield new FrameworkBundle();
-		yield new DoctrineBundle();
-		yield new SymfonyCastsVerifyEmailBundle();
-		yield new SymfonyCastsResetPasswordBundle();
-		yield new IdmUserBundle();
-		yield new TwigBundle();
-		yield new SecurityBundle();
-		yield new StofDoctrineExtensionsBundle();
-
-		// Dev-Test Bundles
-		yield new DoctrineFixturesBundle();
-		yield new DAMADoctrineTestBundle();
-		yield new ZenstruckFoundryBundle();
-	}
-
-	/**
-	 * @throws Exception
-	 */
-	public function registerContainerConfiguration (LoaderInterface $loader): void
-	{
-		$loader->load($this->getProjectDir() . '/app/config/framework.php');
-		$loader->load($this->getProjectDir() . '/app/config/framework/mailer.php');
-		$loader->load($this->getProjectDir() . '/app/config/framework/router.php');
-		$loader->load($this->getProjectDir() . '/app/config/framework/session.php');
-		$loader->load($this->getProjectDir() . '/app/config/framework/validation.php');
-		$loader->load($this->getProjectDir() . '/app/config/doctrine.php');
-		$loader->load($this->getProjectDir() . '/app/config/security.php');
-		$loader->load($this->getProjectDir() . '/app/config/stof_doctrine_extensions.php');
-
-		$loader->load($this->getProjectDir() . '/app/config/service.php');
-
-		// Load Fixtures and Factories of Bundle
-		$loader->load($this->getConfigDir() . '/factories.php');
-		$loader->load($this->getConfigDir() . '/fixtures.php');
-
-		$loader->load(function (ContainerBuilder $container) {
-			$container
-				->register('kernel', static::class)
-				->setPublic(true)
-			;
-
-			$kernelDefinition = $container->getDefinition('kernel');
-			$kernelDefinition->addTag('routing.route_loader');
-		});
-	}
 
 	public function configureRoutes (RoutingConfigurator $routes): void
 	{
@@ -105,5 +43,35 @@ final class Kernel extends BaseKernel
 				'template' => '@IdmUser/base.html.twig',
 			])
 		;
+	}
+
+	/**
+	 * @throws Exception
+	 */
+	protected function build (ContainerBuilder $container): void
+	{
+		$loader = $this->getContainerLoader($container);
+
+		// Load config for Test App
+		$loader->load($this->getProjectDir() . '/app/config/framework.php');
+		$loader->load($this->getProjectDir() . '/app/config/framework/mailer.php');
+		$loader->load($this->getProjectDir() . '/app/config/framework/router.php');
+		$loader->load($this->getProjectDir() . '/app/config/framework/session.php');
+		$loader->load($this->getProjectDir() . '/app/config/framework/validation.php');
+		$loader->load($this->getProjectDir() . '/app/config/doctrine.php');
+		$loader->load($this->getProjectDir() . '/app/config/security.php');
+		$loader->load($this->getProjectDir() . '/app/config/stof_doctrine_extensions.php');
+
+		// Load service of Bundle
+		$loader->load($this->getProjectDir() . '/app/config/service.php');
+
+		// Load Fixtures and Factories of Bundle
+		$loader->load($this->getConfigDir() . '/factories.php');
+		$loader->load($this->getConfigDir() . '/fixtures.php');
+	}
+
+	private function getBundlesPath (): string
+	{
+		return $this->getProjectDir() . '/app/config/bundles.php';
 	}
 }
