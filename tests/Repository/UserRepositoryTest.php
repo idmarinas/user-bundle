@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 24:07
+ * Last modified by "IDMarinas" on 30/12/2024, 17:17
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,7 +21,7 @@ namespace Idm\Bundle\User\Tests\Repository;
 
 use App\Entity\User\FakeUser;
 use App\Entity\User\User;
-use App\Repository\UserRepository;
+use App\Repository\User\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\ClassMetadata;
