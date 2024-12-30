@@ -2,14 +2,14 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/12/2024, 14:18
+ * Last modified by "IDMarinas" on 30/12/2024, 24:12
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    session.php
- * @date    27/12/2024
- * @time    14:13
+ * @file    messenger.php
+ * @date    28/12/2024
+ * @time    11:36
  *
  * @author  Iván Diaz Marinas (IDMarinas)
  * @license BSD 3-Clause License
@@ -21,11 +21,13 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 return static function (ContainerConfigurator $container) {
 	$container->extension('framework', [
-		'session' => [
-			'handler_id'         => null,
-			'cookie_secure'      => true,
-			'cookie_samesite'    => 'lax',
-			'storage_factory_id' => 'session.storage.factory.mock_file',
+		'messenger' => [
+			'transports' => [
+				'sync' => 'in-memory://',
+			],
+			'routing'    => [
+				'Symfony\\Component\\Mailer\\Messenger\\SendEmailMessage' => 'sync',
+			],
 		],
 	]);
 };

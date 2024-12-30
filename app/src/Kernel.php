@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 17:16
+ * Last modified by "IDMarinas" on 30/12/2024, 17:23
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -53,17 +53,17 @@ final class Kernel extends BaseKernel
 		$loader = $this->getContainerLoader($container);
 
 		// Load config for Test App
-		$loader->load($this->getProjectDir() . '/app/config/framework.php');
-		$loader->load($this->getProjectDir() . '/app/config/framework/mailer.php');
-		$loader->load($this->getProjectDir() . '/app/config/framework/router.php');
-		$loader->load($this->getProjectDir() . '/app/config/framework/session.php');
-		$loader->load($this->getProjectDir() . '/app/config/framework/validation.php');
-		$loader->load($this->getProjectDir() . '/app/config/doctrine.php');
-		$loader->load($this->getProjectDir() . '/app/config/security.php');
-		$loader->load($this->getProjectDir() . '/app/config/stof_doctrine_extensions.php');
+		$loader->load($this->getTestPackagesConfigDir() . '/framework.php');
+		$loader->load($this->getTestPackagesConfigDir() . '/framework/mailer.php');
+		$loader->load($this->getTestPackagesConfigDir() . '/framework/router.php');
+		$loader->load($this->getTestPackagesConfigDir() . '/framework/session.php');
+		$loader->load($this->getTestPackagesConfigDir() . '/framework/validation.php');
+		$loader->load($this->getTestPackagesConfigDir() . '/doctrine.php');
+		$loader->load($this->getTestPackagesConfigDir() . '/security.php');
+		$loader->load($this->getTestPackagesConfigDir() . '/stof_doctrine_extensions.php');
 
 		// Load service of Bundle
-		$loader->load($this->getProjectDir() . '/app/config/service.php');
+		$loader->load($this->getTestConfigDir() . '/service.php');
 
 		// Load Fixtures and Factories of Bundle
 		$loader->load($this->getConfigDir() . '/factories.php');
@@ -73,5 +73,15 @@ final class Kernel extends BaseKernel
 	private function getBundlesPath (): string
 	{
 		return $this->getProjectDir() . '/app/config/bundles.php';
+	}
+
+	private function getTestConfigDir (): string
+	{
+		return $this->getProjectDir() . '/app/config';
+	}
+
+	private function getTestPackagesConfigDir (): string
+	{
+		return $this->getTestPackagesConfigDir() . '/packages';
 	}
 }
