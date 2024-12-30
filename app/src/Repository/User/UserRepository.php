@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 24:07
+ * Last modified by "IDMarinas" on 30/12/2024, 17:16
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -17,7 +17,7 @@
  * @since   2.0.0
  */
 
-namespace App\Repository;
+namespace App\Repository\User;
 
 use App\Entity\User\User;
 use Doctrine\Persistence\ManagerRegistry;
