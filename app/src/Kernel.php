@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 17:23
+ * Last modified by "IDMarinas" on 30/12/2024, 17:27
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -72,7 +72,7 @@ final class Kernel extends BaseKernel
 
 	private function getBundlesPath (): string
 	{
-		return $this->getProjectDir() . '/app/config/bundles.php';
+		return $this->getTestConfigDir() . '/bundles.php';
 	}
 
 	private function getTestConfigDir (): string
