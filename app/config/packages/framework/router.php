@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 24:12
+ * Last modified by "IDMarinas" on 30/12/2024, 17:52
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -22,9 +22,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 return static function (ContainerConfigurator $container) {
 	$container->extension('framework', [
 		'router' => [
-			'resource' => 'kernel::loadRoutes',
-			'type'     => 'service',
-			'utf8'     => true,
+			'utf8' => true,
 		],
 	]);
 };
