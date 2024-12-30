@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 17:17
+ * Last modified by "IDMarinas" on 30/12/2024, 23:56
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -64,7 +64,7 @@ class ProfileControllerTest extends WebTestCase
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/login');
 		$client->submitForm('Connect', [
-			'_username' => 'jane.doe@example.com',
+			'_username' => UserFixtures::USER_EMAIL,
 			'_password' => UserFixtures::USER_PASS,
 		]);
 
@@ -86,7 +86,7 @@ class ProfileControllerTest extends WebTestCase
 		$client->request(Request::METHOD_GET, '/user/login');
 
 		$client->submitForm('Connect', [
-			'_username' => 'jane.doe@example.com',
+			'_username' => UserFixtures::USER_EMAIL,
 			'_password' => UserFixtures::USER_PASS,
 		]);
 
@@ -97,7 +97,7 @@ class ProfileControllerTest extends WebTestCase
 
 		$client->request(Request::METHOD_GET, '/user/login');
 		$client->submitForm('Connect', [
-			'_username' => 'jane.doe@example.com',
+			'_username' => UserFixtures::USER_EMAIL,
 			'_password' => UserFixtures::USER_PASS . 'new',
 		]);
 
@@ -111,7 +111,7 @@ class ProfileControllerTest extends WebTestCase
 		$client->request(Request::METHOD_GET, '/user/login');
 
 		$client->submitForm('Connect', [
-			'_username' => 'jane.doe@example.com',
+			'_username' => UserFixtures::USER_EMAIL,
 			'_password' => UserFixtures::USER_PASS,
 		]);
 
@@ -142,7 +142,7 @@ class ProfileControllerTest extends WebTestCase
 		$userRepository = static::getContainer()->get(UserRepository::class);
 
 		// retrieve the test user
-		$user = $userRepository->findOneByEmail('jane.doe@example.com');
+		$user = $userRepository->findOneByEmail(UserFixtures::USER_EMAIL);
 		$this->assertNull($user);
 	}
 }
