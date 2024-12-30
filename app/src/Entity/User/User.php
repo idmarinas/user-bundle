@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 24:07
+ * Last modified by "IDMarinas" on 30/12/2024, 17:17
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,7 +19,7 @@
 
 namespace App\Entity\User;
 
-use App\Repository\UserRepository;
+use App\Repository\User\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Idm\Bundle\User\Model\Entity\AbstractUser;
 use Idm\Bundle\User\Traits\Entity\IDMarinasProviderTrait;
