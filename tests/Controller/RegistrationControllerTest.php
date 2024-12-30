@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 28/12/2024, 12:15
+ * Last modified by "IDMarinas" on 30/12/2024, 23:53
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -43,7 +43,7 @@ class RegistrationControllerTest extends WebTestCase
 		$client->request(Request::METHOD_GET, '/user/registration/register');
 
 		$client->submitForm('registration_form_button', [
-			'registration_form[email]'                          => UserFixtures::USER_EMAIL,
+			'registration_form[email]'                          => UserFixtures::USER_TEST_EMAIL,
 			'registration_form[plainPassword][password]'        => UserFixtures::USER_PASS,
 			'registration_form[plainPassword][password_repeat]' => UserFixtures::USER_PASS,
 			'registration_form[termsAccepted]'                  => true,
@@ -73,7 +73,7 @@ class RegistrationControllerTest extends WebTestCase
 		$this->assertPageTitleContains('Registration');
 
 		$client->submitForm('registration_form_button', [
-			'registration_form[email]'                          => UserFixtures::USER_EMAIL,
+			'registration_form[email]'                          => UserFixtures::USER_TEST_EMAIL,
 			'registration_form[plainPassword][password]'        => UserFixtures::USER_PASS,
 			'registration_form[plainPassword][password_repeat]' => UserFixtures::USER_PASS,
 			'registration_form[termsAccepted]'                  => false,
@@ -92,7 +92,7 @@ class RegistrationControllerTest extends WebTestCase
 		$client->request(Request::METHOD_GET, '/user/registration/register');
 
 		$client->submitForm('registration_form_button', [
-			'registration_form[email]'                          => UserFixtures::USER_EMAIL,
+			'registration_form[email]'                          => UserFixtures::USER_TEST_EMAIL,
 			'registration_form[plainPassword][password]'        => UserFixtures::USER_PASS,
 			'registration_form[plainPassword][password_repeat]' => UserFixtures::USER_PASS,
 			'registration_form[termsAccepted]'                  => true,
@@ -127,7 +127,7 @@ class RegistrationControllerTest extends WebTestCase
 		$client->request(Request::METHOD_GET, '/user/registration/register');
 
 		$client->submitForm('registration_form_button', [
-			'registration_form[email]'                          => UserFixtures::USER_EMAIL,
+			'registration_form[email]'                          => UserFixtures::USER_TEST_EMAIL,
 			'registration_form[plainPassword][password]'        => UserFixtures::USER_PASS,
 			'registration_form[plainPassword][password_repeat]' => UserFixtures::USER_PASS,
 			'registration_form[termsAccepted]'                  => true,
@@ -164,7 +164,7 @@ class RegistrationControllerTest extends WebTestCase
 		$client->request(Request::METHOD_GET, '/user/registration/register');
 
 		$client->submitForm('registration_form_button', [
-			'registration_form[email]'                          => UserFixtures::USER_EMAIL,
+			'registration_form[email]'                          => UserFixtures::USER_TEST_EMAIL,
 			'registration_form[plainPassword][password]'        => UserFixtures::USER_PASS,
 			'registration_form[plainPassword][password_repeat]' => UserFixtures::USER_PASS,
 			'registration_form[termsAccepted]'                  => true,
@@ -178,7 +178,7 @@ class RegistrationControllerTest extends WebTestCase
 		/** @var TemplatedEmail $email */
 		$email = $this->getMailerMessage();
 
-		$this->assertEmailAddressContains($email, 'to', UserFixtures::USER_EMAIL);
+		$this->assertEmailAddressContains($email, 'to', UserFixtures::USER_TEST_EMAIL);
 		$this->assertEmailHeaderSame($email, 'subject', 'Please confirm your email address');
 		$this->assertEmailHtmlBodyContains($email, 'http://localhost/user/registration/verify/email?expires=');
 		$this->assertEmailHtmlBodyContains(
