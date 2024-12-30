@@ -12,7 +12,7 @@
 
 <div align="center">
 
-[![Test Suite](https://img.shields.io/github/actions/workflow/status/idmarinas/user-bundle/php.yml?style=for-the-badge&logo=github&logoColor=white&label=IDMarinas%20User%20Bundle%20Test%20Suite
+[![Test Suite](https://img.shields.io/github/actions/workflow/status/idmarinas/user-bundle/php.yml?style=for-the-badge&logo=github&logoColor=white&label=Bundle%20Test%20Suite
 )](https://github.com/idmarinas/user-bundle/actions/workflows/php.yml)
 [![Quality Gate Status](https://img.shields.io/sonar/quality_gate/idmarinas_user-bundle?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=white)](https://sonarcloud.io/summary/new_code?id=idmarinas_user-bundle)
 [![Coverage](https://img.shields.io/sonar/coverage/idmarinas_user-bundle?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=white)](https://sonarcloud.io/dashboard?id=idmarinas_user-bundle)
