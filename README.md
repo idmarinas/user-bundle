@@ -1,3 +1,7 @@
+# IDMarinas User Bundle
+
+<hr />
+
 [![Test Suite](https://github.com/idmarinas/user-bundle/actions/workflows/php.yml/badge.svg)](https://github.com/idmarinas/user-bundle/actions/workflows/php.yml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=idmarinas_user-bundle)
 
@@ -24,16 +28,13 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=coverage)](https://sonarcloud.io/dashboard?id=idmarinas_user-bundle)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=idmarinas_user-bundle)
 
-![Dependabot](https://img.shields.io/badge/dependabot-025E8C?style=flat&logo=dependabot&logoColor=white)
-[![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=flat&logo=php&logoColor=white)](https://www.php.net)
-[![Doctrine](https://img.shields.io/badge/doctrine-fa6a3c?style=flat&logo=doctrine&logoColor=white)](https://www.doctrine-project.org)
-[![Symfony](https://img.shields.io/badge/symfony-black.svg?style=flat&logo=symfony&logoColor=white)](https://www.symfony.com)
+<hr />
 
 [![PayPal.Me - The safer, easier way to pay online!](https://img.shields.io/badge/donate-help_my_project-ffaa29.svg?logo=paypal&cacheSeconds=86400)](https://www.paypal.me/idmarinas)
 [![Liberapay - Donate](https://img.shields.io/liberapay/receives/IDMarinas.svg?logo=liberapay&cacheSeconds=86400)](https://liberapay.com/IDMarinas/donate)
 [![Twitter](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&cacheSeconds=86400)](https://x.com/idmarinas)
 
-# IDMarinas User Bundle
+<hr />
 
 # 💾 Installation
 
@@ -73,6 +74,17 @@ return [
     Idm\Bundle\User\IdmUserBundle::class => ['all' => true],
 ];
 ```
+
+## 🖱️ Tech used
+
+[![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net)
+[![Doctrine](https://img.shields.io/badge/doctrine-fa6a3c?style=for-the-badge&logo=doctrine&logoColor=white)](https://www.doctrine-project.org)
+[![Symfony](https://img.shields.io/badge/symfony-black.svg?style=for-the-badge&logo=symfony&logoColor=white)](https://www.symfony.com)
+
+> [!INFO]
+> ![Dependabot](https://img.shields.io/badge/dependabot-025E8C?style=for-the-badge&logo=dependabot&logoColor=white)
+> [![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/features/actions)
+> [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com)
 
 > ## 🖖 Support
 >
