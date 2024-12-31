@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 31/12/2024, 11:48
+ * Last modified by "IDMarinas" on 31/12/2024, 13:15
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -78,6 +78,10 @@ return static function (ContainerConfigurator $container) {
 				'time_cost'   => 3,
 				'memory_cost' => 10,
 			],
+		],
+		'role_hierarchy'   => [
+			'ROLE_ADMIN'       => 'ROLE_USER',
+			'ROLE_SUPER_ADMIN' => ['ROLE_ADMIN', 'ROLE_ALLOWED_TO_SWITCH'],
 		],
 	]);
 };
