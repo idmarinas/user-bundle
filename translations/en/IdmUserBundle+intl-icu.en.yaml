@@ -103,6 +103,7 @@ email:
 
 flash:
   error:
+    email.send: 'Error sending the mail: "{message}"'
     delete_user:
       csrf: The form is invalid, please try again.
   success:
