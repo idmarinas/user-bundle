@@ -108,3 +108,5 @@ flash:
       csrf: The form is invalid, please try again.
   success:
     email_verified: Your e-mail address has been verified.
+  warning:
+    privacy_terms_accepted: The privacy policy and terms have been accepted.

@@ -108,3 +108,5 @@ flash:
       csrf: El formulario no es válido, vuelve a intentarlo.
   success:
     email_verified: Su dirección de correo electrónico ha sido verificada.
+  warning:
+    privacy_terms_accepted: La política de privacidad y los términos ya han sido aceptados.
