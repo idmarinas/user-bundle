@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 31/12/2024, 13:52
+ * Last modified by "IDMarinas" on 31/12/2024, 13:53
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -42,7 +42,7 @@ class ProfileControllerTest extends WebTestCase
 		// test the profile page
 		$client->request(Request::METHOD_GET, '/user/profile');
 		$this->assertResponseIsSuccessful();
-		$this->assertPageTitleContains('Profile of John');
+		$this->assertPageTitleContains('Profile of Jane');
 
 		// test if when is authenticated redirect to profile
 		$client->request(Request::METHOD_GET, '/user/login');
