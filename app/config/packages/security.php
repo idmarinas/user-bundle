@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 24:12
+ * Last modified by "IDMarinas" on 31/12/2024, 11:48
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,6 +20,7 @@
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use App\Entity\User\User;
+use Idm\Bundle\User\Security\Checker\UserAdminChecker;
 use Idm\Bundle\User\Security\Checker\UserChecker;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 
@@ -34,7 +35,25 @@ return static function (ContainerConfigurator $container) {
 			],
 		],
 		'firewalls'        => [
-			'main' => [
+			'admin' => [
+				'host'             => '^admin\.localhost$',
+				'logout'           => [
+					'path' => '/logout',
+				],
+				'provider'         => 'idm_user_provider',
+				'user_checker'     => UserAdminChecker::class,
+				'form_login'       => [
+					'login_path'          => 'idm_user_login',
+					'check_path'          => 'idm_user_login',
+					'enable_csrf'         => true,
+					'form_only'           => true,
+					'default_target_path' => 'idm_user_profile_index',
+				],
+				'login_throttling' => [
+					'limiter' => 'idm_user.rate_limiter.login.admin',
+				],
+			],
+			'main'  => [
 				'logout'           => [
 					'path' => '/logout',
 				],
