@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 17:17
+ * Last modified by "IDMarinas" on 31/12/2024, 13:19
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -70,6 +70,37 @@ class LoginControllerTest extends WebTestCase
 		$client->followRedirect();
 
 		$this->assertSelectorTextContains('form', 'Invalid credentials.');
+	}
+
+	public function testLoginAdmin ()
+	{
+		$client = static::createClient([], [
+			'HTTP_HOST' => 'admin.localhost',
+		]);
+		$client->request(Request::METHOD_GET, '/user/login');
+
+		$this->assertResponseIsSuccessful();
+
+		$client->submitForm('Connect', [
+			'_username' => UserFixtures::USER_EMAIL,
+			'_password' => UserFixtures::USER_PASS,
+		]);
+
+		$this->assertResponseRedirects('/user/login');
+		$client->followRedirect();
+
+		$this->assertSelectorTextContains('form', 'Insufficient user permissions');
+
+		$client->submitForm('Connect', [
+			'_username' => UserFixtures::USER_ADMIN_EMAIL,
+			'_password' => UserFixtures::USER_PASS,
+		]);
+
+		$this->assertResponseRedirects('/user/profile');
+
+		$client->followRedirect();
+
+		$this->assertResponseIsSuccessful();
 	}
 
 	public function testLoginChecker ()
