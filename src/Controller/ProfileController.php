@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 29/12/2024, 21:41
+ * Last modified by "IDMarinas" on 31/12/2024, 11:29
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -28,8 +28,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use function Symfony\Component\Translation\t;
 
+#[IsGranted('IS_AUTHENTICATED_FULLY')]
 #[Route(path: '/profile', name: 'profile_')]
 final class ProfileController extends AbstractController
 {
