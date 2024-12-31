@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 31/12/2024, 13:53
+ * Last modified by "IDMarinas" on 31/12/2024, 13:55
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -77,6 +77,8 @@ class ProfileControllerTest extends WebTestCase
 		$client->request(Request::METHOD_GET, '/user/profile/accept/terms_and_privacy');
 
 		$this->assertResponseRedirects('/user/profile');
+		$client->followRedirect();
+		$this->assertSelectorTextContains('body', 'The privacy policy and terms have been accepted');
 
 		// User with unaccepted privacy and terms
 		$user = $repository->matching(
