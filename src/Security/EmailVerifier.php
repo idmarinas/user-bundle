@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 31/12/2024, 15:13
+ * Last modified by "IDMarinas" on 31/12/2024, 15:14
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -56,7 +56,7 @@ final readonly class EmailVerifier
 		try {
 			$this->mailer->send($email);
 		} catch (TransportExceptionInterface $transportException) {
-			$this->addFlash($transportException->getMessage());
+			$this->requestStack->getSession()->getFlashBag()->add('danger', $transportException->getMessage());
 		}
 	}
 
@@ -68,10 +68,5 @@ final readonly class EmailVerifier
 
 		$this->entityManager->persist($user);
 		$this->entityManager->flush();
-	}
-
-	private function addFlash (string $message): void
-	{
-		$this->requestStack->getSession()->getFlashBag()->add('danger', $message);
 	}
 }
