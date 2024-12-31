@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 23:56
+ * Last modified by "IDMarinas" on 31/12/2024, 13:32
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -33,7 +33,7 @@ class ProfileControllerTest extends WebTestCase
 		$userRepository = static::getContainer()->get(UserRepository::class);
 
 		// retrieve the test user
-		$testUser = $userRepository->findOneByEmail('john.doe@example.com');
+		$testUser = $userRepository->findOneByEmail(UserFixtures::USER_EMAIL);
 
 		// simulate $testUser being logged in
 		$client->loginUser($testUser);
