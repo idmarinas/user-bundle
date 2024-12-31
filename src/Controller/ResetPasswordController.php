@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 28/12/2024, 11:20
+ * Last modified by "IDMarinas" on 31/12/2024, 12:19
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -33,6 +33,7 @@ use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
@@ -59,6 +60,10 @@ final class ResetPasswordController extends AbstractController
 		MailerInterface     $mailer,
 		TranslatorInterface $translator,
 	): Response {
+		if ($this->getUser() instanceof UserInterface) {
+			return $this->redirectToRoute('idm_user_profile_index');
+		}
+
 		$form = $this->createForm(ResetPasswordRequestFormType::class);
 		$form->handleRequest($request);
 
@@ -80,6 +85,10 @@ final class ResetPasswordController extends AbstractController
 	#[Route('/check-email', name: 'check_email', methods: ['GET'])]
 	public function checkEmail (): Response
 	{
+		if ($this->getUser() instanceof UserInterface) {
+			return $this->redirectToRoute('idm_user_profile_index');
+		}
+
 		// Generate a fake token if the user does not exist or someone hit this page directly.
 		// This prevents exposing whether or not a user was found with the given email address or not
 		if (null === ($resetToken = $this->getTokenObjectFromSession())) {
@@ -100,6 +109,10 @@ final class ResetPasswordController extends AbstractController
 		UserPasswordHasherInterface $passwordHasher,
 		?string                     $token = null
 	): Response {
+		if ($this->getUser() instanceof UserInterface) {
+			return $this->redirectToRoute('idm_user_profile_index');
+		}
+
 		if ($token) {
 			// We store the token in session and remove it from the URL, to avoid the URL being
 			// loaded in a browser and potentially leaking the token to 3rd party JavaScript.
@@ -156,9 +169,6 @@ final class ResetPasswordController extends AbstractController
 		]);
 	}
 
-	/**
-	 * @throws TransportExceptionInterface
-	 */
 	private function processSendingPasswordResetEmail (
 		string              $emailFormData,
 		MailerInterface     $mailer,
@@ -200,7 +210,13 @@ final class ResetPasswordController extends AbstractController
 			->locale($translator->getLocale())
 		;
 
-		$mailer->send($email);
+		try {
+			$mailer->send($email);
+		} catch (TransportExceptionInterface $e) {
+			$this->addFlash('error', t('flash.error.email.send', ['message' => $e->getMessage()], 'IdmUserBundle'));
+
+			return $this->redirectToRoute('idm_user_reset_password');
+		}
 
 		// Store the token object in session for retrieval in check-email route.
 		$this->setTokenObjectInSession($resetToken);
