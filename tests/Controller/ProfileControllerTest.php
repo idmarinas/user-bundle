@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 31/12/2024, 13:32
+ * Last modified by "IDMarinas" on 31/12/2024, 13:52
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,6 +21,7 @@ namespace Idm\Bundle\User\Tests\Controller;
 
 use App\Repository\User\UserRepository;
 use DataFixtures\UserFixtures;
+use Doctrine\Common\Collections\Criteria;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -54,6 +55,40 @@ class ProfileControllerTest extends WebTestCase
 	public function testTermsAndConditions (): void
 	{
 		$client = static::createClient();
+		/* @var UserRepository $repository */
+		$repository = static::getContainer()->get(UserRepository::class);
+
+		$client->request(Request::METHOD_GET, '/user/profile/accept/terms_and_privacy');
+
+		$this->assertResponseRedirects('/user/login');
+		$client->followRedirect();
+
+		// User with accepted privacy and terms
+		$user = $repository->matching(
+			Criteria::create()
+				->where(Criteria::expr()->eq('termsAccepted', true))
+				->andWhere(Criteria::expr()->eq('privacyAccepted', true))
+				->setMaxResults(1)
+		)->first();
+
+		$client->loginUser($user);
+
+		// The privacy policy and terms have been accepted.
+		$client->request(Request::METHOD_GET, '/user/profile/accept/terms_and_privacy');
+
+		$this->assertResponseRedirects('/user/profile');
+
+		// User with unaccepted privacy and terms
+		$user = $repository->matching(
+			Criteria::create()
+				->where(Criteria::expr()->eq('termsAccepted', false))
+				->andWhere(Criteria::expr()->eq('privacyAccepted', false))
+				->setMaxResults(1)
+		)->first();
+
+		$client->loginUser($user);
+
+		// The privacy policy and terms have been accepted.
 		$client->request(Request::METHOD_GET, '/user/profile/accept/terms_and_privacy');
 
 		$this->assertPageTitleContains('Acceptance of terms and conditions');
