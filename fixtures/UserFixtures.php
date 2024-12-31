@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 23:56
+ * Last modified by "IDMarinas" on 31/12/2024, 17:11
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -64,7 +64,7 @@ final class UserFixtures extends Fixture implements FixtureGroupInterface
 		$users = UserFactory::all();
 
 		foreach ($users as $key => $user) {
-			$this->addReference(self::NORMAL_USER . $key, $user->_real());
+			$this->addReference(self::KEY_USER . $key, $user->_real());
 		}
 
 		$opts = [
