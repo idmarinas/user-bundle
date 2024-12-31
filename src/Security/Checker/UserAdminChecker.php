@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 20:50
+ * Last modified by "IDMarinas" on 31/12/2024, 11:24
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,7 +21,7 @@ namespace Idm\Bundle\User\Security\Checker;
 
 use Idm\Bundle\User\Model\Security\Checker\AbstractUserChecker;
 use Symfony\Component\Security\Core\Authentication\Token\PreAuthenticatedToken;
-use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Symfony\Component\Security\Core\Exception\CustomUserMessageAccountStatusException;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 final class UserAdminChecker extends AbstractUserChecker
@@ -31,7 +31,7 @@ final class UserAdminChecker extends AbstractUserChecker
 		$token = new PreAuthenticatedToken($user, 'admin', $user->getRoles());
 
 		if (!$this->accessDecisionManager->decide($token, ['ROLE_ADMIN'], null)) {
-			throw new AccessDeniedException('idm_user_bundle.role.insufficient');
+			throw new CustomUserMessageAccountStatusException('idm_user_bundle.role.insufficient');
 		}
 
 		parent::checkPreAuth($user);
