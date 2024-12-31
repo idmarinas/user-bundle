@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 21/12/2024, 11:55
+ * Last modified by "IDMarinas" on 31/12/2024, 15:13
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -29,13 +29,13 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
 
-final class EmailVerifier
+final readonly class EmailVerifier
 {
 	public function __construct (
-		private readonly VerifyEmailHelperInterface $verifyEmailHelper,
-		private readonly MailerInterface            $mailer,
-		private readonly EntityManagerInterface     $entityManager,
-		private readonly RequestStack               $requestStack,
+		private VerifyEmailHelperInterface $verifyEmailHelper,
+		private MailerInterface            $mailer,
+		private EntityManagerInterface     $entityManager,
+		private RequestStack               $requestStack,
 	) {}
 
 	public function sendEmailConfirmation (string $verifyEmailRouteName, AbstractUser $user, TemplatedEmail $email): void
