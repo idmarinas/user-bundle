@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 31/12/2024, 12:19
+ * Last modified by "IDMarinas" on 31/12/2024, 15:17
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -51,9 +51,6 @@ final class ResetPasswordController extends AbstractController
 		private readonly EntityManagerInterface       $entityManager
 	) {}
 
-	/**
-	 * @throws TransportExceptionInterface
-	 */
 	#[Route('', name: 'forgot_password_request', methods: ['GET', 'POST'])]
 	public function request (
 		Request             $request,
