@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 31/12/2024, 11:29
+ * Last modified by "IDMarinas" on 31/12/2024, 13:55
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -68,6 +68,14 @@ final class ProfileController extends AbstractController
 	#[Route(path: '/accept/terms_and_privacy', name: 'accept_terms_privacy', methods: ['GET'])]
 	public function acceptTermsPrivacy (): Response
 	{
+		/* @var AbstractUser $user */
+		$user = $this->getUser();
+		if ($user->getPrivacyAccepted() && $user->getTermsAccepted()) {
+			$this->addFlash('warning', t('flash.warning.privacy_terms_accepted', domain: 'IdmUserBundle'));
+
+			return $this->redirectToRoute('idm_user_profile_index');
+		}
+
 		return $this->render('@IdmUser/profile/accept_terms_privacy.html.twig');
 	}
 
