@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 28/12/2024, 11:58
+ * Last modified by "IDMarinas" on 31/12/2024, 15:09
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,6 +19,8 @@
 
 namespace Idm\Bundle\User\Tests\Controller;
 
+use App\Repository\User\UserRepository;
+use DataFixtures\UserFixtures;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
@@ -140,5 +142,24 @@ class ResetPasswordControllerTest extends WebTestCase
 			'reset_password_request_form[email]' => 'john.doe@example.com',
 		]);
 		$this->assertResponseRedirects('/user/reset-password/check-email');
+	}
+
+	public function testAuthenticatedUser (): void
+	{
+		$client = static::createClient();
+		$repository = static::getContainer()->get(UserRepository::class);
+
+		$user = $repository->findOneByEmail(UserFixtures::USER_EMAIL);
+
+		$client->loginUser($user);
+
+		$client->request(Request::METHOD_GET, '/user/reset-password');
+		$this->assertResponseRedirects('/user/profile');
+
+		$client->request(Request::METHOD_GET, '/user/reset-password/reset');
+		$this->assertResponseRedirects('/user/profile');
+
+		$client->request(Request::METHOD_GET, '/user/reset-password/check-email');
+		$this->assertResponseRedirects('/user/profile');
 	}
 }
