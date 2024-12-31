@@ -2,7 +2,7 @@
 /**
  * Copyright 2024 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 31/12/2024, 15:14
+ * Last modified by "IDMarinas" on 31/12/2024, 15:18
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -28,6 +28,7 @@ use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
+use function Symfony\Component\Translation\t;
 
 final readonly class EmailVerifier
 {
@@ -56,7 +57,10 @@ final readonly class EmailVerifier
 		try {
 			$this->mailer->send($email);
 		} catch (TransportExceptionInterface $transportException) {
-			$this->requestStack->getSession()->getFlashBag()->add('danger', $transportException->getMessage());
+			$this->requestStack->getSession()->getFlashBag()->add(
+				'error',
+				t('flash.error.email.send', ['message' => $transportException->getMessage()], 'IdmUserBundle')
+			);
 		}
 	}
 
