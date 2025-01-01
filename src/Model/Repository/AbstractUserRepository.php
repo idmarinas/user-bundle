@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2023-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 29/12/2024, 22:07
+ * Last modified by "IDMarinas" on 01/01/2025, 20:51
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,6 +21,7 @@
 namespace Idm\Bundle\User\Model\Repository;
 
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Idm\Bundle\Common\CommonConstEnum;
 use Idm\Bundle\User\Model\Entity\AbstractUser;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -89,7 +90,7 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 		$query = $this->createQueryBuilder('u');
 		$query
 			->select('u')
-			->where($query->expr()->lte("date_add(u.deletedAt,7,'day')", 'NOW()'))
+			->where($query->expr()->lte("date_add(u.deletedAt,7,'day')", CommonConstEnum::NOW->value))
 		;
 
 		$result = $query->getQuery()->getResult();
@@ -110,7 +111,7 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 		$query
 			->update()
 			->set('u.isInactive', true)
-			->where($query->expr()->lte("date_add(u.lastConnection,12,'month')", 'NOW()'))
+			->where($query->expr()->lte("date_add(u.lastConnection,12,'month')", CommonConstEnum::NOW->value))
 			->andWhere($query->expr()->eq('u.isInactive', false))
 		;
 
@@ -128,8 +129,8 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 
 		$query
 			->select('u')
-			->where($query->expr()->lte("date_add(u.lastConnection,15,'month')", 'NOW()'))
-			->andWhere($query->expr()->gte("date_add(u.lastConnection,18,'month')", 'NOW()'))
+			->where($query->expr()->lte("date_add(u.lastConnection,15,'month')", CommonConstEnum::NOW->value))
+			->andWhere($query->expr()->gte("date_add(u.lastConnection,18,'month')", CommonConstEnum::NOW->value))
 			->andWhere($query->expr()->eq('u.isInactive', true))
 		;
 
@@ -147,8 +148,8 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 
 		$query
 			->select('u')
-			->where($query->expr()->lte("date_add(u.lastConnection,18,'month')", 'NOW()'))
-			->andWhere($query->expr()->gte("date_add(u.lastConnection,21,'month')", 'NOW()'))
+			->where($query->expr()->lte("date_add(u.lastConnection,18,'month')", CommonConstEnum::NOW->value))
+			->andWhere($query->expr()->gte("date_add(u.lastConnection,21,'month')", CommonConstEnum::NOW->value))
 			->andWhere($query->expr()->eq('u.isInactive', true))
 		;
 
@@ -166,7 +167,7 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 
 		$query
 			->select('u')
-			->where($query->expr()->lte("date_add(u.lastConnection,21,'month')", 'NOW()'))
+			->where($query->expr()->lte("date_add(u.lastConnection,21,'month')", CommonConstEnum::NOW->value))
 			->andWhere($query->expr()->eq('u.isInactive', true))
 		;
 
@@ -184,7 +185,7 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 		$query = $this->createQueryBuilder('u');
 		$query
 			->select('u')
-			->where($query->expr()->lte("date_add(u.lastConnection,24,'month')", 'NOW()'))
+			->where($query->expr()->lte("date_add(u.lastConnection,24,'month')", CommonConstEnum::NOW->value))
 			->andWhere($query->expr()->eq('u.isInactive', true))
 		;
 
