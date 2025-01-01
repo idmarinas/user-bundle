@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 31/12/2024, 16:59
+ * Last modified by "IDMarinas" on 01/01/2025, 18:29
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -205,7 +205,6 @@ class ResetPasswordControllerTest extends WebTestCase
 		$requestStack = static::getContainer()->get('request_stack');
 		$requestStack->push($client->getRequest());
 
-		$client->getRequest()->getSession();
 		$container = new Container();
 		$container->set('mailer', $mailer);
 		$container->set('translator', $translator);
