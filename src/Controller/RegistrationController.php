@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 29/12/2024, 17:51
+ * Last modified by "IDMarinas" on 01/01/2025, 20:09
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -65,7 +65,7 @@ final class RegistrationController extends AbstractController
 			$templateEmail = (new TemplatedEmail())->locale($request->getLocale());
 			$this->registerUser($user, $templateEmail, $form->get('plainPassword')->getData());
 
-			return $security->login($user, 'form_login');
+			return $security->login($user);
 		}
 
 		return $this->render('@IdmUser/registration/register.html.twig', [
