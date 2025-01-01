@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 31/12/2024, 17:11
+ * Last modified by "IDMarinas" on 01/01/2025, 18:20
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -46,7 +46,7 @@ final class UserFixtures extends Fixture implements FixtureGroupInterface
 		$opts = [
 			'banned_until' => null,
 			'deleted_at'   => null,
-			'password'     => self::KEY_USER,
+			'password'     => self::USER_PASS,
 		];
 		// 200 additional users added
 		// 50% verified, 50% banned and 50% deleted
