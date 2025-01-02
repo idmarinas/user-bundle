@@ -6,6 +6,7 @@
 /.idea/ export-ignore
 /app/ export-ignore
 /build/ export-ignore
+/docs/ export-ignore
 /factories/ export-ignore
 /fixtures/ export-ignore
 /tests/ export-ignore
