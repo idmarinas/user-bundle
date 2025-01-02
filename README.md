@@ -87,14 +87,6 @@ return [
 ];
 ```
 
-## Documentation
-
-The documentation is stored in the `docs/index.rst` file in this bundle.
-
-Read the documentation for versions:
-
-- [Last](/docs/index.rst)
-
 ## 🖱️ Tech used in code
 
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/idmarinas/user-bundle.svg?style=for-the-badge)
