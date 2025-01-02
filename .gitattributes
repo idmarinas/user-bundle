@@ -11,6 +11,7 @@
 /tests/ export-ignore
 /vendor/ export-ignore
 /var/ export-ignore
+/Writerside/ export-ignore
 
 /.editorconfig export-ignore
 /.gitattributes export-ignore
