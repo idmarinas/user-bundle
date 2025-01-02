@@ -1,0 +1,8 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Web Archive (iub)" type="StardustRunConfiguration" factoryName="save-as-zip">
+    <option name="folderPath" value="$PROJECT_DIR$/docs" />
+    <option name="instanceId" value="iub" />
+    <option name="instanceName" value="IDMarinas User Bundle" />
+    <method v="2" />
+  </configuration>
+</component>
