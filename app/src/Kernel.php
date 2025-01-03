@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 17:29
+ * Last modified by "IDMarinas" on 02/01/2025, 23:34
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -63,7 +63,7 @@ final class Kernel extends BaseKernel
 		$loader->load($this->getTestPackagesConfigDir() . '/stof_doctrine_extensions.php');
 
 		// Load service of Bundle
-		$loader->load($this->getTestConfigDir() . '/service.php');
+		$loader->load($this->getTestConfigDir() . '/services.php');
 
 		// Load Fixtures and Factories of Bundle
 		$loader->load($this->getConfigDir() . '/factories.php');
