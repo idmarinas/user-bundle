@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!---
+  - Copyright 2025 (C) IDMarinas - All Rights Reserved
+  -
+  - Last modified by "IDMarinas" on 06/01/2025, 20:01
+  -
+  - @project IDMarinas User Bundle
+  - @see https://github.com/idmarinas/user-bundle
+  -
+  - @file security_bundle.topic
+  - @date 06/01/2025
+  - @time 20:02
+  -
+  - @author Iván Diaz Marinas (IDMarinas)
+  - @license BSD 3-Clause License
+  -
+  - @since 2.0.0
+  -->
+
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
+<topic
+	id="security_bundle"
+	is-library="true"
+	title="Security Bundle"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+>
+	<tabs id="security-bundle">
+		<tab id="security-included" title="Included">
+			Nothing
+		</tab>
+		<tab id="security-needed" title="Needed">
+			<code-block lang="yaml">
+				# Config
+				security:
+					providers:
+					idm_user_provider:
+						entity:
+							class: App\Entity\User\User
+							property: email
+					firewalls:
+						main: # And other firewall
+							provider: idm_user_provider
+							user_checker: Idm\Bundle\User\Security\Checker\[(UserChecker|UserAdminChecker)]
+							login_throttling:
+								limiter: idm_user.rate_limiter.login.[(main|admin)]
+					password_hashers:
+						Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: auto
+			</code-block>
+		</tab>
+	</tabs>
+</topic>

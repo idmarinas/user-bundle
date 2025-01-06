@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!---
+  - Copyright 2025 (C) IDMarinas - All Rights Reserved
+  -
+  - Last modified by "IDMarinas" on 06/01/2025, 19:56
+  -
+  - @project IDMarinas User Bundle
+  - @see https://github.com/idmarinas/user-bundle
+  -
+  - @file framework_bundle.topic
+  - @date 06/01/2025
+  - @time 20:02
+  -
+  - @author Iván Diaz Marinas (IDMarinas)
+  - @license BSD 3-Clause License
+  -
+  - @since 2.0.0
+  -->
+
+<!DOCTYPE topic SYSTEM "https://resources.jetbrains.com/writerside/1.0/html-entities.dtd">
+<topic
+	id="framework_bundle"
+	is-library="true"
+	title="Framework Bundle"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+>
+
+	<tabs id="framework-bundle">
+		<tab id="framework-included" title="Included">
+			<code-block lang="yaml">
+				# Config
+				framework:
+					rate_limiter:
+						idm_user.login.username_ip.main:
+							policy: token_bucket
+							limit: 5
+							rate:
+								interval: 5 minutes
+						idm_user.login.ip.main:
+							policy: sliding_window
+							limit: 25
+							interval: 15 minutes
+						idm_user.login.username_ip.admin:
+							policy: token_bucket
+							limit: 3
+							rate:
+								interval: 5 minutes
+						idm_user.login.ip.admin:
+							policy: sliding_window
+							limit: 10
+							interval: 15 minutes
+				services:
+					idm_user.rate_limiter.login.main:
+						class: Symfony\Component\Security\Http\RateLimiter\DefaultLoginRateLimiter
+						arguments:
+							$globalFactory: '@limiter.idm_user.login.ip.main'
+							$localFactory: '@limiter.idm_user.login.username_ip.main'
+							$secret: '%\kernel.secret%'
+					idm_user.rate_limiter.login.admin:
+						class: Symfony\Component\Security\Http\RateLimiter\DefaultLoginRateLimiter
+						arguments:
+							$globalFactory: '@limiter.idm_user.login.ip.admin'
+							$localFactory: '@limiter.idm_user.login.username_ip.admin'
+							$secret: '%\kernel.secret%'
+			</code-block>
+		</tab>
+		<tab id="framework-needed" title="Needed">
+			Nothing
+		</tab>
+	</tabs>
+</topic>
