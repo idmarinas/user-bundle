@@ -3,9 +3,10 @@
 > %project% needs your web server to meet the following requirements.
 > {style='note'}
 
-| **PHP Version** | **Symfony Versions** |
-|:---------------:|:--------------------:|
-|     `^8.2`      |   `^6.4` or `^7.0`   |
+| **%project% <br/>Version** | **PHP <br/>Compatibility** | **Symfony <br/>Compatibility** | **Status**                 | **Docs**                                                      |
+|----------------------------|:--------------------------:|:------------------------------:|----------------------------|---------------------------------------------------------------|
+| `2.x`                      |      `8.2`  or higher      |        `6.4` and `7.x`         | New features and bug fixes | [Docs](https://idmarinas.github.io/user-bundle/index_md.html) |
+| `1.x`                      |      `8.0` or higher       |     `5.4` `^6.1` and `7.x`     | No longer maintained       |                                                               |
 
 <seealso>
   <category ref="related">
