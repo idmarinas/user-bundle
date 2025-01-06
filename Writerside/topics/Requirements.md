@@ -3,18 +3,9 @@
 > %project% needs your web server to meet the following requirements.
 > {style='note'}
 
-### PHP version
-
-%project% requires at least PHP version `8.2`.
-
-### Symfony version
-
-%project% is compatible with the following Symfony versions:
-
-- Symfony `6.4.*`
-- Symfony `7.0.*`
-- Symfony `7.1.*`
-- Symfony `7.2.*`
+| **PHP Version** | **Symfony Versions** |
+|:---------------:|:--------------------:|
+|     `^8.2`      |   `^6.4` or `^7.0`   |
 
 <seealso>
   <category ref="related">
