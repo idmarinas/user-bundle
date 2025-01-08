@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:54
+ * Last modified by "IDMarinas" on 08/01/2025, 12:42
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,8 +21,9 @@ namespace Idm\Bundle\User\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Loggable\Entity\MappedSuperclass\AbstractLogEntry;
+use Gedmo\Loggable\Entity\Repository\LogEntryRepository;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: LogEntryRepository::class)]
 #[ORM\Table(name: 'idm_user_reset_password_request_log', options: ['row_format' => 'DYNAMIC'])]
 #[ORM\Index(name: 'log_class_lookup_idx', columns: ['object_class'])]
 #[ORM\Index(name: 'log_date_lookup_idx', columns: ['logged_at'])]
