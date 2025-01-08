@@ -60,7 +60,8 @@
 		"zenstruck/foundry": "^2.3"
 	},
 	"conflict": {
-		"idmarinas/common-bundle": "<=3.0.0"
+		"idmarinas/common-bundle": "<=3.0.0",
+		"doctrine/dbal": ">=4.0"
 	},
 	"config": {
 		"allow-plugins": {
