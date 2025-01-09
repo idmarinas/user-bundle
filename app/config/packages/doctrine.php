@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 17:29
+ * Last modified by "IDMarinas" on 09/01/2025, 17:12
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -48,18 +48,12 @@ return static function (ContainerConfigurator $container) {
 				'auto_mapping' => false,
 			],
 			'mappings'                    => [
-				'Tests'         => [
+				'Tests' => [
 					'is_bundle' => false,
 					'mapping'   => true,
 					'type'      => 'attribute',
 					'dir'       => dirname(__DIR__, 2) . '/src/Entity',
 					'prefix'    => 'App\Entity',
-				],
-				'IdmUserBundle' => [
-					'mapping' => true,
-					'type'    => 'attribute',
-					'dir'     => dirname(__DIR__, 3) . '/src/Entity',
-					'prefix'  => 'Idm\Bundle\User\Entity',
 				],
 			],
 		],
