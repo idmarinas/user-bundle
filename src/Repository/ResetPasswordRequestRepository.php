@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 14:41
+ * Last modified by "IDMarinas" on 09/01/2025, 17:02
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,9 +19,9 @@
 
 namespace Idm\Bundle\User\Repository;
 
+use App\Entity\User\ResetPasswordRequest;
 use DateTimeInterface;
 use Doctrine\Persistence\ManagerRegistry;
-use Idm\Bundle\User\Entity\ResetPasswordRequest;
 use Idm\Bundle\User\Model\Repository\AbstractResetPasswordRequestRepository;
 use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordRequestInterface;
 
