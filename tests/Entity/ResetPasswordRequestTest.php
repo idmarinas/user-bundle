@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 24:07
+ * Last modified by "IDMarinas" on 09/01/2025, 17:02
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,10 +19,10 @@
 
 namespace Idm\Bundle\User\Tests\Entity;
 
+use App\Entity\User\ResetPasswordRequest;
 use App\Entity\User\User;
 use DateTime;
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
-use Idm\Bundle\User\Entity\ResetPasswordRequest;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class ResetPasswordRequestTest extends KernelTestCase
