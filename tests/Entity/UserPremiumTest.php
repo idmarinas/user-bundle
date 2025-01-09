@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 24:07
+ * Last modified by "IDMarinas" on 09/01/2025, 17:42
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,8 +19,8 @@
 
 namespace Idm\Bundle\User\Tests\Entity;
 
+use App\Entity\User\Premium;
 use App\Entity\User\User;
-use App\Entity\User\UserPremium;
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
 use ReflectionException;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -44,7 +44,7 @@ class UserPremiumTest extends KernelTestCase
 		$userFake = clone $user;
 		$userFake->setEmail('fake@user.fk');
 
-		$premium = new UserPremium();
+		$premium = new Premium();
 		$premium->setUser($user);
 
 		$user->setPremium($premium);
