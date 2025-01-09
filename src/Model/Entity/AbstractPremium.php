@@ -1,13 +1,13 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 21/12/2024, 11:55
+ * Last modified by "IDMarinas" on 09/01/2025, 17:42
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    AbstractUserPremium.php
+ * @file    AbstractPremium.php
  * @date    01/12/2024
  * @time    18:44
  *
@@ -22,7 +22,7 @@ namespace Idm\Bundle\User\Model\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\MappedSuperclass]
-abstract class AbstractUserPremium
+abstract class AbstractPremium
 {
 	#[ORM\Id]
 	#[ORM\OneToOne(inversedBy: 'premium')]
