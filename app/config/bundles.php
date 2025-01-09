@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 15:45
+ * Last modified by "IDMarinas" on 09/01/2025, 21:43
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -23,6 +23,7 @@ use Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle;
 use Idm\Bundle\User\IdmUserBundle;
 use Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
+use Symfony\Bundle\MakerBundle\MakerBundle;
 use Symfony\Bundle\SecurityBundle\SecurityBundle;
 use Symfony\Bundle\TwigBundle\TwigBundle;
 use SymfonyCasts\Bundle\ResetPassword\SymfonyCastsResetPasswordBundle;
@@ -40,6 +41,7 @@ return [
 	IdmUserBundle::class                   => ['all' => true],
 
 	// Dev-Test Bundles
+	MakerBundle::class                     => ['all' => true],
 	DoctrineFixturesBundle::class          => ['all' => true],
 	DAMADoctrineTestBundle::class          => ['all' => true],
 	ZenstruckFoundryBundle::class          => ['all' => true],
