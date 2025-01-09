@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2023-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 29/12/2024, 23:38
+ * Last modified by "IDMarinas" on 09/01/2025, 18:21
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,9 +20,6 @@
 
 namespace Idm\Bundle\User;
 
-use Idm\Bundle\User\Model\Entity\AbstractUser;
-use Idm\Bundle\User\Model\Entity\AbstractUserConnectionLog;
-use Idm\Bundle\User\Model\Entity\AbstractUserPremium;
 use Idm\Bundle\User\Repository\ResetPasswordRequestRepository;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -42,16 +39,6 @@ final class IdmUserBundle extends AbstractBundle
 		$builder->prependExtensionConfig('security', [
 			'password_hashers' => [
 				PasswordAuthenticatedUserInterface::class => 'auto',
-			],
-		]);
-
-		$builder->prependExtensionConfig('doctrine', [
-			'orm' => [
-				'resolve_target_entities' => [
-					AbstractUser::class              => 'App\Entity\User\User',
-					AbstractUserPremium::class       => 'App\Entity\User\UserPremium',
-					AbstractUserConnectionLog::class => 'App\Entity\User\UserConnectionLog',
-				],
 			],
 		]);
 	}
