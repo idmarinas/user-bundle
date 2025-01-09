@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 21/12/2024, 11:55
+ * Last modified by "IDMarinas" on 09/01/2025, 17:55
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -17,13 +17,12 @@
  * @since   2.0.0
  */
 
-namespace Idm\Bundle\User\Entity;
+namespace App\Entity\User;
 
 use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Idm\Bundle\Common\Traits\Entity\UuidTrait;
-use Idm\Bundle\User\Model\Entity\AbstractUser;
 use Idm\Bundle\User\Repository\ResetPasswordRequestRepository;
 use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordRequestInterface;
 use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordRequestTrait;
@@ -33,21 +32,25 @@ use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordRequestTrait;
 #[Gedmo\Loggable(logEntryClass: ResetPasswordRequestLog::class)]
 class ResetPasswordRequest implements ResetPasswordRequestInterface
 {
-	use UuidTrait;
-	use ResetPasswordRequestTrait;
+    use UuidTrait;
+    use ResetPasswordRequestTrait;
 
-	#[ORM\ManyToOne]
-	#[ORM\JoinColumn(nullable: false)]
-	private ?AbstractUser $user;
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user;
 
-	public function __construct (AbstractUser $user, DateTimeInterface $expiresAt, string $selector, string $hashedToken)
-	{
-		$this->user = $user;
-		$this->initialize($expiresAt, $selector, $hashedToken);
-	}
+    public function __construct (
+        User              $user,
+        DateTimeInterface $expiresAt,
+        string            $selector,
+        string            $hashedToken
+    ) {
+        $this->user = $user;
+        $this->initialize($expiresAt, $selector, $hashedToken);
+    }
 
-	public function getUser (): AbstractUser
-	{
-		return $this->user;
-	}
+    public function getUser (): User
+    {
+        return $this->user;
+    }
 }
