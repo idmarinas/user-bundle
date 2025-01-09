@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 09/01/2025, 17:12
+ * Last modified by "IDMarinas" on 09/01/2025, 18:22
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,6 +19,9 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use Idm\Bundle\User\Model\Entity\AbstractConnections;
+use Idm\Bundle\User\Model\Entity\AbstractPremium;
+use Idm\Bundle\User\Model\Entity\AbstractUser;
 use Symfony\Component\Filesystem\Filesystem;
 
 return static function (ContainerConfigurator $container) {
@@ -55,6 +58,11 @@ return static function (ContainerConfigurator $container) {
 					'dir'       => dirname(__DIR__, 2) . '/src/Entity',
 					'prefix'    => 'App\Entity',
 				],
+			],
+			'resolve_target_entities'     => [
+				AbstractUser::class        => 'App\Entity\User\User',
+				AbstractPremium::class     => 'App\Entity\User\Premium',
+				AbstractConnections::class => 'App\Entity\User\Connections',
 			],
 		],
 	]);
