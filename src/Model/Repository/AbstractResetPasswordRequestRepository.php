@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 09/01/2025, 17:02
+ * Last modified by "IDMarinas" on 09/01/2025, 19:20
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -42,5 +42,27 @@ class AbstractResetPasswordRequestRepository extends ServiceEntityRepository
 		string            $hashedToken
 	): ResetPasswordRequestInterface {
 		return new ResetPasswordRequest($user, $expiresAt, $selector, $hashedToken);
+	}
+
+	/** @inheritDoc */
+	public function getMostRecentNonExpiredRequestDate (object $user): ?DateTimeInterface
+	{
+		// Normally there is only 1 max request per use, but written to be flexible
+		/** @var ResetPasswordRequestInterface $resetPasswordRequest */
+		$resetPasswordRequest = $this
+			->createQueryBuilder('t')
+			->where('t.user = :user')
+			->setParameter('user', $user->getId(), 'uuid')
+			->orderBy('t.requestedAt', 'DESC')
+			->setMaxResults(1)
+			->getQuery()
+			->getOneOrNullResult()
+		;
+
+		if (null !== $resetPasswordRequest && !$resetPasswordRequest->isExpired()) {
+			return $resetPasswordRequest->getRequestedAt();
+		}
+
+		return null;
 	}
 }
