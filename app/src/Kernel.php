@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 02/01/2025, 23:34
+ * Last modified by "IDMarinas" on 09/01/2025, 19:24
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -59,6 +59,7 @@ final class Kernel extends BaseKernel
 		$loader->load($this->getTestPackagesConfigDir() . '/framework/session.php');
 		$loader->load($this->getTestPackagesConfigDir() . '/framework/validation.php');
 		$loader->load($this->getTestPackagesConfigDir() . '/doctrine.php');
+		$loader->load($this->getTestPackagesConfigDir() . '/reset_password.php');
 		$loader->load($this->getTestPackagesConfigDir() . '/security.php');
 		$loader->load($this->getTestPackagesConfigDir() . '/stof_doctrine_extensions.php');
 
