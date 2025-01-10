@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 09/01/2025, 19:03
+ * Last modified by "IDMarinas" on 10/01/2025, 18:52
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -26,11 +26,6 @@ use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
 final class IdmUserBundle extends AbstractBundle
 {
-	public function prependExtension (ContainerConfigurator $container, ContainerBuilder $builder): void
-	{
-		$container->import(dirname(__DIR__) . '/config/rate_limiter.php');
-	}
-
 	public function loadExtension (array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
 	{
 		$container->import(dirname(__DIR__) . '/config/services.php');
