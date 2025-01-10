@@ -6,7 +6,7 @@
 </div>
 
 > A User Bundle to manage user basics without having to configure everything for each project, comes with a password
-> reset and email verification system.
+> reset and email verification system. See [Docs](https://idmarinas.github.io/user-bundle/index_md.html)
 
 <br />
 
