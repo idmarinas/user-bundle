@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/12/2024, 21:54
+ * Last modified by "IDMarinas" on 10/01/2025, 19:07
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,7 +20,8 @@
 
 namespace Idm\Bundle\User\Tests;
 
-use Idm\Bundle\User\Repository\ResetPasswordRequestRepository;
+use Idm\Bundle\User\Security\Checker\UserAdminChecker;
+use Idm\Bundle\User\Security\Checker\UserChecker;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class BundleInitializationTest extends KernelTestCase
@@ -35,7 +36,7 @@ class BundleInitializationTest extends KernelTestCase
 		$container = static::getContainer();
 
 		$this->assertTrue($container->has('idm_user.service.email_verifier'));
-
-		$this->assertTrue($container->has(ResetPasswordRequestRepository::class));
+		$this->assertTrue($container->has(UserChecker::class));
+		$this->assertTrue($container->has(UserAdminChecker::class));
 	}
 }
