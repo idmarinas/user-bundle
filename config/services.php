@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2023-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 29/12/2024, 22:39
+ * Last modified by "IDMarinas" on 10/01/2025, 18:51
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -24,7 +24,6 @@ use Idm\Bundle\User\Controller\LoginController;
 use Idm\Bundle\User\Controller\ProfileController;
 use Idm\Bundle\User\Controller\RegistrationController;
 use Idm\Bundle\User\Controller\ResetPasswordController;
-use Idm\Bundle\User\Repository\ResetPasswordRequestRepository;
 use Idm\Bundle\User\Security\Checker\UserAdminChecker;
 use Idm\Bundle\User\Security\Checker\UserChecker;
 use Idm\Bundle\User\Security\EmailVerifier;
@@ -35,8 +34,6 @@ return static function (ContainerConfigurator $container) {
 		->services()
 			// Register EmailVerifier service
 			->set('idm_user.service.email_verifier', EmailVerifier::class)->public()->autowire()->autoconfigure()
-			// Register ResetPasswordRequestRepository service
-			->set(ResetPasswordRequestRepository::class, ResetPasswordRequestRepository::class)->public()->autowire()->autoconfigure()
 			// Register ResetPasswordController
 			->set(ResetPasswordController::class, ResetPasswordController::class)->autoconfigure()->autowire()
 			// Register LoginController
