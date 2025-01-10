@@ -101,6 +101,11 @@ email:
       button: Confirmar mi correo
       note: Este enlace expirará en {expiration}, es necesario iniciar sesión para poder verificar el correo.
 
+user_role:
+  ROLE_SUPER_ADMIN: Rol Super-Administrador
+  ROLE_ADMIN: Rol administrador
+  ROLE_USER: Rol usuario
+
 flash:
   error:
     email.send: 'Error al enviar el correo: "{message}"'

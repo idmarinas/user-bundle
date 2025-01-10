@@ -101,6 +101,11 @@ email:
       button: Confirm my email
       note: This link will expire in {expiration}, login is required to verify the email.
 
+user_role:
+  ROLE_SUPER_ADMIN: Super-Admin Role
+  ROLE_ADMIN: Admin Role
+  ROLE_USER: User Role
+
 flash:
   error:
     email.send: 'Error sending the mail: "{message}"'
