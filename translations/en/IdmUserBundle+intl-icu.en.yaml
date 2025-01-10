@@ -106,6 +106,33 @@ user_role:
   ROLE_ADMIN: Admin Role
   ROLE_USER: User Role
 
+entity:
+  label:
+    user:
+      plural: Users
+      singular: User
+
+crud:
+  common:
+    uuid: Identifier
+    email: Email
+    roles: Roles
+    name: Name
+    description: Description
+    type: Type
+    deleted_at: Deleted at
+    created_at: Created at
+    is_deleted: Deleted
+    value: Value
+    user: User
+  social:
+    idmarinas:
+      id: Identifier in IDMarinas
+      profile_url: IDMarinas profile URL
+      token: Token IDMarinas
+  user:
+    display_name: Display name
+
 flash:
   error:
     email.send: 'Error sending the mail: "{message}"'
