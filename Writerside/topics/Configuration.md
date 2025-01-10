@@ -3,16 +3,28 @@
 > %project% **does not need** a specific configuration, but it is necessary for some Bundles to have a configuration for
 > "%project%" to work correctly.
 
-## Bundles
+> %project% comes with a Symfony Flex recipe in its own repository, which installs everything needed to run.
 
-<tabs group="bundles">
-  <tab title="Framework Bundle">
-    <include from="framework_bundle.topic" element-id="framework-bundle" />
-  </tab>
+## Configure `idmarinas/flex-recipes`
 
-  <tab title="Security Bundle">
-    <include from="security_bundle.topic" element-id="security-bundle" />
-  </tab>
-</tabs>
+```json
+{
+  "extra": {
+    "symfony": {
+      "endpoint": [
+        "https://api.github.com/repos/idmarinas/flex-recipes/contents/index.json?ref=flex/master",
+        "flex://defaults"
+      ]
+    }
+  }
+}
+```
 
-[//]: # (TODO add configuration)
+> The `extra.symfony` key will most probably already exist in your `composer.json`.
+> In that case, add the `"endpoint"` key to the existing `extra.symfony` entry.
+> {style=note}
+
+> In case that `extra.symfony.entrypoint` already exist in your `composer.json` add
+> `"https://api.github.com/repos/idmarinas/flex-recipes/contents/index.json?ref=flex/master"` to
+`extra.symfony.entrypoint` array
+> {style=note}
