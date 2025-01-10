@@ -3,8 +3,6 @@
 	SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="Writerside_libraries"
-                  name="Writerside_libraries" is-library="true" start-page="framework_bundle.topic">
+                  name="Writerside_libraries" is-library="true">
 
-	<toc-element topic="framework_bundle.topic" />
-	<toc-element topic="security_bundle.topic" />
 </instance-profile>
