@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 09/01/2025, 17:42
+ * Last modified by "IDMarinas" on 11/01/2025, 10:59
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -33,7 +33,7 @@ class UserPremiumTest extends KernelTestCase
 	/**
 	 * @throws ReflectionException
 	 */
-	public function testEntity ()
+	public function testEntity (): void
 	{
 		static::bootKernel();
 		$container = static::getContainer();

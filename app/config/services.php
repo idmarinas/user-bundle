@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 09/01/2025, 18:13
+ * Last modified by "IDMarinas" on 11/01/2025, 10:56
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -22,11 +22,11 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 use App\Repository\User\ResetPasswordRequestRepository;
 use App\Repository\User\UserRepository;
 
-return static function (ContainerConfigurator $container) {
+return static function (ContainerConfigurator $container): void {
 	// @formatter:off
 	$container
 		->services()
-			->set(UserRepository::class, UserRepository::class)
+			->set(UserRepository::class)
 				->public()
 				->autoconfigure()
 				->autowire()

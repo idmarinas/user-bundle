@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 09/01/2025, 17:40
+ * Last modified by "IDMarinas" on 11/01/2025, 10:58
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -68,7 +68,7 @@ final class UserFactory extends PersistentProxyObjectFactory
 	protected function initialize (): static
 	{
 		return parent::initialize()
-			->afterInstantiate(function (User $user) {
+			->afterInstantiate(function (User $user): void {
 				$user->setPassword($this->hasher->hashPassword($user, $user->getPassword()));
 			})
 		;

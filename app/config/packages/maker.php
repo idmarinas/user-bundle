@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 09/01/2025, 21:47
+ * Last modified by "IDMarinas" on 11/01/2025, 10:56
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -22,7 +22,7 @@ namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 use Idm\Bundle\User\IdmUserBundle;
 use ReflectionClass;
 
-return static function (ContainerConfigurator $container) {
+return static function (ContainerConfigurator $container): void {
 	$container->extension('maker', [
 		'root_namespace' => (new ReflectionClass(IdmUserBundle::class))->getNamespaceName(),
 	]);

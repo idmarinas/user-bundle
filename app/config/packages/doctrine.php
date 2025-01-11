@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 09/01/2025, 18:22
+ * Last modified by "IDMarinas" on 11/01/2025, 10:56
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,12 +19,15 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use App\Entity\User\Connections;
+use App\Entity\User\Premium;
+use App\Entity\User\User;
 use Idm\Bundle\User\Model\Entity\AbstractConnections;
 use Idm\Bundle\User\Model\Entity\AbstractPremium;
 use Idm\Bundle\User\Model\Entity\AbstractUser;
 use Symfony\Component\Filesystem\Filesystem;
 
-return static function (ContainerConfigurator $container) {
+return static function (ContainerConfigurator $container): void {
 	$getDatabaseCache = function (): string {
 		$dir = dirname(__DIR__, 3) . '/var/cache/database';
 
@@ -60,9 +63,9 @@ return static function (ContainerConfigurator $container) {
 				],
 			],
 			'resolve_target_entities'     => [
-				AbstractUser::class        => 'App\Entity\User\User',
-				AbstractPremium::class     => 'App\Entity\User\Premium',
-				AbstractConnections::class => 'App\Entity\User\Connections',
+				AbstractUser::class        => User::class,
+				AbstractPremium::class     => Premium::class,
+				AbstractConnections::class => Connections::class,
 			],
 		],
 	]);

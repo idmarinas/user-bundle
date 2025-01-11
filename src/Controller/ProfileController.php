@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 31/12/2024, 13:55
+ * Last modified by "IDMarinas" on 11/01/2025, 10:58
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -22,7 +22,6 @@ namespace Idm\Bundle\User\Controller;
 use Doctrine\ORM\EntityManagerInterface;
 use Idm\Bundle\User\Form\ChangePasswordFormType;
 use Idm\Bundle\User\Model\Entity\AbstractUser;
-use Idm\Bundle\User\Model\Repository\AbstractUserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 01/01/2025, 18:29
+ * Last modified by "IDMarinas" on 11/01/2025, 10:59
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -72,7 +72,7 @@ class ResetPasswordControllerTest extends WebTestCase
 		$client->followRedirect();
 
 		$this->assertResponseIsSuccessful();
-		$this->assertSelectorTextContains('body', 'If you don\'t receive an email please check your spam folder');
+		$this->assertSelectorTextContains('body', "If you don't receive an email please check your spam folder");
 
 		$client->request(Request::METHOD_GET, str_replace('http://localhost', '', $link));
 
@@ -180,10 +180,11 @@ class ResetPasswordControllerTest extends WebTestCase
 	/**
 	 * @throws ReflectionException
 	 */
-	public function testProcessSendingPasswordResetEmailThrowsException ()
+	public function testProcessSendingPasswordResetEmailThrowsException (): void
 	{
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/registration/register');
+
 		$mailer = $this->createMock(MailerInterface::class);
 		$translator = $this->createMock(TranslatorInterface::class);
 		$entityManager = $this->createMock(EntityManagerInterface::class);

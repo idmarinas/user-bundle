@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 01/01/2025, 20:09
+ * Last modified by "IDMarinas" on 11/01/2025, 10:58
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -81,8 +81,8 @@ final class RegistrationController extends AbstractController
 		// validate email confirmation link, sets User::isVerified=true and persists
 		try {
 			$this->emailVerifier->handleEmailConfirmation($request, $this->getUser());
-		} catch (VerifyEmailExceptionInterface $exception) {
-			$this->addFlash('error', t($exception->getReason(), [], 'VerifyEmailBundle'));
+		} catch (VerifyEmailExceptionInterface $verifyEmailException) {
+			$this->addFlash('error', t($verifyEmailException->getReason(), [], 'VerifyEmailBundle'));
 
 			return $this->redirectToRoute('app_home');
 		}

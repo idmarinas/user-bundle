@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 31/12/2024, 15:17
+ * Last modified by "IDMarinas" on 11/01/2025, 10:58
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -37,6 +37,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
+use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordToken;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
 use function Symfony\Component\Translation\t;
 
@@ -88,7 +89,7 @@ final class ResetPasswordController extends AbstractController
 
 		// Generate a fake token if the user does not exist or someone hit this page directly.
 		// This prevents exposing whether or not a user was found with the given email address or not
-		if (null === ($resetToken = $this->getTokenObjectFromSession())) {
+		if (!($resetToken = $this->getTokenObjectFromSession()) instanceof ResetPasswordToken) {
 			$resetToken = $this->resetPasswordHelper->generateFakeResetToken();
 		}
 
@@ -127,13 +128,13 @@ final class ResetPasswordController extends AbstractController
 		try {
 			/** @var AbstractUser $user */
 			$user = $this->resetPasswordHelper->validateTokenAndFetchUser($token);
-		} catch (ResetPasswordExceptionInterface $e) {
+		} catch (ResetPasswordExceptionInterface $resetPasswordException) {
 			$this->addFlash(
 				'reset_password_error',
 				sprintf(
 					'%s - %s',
 					t(ResetPasswordExceptionInterface::MESSAGE_PROBLEM_VALIDATE, [], 'ResetPasswordBundle'),
-					t($e->getReason(), [], 'ResetPasswordBundle')
+					t($resetPasswordException->getReason(), [], 'ResetPasswordBundle')
 				)
 			);
 
@@ -176,13 +177,13 @@ final class ResetPasswordController extends AbstractController
 		]);
 
 		// Do not reveal whether a user account was found or not.
-		if (!$user) {
+		if ($user === null) {
 			return $this->redirectToRoute('idm_user_check_email');
 		}
 
 		try {
 			$resetToken = $this->resetPasswordHelper->generateResetToken($user);
-		} catch (ResetPasswordExceptionInterface $e) {
+		} catch (ResetPasswordExceptionInterface) {
 			// If you want to tell the user why a reset email was not sent, uncomment
 			// the lines below and change the redirect to 'forgot_password_request'.
 			// Caution: This may reveal if a user is registered or not.
@@ -209,8 +210,11 @@ final class ResetPasswordController extends AbstractController
 
 		try {
 			$mailer->send($email);
-		} catch (TransportExceptionInterface $e) {
-			$this->addFlash('error', t('flash.error.email.send', ['message' => $e->getMessage()], 'IdmUserBundle'));
+		} catch (TransportExceptionInterface $transportException) {
+			$this->addFlash(
+				'error',
+				t('flash.error.email.send', ['message' => $transportException->getMessage()], 'IdmUserBundle')
+			);
 
 			return $this->redirectToRoute('idm_user_reset_password');
 		}

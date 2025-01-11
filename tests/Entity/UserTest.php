@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 24:07
+ * Last modified by "IDMarinas" on 11/01/2025, 10:59
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -33,7 +33,7 @@ class UserTest extends KernelTestCase
 	/**
 	 * @throws ReflectionException
 	 */
-	public function testEntity ()
+	public function testEntity (): void
 	{
 		static::bootKernel();
 		$container = static::getContainer();

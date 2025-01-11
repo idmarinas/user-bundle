@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 09/01/2025, 17:02
+ * Last modified by "IDMarinas" on 11/01/2025, 10:59
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -29,7 +29,7 @@ class ResetPasswordRequestTest extends KernelTestCase
 {
 	use FakerTrait;
 
-	public function testResetPasswordRequest ()
+	public function testResetPasswordRequest (): void
 	{
 		self::bootKernel();
 		$container = static::getContainer();

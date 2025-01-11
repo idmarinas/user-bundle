@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 31/12/2024, 13:19
+ * Last modified by "IDMarinas" on 11/01/2025, 10:59
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -27,7 +27,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class LoginControllerTest extends WebTestCase
 {
-	public function testLogin ()
+	public function testLogin (): void
 	{
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/login');
@@ -52,7 +52,7 @@ class LoginControllerTest extends WebTestCase
 		$this->assertResponseRedirects('/user/profile');
 	}
 
-	public function testLoginInvalid ()
+	public function testLoginInvalid (): void
 	{
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/login');
@@ -72,7 +72,7 @@ class LoginControllerTest extends WebTestCase
 		$this->assertSelectorTextContains('form', 'Invalid credentials.');
 	}
 
-	public function testLoginAdmin ()
+	public function testLoginAdmin (): void
 	{
 		$client = static::createClient([], [
 			'HTTP_HOST' => 'admin.localhost',
@@ -103,7 +103,7 @@ class LoginControllerTest extends WebTestCase
 		$this->assertResponseIsSuccessful();
 	}
 
-	public function testLoginChecker ()
+	public function testLoginChecker (): void
 	{
 		$client = static::createClient();
 		/* @var UserRepository $repository */

@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 29/12/2024, 21:54
+ * Last modified by "IDMarinas" on 11/01/2025, 10:58
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -61,10 +61,7 @@ trait EquatableTrait
 		$newRoles = array_map('strval', $user->getRoles());
 		$rolesChanged = count($currentRoles) !== count($newRoles)
 		                || count($currentRoles) !== count(array_intersect($currentRoles, $newRoles));
-		if ($rolesChanged) {
-			return false;
-		}
 
-		return true;
+		return !$rolesChanged;
 	}
 }

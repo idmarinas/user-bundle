@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 17:17
+ * Last modified by "IDMarinas" on 11/01/2025, 10:59
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -44,7 +44,7 @@ class UserRepositoryTest extends TestCase
 	/**
 	 * @throws ReflectionException
 	 */
-	public function testUpgradePasswordSuccess ()
+	public function testUpgradePasswordSuccess (): void
 	{
 		/** @var User $userO */
 		$userO = $this->populateEntity(new User());
@@ -60,7 +60,7 @@ class UserRepositoryTest extends TestCase
 		$this->assertEquals($password, $user->getPassword());
 	}
 
-	public function testUpgradePasswordFail ()
+	public function testUpgradePasswordFail (): void
 	{
 		$this->expectException(UnsupportedUserException::class);
 		$repository = $this->getRepository();
@@ -68,14 +68,14 @@ class UserRepositoryTest extends TestCase
 		$repository->upgradePassword(new FakeUser(), $password);
 	}
 
-	public function testUniqueUserEmailSuccess ()
+	public function testUniqueUserEmailSuccess (): void
 	{
 		$repository = $this->getRepository();
 		$result = $repository->uniqueUserEmail(['email' => 'test@test.com']);
 		$this->assertEmpty($result);
 	}
 
-	public function testInactiveUsersFirstNotice ()
+	public function testInactiveUsersFirstNotice (): void
 	{
 		$repository = $this->getRepository();
 
@@ -84,7 +84,7 @@ class UserRepositoryTest extends TestCase
 		$this->assertCount(3, $result);
 	}
 
-	public function testInactiveUsersSecondNotice ()
+	public function testInactiveUsersSecondNotice (): void
 	{
 		$repository = $this->getRepository();
 
@@ -93,7 +93,7 @@ class UserRepositoryTest extends TestCase
 		$this->assertCount(3, $result);
 	}
 
-	public function testInactiveUsersLastNotice ()
+	public function testInactiveUsersLastNotice (): void
 	{
 		$repository = $this->getRepository();
 
@@ -102,7 +102,7 @@ class UserRepositoryTest extends TestCase
 		$this->assertCount(3, $result);
 	}
 
-	public function testUserInactives ()
+	public function testUserInactives (): void
 	{
 		$repository = $this->getRepository();
 
@@ -111,7 +111,7 @@ class UserRepositoryTest extends TestCase
 		$this->assertCount(3, $result);
 	}
 
-	public function testUserMarkedAsDeleted ()
+	public function testUserMarkedAsDeleted (): void
 	{
 		$repository = $this->getRepository();
 
@@ -120,7 +120,7 @@ class UserRepositoryTest extends TestCase
 		$this->assertCount(3, $result);
 	}
 
-	public function testMarkUsersAsInactives ()
+	public function testMarkUsersAsInactives (): void
 	{
 		$repository = $this->getRepository();
 
