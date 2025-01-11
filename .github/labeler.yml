@@ -1,4 +1,5 @@
 dependencies:
-  - any: ['composer.json', 'composer.lock']
+  - any: [ 'composer.json', 'composer.lock' ]
 documentation:
   - 'docs/**/*'
+  - 'Writerside/**'
