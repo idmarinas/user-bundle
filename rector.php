@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 24:19
+ * Last modified by "IDMarinas" on 11/01/2025, 10:49
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -25,7 +25,7 @@ use Rector\TypeDeclaration\Rector\ClassMethod\AddVoidReturnTypeWhereNoReturnRect
 
 return RectorConfig::configure()
 	->withPaths([
-		__DIR__ . '/app/src',
+		__DIR__ . '/app',
 		__DIR__ . '/factories',
 		__DIR__ . '/fixtures',
 		__DIR__ . '/src',
@@ -47,6 +47,7 @@ return RectorConfig::configure()
 		SymfonySetList::SYMFONY_64,
 		SymfonySetList::SYMFONY_CONSTRUCTOR_INJECTION,
 		SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
+		SymfonySetList::CONFIGS,
 	])
 	->withRules([AddVoidReturnTypeWhereNoReturnRector::class])
 ;
