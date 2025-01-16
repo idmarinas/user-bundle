@@ -22,6 +22,7 @@
   </component>
   <component name="PhpIncludePathManager">
     <exclude_path>
+      <path value="$PROJECT_DIR$/vendor/symfony/maker-bundle/src/Resources/bin/php-cs-fixer-v3.49.0.phar" />
       <path value="$PROJECT_DIR$/vendor/symfonycasts/verify-email-bundle_compare/src" />
       <path value="$PROJECT_DIR$/vendor/rector/rector/stubs-rector/Internal" />
       <path value="$PROJECT_DIR$/vendor/phpstan/phpstan/phpstan.phar.asc" />
