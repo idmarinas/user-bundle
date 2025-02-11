@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:56
+ * Last modified by "IDMarinas" on 11/02/2025, 23:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -43,8 +43,8 @@ return static function (ContainerConfigurator $container): void {
 				'provider'         => 'idm_user_provider',
 				'user_checker'     => UserAdminChecker::class,
 				'form_login'       => [
-					'login_path'          => 'idm_user_login',
-					'check_path'          => 'idm_user_login',
+					'login_path'          => 'idm_user_login_web',
+					'check_path'          => 'idm_user_login_web',
 					'enable_csrf'         => true,
 					'form_only'           => true,
 					'default_target_path' => 'idm_user_profile_index',
@@ -60,8 +60,8 @@ return static function (ContainerConfigurator $container): void {
 				'provider'         => 'idm_user_provider',
 				'user_checker'     => UserChecker::class,
 				'form_login'       => [
-					'login_path'          => 'idm_user_login',
-					'check_path'          => 'idm_user_login',
+					'login_path'          => 'idm_user_login_web',
+					'check_path'          => 'idm_user_login_web',
 					'enable_csrf'         => true,
 					'form_only'           => true,
 					'default_target_path' => 'idm_user_profile_index',
