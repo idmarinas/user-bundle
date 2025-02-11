@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:59
+ * Last modified by "IDMarinas" on 11/02/2025, 23:26
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,12 +19,12 @@
 
 namespace Idm\Bundle\User\Tests\Controller;
 
+use App\Controller\ResetPasswordController;
 use App\Repository\User\UserRepository;
 use DataFixtures\UserFixtures;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Factory\UserFactory;
-use Idm\Bundle\User\Controller\ResetPasswordController;
 use ReflectionException;
 use ReflectionMethod;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
