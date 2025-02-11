@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:59
+ * Last modified by "IDMarinas" on 12/02/2025, 24:06
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -22,9 +22,11 @@ namespace Idm\Bundle\User\Tests\Entity;
 use App\Entity\User\FakeUser;
 use App\Entity\User\User;
 use DateTime;
+use Factory\UserFactory;
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
 use ReflectionException;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 
 class UserTest extends KernelTestCase
 {
@@ -40,12 +42,14 @@ class UserTest extends KernelTestCase
 		$serializer = $container->get('serializer');
 
 		/** @var User $entity */
-		$entity = $this->populateEntity(new User());
+		$entity = UserFactory::first()->_real();
 		$this->assertIsObject($entity);
 
 		$this->assertEquals((string)$entity, $entity->getDisplayName());
 
-		$array = $serializer->normalize($entity, 'array');
+		$array = $serializer->normalize($entity, 'array', [
+			AbstractNormalizer::CIRCULAR_REFERENCE_HANDLER => fn($object) => $object->getId(),
+		]);
 		$this->assertIsArray($array);
 
 		$this->assertIsObject($serializer->denormalize($array, User::class));
@@ -84,6 +88,8 @@ class UserTest extends KernelTestCase
 
 		$this->assertFalse($entity->isEqualTo($fake));
 
-		$this->assertIsArray($serializer->normalize($entity, 'array'));
+		$this->assertIsArray($serializer->normalize($entity, 'array', [
+			AbstractNormalizer::CIRCULAR_REFERENCE_HANDLER => fn($object) => $object->getId(),
+		]));
 	}
 }
