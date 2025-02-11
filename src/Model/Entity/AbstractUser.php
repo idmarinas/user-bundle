@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2023-2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2023-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 20:41
+ * Last modified by "IDMarinas" on 11/02/2025, 17:13
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -66,7 +66,7 @@ abstract class AbstractUser implements UserInterface, EquatableInterface, Passwo
 	#[Assert\Regex(pattern: '/^[a-zA-Z0-9]+$/', message: 'entity.user.username.only_letters_numbers')]
 	protected string $displayName = '';
 
-	/** Última vez que se conectó al juego. */
+	/** Last time you logged in to the app. */
 	#[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
 	protected ?DateTimeInterface $lastConnection = null;
 
