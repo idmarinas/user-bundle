@@ -1,13 +1,13 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 22/12/2024, 22:52
+ * Last modified by "IDMarinas" on 11/02/2025, 22:27
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    RegistrationFormType.php
+ * @file    AbstractRegistrationFormType.php
  * @date    02/12/2024
  * @time    16:50
  *
@@ -17,7 +17,7 @@
  * @since   2.0.0
  */
 
-namespace Idm\Bundle\User\Form;
+namespace Idm\Bundle\User\Model\Form;
 
 use Idm\Bundle\User\Validator\Constraint\PasswordRequirements;
 use Symfony\Component\Form\AbstractType;
@@ -30,7 +30,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
 
-final class RegistrationFormType extends AbstractType
+abstract class AbstractRegistrationFormType extends AbstractType
 {
 	public function buildForm (FormBuilderInterface $builder, array $options): void
 	{
