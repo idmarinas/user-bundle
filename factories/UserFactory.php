@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:58
+ * Last modified by "IDMarinas" on 11/02/2025, 17:57
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,7 +19,6 @@
 
 namespace Factory;
 
-use App\Entity\User\Premium;
 use App\Entity\User\User;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
@@ -46,7 +45,6 @@ final class UserFactory extends PersistentProxyObjectFactory
 
 		return [
 			'email'                 => self::faker()->unique()->email(),
-			'premium'               => new Premium(),
 			'display_name'          => self::faker()->unique()->userName(),
 			'session_id'            => self::faker()->sha1(),
 			'idmarinas_id'          => self::faker()->randomNumber(9),
