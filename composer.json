@@ -1,5 +1,6 @@
 {
 	"name": "idmarinas/user-bundle",
+	"description": "Bundle to manage user basics without having to configure everything for each project, comes with a password reset and email verification system",
 	"type": "symfony-bundle",
 	"license": "BSD-3-Clause",
 	"keywords": [
@@ -7,12 +8,12 @@
 		"user",
 		"symfony-bundle"
 	],
+	"homepage": "https://github.com/idmarinas/user-bundle",
 	"authors": [
 		{
 			"name": "Iván Diaz Marinas (IDMarinas)",
 			"email": "35842929+idmarinas@users.noreply.github.com",
-			"homepage": "https://github.com/idmarinas/user-bundle",
-			"role": "Developer"
+			"role": "Author, Developer, Maintainer"
 		}
 	],
 	"support": {
@@ -65,18 +66,6 @@
 		"idmarinas/common-bundle": "<=3.0.0",
 		"doctrine/dbal": ">=4.0"
 	},
-	"config": {
-		"allow-plugins": {
-			"composer/package-versions-deprecated": true,
-			"symfony/flex": true,
-			"symfony/runtime": true
-		},
-		"optimize-autoloader": false,
-		"preferred-install": {
-			"*": "dist"
-		},
-		"sort-packages": true
-	},
 	"autoload": {
 		"psr-4": {
 			"Idm\\Bundle\\User\\": "src/"
@@ -101,6 +90,18 @@
 			"php bin/console doctrine:schema:update --env=dev --force --ansi",
 			"php bin/console doctrine:fixtures:load --env=dev -n --ansi"
 		]
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/package-versions-deprecated": true,
+			"symfony/flex": true,
+			"symfony/runtime": true
+		},
+		"optimize-autoloader": false,
+		"preferred-install": {
+			"*": "dist"
+		},
+		"sort-packages": true
 	},
 	"funding": [
 		{
