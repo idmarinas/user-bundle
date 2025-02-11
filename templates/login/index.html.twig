@@ -3,7 +3,7 @@
 {% block title 'controller.login.title'|trans({}, 'IdmUserBundle') %}
 
 {% block body %}
-	<form action="{{ path('idm_user_login') }}" method="post" id="login_form">
+	<form action="{{ path('idm_user_login_web') }}" method="post" id="login_form">
 		{% if error is not empty %}
 			{{ error.messageKey|trans(error.messageData, 'security') }}
 		{% endif %}
