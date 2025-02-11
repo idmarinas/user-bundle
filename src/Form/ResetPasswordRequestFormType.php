@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 22/12/2024, 22:35
+ * Last modified by "IDMarinas" on 11/02/2025, 22:10
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -39,6 +39,7 @@ final class ResetPasswordRequestFormType extends AbstractType
 					'placeholder'  => 'form.forgot_password.email',
 				],
 				'constraints' => [
+					new Assert\NotBlank(allowNull: false),
 					new Assert\Email(),
 				],
 			])
