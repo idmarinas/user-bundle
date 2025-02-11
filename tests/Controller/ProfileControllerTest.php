@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 31/12/2024, 13:55
+ * Last modified by "IDMarinas" on 11/02/2025, 23:00
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -45,7 +45,7 @@ class ProfileControllerTest extends WebTestCase
 		$this->assertPageTitleContains('Profile of Jane');
 
 		// test if when is authenticated redirect to profile
-		$client->request(Request::METHOD_GET, '/user/login');
+		$client->request(Request::METHOD_GET, '/user/login/web');
 		$this->assertResponseRedirects('/user/profile');
 
 		$client->request(Request::METHOD_GET, '/logout');
@@ -60,7 +60,7 @@ class ProfileControllerTest extends WebTestCase
 
 		$client->request(Request::METHOD_GET, '/user/profile/accept/terms_and_privacy');
 
-		$this->assertResponseRedirects('/user/login');
+		$this->assertResponseRedirects('/user/login/web');
 		$client->followRedirect();
 
 		// User with accepted privacy and terms
@@ -99,7 +99,7 @@ class ProfileControllerTest extends WebTestCase
 	public function testChangePassword (): void
 	{
 		$client = static::createClient();
-		$client->request(Request::METHOD_GET, '/user/login');
+		$client->request(Request::METHOD_GET, '/user/login/web');
 		$client->submitForm('Connect', [
 			'_username' => UserFixtures::USER_EMAIL,
 			'_password' => UserFixtures::USER_PASS,
@@ -120,19 +120,19 @@ class ProfileControllerTest extends WebTestCase
 		$client->request(Request::METHOD_GET, '/logout');
 		$this->assertResponseRedirects('/');
 
-		$client->request(Request::METHOD_GET, '/user/login');
+		$client->request(Request::METHOD_GET, '/user/login/web');
 
 		$client->submitForm('Connect', [
 			'_username' => UserFixtures::USER_EMAIL,
 			'_password' => UserFixtures::USER_PASS,
 		]);
 
-		$this->assertResponseRedirects('/user/login');
+		$this->assertResponseRedirects('/user/login/web');
 		$client->followRedirect();
 
 		$this->assertSelectorTextContains('body', 'Invalid credentials.');
 
-		$client->request(Request::METHOD_GET, '/user/login');
+		$client->request(Request::METHOD_GET, '/user/login/web');
 		$client->submitForm('Connect', [
 			'_username' => UserFixtures::USER_EMAIL,
 			'_password' => UserFixtures::USER_PASS . 'new',
@@ -145,7 +145,7 @@ class ProfileControllerTest extends WebTestCase
 	{
 		$client = static::createClient();
 
-		$client->request(Request::METHOD_GET, '/user/login');
+		$client->request(Request::METHOD_GET, '/user/login/web');
 
 		$client->submitForm('Connect', [
 			'_username' => UserFixtures::USER_EMAIL,
