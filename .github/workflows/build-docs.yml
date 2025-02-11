@@ -1,10 +1,6 @@
 name: Build documentation
 
 on:
-  push:
-    branches: [ '2.x' ]
-    paths:
-      - 'Writerside/**'
   workflow_dispatch:
 
 permissions:
