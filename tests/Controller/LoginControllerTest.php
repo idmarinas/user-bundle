@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:59
+ * Last modified by "IDMarinas" on 11/02/2025, 23:00
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -30,7 +30,7 @@ class LoginControllerTest extends WebTestCase
 	public function testLogin (): void
 	{
 		$client = static::createClient();
-		$client->request(Request::METHOD_GET, '/user/login');
+		$client->request(Request::METHOD_GET, '/user/login/web');
 
 		$this->assertResponseIsSuccessful();
 
@@ -47,7 +47,7 @@ class LoginControllerTest extends WebTestCase
 		$this->assertResponseIsSuccessful();
 		$this->assertPageTitleContains('Profile of John');
 
-		$client->request(Request::METHOD_GET, '/user/login');
+		$client->request(Request::METHOD_GET, '/user/login/web');
 
 		$this->assertResponseRedirects('/user/profile');
 	}
@@ -55,7 +55,7 @@ class LoginControllerTest extends WebTestCase
 	public function testLoginInvalid (): void
 	{
 		$client = static::createClient();
-		$client->request(Request::METHOD_GET, '/user/login');
+		$client->request(Request::METHOD_GET, '/user/login/web');
 
 		$this->assertResponseIsSuccessful();
 
@@ -66,7 +66,7 @@ class LoginControllerTest extends WebTestCase
 			'_password' => UserFixtures::USER_PASS . 'dfDyt',
 		]);
 
-		$this->assertResponseRedirects('/user/login');
+		$this->assertResponseRedirects('/user/login/web');
 		$client->followRedirect();
 
 		$this->assertSelectorTextContains('form', 'Invalid credentials.');
@@ -77,7 +77,7 @@ class LoginControllerTest extends WebTestCase
 		$client = static::createClient([], [
 			'HTTP_HOST' => 'admin.localhost',
 		]);
-		$client->request(Request::METHOD_GET, '/user/login');
+		$client->request(Request::METHOD_GET, '/user/login/web');
 
 		$this->assertResponseIsSuccessful();
 
@@ -86,7 +86,7 @@ class LoginControllerTest extends WebTestCase
 			'_password' => UserFixtures::USER_PASS,
 		]);
 
-		$this->assertResponseRedirects('/user/login');
+		$this->assertResponseRedirects('/user/login/web');
 		$client->followRedirect();
 
 		$this->assertSelectorTextContains('form', 'Insufficient user permissions');
@@ -109,7 +109,7 @@ class LoginControllerTest extends WebTestCase
 		/* @var UserRepository $repository */
 		$repository = static::getContainer()->get(UserRepository::class);
 
-		$client->request(Request::METHOD_GET, '/user/login');
+		$client->request(Request::METHOD_GET, '/user/login/web');
 
 		$this->assertPageTitleContains('Login');
 
@@ -128,7 +128,7 @@ class LoginControllerTest extends WebTestCase
 			'_password' => UserFixtures::USER_PASS,
 		]);
 
-		$this->assertResponseRedirects('/user/login');
+		$this->assertResponseRedirects('/user/login/web');
 		$client->followRedirect();
 
 		$this->assertSelectorTextContains('form', 'Your user account has been banned');
@@ -148,7 +148,7 @@ class LoginControllerTest extends WebTestCase
 			'_password' => UserFixtures::USER_PASS,
 		]);
 
-		$this->assertResponseRedirects('/user/login');
+		$this->assertResponseRedirects('/user/login/web');
 		$client->followRedirect();
 
 		$this->assertSelectorTextContains('form', 'Your user account no longer exists');
