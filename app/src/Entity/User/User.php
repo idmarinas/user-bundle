@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 09/01/2025, 17:56
+ * Last modified by "IDMarinas" on 11/02/2025, 17:55
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -31,6 +31,13 @@ use Idm\Bundle\User\Traits\Entity\UserPremiumTrait;
 #[Gedmo\Loggable(logEntryClass: Log::class)]
 class User extends AbstractUser
 {
-    use IDMarinasProviderTrait;
-    use UserPremiumTrait;
+	use IDMarinasProviderTrait;
+	use UserPremiumTrait;
+
+	public function __construct ()
+	{
+		$this->premium = (new Premium())
+			->setUser($this)
+		;
+	}
 }
