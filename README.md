@@ -3,38 +3,38 @@
 
 # IDMarinas User Bundle
 
+![GitHub release](https://img.shields.io/github/release/idmarinas/user-bundle.svg?style=for-the-badge)
+![GitHub Release Date](https://img.shields.io/github/release-date/idmarinas/user-bundle.svg?style=for-the-badge)
+
 </div>
 
 > A User Bundle to manage user basics without having to configure everything for each project, comes with a password
-> reset and email verification system. See [Docs](https://idmarinas.github.io/user-bundle/index_md.html)
+> reset and email verification system. See [Docs]
 
 <br />
 
 <div align="center">
 
-[![Test Suite](https://img.shields.io/github/actions/workflow/status/idmarinas/user-bundle/php.yml?style=for-the-badge&logo=github&logoColor=white&label=Bundle%20Test%20Suite
-)](https://github.com/idmarinas/user-bundle/actions/workflows/php.yml)
-[![Quality Gate Status](https://img.shields.io/sonar/quality_gate/idmarinas_user-bundle?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=white)](https://sonarcloud.io/summary/new_code?id=idmarinas_user-bundle)
-[![Coverage](https://img.shields.io/sonar/coverage/idmarinas_user-bundle?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=white)](https://sonarcloud.io/dashboard?id=idmarinas_user-bundle)
-[![Technical Debt](https://img.shields.io/sonar/tech_debt/idmarinas_user-bundle?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=white)](https://sonarcloud.io/dashboard?id=idmarinas_user-bundle)
+[![Test Suite](https://img.shields.io/github/actions/workflow/status/idmarinas/user-bundle/php.yml?branch=2.x&style=for-the-badge&logo=github&logoColor=white&label=Bundle%20Test%20Suite)](https://github.com/idmarinas/user-bundle/actions/workflows/php.yml)
+[![Quality Gate Status](https://img.shields.io/sonar/quality_gate/idmarinas_user-bundle/2.x?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=white)](https://sonarcloud.io/summary/new_code?id=idmarinas_user-bundle)
+[![Coverage](https://img.shields.io/sonar/coverage/idmarinas_user-bundle/2.x?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=white)][sonarcloud]
+[![Technical Debt](https://img.shields.io/sonar/tech_debt/idmarinas_user-bundle/2.x?server=https%3A%2F%2Fsonarcloud.io&style=for-the-badge&logo=sonarcloud&logoColor=white)][sonarcloud]
 
 <br />
 
-![GitHub release](https://img.shields.io/github/release/idmarinas/user-bundle.svg?style=for-the-badge)
-![GitHub Release Date](https://img.shields.io/github/release-date/idmarinas/user-bundle.svg?style=for-the-badge)
-![Github commits (since latest release)](https://img.shields.io/github/commits-since/idmarinas/user-bundle/latest.svg?style=for-the-badge)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/w/idmarinas/user-bundle.svg?style=for-the-badge)
-![GitHub last commit](https://img.shields.io/github/last-commit/idmarinas/user-bundle.svg?style=for-the-badge)
+![Github commits (since latest release)](https://img.shields.io/github/commits-since/idmarinas/user-bundle/latest/2.x?style=for-the-badge)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/idmarinas/user-bundle/2.x?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/idmarinas/user-bundle/2.x?style=for-the-badge)
 
 #### Code analysis
 
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=idmarinas_user-bundle)
-[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=bugs)](https://sonarcloud.io/dashboard?id=idmarinas_user-bundle)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=security_rating)](https://sonarcloud.io/dashboard?id=idmarinas_user-bundle)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=idmarinas_user-bundle)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=idmarinas_user-bundle)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=code_smells)](https://sonarcloud.io/dashboard?id=idmarinas_user-bundle)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=idmarinas_user-bundle)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&branch=2.x&metric=reliability_rating)][sonarcloud]
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&branch=2.x&metric=bugs)][sonarcloud]
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&branch=2.x&metric=security_rating)][sonarcloud]
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&branch=2.x&metric=vulnerabilities)][sonarcloud]
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&branch=2.x&metric=sqale_rating)][sonarcloud]
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&branch=2.x&metric=code_smells)][sonarcloud]
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=idmarinas_user-bundle&branch=2.x&metric=duplicated_lines_density)][sonarcloud]
 
 </div>
 
@@ -99,3 +99,7 @@ return [
 ![Dependabot](https://img.shields.io/badge/dependabot-025E8C?style=for-the-badge&logo=dependabot&logoColor=white)
 [![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/features/actions)
 [![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com)
+
+[Docs]: https://idmarinas.github.io/user-bundle/index_md.html
+
+[sonarcloud]: https://sonarcloud.io/dashboard?id=idmarinas_user-bundle
