@@ -5,7 +5,7 @@
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:F:\Bundles\IdmUserBundle\var\cache\database\idm_user_test.sqlite</jdbc-url>
+      <jdbc-url>jdbc:sqlite:F:\Bundles\user-bundle\var\cache\database\idm_user_test.sqlite</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
@@ -20,7 +20,7 @@
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:F:\Bundles\IdmUserBundle\var\cache\database\idm_user_dev.sqlite</jdbc-url>
+      <jdbc-url>jdbc:sqlite:F:\Bundles\user-bundle\var\cache\database\idm_user_dev.sqlite</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>
