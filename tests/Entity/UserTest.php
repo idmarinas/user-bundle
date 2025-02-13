@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/02/2025, 19:03
+ * Last modified by "IDMarinas" on 13/02/2025, 19:21
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -42,7 +42,7 @@ class UserTest extends KernelTestCase
 		$serializer = $container->get('serializer');
 
 		/** @var User $entity */
-		$entity = UserFactory::first()->_real();
+		$entity = UserFactory::new()->create()->_real();
 		$this->assertIsObject($entity);
 
 		$this->assertEquals((string)$entity, $entity->getDisplayName());
