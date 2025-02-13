@@ -2,12 +2,12 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:58
+ * Last modified by "IDMarinas" on 11/02/2025, 23:21
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    ResetPasswordController.php
+ * @file    AbstractResetPasswordController.php
  * @date    10/12/2024
  * @time    12:06
  *
@@ -17,18 +17,16 @@
  * @since   2.0.0
  */
 
-namespace Idm\Bundle\User\Controller;
+namespace Idm\Bundle\User\Model\Controller;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Idm\Bundle\User\Form\ResetPasswordFormType;
-use Idm\Bundle\User\Form\ResetPasswordRequestFormType;
 use Idm\Bundle\User\Model\Entity\AbstractUser;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -41,9 +39,7 @@ use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordToken;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
 use function Symfony\Component\Translation\t;
 
-#[AsController]
-#[Route('/reset-password')]
-final class ResetPasswordController extends AbstractController
+abstract class AbstractResetPasswordController extends AbstractController
 {
 	use ResetPasswordControllerTrait;
 
@@ -62,7 +58,7 @@ final class ResetPasswordController extends AbstractController
 			return $this->redirectToRoute('idm_user_profile_index');
 		}
 
-		$form = $this->createForm(ResetPasswordRequestFormType::class);
+		$form = $this->getResetPasswordRequestForm();
 		$form->handleRequest($request);
 
 		if ($form->isSubmitted() && $form->isValid()) {
@@ -142,7 +138,7 @@ final class ResetPasswordController extends AbstractController
 		}
 
 		// The token is valid; allow the user to change their password.
-		$form = $this->createForm(ResetPasswordFormType::class);
+		$form = $this->getResetPasswordForm();
 		$form->handleRequest($request);
 
 		if ($form->isSubmitted() && $form->isValid()) {
@@ -166,6 +162,10 @@ final class ResetPasswordController extends AbstractController
 			'form' => $form,
 		]);
 	}
+
+	protected abstract function getResetPasswordRequestForm (object $data = null, array $options = []): FormInterface;
+
+	protected abstract function getResetPasswordForm (object $data = null, array $options = []): FormInterface;
 
 	private function processSendingPasswordResetEmail (
 		string              $emailFormData,
