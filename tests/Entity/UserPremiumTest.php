@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:59
+ * Last modified by "IDMarinas" on 13/02/2025, 21:07
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,14 +21,15 @@ namespace Idm\Bundle\User\Tests\Entity;
 
 use App\Entity\User\Premium;
 use App\Entity\User\User;
-use Idm\Bundle\Common\Traits\Tool\FakerTrait;
+use Factory\UserFactory;
 use ReflectionException;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
+use Zenstruck\Foundry\Test\Factories;
 
 class UserPremiumTest extends KernelTestCase
 {
-	use FakerTrait;
+	use Factories;
 
 	/**
 	 * @throws ReflectionException
@@ -40,7 +41,7 @@ class UserPremiumTest extends KernelTestCase
 		$serializer = $container->get('serializer');
 
 		/** @var User $user */
-		$user = $this->populateEntity(new User());
+		$user = UserFactory::new()->withoutPersisting()->create()->_real();
 		$userFake = clone $user;
 		$userFake->setEmail('fake@user.fk');
 
@@ -50,10 +51,9 @@ class UserPremiumTest extends KernelTestCase
 		$user->setPremium($premium);
 		$userFake->setPremium($premium);
 
-		$entity = $this->populateEntity($premium);
-		$this->assertIsObject($entity);
+		$this->assertIsObject($premium);
 
-		$array = $serializer->normalize($entity, 'array', [
+		$array = $serializer->normalize($premium, 'array', [
 			AbstractNormalizer::CIRCULAR_REFERENCE_HANDLER => fn($object) => $object->getUser(),
 		]);
 		$this->assertIsArray($array);
