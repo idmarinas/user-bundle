@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 23:41
+ * Last modified by "IDMarinas" on 13/02/2025, 21:07
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,12 +20,14 @@
 namespace Idm\Bundle\User\Tests\Entity;
 
 use App\Entity\User\Connections;
-use Idm\Bundle\Common\Traits\Tool\FakerTrait;
+use Factory\ConnectionsFactory;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
+use Zenstruck\Foundry\Test\Factories;
 
 class UserConnectionsTest extends KernelTestCase
 {
-	use FakerTrait;
+	use Factories;
 
 	public function testEntity (): void
 	{
@@ -33,10 +35,12 @@ class UserConnectionsTest extends KernelTestCase
 		$container = static::getContainer();
 		$serializer = $container->get('serializer');
 
-		$entity = $this->populateEntity(new Connections());
+		$entity = ConnectionsFactory::new()->create()->_real();
 		$this->assertIsObject($entity);
 
-		$array = $serializer->normalize($entity, 'array');
+		$array = $serializer->normalize($entity, 'array', [
+			AbstractNormalizer::CIRCULAR_REFERENCE_HANDLER => fn($object) => $object->getId(),
+		]);
 		$this->assertIsArray($array);
 
 		$this->assertIsObject($serializer->denormalize($array, Connections::class));
