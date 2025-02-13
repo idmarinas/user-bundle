@@ -2,12 +2,12 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:58
+ * Last modified by "IDMarinas" on 11/02/2025, 23:15
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    ProfileController.php
+ * @file    AbstractProfileController.php
  * @date    26/12/2024
  * @time    21:10
  *
@@ -17,22 +17,20 @@
  * @since   2.0.0
  */
 
-namespace Idm\Bundle\User\Controller;
+namespace Idm\Bundle\User\Model\Controller;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Idm\Bundle\User\Form\ChangePasswordFormType;
 use Idm\Bundle\User\Model\Entity\AbstractUser;
+use Idm\Bundle\User\Model\Repository\AbstractUserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
-use Symfony\Component\Security\Http\Attribute\IsGranted;
 use function Symfony\Component\Translation\t;
 
-#[IsGranted('IS_AUTHENTICATED_FULLY')]
-#[Route(path: '/profile', name: 'profile_')]
-final class ProfileController extends AbstractController
+abstract class AbstractProfileController extends AbstractController
 {
 	#[Route(name: 'index', methods: ['GET'])]
 	public function index (): Response
@@ -48,7 +46,7 @@ final class ProfileController extends AbstractController
 	): Response {
 		/** @var AbstractUser $user */
 		$user = $this->getUser();
-		$form = $this->createForm(ChangePasswordFormType::class, $user);
+		$form = $this->getChangePasswordForm($user);
 		$form->handleRequest($request);
 
 		if ($form->isSubmitted() && $form->isValid()) {
@@ -100,4 +98,6 @@ final class ProfileController extends AbstractController
 
 		return $this->redirectToRoute('idm_user_profile_index');
 	}
+
+	protected abstract function getChangePasswordForm (object $data = null, array $options = []): FormInterface;
 }
