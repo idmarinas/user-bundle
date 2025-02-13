@@ -2,12 +2,12 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:58
+ * Last modified by "IDMarinas" on 11/02/2025, 23:07
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    RegistrationController.php
+ * @file    AbstractRegistrationController.php
  * @date    28/12/2024
  * @time    12:14
  *
@@ -17,15 +17,15 @@
  * @since   1.0.0
  */
 
-namespace Idm\Bundle\User\Controller;
+namespace Idm\Bundle\User\Model\Controller;
 
 use Doctrine\ORM\EntityManagerInterface;
-use Idm\Bundle\User\Form\RegistrationFormType;
 use Idm\Bundle\User\Security\EmailVerifier;
 use Idm\Bundle\User\Traits\Controller\RegistrationTrait;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -35,8 +35,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 use function Symfony\Component\Translation\t;
 
-#[Route(path: '/registration', name: 'registration_')]
-final class RegistrationController extends AbstractController
+abstract class AbstractRegistrationController extends AbstractController
 {
 	use RegistrationTrait;
 
@@ -58,7 +57,7 @@ final class RegistrationController extends AbstractController
 
 		$user = $this->getUserObject();
 
-		$form = $this->createForm(RegistrationFormType::class, $user);
+		$form = $this->getRegistrationForm($user);
 		$form->handleRequest($request);
 
 		if ($form->isSubmitted() && $form->isValid()) {
@@ -91,4 +90,6 @@ final class RegistrationController extends AbstractController
 
 		return $this->redirectToRoute('idm_user_profile_index');
 	}
+
+	protected abstract function getRegistrationForm (object $data, array $options = []): FormInterface;
 }
