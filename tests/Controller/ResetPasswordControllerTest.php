@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 23:26
+ * Last modified by "IDMarinas" on 13/02/2025, 19:05
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -37,10 +37,13 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordToken;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
+use Zenstruck\Foundry\Test\Factories;
 use function Zenstruck\Foundry\faker;
 
 class ResetPasswordControllerTest extends WebTestCase
 {
+	use Factories;
+
 	public function testRecoverPassword (): void
 	{
 		$client = static::createClient();
