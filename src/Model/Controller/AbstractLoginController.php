@@ -1,13 +1,13 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 18:15
+ * Last modified by "IDMarinas" on 11/02/2025, 22:49
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    LoginController.php
+ * @file    AbstractLoginController.php
  * @date    26/12/2024
  * @time    17:57
  *
@@ -17,7 +17,7 @@
  * @since   2.0.0
  */
 
-namespace Idm\Bundle\User\Controller;
+namespace Idm\Bundle\User\Model\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,9 +25,9 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
-final class LoginController extends AbstractController
+abstract class AbstractLoginController extends AbstractController
 {
-	#[Route(path: '/login', name: 'login', methods: ['GET', 'POST'])]
+	#[Route(path: '/web', name: 'web', methods: ['GET', 'POST'])]
 	public function login (AuthenticationUtils $authenticationUtils): Response
 	{
 		if ($this->getUser() instanceof UserInterface) {
