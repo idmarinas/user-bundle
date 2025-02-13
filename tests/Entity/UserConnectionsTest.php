@@ -2,12 +2,12 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:59
+ * Last modified by "IDMarinas" on 11/02/2025, 23:41
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    UserConnectionLogTest.php
+ * @file    UserConnectionsTest.php
  * @date    04/12/2024
  * @time    12:25
  *
@@ -23,7 +23,7 @@ use App\Entity\User\Connections;
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class UserConnectionLogTest extends KernelTestCase
+class UserConnectionsTest extends KernelTestCase
 {
 	use FakerTrait;
 
