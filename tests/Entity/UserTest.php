@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 12/02/2025, 24:06
+ * Last modified by "IDMarinas" on 13/02/2025, 19:03
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -23,14 +23,14 @@ use App\Entity\User\FakeUser;
 use App\Entity\User\User;
 use DateTime;
 use Factory\UserFactory;
-use Idm\Bundle\Common\Traits\Tool\FakerTrait;
 use ReflectionException;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
+use Zenstruck\Foundry\Test\Factories;
 
 class UserTest extends KernelTestCase
 {
-	use FakerTrait;
+	use Factories;
 
 	/**
 	 * @throws ReflectionException
