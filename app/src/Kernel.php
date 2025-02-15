@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 22:57
+ * Last modified by "IDMarinas" on 15/02/2025, 11:57
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -68,8 +68,8 @@ final class Kernel extends BaseKernel
 		$loader->load($this->getTestConfigDir() . '/services.php');
 
 		// Load Fixtures and Factories of Bundle
-		$loader->load($this->getConfigDir() . '/factories.php');
-		$loader->load($this->getConfigDir() . '/fixtures.php');
+		$loader->load($this->getTestConfigDir() . '/factories.php');
+		$loader->load($this->getTestConfigDir() . '/fixtures.php');
 	}
 
 	private function getBundlesPath (): string
