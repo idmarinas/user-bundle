@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/12/2024, 11:54
+ * Last modified by "IDMarinas" on 15/02/2025, 13:05
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -26,7 +26,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 trait BanTrait
 {
-	/** Fecha hasta la que no puede entrar con su cuenta */
+	/** Date on which the ban is ended */
 	#[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
 	protected ?DateTimeInterface $bannedUntil = null;
 
