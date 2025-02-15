@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/02/2025, 21:05
+ * Last modified by "IDMarinas" on 15/02/2025, 11:53
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -49,7 +49,7 @@ final class ConnectionsFactory extends PersistentProxyObjectFactory
 			'osName'         => self::faker()->text(50),
 			'osVersion'      => self::faker()->text(50),
 			'user'           => UserFactory::new(),
-			'userAgent'      => self::faker()->text(255),
+			'userAgent'      => self::faker()->userAgent(),
 		];
 	}
 
