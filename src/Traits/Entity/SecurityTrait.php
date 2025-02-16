@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 16/02/2025, 19:28
+ * Last modified by "IDMarinas" on 16/02/2025, 20:00
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -63,12 +63,6 @@ trait SecurityTrait
 	{
 		// If you store any temporary, sensitive data on the user, clear it here
 		// $this->plainPassword = '';
-	}
-
-	public function eraseDataForCache (): static
-	{
 		$this->password = '';
-
-		return $this;
 	}
 }
