@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/02/2025, 19:21
+ * Last modified by "IDMarinas" on 16/02/2025, 20:01
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -56,7 +56,7 @@ class UserTest extends KernelTestCase
 
 		$entity->setBannedUntil(new DateTime('-0001-11-30'));
 		$entity->eraseCredentials();
-		$entity->eraseDataForCache();
+		$entity->eraseCredentials();
 
 		$this->assertTrue($entity->isEqualTo($entity));
 
