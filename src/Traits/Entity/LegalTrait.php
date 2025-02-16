@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 16/02/2025, 19:27
+ * Last modified by "IDMarinas" on 16/02/2025, 19:39
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -24,11 +24,11 @@ use Doctrine\ORM\Mapping as ORM;
 
 trait LegalTrait
 {
-	/*Indica si se ha aceptado la Política de Privacidad.*/
+	/** Indicates whether the Privacy Policy has been accepted. */
 	#[ORM\Column(type: Types::BOOLEAN)]
 	protected bool $privacyAccepted = false;
 
-	/*Indica si se ha aceptado los términos y condiciones.*/
+	/** Indicates whether the terms and conditions have been accepted. */
 	#[ORM\Column(type: Types::BOOLEAN)]
 	protected bool $termsAccepted = false;
 
