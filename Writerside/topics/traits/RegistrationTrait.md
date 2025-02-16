@@ -12,9 +12,10 @@ Use this trait for register a User and get a new User Object
 
 `registerUser()`
 : Encode password, register a User and send the verification email.
-: **Param** `Idm\Bundle\User\Model\Entity\AbstractUser` `$user` An Object User entity
-: **Param** `Symfony\Bridge\Twig\Mime\TemplatedEmail` `$templatedEmail` An Object of Email Templated
-: **Param** `string` `$plainPassword` The plain password
+: **Parameters**
+: - `$user` `Idm\Bundle\User\Model\Entity\AbstractUser`. An Object User entity
+: - `$templatedEmail` `Symfony\Bridge\Twig\Mime\TemplatedEmail`. An Object of Email Templated
+: - `$plainPassword` `string` The plain password.
 : **_Return_** `void`
 
 {type="medium"}
