@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 16/02/2025, 19:03
+ * Last modified by "IDMarinas" on 16/02/2025, 19:07
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -43,7 +43,7 @@ trait BanTrait
 	}
 
 	/**
-	 * Obtiene si el usuario está bloqueado.
+	 * Gets whether the user is locked out.
 	 */
 	public function isBanned (): bool
 	{
