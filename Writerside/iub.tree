@@ -19,7 +19,10 @@
 			<toc-element toc-title="Controller">
 				<toc-element topic="RegistrationTrait.md" />
 			</toc-element>
-			<toc-element toc-title="Entity" />
+			<toc-element toc-title="Entity">
+				<toc-element topic="BanTrait.md" />
+				<toc-element topic="EquatableTrait.md" />
+			</toc-element>
 		</toc-element>
 		<toc-element topic="Forms.topic" />
 		<toc-element topic="Validators.topic" />
