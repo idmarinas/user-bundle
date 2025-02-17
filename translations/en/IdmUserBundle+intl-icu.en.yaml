@@ -113,6 +113,10 @@ entity:
       singular: User
 
 crud:
+  form:
+    tab:
+      info: Information
+      roles: Roles
   common:
     uuid: Identifier
     email: Email
