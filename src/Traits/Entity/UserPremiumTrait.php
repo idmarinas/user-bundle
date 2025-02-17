@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 09/01/2025, 17:06
+ * Last modified by "IDMarinas" on 17/02/2025, 18:29
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -27,7 +27,7 @@ trait UserPremiumTrait
 	#[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'], fetch: 'EAGER', orphanRemoval: true)]
 	protected AbstractPremium $premium;
 
-	public function getPremium (): ?AbstractPremium
+	public function getPremium (): AbstractPremium
 	{
 		return $this->premium;
 	}
