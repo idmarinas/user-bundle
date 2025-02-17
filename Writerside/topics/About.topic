@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE topic
+	SYSTEM "https://resources.jetbrains.com/writerside/1.0/xhtml-entities.dtd">
+<topic
+	id="About"
+	title="About"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
+>
+
+	<card-summary>Some of what has been done and what is used in %project%.</card-summary>
+
+	<note>
+		These other third-party bundles have been used to create %project%.
+	</note>
+
+	<deflist>
+		<def id="reset-password-bundle" title="SymfonyCasts Password Resetting for Symfony">
+			Provides the functionality to reset the password.
+		</def>
+		<def id="verify-email-bundle" title="SymfonyCasts Verify Email Bundle">
+			It provides the functionality to verify the email.
+		</def>
+		<def id="gedmo/doctrine-extensions" title="Doctrine Behavioral Extensions">
+			Provides functionalities for Doctrine such as <code>Blameable</code>, <code>Timestampable</code> and others
+		</def>
+	</deflist>
+
+	<seealso>
+		<category ref="external">
+			<a href="https://github.com/SymfonyCasts/reset-password-bundle">SymfonyCasts Password Resetting for Symfony</a>
+			<a href="https://github.com/SymfonyCasts/verify-email-bundle">SymfonyCasts Verify Email Bundle</a>
+			<a href="https://github.com/doctrine-extensions/DoctrineExtensions">Doctrine Behavioral Extensions</a>
+		</category>
+	</seealso>
+</topic>
