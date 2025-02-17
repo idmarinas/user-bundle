@@ -1,0 +1,56 @@
+# Changelog
+
+## 2.0.0 - (2025-02-18)
+
+## Release highlights
+
+Extends the functionality of %project% by adding new features such as controllers, the panel for EasyAdminBundle and
+more.
+
+## Added
+
+**Controllers**
+
+* Added `AbstractLoginController` Basic controller for Login functionality.
+* Added `AbstractProfileController` Basic controller for show a user profile.
+* Added `AbstractRegistrationController` Basic registration controller.
+* Added `AbstractResetPasswordController` Basic reset password controller.
+
+**Forms**
+
+* Added `AbstractRegistrationFormType` Basic registration form.
+* Added `ChangePasswordFormType` Form for change password.
+* Added `ResetPasswordFormType` Form for reset password.
+* Added `ResetPasswordRequestFormType` Form for request a reset password.
+
+**Entities**
+
+* Added `AbstractConnections` Basic logging of user logins.
+* Added `AbstractPremium` Basic premium entity if you needed.
+
+**Repositories**
+
+* Added `AbstractResetPasswordRequestRepository` Basic repository for reset password entity.
+
+**User Checker**
+
+* Added `AbstractUserChecker` Basic checker of user when login.
+* Added `UserChecker` Checker for regular users.
+* Added `UserAdminChecker` Checker for admin users.
+
+**Validators**
+
+* Added `Passwordrequirements` Constraint for a consistent password across the App. [Read Docs](PasswordRequirements.md)
+
+**Traits**
+
+* Added `RegistrationTrait` [Read Docs](RegistrationTrait.md)
+
+**Enums**
+
+* Added `UserRolesEnum` Basic enum with common roles
+
+## Breaking changes
+
+* Moved all abstract classes to `Model` namespace
+* Traits of `AbstractUser` entity moved to `Traits\Entity` namespace
