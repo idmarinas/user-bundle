@@ -28,9 +28,14 @@
 				<toc-element topic="LegalTrait.md" />
 				<toc-element topic="SecurityTrait.md" />
 				<toc-element topic="UserPremiumTrait.md" />
+				<toc-element toc-title="Constraints" />
 			</toc-element>
 		</toc-element>
-		<toc-element topic="Validators.topic" />
+	</toc-element>
+	<toc-element toc-title="Validators">
+		<toc-element toc-title="Constraints">
+			<toc-element topic="PasswordRequirements.md" />
+		</toc-element>
 	</toc-element>
 	<toc-element topic="Changelog.md" />
 	<toc-element topic="SECURITY.md" />
