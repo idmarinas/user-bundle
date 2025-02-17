@@ -1,5 +1,7 @@
 # Security Trait
 
+<secondary-label ref="1.0.0" />
+
 Use this trait to add a user-password login.
 
 ## Glossary

@@ -1,5 +1,7 @@
 # Equatable Trait
 
+<secondary-label ref="1.0.0" />
+
 Use this trait to add an Equatable feature to your User entity (used in
 `Idm\Bundle\User\Model\Entity\AbstractUser`), with this can make your users can only have 1 sessión from 1 device and
 firewall.
