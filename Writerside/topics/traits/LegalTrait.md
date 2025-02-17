@@ -1,4 +1,4 @@
-# LegalTrait
+# Legal Trait
 
 Use this trait to add a Legal feature to your User entity (used in
 `Idm\Bundle\User\Model\Entity\AbstractUser`), with this can make your users need to read and accept your privacy and

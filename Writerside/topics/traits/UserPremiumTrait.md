@@ -1,4 +1,4 @@
-# UserPremiumTrait
+# User Premium Trait
 
 Use this trait to add a relation with `UserPremium` entity.
 

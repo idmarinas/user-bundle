@@ -1,4 +1,4 @@
-# BanTrait
+# Ban Trait
 
 <secondary-label ref="1.0.0" />
 

@@ -1,4 +1,4 @@
-# PasswordRequirements Constraint
+# Password Requirements Constraint
 
 <secondary-label ref="2.0.0" />
 

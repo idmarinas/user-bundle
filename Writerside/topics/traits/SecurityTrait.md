@@ -1,4 +1,4 @@
-# SecurityTrait
+# Security Trait
 
 Use this trait to add a user-password login.
 

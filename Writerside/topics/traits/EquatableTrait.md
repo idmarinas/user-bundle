@@ -1,4 +1,4 @@
-# EquatableTrait
+# Equatable Trait
 
 Use this trait to add an Equatable feature to your User entity (used in
 `Idm\Bundle\User\Model\Entity\AbstractUser`), with this can make your users can only have 1 sessión from 1 device and

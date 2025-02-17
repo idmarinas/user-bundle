@@ -1,4 +1,4 @@
-# RegistrationTrait
+# Registration Trait
 
 <secondary-label ref="2.0.0" />
 
