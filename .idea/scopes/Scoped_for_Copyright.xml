@@ -1,3 +1,0 @@
-<component name="DependencyValidationManager">
-  <scope name="Scoped for Copyright" pattern="!file[IDMarinas Template Bundle]:vendor//*&amp;&amp;!file[IDMarinas User Bundle]:Writerside//*&amp;&amp;!file:**.xml.dist" />
-</component>
