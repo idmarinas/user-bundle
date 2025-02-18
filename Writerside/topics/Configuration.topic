@@ -8,9 +8,9 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 >
 
-	<card-summary>%project% **does not need** a specific configuration</card-summary>
+	<card-summary>Information about configure %project% for your project</card-summary>
 
-	<tip>%project% **does not need** a specific configuration</tip>
+	<tip>%project% <b>does not need</b> a specific configuration</tip>
 
 	<seealso style="cards">
 		<category ref="related">
