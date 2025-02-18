@@ -11,7 +11,7 @@
 	<card-summary>Third-party libraries that have helped create %project%.</card-summary>
 
 	<note>
-		These other third-party bundles have been used to create %project%.
+		These other third-party libraries/bundles have been used to create %project%.
 	</note>
 
 	<deflist>
