@@ -8,7 +8,7 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 >
 
-	<card-summary>Some of what has been done and what is used in %project%.</card-summary>
+	<card-summary>Third-party libraries that have helped create %project%.</card-summary>
 
 	<note>
 		These other third-party bundles have been used to create %project%.
