@@ -11,7 +11,7 @@
 <seealso>
   <category ref="related">
     <a href="Installation.md" />
-    <a href="Configuration.md" />
+    <a href="Configuration.topic" />
   </category>
   <category ref="external">
     <a href="https://www.php.net">PHP</a>
