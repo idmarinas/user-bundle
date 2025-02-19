@@ -26,8 +26,8 @@
 
 	<build-profile instance="iub">
 		<variables>
-			<noindex-content>false</noindex-content>
 			<og-twitter>@idmarinas</og-twitter>
+			<noindex-content>false</noindex-content>
 		</variables>
 	</build-profile>
 </buildprofiles>
