@@ -40,6 +40,7 @@ return static function (ContainerConfigurator $container) {
 					service(EntityManagerInterface::class),
 					service(RequestStack::class),
 				])
+				->alias(EmailVerifier::class, 'idm_user.service.email_verifier')->public()
 			// Register UserChecker
 			->set(UserChecker::class, UserChecker::class)->public()->autoconfigure()->autowire()
 			// Register UserAdminChecker
