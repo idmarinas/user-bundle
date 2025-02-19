@@ -37,9 +37,6 @@ jobs:
         with:
           fetch-depth: ${{ (matrix.php == '8.2' && matrix.symfony == '6.4.*') && '0' || '1' }}
 
-      - name: Debug event
-        run: 'echo "Event name: ${{ github.event_name }}\nRef: ${{ github.ref }}\nEvent payload: ${{ toJson(github.event) }}"'
-        
       - name: Setup PHP ${{ matrix.php }}
         uses: shivammathur/setup-php@v2
         with:
