@@ -5,7 +5,8 @@ on:
     types: [ opened, synchronize, reopened ]
     tags-ignore: [ dependencies, documentation, meta, 'docker configuration', 'deployer configuration' ]
   push:
-    tags-ignore: [ '2.*' ]
+    tags-ignore:
+      - '2.*'
     paths-ignore:
       - '.deployer/**'
       - '.docker/**'
