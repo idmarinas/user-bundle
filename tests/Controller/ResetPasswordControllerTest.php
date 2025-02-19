@@ -198,7 +198,7 @@ class ResetPasswordControllerTest extends WebTestCase
 			faker()->sha1(), new DateTime('+10 years'), (new DateTime('now'))->getTimestamp()
 		);
 		$helper->method('generateResetToken')->willReturn($token);
-		$repository->method('findOneBy')->willReturn(UserFactory::createOne()->_real());
+		$repository->method('findOneBy')->willReturn(UserFactory::random()->_real());
 		$entityManager->method('getRepository')->willReturn($repository);
 
 		$mailer
