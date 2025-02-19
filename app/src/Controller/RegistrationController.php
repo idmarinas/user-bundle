@@ -29,8 +29,8 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route(path: '/registration', name: 'registration_')]
 class RegistrationController extends AbstractRegistrationController
 {
-    protected function getRegistrationForm (object $data, array $options = []): FormInterface
-    {
-        return $this->createForm(RegistrationFormType::class, $data, $options);
-    }
+	protected function getRegistrationForm (?object $data, array $options = []): FormInterface
+	{
+		return $this->createForm(RegistrationFormType::class, $data, $options);
+	}
 }
