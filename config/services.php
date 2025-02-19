@@ -26,6 +26,7 @@ use Idm\Bundle\User\Security\Checker\UserChecker;
 use Idm\Bundle\User\Security\EmailVerifier;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface;
 use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
 
 return static function (ContainerConfigurator $container) {
@@ -42,9 +43,17 @@ return static function (ContainerConfigurator $container) {
 				])
 				->alias(EmailVerifier::class, 'idm_user.service.email_verifier')->public()
 			// Register UserChecker
-			->set(UserChecker::class, UserChecker::class)->public()->autoconfigure()->autowire()
+			->set(UserChecker::class, UserChecker::class)->public()
+				->args([
+					service(AccessDecisionManagerInterface::class),
+					service(RequestStack::class),
+				])
 			// Register UserAdminChecker
-			->set(UserAdminChecker::class, UserAdminChecker::class)->public()->autoconfigure()->autowire()
+			->set(UserAdminChecker::class, UserAdminChecker::class)->public()
+				->args([
+					service(AccessDecisionManagerInterface::class),
+					service(RequestStack::class),
+				])
 	;
 	// @formatter:on
 };
