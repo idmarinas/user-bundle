@@ -1,5 +1,20 @@
 # Changelog
 
+## 2.0.1 - (2025-02-19)
+
+## Changed
+
+* Changed `config/services.php`
+  * Service `idm_user.service.email_verifier` all services are explicitly defined
+  * Service `UserChecker::class` all services are explicitly defined
+  * Service `UserAdminChecker::class` all services are explicitly defined
+
+## Fixed
+
+* Fixed problem with service not being found `idm_user.service.email_verifier`
+* Fixed Implicitly marking parameter `$param` as nullable is deprecated
+  * Files: `AbstractProfileController`, `AbstractRegistrationController` and `AbstractResetPasswordController`
+
 ## 2.0.0 - (2025-02-18)
 
 ## Release highlights
