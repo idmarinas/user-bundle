@@ -20,16 +20,26 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use Doctrine\ORM\EntityManagerInterface;
 use Idm\Bundle\User\Security\Checker\UserAdminChecker;
 use Idm\Bundle\User\Security\Checker\UserChecker;
 use Idm\Bundle\User\Security\EmailVerifier;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\Mailer\MailerInterface;
+use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
 
 return static function (ContainerConfigurator $container) {
 	// @formatter:off
 	$container
 		->services()
 			// Register EmailVerifier service
-			->set('idm_user.service.email_verifier', EmailVerifier::class)->public()->autowire()->autoconfigure()
+			->set('idm_user.service.email_verifier', EmailVerifier::class)->private()
+				->args([
+					service(VerifyEmailHelperInterface::class),
+					service(MailerInterface::class),
+					service(EntityManagerInterface::class),
+					service(RequestStack::class),
+				])
 			// Register UserChecker
 			->set(UserChecker::class, UserChecker::class)->public()->autoconfigure()->autowire()
 			// Register UserAdminChecker
