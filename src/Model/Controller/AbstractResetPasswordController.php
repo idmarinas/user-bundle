@@ -163,9 +163,9 @@ abstract class AbstractResetPasswordController extends AbstractController
 		]);
 	}
 
-	protected abstract function getResetPasswordRequestForm (object $data = null, array $options = []): FormInterface;
+	protected abstract function getResetPasswordRequestForm (?object $data = null, array $options = []): FormInterface;
 
-	protected abstract function getResetPasswordForm (object $data = null, array $options = []): FormInterface;
+	protected abstract function getResetPasswordForm (?object $data = null, array $options = []): FormInterface;
 
 	private function processSendingPasswordResetEmail (
 		string              $emailFormData,

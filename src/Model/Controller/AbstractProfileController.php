@@ -99,5 +99,5 @@ abstract class AbstractProfileController extends AbstractController
 		return $this->redirectToRoute('idm_user_profile_index');
 	}
 
-	protected abstract function getChangePasswordForm (object $data = null, array $options = []): FormInterface;
+	protected abstract function getChangePasswordForm (?object $data = null, array $options = []): FormInterface;
 }

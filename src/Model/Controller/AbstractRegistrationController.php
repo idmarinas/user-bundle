@@ -91,5 +91,5 @@ abstract class AbstractRegistrationController extends AbstractController
 		return $this->redirectToRoute('idm_user_profile_index');
 	}
 
-	protected abstract function getRegistrationForm (object $data, array $options = []): FormInterface;
+	protected abstract function getRegistrationForm (?object $data, array $options = []): FormInterface;
 }
