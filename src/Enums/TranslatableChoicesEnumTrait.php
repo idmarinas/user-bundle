@@ -34,7 +34,7 @@ trait TranslatableChoicesEnumTrait
 		$cases = [];
 
 		foreach (self::cases() as $case) {
-			$cases[$case->name] = t($prefix . strtolower($case->value), $params, $domain);
+			$cases[$case->name] = t(strtolower($prefix . $case->value), $params, $domain);
 		}
 
 		return $cases;
