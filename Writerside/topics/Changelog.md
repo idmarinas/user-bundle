@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.3 - (2025-02-20)
+
+## Fixed {id="fixed_2.0.3"}
+
+* Fixed `src/Model/Controller/Admin/AbstrarUserCrudController.php` use a prefix for translation roles choices
+
 ## 2.0.2 - (2025-02-20)
 
 ## Fixed {id="fixed_2.0.2"}
