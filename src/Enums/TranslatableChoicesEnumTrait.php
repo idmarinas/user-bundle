@@ -19,17 +19,22 @@
 
 namespace Idm\Bundle\User\Enums;
 
+use function Symfony\Component\Translation\t;
+
 /**
  * @method static cases()
  */
 trait TranslatableChoicesEnumTrait
 {
-	public static function toTranslatableChoices (string $prefix = ''): array
-	{
+	public static function toTranslatableChoices (
+		string $prefix = '',
+		array  $params = [],
+		string $domain = 'IdmUserBundle'
+	): array {
 		$cases = [];
 
 		foreach (self::cases() as $case) {
-			$cases[$case->name] = $prefix . strtolower($case->value);
+			$cases[$case->name] = t($prefix . strtolower($case->value), $params, $domain);
 		}
 
 		return $cases;
