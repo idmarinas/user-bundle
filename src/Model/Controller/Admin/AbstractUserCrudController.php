@@ -65,7 +65,7 @@ abstract class AbstractUserCrudController extends AbstractCrudController
 		;
 		yield ChoiceField::new('roles', $t('crud.common.roles'))
 			->hideOnIndex()
-			->setTranslatableChoices(UserRolesEnum::toTranslatableChoices())
+			->setTranslatableChoices(UserRolesEnum::toTranslatableChoices('user_role.'))
 			->allowMultipleChoices()
 		;
 	}
