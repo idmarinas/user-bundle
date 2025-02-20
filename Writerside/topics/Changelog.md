@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.2 - (2025-02-20)
+
+## Fixed {id="fixed_2.0.2"}
+
+* Fixed `translations/IdmUserBundle+intl-icu.{es,en}.yaml` name of roles (now use lowercase)
+* Fixed `src/Enums/TranslatableChoicesEnumTrait.php` now use a `TranslatableMessage` object for translate choices
+
 ## 2.0.1 - (2025-02-19)
 
 ## Changed
