@@ -102,9 +102,9 @@ email:
       note: Este enlace expirará en {expiration}, es necesario iniciar sesión para poder verificar el correo.
 
 user_role:
-  ROLE_SUPER_ADMIN: Rol Super-Administrador
-  ROLE_ADMIN: Rol administrador
-  ROLE_USER: Rol usuario
+  role_super_admin: Rol Super-Administrador
+  role_admin: Rol administrador
+  role_user: Rol usuario
 
 entity:
   label:

@@ -102,9 +102,9 @@ email:
       note: This link will expire in {expiration}, login is required to verify the email.
 
 user_role:
-  ROLE_SUPER_ADMIN: Super-Admin Role
-  ROLE_ADMIN: Admin Role
-  ROLE_USER: User Role
+  role_super_admin: Super-Admin Role
+  role_admin: Admin Role
+  role_user: User Role
 
 entity:
   label:
