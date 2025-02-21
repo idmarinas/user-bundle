@@ -31,8 +31,10 @@ form:
         paragraph: Type the new password and repeat it to confirm.
 
   forgot_password:
-    email: E-mail address
-    button: Send reset mail
+    email:
+      label: E-mail address
+      help: Enter your email address, and we will send you a link to reset your password.
+    button: Send password reset email
 
   link:
     not_account: Don't have an account? Create an account

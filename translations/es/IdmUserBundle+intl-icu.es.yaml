@@ -31,7 +31,9 @@ form:
         paragraph: Escribe la nueva contraseña y repítela para confirmar
 
   forgot_password:
-    email: Correo electrónico
+    email:
+      label: Correo electrónico
+      help: Introduzca su dirección de correo electrónico y le enviaremos un enlace para restablecer su contraseña.
     button: Enviar correo de restablecimiento
 
   link:
