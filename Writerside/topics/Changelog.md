@@ -1,5 +1,17 @@
 # Changelog
 
+## 2.0.4 - (2025-02-21)
+
+## Fixed {id="fixed_2.0.4"}
+
+* Fixed templates `request.html.twig` and `reset.html.twig` simplifique render form `{{ form(form) }}`
+
+## Changed {id="changed_2.0.4"}
+
+* Translations
+  * Changed form `forgot_password` include a help for email field.
+* Changed form `ResetPasswordRequestFormType` include help for field email
+
 ## 2.0.3 - (2025-02-20)
 
 ## Fixed {id="fixed_2.0.3"}
