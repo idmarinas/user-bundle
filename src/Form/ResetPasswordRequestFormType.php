@@ -34,9 +34,10 @@ final class ResetPasswordRequestFormType extends AbstractType
 			->add('email', EmailType::class, [
 				'required'    => true,
 				'label'       => false,
+				'help'        => 'form.reset_password_request.email.help',
 				'attr'        => [
 					'autocomplete' => 'email',
-					'placeholder'  => 'form.forgot_password.email',
+					'placeholder'  => 'form.forgot_password.email.label',
 				],
 				'constraints' => [
 					new Assert\NotBlank(allowNull: false),
