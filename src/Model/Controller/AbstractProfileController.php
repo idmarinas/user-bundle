@@ -23,6 +23,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Idm\Bundle\User\Model\Entity\AbstractUser;
 use Idm\Bundle\User\Model\Repository\AbstractUserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -83,15 +84,22 @@ abstract class AbstractProfileController extends AbstractController
 	}
 
 	#[Route(path: '/delete/confirm', name: 'delete_user_confirm', methods: ['POST'])]
-	public function deleteUserAccount (Request $request, EntityManagerInterface $entityManager): Response
-	{
+	public function deleteUserAccount (
+		Request                $request,
+		EntityManagerInterface $entityManager,
+		Security               $security
+	): Response {
 		$token = $request->request->get('token');
 
 		if ($this->isCsrfTokenValid('delete-user', $token)) {
 			$entityManager->remove($this->getUser());
 			$entityManager->flush();
 
-			return $this->redirectToRoute('_logout_main');
+			$security->logout(false);
+
+			$this->addFlash('success', t('flash.success.delete_user_confirm', domain: 'IdmUserBundle'));
+
+			return $this->redirectToRoute('idm_user_registration_register_web');
 		}
 
 		$this->addFlash('error', t('flash.error.delete_user.csrf', [], 'IdmUserBundle'));
