@@ -8,11 +8,17 @@
 	xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/topic.v2.xsd"
 >
 
-	<card-summary>Third-party libraries that have helped create %project%.</card-summary>
+	<card-summary>Third-party libraries/bundles that have helped create %project%.</card-summary>
 
 	<note>
 		These other third-party libraries/bundles have been used to create %project%.
 	</note>
+
+	<deflist>
+		<def id="symfony-components" title="Symfony Components">
+			This project relies on these components for most of its features.
+		</def>
+	</deflist>
 
 	<deflist>
 		<def id="reset-password-bundle" title="SymfonyCasts Password Resetting for Symfony">
@@ -28,6 +34,7 @@
 
 	<seealso>
 		<category ref="external">
+			<a href="https://symfony.com/components">Symfony Components</a>
 			<a href="https://github.com/SymfonyCasts/reset-password-bundle">SymfonyCasts Password Resetting for Symfony</a>
 			<a href="https://github.com/SymfonyCasts/verify-email-bundle">SymfonyCasts Verify Email Bundle</a>
 			<a href="https://github.com/doctrine-extensions/DoctrineExtensions">Doctrine Behavioral Extensions</a>
