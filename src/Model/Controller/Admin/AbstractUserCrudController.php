@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/02/2025, 20:53
+ * Last modified by "IDMarinas" on 25/02/2025, 16:52
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -42,7 +42,7 @@ abstract class AbstractUserCrudController extends AbstractCrudController
 		// Tab Info
 		yield FormField::addTab($t('crud.form.tab.info'), 'fa fa-info');
 		yield FormField::addColumn(8);
-		yield IdField::new('uuid', $t('crud.common.uuid'))->onlyOnDetail();
+		yield IdField::new('id', $t('crud.common.uuid'))->onlyOnDetail();
 		yield TextField::new('displayName', $t('crud.user.display_name'));
 		yield EmailField::new('email', $t('crud.common.email'))
 			->setPermission('ROLE_SUPER_ADMIN') // Only a superuser can change this
