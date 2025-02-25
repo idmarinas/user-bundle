@@ -174,7 +174,7 @@ class ProfileControllerTest extends WebTestCase
 
 		$client->submitForm('Yes');
 
-		$this->assertResponseRedirects('/logout');
+		$this->assertResponseRedirects('/user/registration/register');
 
 		$userRepository = static::getContainer()->get(UserRepository::class);
 
