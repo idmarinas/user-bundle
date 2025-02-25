@@ -1,12 +1,24 @@
 # Changelog
 
+## 2.0.5 - (2025-02-25)
+
+### Fixed {id="fixed_2.0.5"}
+
+* Fixed Profile Controller for delete user, now not redirect to route for logout.
+
+### Changed {id="changed_2.0.5"}
+
+* Changed Profile Controller method `deleteUserAccount()` Use `Symfony\Bundle\SecurityBundle\Security` helper to
+  `logout` a user.
+  * Added a message to inform that the account has been deleted.
+
 ## 2.0.4 - (2025-02-21)
 
-## Fixed {id="fixed_2.0.4"}
+### Fixed {id="fixed_2.0.4"}
 
 * Fixed templates `request.html.twig` and `reset.html.twig` simplifique render form `{{ form(form) }}`
 
-## Changed {id="changed_2.0.4"}
+### Changed {id="changed_2.0.4"}
 
 * Translations
   * Changed form `forgot_password` include a help for email field.
@@ -14,27 +26,27 @@
 
 ## 2.0.3 - (2025-02-20)
 
-## Fixed {id="fixed_2.0.3"}
+### Fixed {id="fixed_2.0.3"}
 
 * Fixed `src/Model/Controller/Admin/AbstrarUserCrudController.php` use a prefix for translation roles choices
 
 ## 2.0.2 - (2025-02-20)
 
-## Fixed {id="fixed_2.0.2"}
+### Fixed {id="fixed_2.0.2"}
 
 * Fixed `translations/IdmUserBundle+intl-icu.{es,en}.yaml` name of roles (now use lowercase)
 * Fixed `src/Enums/TranslatableChoicesEnumTrait.php` now use a `TranslatableMessage` object for translate choices
 
 ## 2.0.1 - (2025-02-19)
 
-## Changed
+### Changed
 
 * Changed `config/services.php`
   * Service `idm_user.service.email_verifier` all services are explicitly defined
   * Service `UserChecker::class` all services are explicitly defined
   * Service `UserAdminChecker::class` all services are explicitly defined
 
-## Fixed
+### Fixed
 
 * Fixed problem with service not being found `idm_user.service.email_verifier`
 * Fixed Implicitly marking parameter `$param` as nullable is deprecated
@@ -42,12 +54,12 @@
 
 ## 2.0.0 - (2025-02-18)
 
-## Release highlights
+### Release highlights
 
 Extends the functionality of %project% by adding new features such as controllers, the panel for EasyAdminBundle and
 more.
 
-## Added
+### Added
 
 **Controllers**
 
@@ -90,7 +102,7 @@ more.
 
 * Added `UserRolesEnum` Basic enum with common roles
 
-## Breaking changes
+### Breaking changes
 
 * Moved all abstract classes to `Model` namespace
 * Traits of `AbstractUser` entity moved to `Traits\Entity` namespace
