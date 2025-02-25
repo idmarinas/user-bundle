@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 15/02/2025, 11:53
+ * Last modified by "IDMarinas" on 25/02/2025, 15:42
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -41,15 +41,16 @@ final class ConnectionsFactory extends PersistentProxyObjectFactory
 	protected function defaults (): array|callable
 	{
 		return [
-			'clientName'     => self::faker()->text(50),
-			'clientType'     => self::faker()->text(50),
-			'clientVersion'  => self::faker()->text(50),
-			'connectionDate' => DateTimeImmutable::createFromMutable(self::faker()->dateTime()),
-			'deviceName'     => self::faker()->text(50),
-			'osName'         => self::faker()->text(50),
-			'osVersion'      => self::faker()->text(50),
-			'user'           => UserFactory::new(),
-			'userAgent'      => self::faker()->userAgent(),
+			'clientName'      => self::faker()->text(50),
+			'clientType'      => self::faker()->text(50),
+			'clientVersion'   => self::faker()->text(50),
+			'connectionDate'  => DateTimeImmutable::createFromMutable(self::faker()->dateTime()),
+			'deviceName'      => self::faker()->text(50),
+			'osName'          => self::faker()->text(50),
+			'osVersion'       => self::faker()->text(50),
+			'user'            => UserFactory::new(),
+			'userAgent'       => self::faker()->userAgent(),
+			'connectedFromIp' => self::faker()->ipv4(),
 		];
 	}
 
