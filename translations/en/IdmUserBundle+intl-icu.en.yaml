@@ -146,5 +146,8 @@ flash:
       csrf: The form is invalid, please try again.
   success:
     email_verified: Your e-mail address has been verified.
+    delete_user_confirm: |
+      Your account has been successfully deleted, our systems will progressively delete your data. If the
+      administration allows it, you may have a period of time to recover your account.
   warning:
     privacy_terms_accepted: The privacy policy and terms have been accepted.

@@ -146,5 +146,8 @@ flash:
       csrf: El formulario no es válido, vuelve a intentarlo.
   success:
     email_verified: Su dirección de correo electrónico ha sido verificada.
+    delete_user_confirm: |
+      Su cuenta ha sido borrada correctamente, nuestros sistemas iran borrando sus datos progresivamente. Si la
+      administración lo permite, puede que tenga un plazo para poder recuperar su cuenta.
   warning:
     privacy_terms_accepted: La política de privacidad y los términos ya han sido aceptados.
