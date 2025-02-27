@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:56
+ * Last modified by "IDMarinas" on 25/02/2025, 14:46
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -29,6 +29,7 @@ return static function (ContainerConfigurator $container): void {
 			'log' => true,
 		],
 		'form'                  => true,
+		'assets'                => true,
 		'uid'                   => [
 			'default_uuid_version'    => 7,
 			'time_based_uuid_version' => 7,
