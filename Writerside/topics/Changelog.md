@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.6 - (2025-02-XX)
+
+### Fixed {id="fixed_2.0.6"}
+
+* Fixed `AbstractUserCrudController` **IdField** now use `id` name and not `uuid`
+* Fixed `AbstractUser` **Validator for username field** now use correct message.
+
 ## 2.0.5 - (2025-02-25)
 
 ### Fixed {id="fixed_2.0.5"}
