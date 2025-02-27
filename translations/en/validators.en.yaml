@@ -7,3 +7,8 @@ idm_user_bundle:
     not_match: The password fields must match.
     not_blank: Enter a password
   email.not_unique: An account already exists with this email address
+  only_letters_numbers: Only letters and numbers are allowed
+
+  entity:
+    username:
+      not_unique: There is already an account with that name
