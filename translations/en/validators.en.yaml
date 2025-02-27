@@ -6,9 +6,6 @@ idm_user_bundle:
     min_message: Your password must be at least {{ limit }} characters long
     not_match: The password fields must match.
     not_blank: Enter a password
-  email.not_unique: An account already exists with this email address
   only_letters_numbers: Only letters and numbers are allowed
-
-  entity:
-    username:
-      not_unique: There is already an account with that name
+  email.not_unique: An account already exists with this email address
+  username.not_unique: There is already an account with that name

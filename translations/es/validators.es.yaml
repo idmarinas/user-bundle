@@ -6,9 +6,6 @@ idm_user_bundle:
     min_message: Su contraseña debe tener al menos {{ limit }} caracteres
     not_match: Los campos de la contraseña deben coincidir.
     not_blank: Introduzca una contraseña
-  email.not_unique: Ya existe una cuenta con este correo electrónico
   only_letters_numbers: Sólo se permiten letras y números
-
-  entity:
-    username:
-      not_unique: Ya existe una cuenta con ese nombre
+  email.not_unique: Ya existe una cuenta con este correo electrónico
+  username.not_unique: Ya existe una cuenta con ese nombre
