@@ -2,7 +2,7 @@
 /**
  * Copyright 2023-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 17:13
+ * Last modified by "IDMarinas" on 25/02/2025, 19:36
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -63,7 +63,7 @@ abstract class AbstractUser implements UserInterface, EquatableInterface, Passwo
 	 */
 	#[ORM\Column(type: Types::STRING, length: 255, unique: true)]
 	#[Assert\Length(min: 3, max: 255)]
-	#[Assert\Regex(pattern: '/^[a-zA-Z0-9]+$/', message: 'entity.user.username.only_letters_numbers')]
+	#[Assert\Regex(pattern: '/^[a-zA-Z0-9]+$/', message: 'idm_user_bundle.only_letters_numbers')]
 	protected string $displayName = '';
 
 	/** Last time you logged in to the app. */
