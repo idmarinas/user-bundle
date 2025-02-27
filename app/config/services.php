@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 23:02
+ * Last modified by "IDMarinas" on 25/02/2025, 15:38
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,6 +19,8 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use App\Controller\Admin\DashboardController;
+use App\Controller\Admin\UserCrudController;
 use App\Controller\LoginController;
 use App\Controller\ProfileController;
 use App\Controller\RegistrationController;
@@ -44,6 +46,9 @@ return static function (ContainerConfigurator $container): void {
 				->arg('$emailVerifier', service('idm_user.service.email_verifier'))
 				->autoconfigure()
 				->autowire()
+			// Admin controllers
+			->set(DashboardController::class)->public()->autoconfigure()->autowire()
+			->set(UserCrudController::class)->public()->autoconfigure()->autowire()
 	;
 	// @formatter:on
 };
