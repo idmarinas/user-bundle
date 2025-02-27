@@ -1,6 +1,12 @@
 # Changelog
 
-## 2.0.6 - (2025-02-XX)
+## 2.0.7 - (2025-02-27)
+
+### Changed {id="changed_2.0.7"}
+
+* Changed `translations->validators` refactor part of keys
+
+## 2.0.6 - (2025-02-27)
 
 ### Fixed {id="fixed_2.0.6"}
 
