@@ -2,7 +2,7 @@
 /**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 25/02/2025, 16:52
+ * Last modified by "IDMarinas" on 12/04/2025, 12:36
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -27,7 +27,6 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Idm\Bundle\User\Enums\UserRolesEnum;
@@ -39,34 +38,25 @@ abstract class AbstractUserCrudController extends AbstractCrudController
 	{
 		$t = fn($message) => t($message, [], 'IdmUserBundle');
 
-		// Tab Info
-		yield FormField::addTab($t('crud.form.tab.info'), 'fa fa-info');
-		yield FormField::addColumn(8);
-		yield IdField::new('id', $t('crud.common.uuid'))->onlyOnDetail();
-		yield TextField::new('displayName', $t('crud.user.display_name'));
-		yield EmailField::new('email', $t('crud.common.email'))
-			->setPermission('ROLE_SUPER_ADMIN') // Only a superuser can change this
+		yield 'id' => IdField::new('id', $t('crud.common.uuid'))->onlyOnDetail();
+		yield 'display_name' => TextField::new('displayName', $t('crud.user.display_name'));
+		yield 'email' => EmailField::new('email', $t('crud.common.email'));
+		yield 'is_deleted' => BooleanField::new('isDeleted', $t('crud.common.is_deleted'))
+			->hideOnForm()->renderAsSwitch(false)->setVirtual(true)
 		;
+		yield 'deleted_at' => DateTimeField::new('deletedAt', $t('crud.common.deleted_at'))->hideOnIndex();
 
-		yield FormField::addColumn(4);
-		yield BooleanField::new('isDeleted', $t('crud.common.is_deleted'))
-			->hideOnForm()
-			->renderAsSwitch(false)
-			->setVirtual(true)
-		;
-		yield DateTimeField::new('deletedAt', $t('crud.common.deleted_at'))
-			->hideOnIndex()
-			->setPermission('ROLE_SUPER_ADMIN') // Only a superuser can change this
-		;
-
-		// Tab Roles
-		yield FormField::addTab($t('crud.form.tab.roles'), 'fa-regular fa-id-badge')
-			->setPermission('ROLE_SUPER_ADMIN')
-		;
-		yield ChoiceField::new('roles', $t('crud.common.roles'))
-			->hideOnIndex()
+		yield 'roles' => ChoiceField::new('roles', $t('crud.common.roles'))
+			->hideOnIndex()->allowMultipleChoices()
 			->setTranslatableChoices(UserRolesEnum::toTranslatableChoices('user_role.'))
-			->allowMultipleChoices()
+		;
+		yield 'verified' => BooleanField::new('verified', $t('crud.user.verified'));
+		yield 'inactive' => BooleanField::new('inactive', $t('crud.user.inactive'));
+		yield 'terms_accepted' => BooleanField::new('termsAccepted', $t('crud.user.terms_accepted'));
+		yield 'privacy_accepted' => BooleanField::new('privacyAccepted', $t('crud.user.privacy_accepted'));
+		yield 'banned_until' => DateTimeField::new('bannedUntil', $t('crud.user.banned_until'));
+		yield 'is_banned' => BooleanField::new('isBanned', $t('crud.common.is_banned'))
+			->hideOnForm()->renderAsSwitch(false)->setVirtual(true)
 		;
 	}
 
