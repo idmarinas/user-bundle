@@ -138,6 +138,10 @@ crud:
       token: Token IDMarinas
   user:
     display_name: Display name
+    verified: Verified
+    inactive: Inactive
+    terms_accepted: Terms accepted
+    privacy_accepted: Privacy accepted
 
 flash:
   error:
