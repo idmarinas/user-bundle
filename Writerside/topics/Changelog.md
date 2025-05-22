@@ -1,10 +1,16 @@
 # Changelog
 
+## 2.1.1 - (2025-04-13)
+
+### Deleted {id="deleted_1"}
+
+* _Deleted_ validation constraints from AbstractUser class
+
 ## 2.1.0 - (2025-04-12)
 
 ### Added {id="added_1"}
 
-* Added missing fields `verified`, `inactive`, `terms_accepted`, `privacy_accepted`, `banned_until` and `is_banned` in
+* _Added_ missing fields `verified`, `inactive`, `terms_accepted`, `privacy_accepted`, `banned_until` and `is_banned` in
   `AbstractSettingsCrudController`
 
 ### Changed {id="changed_1"}
@@ -22,20 +28,20 @@
 
 ### Changed {id="changed_2.0.7"}
 
-* Changed `translations->validators` refactor part of keys
+* _Changed_ `translations->validators` refactor part of keys
 
 ## 2.0.6 - (2025-02-27)
 
 ### Fixed {id="fixed_2.0.6"}
 
-* Fixed `AbstractUserCrudController` **IdField** now use `id` name and not `uuid`
-* Fixed `AbstractUser` **Validator for username field** now use correct message.
+* _Fixed_ `AbstractUserCrudController` **IdField** now use `id` name and not `uuid`
+* _Fixed_ `AbstractUser` **Validator for username field** now use correct message.
 
 ## 2.0.5 - (2025-02-25)
 
 ### Fixed {id="fixed_2.0.5"}
 
-* Fixed Profile Controller for delete user, now not redirect to route for logout.
+* _Fixed_ Profile Controller for delete user, now not redirect to route for logout.
 
 ### Changed {id="changed_2.0.5"}
 
@@ -47,7 +53,7 @@
 
 ### Fixed {id="fixed_2.0.4"}
 
-* Fixed templates `request.html.twig` and `reset.html.twig` simplifique render form `{{ form(form) }}`
+* _Fixed_ templates `request.html.twig` and `reset.html.twig` simplifique render form `{{ form(form) }}`
 
 ### Changed {id="changed_2.0.4"}
 
@@ -59,28 +65,28 @@
 
 ### Fixed {id="fixed_2.0.3"}
 
-* Fixed `src/Model/Controller/Admin/AbstrarUserCrudController.php` use a prefix for translation roles choices
+* _Fixed_ `src/Model/Controller/Admin/AbstrarUserCrudController.php` use a prefix for translation roles choices
 
 ## 2.0.2 - (2025-02-20)
 
 ### Fixed {id="fixed_2.0.2"}
 
-* Fixed `translations/IdmUserBundle+intl-icu.{es,en}.yaml` name of roles (now use lowercase)
-* Fixed `src/Enums/TranslatableChoicesEnumTrait.php` now use a `TranslatableMessage` object for translate choices
+* _Fixed_ `translations/IdmUserBundle+intl-icu.{es,en}.yaml` name of roles (now use lowercase)
+* _Fixed_ `src/Enums/TranslatableChoicesEnumTrait.php` now use a `TranslatableMessage` object for translate choices
 
 ## 2.0.1 - (2025-02-19)
 
 ### Changed
 
-* Changed `config/services.php`
+* _Changed_ `config/services.php`
   * Service `idm_user.service.email_verifier` all services are explicitly defined
   * Service `UserChecker::class` all services are explicitly defined
   * Service `UserAdminChecker::class` all services are explicitly defined
 
 ### Fixed
 
-* Fixed problem with service not being found `idm_user.service.email_verifier`
-* Fixed Implicitly marking parameter `$param` as nullable is deprecated
+* _Fixed_ problem with service not being found `idm_user.service.email_verifier`
+* _Fixed_ Implicitly marking parameter `$param` as nullable is deprecated
   * Files: `AbstractProfileController`, `AbstractRegistrationController` and `AbstractResetPasswordController`
 
 ## 2.0.0 - (2025-02-18)
@@ -94,44 +100,45 @@ more.
 
 **Controllers**
 
-* Added `AbstractLoginController` Basic controller for Login functionality.
-* Added `AbstractProfileController` Basic controller for show a user profile.
-* Added `AbstractRegistrationController` Basic registration controller.
-* Added `AbstractResetPasswordController` Basic reset password controller.
+* _Added_ `AbstractLoginController` Basic controller for Login functionality.
+* _Added_ `AbstractProfileController` Basic controller for show a user profile.
+* _Added_ `AbstractRegistrationController` Basic registration controller.
+* _Added_ `AbstractResetPasswordController` Basic reset password controller.
 
 **Forms**
 
-* Added `AbstractRegistrationFormType` Basic registration form.
-* Added `ChangePasswordFormType` Form for change password.
-* Added `ResetPasswordFormType` Form for reset password.
-* Added `ResetPasswordRequestFormType` Form for request a reset password.
+* _Added_ `AbstractRegistrationFormType` Basic registration form.
+* _Added_ `ChangePasswordFormType` Form for change password.
+* _Added_ `ResetPasswordFormType` Form for reset password.
+* _Added_ `ResetPasswordRequestFormType` Form for request a reset password.
 
 **Entities**
 
-* Added `AbstractConnections` Basic logging of user logins.
-* Added `AbstractPremium` Basic premium entity if you needed.
+* _Added_ `AbstractConnections` Basic logging of user logins.
+* _Added_ `AbstractPremium` Basic premium entity if you needed.
 
 **Repositories**
 
-* Added `AbstractResetPasswordRequestRepository` Basic repository for reset password entity.
+* _Added_ `AbstractResetPasswordRequestRepository` Basic repository for reset password entity.
 
 **User Checker**
 
-* Added `AbstractUserChecker` Basic checker of user when login.
-* Added `UserChecker` Checker for regular users.
-* Added `UserAdminChecker` Checker for admin users.
+* _Added_ `AbstractUserChecker` Basic checker of user when login.
+* _Added_ `UserChecker` Checker for regular users.
+* _Added_ `UserAdminChecker` Checker for admin users.
 
 **Validators**
 
-* Added `Passwordrequirements` Constraint for a consistent password across the App. [Read Docs](PasswordRequirements.md)
+* _Added_ `Passwordrequirements` Constraint for a consistent password across the
+  App. [Read Docs](PasswordRequirements.md)
 
 **Traits**
 
-* Added `RegistrationTrait` [Read Docs](RegistrationTrait.md)
+* _Added_ `RegistrationTrait` [Read Docs](RegistrationTrait.md)
 
 **Enums**
 
-* Added `UserRolesEnum` Basic enum with common roles
+* _Added_ `UserRolesEnum` Basic enum with common roles
 
 ### Breaking changes
 
