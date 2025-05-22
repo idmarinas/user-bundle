@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 22:10
+ * Last modified by "IDMarinas" on 22/05/2025, 14:09
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -34,7 +34,7 @@ final class ResetPasswordRequestFormType extends AbstractType
 			->add('email', EmailType::class, [
 				'required'    => true,
 				'label'       => false,
-				'help'        => 'form.reset_password_request.email.help',
+				'help'        => 'form.forgot_password.email.help',
 				'attr'        => [
 					'autocomplete' => 'email',
 					'placeholder'  => 'form.forgot_password.email.label',
