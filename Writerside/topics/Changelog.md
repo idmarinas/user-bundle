@@ -2,25 +2,25 @@
 
 ## 2.1.1 - (2025-04-13)
 
-### Deleted {id="deleted_1"}
+### Deleted {id="deleted_2.1.1"}
 
 * _Deleted_ validation constraints from AbstractUser class
 
 ## 2.1.0 - (2025-04-12)
 
-### Added {id="added_1"}
+### Added {id="added_2.1.0"}
 
 * _Added_ missing fields `verified`, `inactive`, `terms_accepted`, `privacy_accepted`, `banned_until` and `is_banned` in
   `AbstractSettingsCrudController`
 
-### Changed {id="changed_1"}
+### Changed {id="changed_2.1.0"}
 
 * _Changed_ method `configureFields()` of `AbstractUserCrudController`
   * Now return values with keys. **key is the field name in _snake_case_**
   * Form formatting is removed by eliminating tabs, columns, etc.
   * Removed predefined permissions for all fields
 
-### Deleted
+### Deleted {id="deleted_2.1.0"}
 
 * _Deleted_ all attributes related to data validation in `AbstractUser` entity.
 
