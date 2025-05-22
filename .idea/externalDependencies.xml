@@ -3,7 +3,6 @@
   <component name="ExternalDependencies">
     <plugin id="Docker" />
     <plugin id="String Manipulation" />
-    <plugin id="com.github.blarc.ai-commits-intellij-plugin" />
     <plugin id="com.jetbrains.php" />
     <plugin id="fr.adrienbrault.idea.symfony2plugin" />
     <plugin id="org.jetbrains.plugins.phpstorm-docker" />
