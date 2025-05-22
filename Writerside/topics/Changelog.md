@@ -22,26 +22,26 @@
 
 ### Deleted {id="deleted_2.1.0"}
 
-* _Deleted_ all attributes related to data validation in `AbstractUser` entity.
+* _Deleted_ all attributes related to data validation in the `AbstractUser` entity.
 
 ## 2.0.7 - (2025-02-27)
 
 ### Changed {id="changed_2.0.7"}
 
-* _Changed_ `translations->validators` refactor part of keys
+* _Changed_ `translations→validators` refactor part of keys
 
 ## 2.0.6 - (2025-02-27)
 
 ### Fixed {id="fixed_2.0.6"}
 
 * _Fixed_ `AbstractUserCrudController` **IdField** now use `id` name and not `uuid`
-* _Fixed_ `AbstractUser` **Validator for username field** now use correct message.
+* _Fixed_ `AbstractUser` **Validator for username field** now uses a correct message.
 
 ## 2.0.5 - (2025-02-25)
 
 ### Fixed {id="fixed_2.0.5"}
 
-* _Fixed_ Profile Controller for delete user, now not redirect to route for logout.
+* _Fixed_ Profile Controller for delete user, now not redirect to the route for logout.
 
 ### Changed {id="changed_2.0.5"}
 
@@ -110,7 +110,7 @@ more.
 * _Added_ `AbstractRegistrationFormType` Basic registration form.
 * _Added_ `ChangePasswordFormType` Form for change password.
 * _Added_ `ResetPasswordFormType` Form for reset password.
-* _Added_ `ResetPasswordRequestFormType` Form for request a reset password.
+* _Added_ `ResetPasswordRequestFormType` Form to request a reset password.
 
 **Entities**
 
