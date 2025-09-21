@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:56
+ * Last modified by "IDMarinas" on 17/06/2025, 17:02
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -25,11 +25,12 @@ use App\Entity\User\User;
 use Idm\Bundle\User\Model\Entity\AbstractConnections;
 use Idm\Bundle\User\Model\Entity\AbstractPremium;
 use Idm\Bundle\User\Model\Entity\AbstractUser;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Filesystem\Filesystem;
 
-return static function (ContainerConfigurator $container): void {
-	$getDatabaseCache = function (): string {
-		$dir = dirname(__DIR__, 3) . '/var/cache/database';
+return static function (ContainerConfigurator $container, ContainerBuilder $builder): void {
+	$getDatabaseCache = function (string $projectDir, string $env): string {
+		$dir = sprintf('%s/var/cache/database', $projectDir);
 
 		$filesystem = new Filesystem();
 
@@ -37,13 +38,13 @@ return static function (ContainerConfigurator $container): void {
 			$filesystem->mkdir($dir);
 		}
 
-		return $dir;
+		return sprintf('sqlite:///%s/idm_user_%s.sqlite', $dir, $env);
 	};
 
 	$container->extension('doctrine', [
 		'dbal' => [
 			'driver'         => 'pdo_sqlite',
-			'url'            => sprintf('sqlite:///%s/idm_user_%s.sqlite', $getDatabaseCache(), $container->env()),
+			'url'            => $getDatabaseCache($builder->getParameter('kernel.project_dir'), $container->env()),
 			'use_savepoints' => true,
 		],
 		'orm'  => [
