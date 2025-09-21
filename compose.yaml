@@ -10,10 +10,7 @@ services:
     volumes:
       - ./:/var/www/html
       ## SSH
-      - .docker/php/key_ssh/id_rsa:/root/.ssh/id_rsa:ro
-      ## PHP Conf
-      - ./.docker/php/conf.d/date_timezone.ini:/usr/local/etc/php/conf.d/date_timezone.ini
-
+      - ssh_key:/root/.ssh
   mailer:
     image: axllent/mailpit
     ports:
@@ -21,3 +18,7 @@ services:
     environment:
       MP_SMTP_AUTH_ACCEPT_ANY: 1
       MP_SMTP_AUTH_ALLOW_INSECURE: 1
+
+volumes:
+  ssh_key:
+    external: true
