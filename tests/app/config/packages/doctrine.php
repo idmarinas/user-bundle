@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright $originalComment.match("Copyright (\d+)", 1, "-",$today.year)2026 (C) IDMarinas - All Rights Reserved
+ * Copyright 2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 19:46
+ * Last modified by "IDMarinas" on 23/09/2026, 20:10
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,7 +19,13 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use App\Entity\User\Connections;
+use App\Entity\User\Premium;
+use App\Entity\User\User;
 use Idm\Bundle\User\IdmUserBundle;
+use Idm\Bundle\User\Model\Entity\AbstractConnections;
+use Idm\Bundle\User\Model\Entity\AbstractPremium;
+use Idm\Bundle\User\Model\Entity\AbstractUser;
 use ReflectionClass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Filesystem\Filesystem;
@@ -45,13 +51,16 @@ return static function (ContainerConfigurator $container, ContainerBuilder $buil
 		'dbal' => [
 			'driver' => 'pdo_sqlite',
 			'url'    => $getDatabaseCache($builder->getParameter('kernel.project_dir'), $container->env()),
+			'types'  => [
+				'array' => 'Doctrine\DBAL\Types\JsonType',
+			],
 		],
 		'orm'  => [
-			'auto_mapping'        => false,
-			'controller_resolver' => [
+			'auto_mapping'            => false,
+			'controller_resolver'     => [
 				'auto_mapping' => false,
 			],
-			'mappings'            => [
+			'mappings'                => [
 				'Tests' => [
 					'is_bundle' => false,
 					'mapping'   => true,
@@ -60,9 +69,11 @@ return static function (ContainerConfigurator $container, ContainerBuilder $buil
 					'prefix'    => 'App\Entity',
 				],
 			],
-			//'resolve_target_entities' => [
-			//	AbstractUser::class => User::class,
-			//],
+			'resolve_target_entities' => [
+				AbstractUser::class        => User::class,
+				AbstractPremium::class     => Premium::class,
+				AbstractConnections::class => Connections::class,
+			],
 		],
 	]);
 };
