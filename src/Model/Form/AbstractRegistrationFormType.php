@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 22:27
+ * Last modified by "IDMarinas" on 23/09/2026, 19:09
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -32,7 +32,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 abstract class AbstractRegistrationFormType extends AbstractType
 {
-	public function buildForm (FormBuilderInterface $builder, array $options): void
+	public function buildForm(FormBuilderInterface $builder, array $options): void
 	{
 		$builder
 			->add('email', EmailType::class, [
@@ -69,13 +69,13 @@ abstract class AbstractRegistrationFormType extends AbstractType
 			->add('termsAccepted', CheckboxType::class, [
 				'label'       => 'form.register.agree_terms',
 				'constraints' => [
-					new Assert\IsTrue(['message' => 'idm_user_bundle.agree_terms']),
+					new Assert\IsTrue(message: 'idm_user_bundle.agree_terms'),
 				],
 			])
 			->add('privacyAccepted', CheckboxType::class, [
 				'label'       => 'form.register.agree_privacy',
 				'constraints' => [
-					new Assert\IsTrue(['message' => 'idm_user_bundle.agree_privacy']),
+					new Assert\IsTrue(message: 'idm_user_bundle.agree_privacy'),
 				],
 			])
 			->add('button', SubmitType::class, [
@@ -84,7 +84,7 @@ abstract class AbstractRegistrationFormType extends AbstractType
 		;
 	}
 
-	public function configureOptions (OptionsResolver $resolver): void
+	public function configureOptions(OptionsResolver $resolver): void
 	{
 		$resolver->setDefaults([
 			'translation_domain' => 'IdmUserBundle',
