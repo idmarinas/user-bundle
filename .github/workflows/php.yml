@@ -67,7 +67,7 @@ jobs:
         run: 'php bin/console doctrine:schema:create --env=test && php bin/console doctrine:fixtures:load --env=test -n'
 
       - name: Run test suite on PHP ${{ matrix.php }} and Symfony ${{ matrix.symfony }}
-        run: ./vendor/bin/phpunit --exclude ignore
+        run: ./vendor/bin/phpunit --exclude-group ignore
 
       - name: SonarCloud Scan
         if: matrix.php == '8.2' && matrix.symfony == '6.4.*'
