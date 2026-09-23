@@ -2,7 +2,7 @@
 /**
  * Copyright $originalComment.match("Copyright (\d+)", 1, "-",$today.year)2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 18:26
+ * Last modified by "IDMarinas" on 23/09/2026, 18:28
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -50,12 +50,11 @@ return static function (ContainerConfigurator $container, ContainerBuilder $buil
 			],
 		],
 		'orm'  => [
-			'auto_generate_proxy_classes' => true,
-			'auto_mapping'                => false,
-			'controller_resolver'         => [
+			'auto_mapping'            => false,
+			'controller_resolver'     => [
 				'auto_mapping' => false,
 			],
-			'mappings'                    => [
+			'mappings'                => [
 				'Tests' => [
 					'is_bundle' => false,
 					'mapping'   => true,
@@ -64,7 +63,7 @@ return static function (ContainerConfigurator $container, ContainerBuilder $buil
 					'prefix'    => 'App\Entity',
 				],
 			],
-			'resolve_target_entities'     => [
+			'resolve_target_entities' => [
 				AbstractUser::class        => User::class,
 				AbstractPremium::class     => Premium::class,
 				AbstractConnections::class => Connections::class,
