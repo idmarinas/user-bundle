@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:59
+ * Last modified by "IDMarinas" on 23/09/2026, 21:32
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -38,7 +38,7 @@ class EmailVerifierTest extends WebTestCase
 {
 	use Factories;
 
-	public function testEmailVerifier (): void
+	public function testEmailVerifier(): void
 	{
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/registration/register');
