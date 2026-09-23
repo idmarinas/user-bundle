@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright $originalComment.match("Copyright (\d+)", 1, "-",$today.year)2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 09/01/2025, 17:42
+ * Last modified by "IDMarinas" on 23/09/2026, 17:59
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -27,14 +27,14 @@ abstract class AbstractPremium
 	#[ORM\Id]
 	#[ORM\OneToOne(inversedBy: 'premium')]
 	#[ORM\JoinColumn(unique: true, nullable: false)]
-	protected ?AbstractUser $user = null;
+	protected AbstractUser $user;
 
-	public function getUser (): ?AbstractUser
+	public function getUser(): ?AbstractUser
 	{
 		return $this->user;
 	}
 
-	public function setUser (AbstractUser $user): static
+	public function setUser(AbstractUser $user): static
 	{
 		$this->user = $user;
 
