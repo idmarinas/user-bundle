@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright $originalComment.match("Copyright (\d+)", 1, "-",$today.year)2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "idmarinas" on 26/12/2024, 20:47
+ * Last modified by "IDMarinas" on 23/09/2026, 18:48
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -23,6 +23,7 @@ use Idm\Bundle\User\Model\Entity\AbstractUser;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface;
 use Symfony\Component\Security\Core\Exception\CustomUserMessageAccountStatusException;
 use Symfony\Component\Security\Core\User\UserCheckerInterface;
@@ -33,7 +34,7 @@ abstract class AbstractUserChecker implements UserCheckerInterface
 {
 	protected FlashBagInterface $flash;
 
-	public function __construct (
+	public function __construct(
 		protected AccessDecisionManagerInterface $accessDecisionManager,
 		protected RequestStack                   $request
 	) {
@@ -42,7 +43,7 @@ abstract class AbstractUserChecker implements UserCheckerInterface
 		$this->flash = $session->getFlashBag();
 	}
 
-	public function checkPreAuth (UserInterface $user): void
+	public function checkPreAuth(UserInterface $user): void
 	{
 		if (!$user instanceof AbstractUser) {
 			return;
@@ -57,7 +58,7 @@ abstract class AbstractUserChecker implements UserCheckerInterface
 		}
 	}
 
-	public function checkPostAuth (UserInterface $user): void
+	public function checkPostAuth(UserInterface $user, ?TokenInterface $token = null): void
 	{
 		if (!$user instanceof AbstractUser) {
 			return;
