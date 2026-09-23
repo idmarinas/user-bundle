@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:59
+ * Last modified by "IDMarinas" on 23/09/2026, 21:05
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,7 +19,7 @@
 
 namespace Idm\Bundle\User\Tests\Controller;
 
-use DataFixtures\UserFixtures;
+use Idm\Bundle\User\Tests\DataFixtures\UserFixtures;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\DomCrawler\Crawler;
@@ -27,7 +27,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class RegistrationControllerTest extends WebTestCase
 {
-	public function testWebRegistration (): void
+	public function testWebRegistration(): void
 	{
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/registration/register');
@@ -64,7 +64,7 @@ class RegistrationControllerTest extends WebTestCase
 		$this->assertResponseRedirects('/user/profile');
 	}
 
-	public function testWebRegistrationFail (): void
+	public function testWebRegistrationFail(): void
 	{
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/registration/register');
@@ -86,7 +86,7 @@ class RegistrationControllerTest extends WebTestCase
 		$this->assertEmailCount(0);
 	}
 
-	public function testVerifyEmailLink (): void
+	public function testVerifyEmailLink(): void
 	{
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/registration/register');
@@ -121,7 +121,7 @@ class RegistrationControllerTest extends WebTestCase
 		$this->assertResponseIsSuccessful();
 	}
 
-	public function testVerifyEmailLinkFail (): void
+	public function testVerifyEmailLinkFail(): void
 	{
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/registration/register');
@@ -147,7 +147,7 @@ class RegistrationControllerTest extends WebTestCase
 		$client->followRedirect();
 		$this->assertResponseIsSuccessful();
 
-		$client->request(Request::METHOD_GET, str_replace('http://localhost', '', $link) . 'fail');
+		$client->request(Request::METHOD_GET, str_replace('http://localhost', '', $link).'fail');
 
 		$this->assertResponseRedirects('/');
 
@@ -158,7 +158,7 @@ class RegistrationControllerTest extends WebTestCase
 		$this->assertSelectorTextContains('body', 'The link to verify your email is invalid. Please request a new link.');
 	}
 
-	public function testVerifyEmail (): void
+	public function testVerifyEmail(): void
 	{
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/registration/register');

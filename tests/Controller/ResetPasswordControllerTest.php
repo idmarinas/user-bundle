@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/02/2025, 19:05
+ * Last modified by "IDMarinas" on 23/09/2026, 21:05
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,10 +21,10 @@ namespace Idm\Bundle\User\Tests\Controller;
 
 use App\Controller\ResetPasswordController;
 use App\Repository\User\UserRepository;
-use DataFixtures\UserFixtures;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use Factory\UserFactory;
+use Idm\Bundle\User\Tests\DataFixtures\UserFixtures;
+use Idm\Bundle\User\Tests\Factory\UserFactory;
 use ReflectionException;
 use ReflectionMethod;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
@@ -44,7 +44,7 @@ class ResetPasswordControllerTest extends WebTestCase
 {
 	use Factories;
 
-	public function testRecoverPassword (): void
+	public function testRecoverPassword(): void
 	{
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/reset-password');
@@ -93,7 +93,7 @@ class ResetPasswordControllerTest extends WebTestCase
 		$this->assertResponseRedirects('/');
 	}
 
-	public function testRecoverPasswordNotFoundEmail (): void
+	public function testRecoverPasswordNotFoundEmail(): void
 	{
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/reset-password');
@@ -112,7 +112,7 @@ class ResetPasswordControllerTest extends WebTestCase
 		$this->assertQueuedEmailCount(0);
 	}
 
-	public function testCheckEmail (): void
+	public function testCheckEmail(): void
 	{
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/reset-password/check-email');
@@ -121,7 +121,7 @@ class ResetPasswordControllerTest extends WebTestCase
 		$this->assertPageTitleContains('Password Reset Email Sent');
 	}
 
-	public function testResetPassword (): void
+	public function testResetPassword(): void
 	{
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/reset-password/reset');
@@ -141,7 +141,7 @@ class ResetPasswordControllerTest extends WebTestCase
 		$this->assertSelectorTextContains('body', 'There was a problem validating your password reset request');
 	}
 
-	public function testTooManyResets (): void
+	public function testTooManyResets(): void
 	{
 		$client = self::createClient();
 		$client->request(Request::METHOD_GET, '/user/reset-password');
@@ -161,7 +161,7 @@ class ResetPasswordControllerTest extends WebTestCase
 		$this->assertResponseRedirects('/user/reset-password/check-email');
 	}
 
-	public function testAuthenticatedUser (): void
+	public function testAuthenticatedUser(): void
 	{
 		$client = static::createClient();
 		$repository = static::getContainer()->get(UserRepository::class);
@@ -183,7 +183,7 @@ class ResetPasswordControllerTest extends WebTestCase
 	/**
 	 * @throws ReflectionException
 	 */
-	public function testProcessSendingPasswordResetEmailThrowsException (): void
+	public function testProcessSendingPasswordResetEmailThrowsException(): void
 	{
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/registration/register');

@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 23:00
+ * Last modified by "IDMarinas" on 23/09/2026, 21:05
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,15 +20,17 @@
 namespace Idm\Bundle\User\Tests\Controller;
 
 use App\Repository\User\UserRepository;
-use DataFixtures\UserFixtures;
 use Doctrine\Common\Collections\Criteria;
+use Idm\Bundle\User\Tests\CreateKernelCaseTrait;
+use Idm\Bundle\User\Tests\DataFixtures\UserFixtures;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 
 class ProfileControllerTest extends WebTestCase
 {
+	use CreateKernelCaseTrait;
 
-	public function testProfile (): void
+	public function testProfile(): void
 	{
 		$client = static::createClient();
 		$userRepository = static::getContainer()->get(UserRepository::class);
@@ -52,7 +54,7 @@ class ProfileControllerTest extends WebTestCase
 		$this->assertResponseRedirects('/');
 	}
 
-	public function testTermsAndConditions (): void
+	public function testTermsAndConditions(): void
 	{
 		$client = static::createClient();
 		/* @var UserRepository $repository */
@@ -96,7 +98,7 @@ class ProfileControllerTest extends WebTestCase
 		$this->assertPageTitleContains('Acceptance of terms and conditions');
 	}
 
-	public function testChangePassword (): void
+	public function testChangePassword(): void
 	{
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/login/web');
@@ -111,8 +113,8 @@ class ProfileControllerTest extends WebTestCase
 
 		$client->submitForm('Change password', [
 			'change_password_form[currentPassword]'       => UserFixtures::USER_PASS,
-			'change_password_form[plainPassword][first]'  => UserFixtures::USER_PASS . 'new',
-			'change_password_form[plainPassword][second]' => UserFixtures::USER_PASS . 'new',
+			'change_password_form[plainPassword][first]'  => UserFixtures::USER_PASS.'new',
+			'change_password_form[plainPassword][second]' => UserFixtures::USER_PASS.'new',
 		]);
 
 		$this->assertResponseRedirects('/user/profile');
@@ -135,13 +137,13 @@ class ProfileControllerTest extends WebTestCase
 		$client->request(Request::METHOD_GET, '/user/login/web');
 		$client->submitForm('Connect', [
 			'_username' => UserFixtures::USER_EMAIL,
-			'_password' => UserFixtures::USER_PASS . 'new',
+			'_password' => UserFixtures::USER_PASS.'new',
 		]);
 
 		$this->assertResponseRedirects('/user/profile');
 	}
 
-	public function testDeleteUser (): void
+	public function testDeleteUser(): void
 	{
 		$client = static::createClient();
 
