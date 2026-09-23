@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright $originalComment.match("Copyright (\d+)", 1, "-",$today.year)2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:56
+ * Last modified by "IDMarinas" on 23/09/2026, 19:45
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
