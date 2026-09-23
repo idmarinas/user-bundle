@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2025-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 25/02/2025, 15:32
+ * Last modified by "IDMarinas" on 23/09/2026, 20:21
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -28,14 +28,14 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 #[AdminDashboard('/admin', 'dashboard')]
 class DashboardController extends AbstractDashboardController
 {
-	public function configureDashboard (): Dashboard
+	public function configureDashboard(): Dashboard
 	{
 		return Dashboard::new()
 			->setTitle('Html')
 		;
 	}
 
-	public function configureMenuItems (): iterable
+	public function configureMenuItems(): iterable
 	{
 		yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
 		yield MenuItem::linkToCrud('User', 'fas fa-list', User::class);
