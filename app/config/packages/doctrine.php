@@ -2,7 +2,7 @@
 /**
  * Copyright $originalComment.match("Copyright (\d+)", 1, "-",$today.year)2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 18:19
+ * Last modified by "IDMarinas" on 23/09/2026, 18:26
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -50,7 +50,6 @@ return static function (ContainerConfigurator $container, ContainerBuilder $buil
 			],
 		],
 		'orm'  => [
-			'enable_lazy_ghost_objects'   => true,
 			'auto_generate_proxy_classes' => true,
 			'auto_mapping'                => false,
 			'controller_resolver'         => [
