@@ -2,7 +2,7 @@
 /**
  * Copyright 2025-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 19:21
+ * Last modified by "IDMarinas" on 23/09/2026, 20:12
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,12 +21,12 @@ namespace Idm\Bundle\User\Tests\Factory;
 
 use App\Entity\User\Connections;
 use DateTimeImmutable;
-use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
+use Zenstruck\Foundry\Persistence\PersistentObjectFactory;
 
 /**
  * @extends PersistentProxyObjectFactory<Connections>
  */
-final class ConnectionsFactory extends PersistentProxyObjectFactory
+final class ConnectionsFactory extends PersistentObjectFactory
 {
 	public static function class(): string
 	{
