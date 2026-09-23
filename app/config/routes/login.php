@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright $originalComment.match("Copyright (\d+)", 1, "-",$today.year)2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 22:55
+ * Last modified by "IDMarinas" on 23/09/2026, 18:07
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,7 +20,7 @@
 use App\Controller\LoginController;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
-return function (RoutingConfigurator $routes) {
+return function (RoutingConfigurator $routes): void {
 	// @formatter:off
 	$routes
 		->import(resource: LoginController::class, type: 'attribute')
