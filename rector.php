@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright $originalComment.match("Copyright (\d+)", 1, "-",$today.year)2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 22:54
+ * Last modified by "IDMarinas" on 23/09/2026, 18:02
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,29 +20,31 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
-use Rector\Symfony\Set\SymfonySetList;
 
 return RectorConfig::configure()
 	->withPaths([
-		__DIR__ . '/app',
-		__DIR__ . '/factories',
-		__DIR__ . '/fixtures',
-		__DIR__ . '/src',
-		__DIR__ . '/tests',
+		__DIR__.'/app',
+		__DIR__.'/config',
+		__DIR__.'/factories',
+		__DIR__.'/fixtures',
+		__DIR__.'/src',
+		__DIR__.'/tests',
 	])
+	// uncomment to reach your current PHP version
 	->withPhpSets(php82: true)
 	->withPreparedSets(
-		deadCode           : true,
-		codeQuality        : true,
-		codingStyle        : true,
+		phpunitCodeQuality : true,
 		doctrineCodeQuality: true,
 		symfonyCodeQuality : true,
-		symfonyConfigs     : true,
-		twig               : true
+		symfonyConfigs     : true
 	)
-	->withImportNames(removeUnusedImports: true)
 	->withTypeCoverageLevel(0)
-	->withSets([
-		SymfonySetList::SYMFONY_64,
+	->withDeadCodeLevel(0)
+	->withCodeQualityLevel(0)
+	->withImportNames(importDocBlockNames: false)
+	->withComposerBased(twig: true, doctrine: true, symfony: true)
+	->withSymfonyContainerXml(__DIR__.'/var/cache/web/dev/Core_KernelDevDebugContainer.xml')
+	->withSkip([
+		__DIR__.'/app/config/bundles.php',
 	])
 ;
