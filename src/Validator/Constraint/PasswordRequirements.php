@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright $originalComment.match("Copyright (\d+)", 1, "-",$today.year)2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/12/2024, 19:45
+ * Last modified by "IDMarinas" on 23/09/2026, 18:55
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -26,17 +26,12 @@ use Symfony\Component\Validator\Constraints\Compound;
 #[Attribute]
 final class PasswordRequirements extends Compound
 {
-	protected function getConstraints (array $options): array
+	protected function getConstraints(array $options): array
 	{
 		return [
-			new Assert\NotBlank(['message' => 'idm_user_bundle.password.not_blank']),
+			new Assert\NotBlank(message: 'idm_user_bundle.password.not_blank'),
 			new Assert\Type('string'),
-			new Assert\Length([
-				'min'        => 8,
-				'minMessage' => 'idm_user_bundle.password.min_message',
-				// max length allowed by Symfony for security reasons
-				'max'        => 4096,
-			]),
+			new Assert\Length(min: 8, max: 4096, minMessage: 'idm_user_bundle.password.min_message'),
 			new Assert\NotCompromisedPassword(),
 			new Assert\NoSuspiciousCharacters(
 				restrictionLevel: Assert\NoSuspiciousCharacters::RESTRICTION_LEVEL_HIGH
