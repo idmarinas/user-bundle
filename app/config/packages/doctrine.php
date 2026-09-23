@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright $originalComment.match("Copyright (\d+)", 1, "-",$today.year)2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/06/2025, 17:02
+ * Last modified by "IDMarinas" on 23/09/2026, 18:12
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -46,6 +46,9 @@ return static function (ContainerConfigurator $container, ContainerBuilder $buil
 			'driver'         => 'pdo_sqlite',
 			'url'            => $getDatabaseCache($builder->getParameter('kernel.project_dir'), $container->env()),
 			'use_savepoints' => true,
+			'types'          => [
+				'array' => 'Doctrine\DBAL\Types\JsonType',
+			],
 		],
 		'orm'  => [
 			'enable_lazy_ghost_objects'   => true,
@@ -59,7 +62,7 @@ return static function (ContainerConfigurator $container, ContainerBuilder $buil
 					'is_bundle' => false,
 					'mapping'   => true,
 					'type'      => 'attribute',
-					'dir'       => dirname(__DIR__, 2) . '/src/Entity',
+					'dir'       => dirname(__DIR__, 2).'/src/Entity',
 					'prefix'    => 'App\Entity',
 				],
 			],
