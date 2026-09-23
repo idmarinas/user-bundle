@@ -1,5 +1,22 @@
 # Changelog
 
+## 2.2.0 - (2025-05-22)
+
+### Added {id="added_2.2.0"}
+
+* _Added_ support for Symfony `^8.0`
+
+### Fixed {id="fixed_2.1.2"}
+
+* _Fixed_ help text key in `ResetPasswordRequestFormType` from `form.reset_password_request.email.help` to
+  `form.forgot_password.email.help`
+
+### Changed {id="changed_2.1.2"}
+
+* _Changed_ GitHub Actions workflow configuration to include `permissions` settings for pull requests
+  * Added explicit `read` permission for `contents`
+  * Added explicit `write` permission for `pull-requests`
+
 ## 2.1.1 - (2025-04-13)
 
 ### Deleted {id="deleted_2.1.1"}
