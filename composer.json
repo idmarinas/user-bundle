@@ -23,7 +23,7 @@
 	"prefer-stable": true,
 	"require": {
 		"php": "^8.2",
-		"doctrine/dbal": "^3.0",
+		"doctrine/dbal": "^3.0 | ^4.0",
 		"doctrine/doctrine-bundle": "^2.13 | ^3.0",
 		"doctrine/orm": "^2.17 || ^3.0",
 		"gedmo/doctrine-extensions": "^3.14",
