@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 19:54
+ * Last modified by "IDMarinas" on 23/09/2026, 20:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -59,7 +59,7 @@ return static function (ContainerConfigurator $container) {
 			],
 		],
 		'property_access'       => [
-			'enabled' => false,
+			'enabled' => true,
 		],
 		'php_errors'            => [
 			'log' => true,
@@ -86,9 +86,11 @@ return static function (ContainerConfigurator $container) {
 			],
 		],
 		'uid'                   => [
-			'enabled'                 => false,
+			'enabled'                 => true,
 			'default_uuid_version'    => 7,
 			'time_based_uuid_version' => 7,
 		],
 	]);
+
+	$container->import(__DIR__.'/rate_limiter.php');
 };
