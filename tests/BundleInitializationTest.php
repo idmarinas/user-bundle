@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 10/01/2025, 19:07
+ * Last modified by "IDMarinas" on 23/09/2026, 20:17
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -18,20 +18,32 @@
  * @since   1.0.0
  */
 
+declare(strict_types=1);
+
 namespace Idm\Bundle\User\Tests;
 
+use App\Kernel;
 use Idm\Bundle\User\Security\Checker\UserAdminChecker;
 use Idm\Bundle\User\Security\Checker\UserChecker;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class BundleInitializationTest extends KernelTestCase
+final class BundleInitializationTest extends KernelTestCase
 {
-	public function testInitBundle (): void
+	use CreateKernelCaseTrait;
+
+	public function testInitBundle(): void
 	{
 		// Boot the kernel.
-		static::bootKernel();
+		$kernel = self::bootKernel([
+			'config' => static function (Kernel $kernel): void {
+//				$kernel->addExtraBundle(BundleName::class);
+//				$kernel->addExtraConfig('path/to/file.php');
+//				$kernel->addExtraConfig(['extension_name' => ['key_1' => 'value_1']);
+//				$kernel->addExtraRoutesFile('path/to/file.php');
+			},
+		]);
 
-		$this->assertTrue(true);
+		$this->assertTrue($kernel->getContainer()->has('kernel'));
 
 		$container = static::getContainer();
 
