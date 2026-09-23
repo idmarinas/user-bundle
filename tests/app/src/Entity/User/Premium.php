@@ -1,13 +1,13 @@
 <?php
 /**
- * Copyright 2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2025-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 09/01/2025, 17:14
+ * Last modified by "IDMarinas" on 09/01/2025, 18:00
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    Connections.php
+ * @file    Premium.php
  * @date    09/01/2025
  * @time    17:04
  *
@@ -21,9 +21,9 @@ namespace App\Entity\User;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Idm\Bundle\User\Model\Entity\AbstractConnections;
+use Idm\Bundle\User\Model\Entity\AbstractPremium;
 
 #[ORM\Entity]
-#[ORM\Table(name: 'idm_user_connections')]
-#[Gedmo\Loggable(logEntryClass: ConnectionsLog::class)]
-class Connections extends AbstractConnections {}
+#[ORM\Table(name: 'idm_user_premium')]
+#[Gedmo\Loggable(logEntryClass: PremiumLog::class)]
+class Premium extends AbstractPremium {}

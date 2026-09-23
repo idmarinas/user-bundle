@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 12/02/2025, 24:10
+ * Last modified by "IDMarinas" on 13/02/2025, 19:00
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -39,7 +39,7 @@ class ResetPasswordRequest implements ResetPasswordRequestInterface
 	#[ORM\JoinColumn(nullable: false)]
 	private ?User $user;
 
-	public function __construct (
+	public function __construct(
 		User              $user,
 		DateTimeInterface $expiresAt,
 		string            $selector,
@@ -49,7 +49,7 @@ class ResetPasswordRequest implements ResetPasswordRequestInterface
 		$this->initialize($expiresAt, $selector, $hashedToken);
 	}
 
-	public function getUser (): User
+	public function getUser(): User
 	{
 		return $this->user;
 	}

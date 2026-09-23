@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 17:55
+ * Last modified by "IDMarinas" on 11/02/2025, 18:20
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -34,7 +34,7 @@ class User extends AbstractUser
 	use IDMarinasProviderTrait;
 	use UserPremiumTrait;
 
-	public function __construct ()
+	public function __construct()
 	{
 		$this->premium = (new Premium())
 			->setUser($this)

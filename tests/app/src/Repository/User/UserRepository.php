@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 17:16
+ * Last modified by "IDMarinas" on 02/01/2025, 12:57
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -25,7 +25,7 @@ use Idm\Bundle\User\Model\Repository\AbstractUserRepository;
 
 class UserRepository extends AbstractUserRepository
 {
-	public function __construct (ManagerRegistry $registry)
+	public function __construct(ManagerRegistry $registry)
 	{
 		parent::__construct($registry, User::class);
 	}

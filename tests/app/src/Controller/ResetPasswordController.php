@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2025-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 23:21
+ * Last modified by "IDMarinas" on 19/02/2025, 15:57
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -30,12 +30,12 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/reset-password')]
 class ResetPasswordController extends AbstractResetPasswordController
 {
-	protected function getResetPasswordRequestForm (?object $data = null, array $options = []): FormInterface
+	protected function getResetPasswordRequestForm(?object $data = null, array $options = []): FormInterface
 	{
 		return $this->createForm(ResetPasswordRequestFormType::class, $data, $options);
 	}
 
-	protected function getResetPasswordForm (?object $data = null, array $options = []): FormInterface
+	protected function getResetPasswordForm(?object $data = null, array $options = []): FormInterface
 	{
 		return $this->createForm(ResetPasswordFormType::class, $data, $options);
 	}

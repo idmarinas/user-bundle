@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 30/12/2024, 24:07
+ * Last modified by "IDMarinas" on 09/01/2025, 17:56
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -27,22 +27,22 @@ class FakeUser implements UserInterface, PasswordAuthenticatedUserInterface
 {
 	use SecurityTrait;
 
-	public function getRoles (): array
+	public function getRoles(): array
 	{
 		return [];
 	}
 
-	public function getUserIdentifier (): string
+	public function getUserIdentifier(): string
 	{
 		return '';
 	}
 
-	public function getUsername (): string
+	public function getUsername(): string
 	{
 		return $this->getUserIdentifier();
 	}
 
-	public function getPassword (): string
+	public function getPassword(): string
 	{
 		return '';
 	}

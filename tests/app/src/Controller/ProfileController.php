@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2025-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 23:16
+ * Last modified by "IDMarinas" on 19/02/2025, 15:57
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -31,7 +31,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 #[Route(path: '/profile', name: 'profile_')]
 class ProfileController extends AbstractProfileController
 {
-	protected function getChangePasswordForm (?object $data = null, array $options = []): FormInterface
+	protected function getChangePasswordForm(?object $data = null, array $options = []): FormInterface
 	{
 		return $this->createForm(ChangePasswordFormType::class, $data, $options);
 	}

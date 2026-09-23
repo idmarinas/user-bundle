@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2025-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 25/02/2025, 14:34
+ * Last modified by "IDMarinas" on 27/02/2025, 13:22
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -24,7 +24,7 @@ use Idm\Bundle\User\Model\Controller\Admin\AbstractUserCrudController;
 
 class UserCrudController extends AbstractUserCrudController
 {
-	public static function getEntityFqcn (): string
+	public static function getEntityFqcn(): string
 	{
 		return User::class;
 	}
