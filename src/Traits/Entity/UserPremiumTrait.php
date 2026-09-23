@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 17/02/2025, 18:29
+ * Last modified by "IDMarinas" on 23/09/2026, 21:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -27,12 +27,12 @@ trait UserPremiumTrait
 	#[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'], fetch: 'EAGER', orphanRemoval: true)]
 	protected AbstractPremium $premium;
 
-	public function getPremium (): AbstractPremium
+	public function getPremium(): AbstractPremium
 	{
 		return $this->premium;
 	}
 
-	public function setPremium (AbstractPremium $premium): static
+	public function setPremium(AbstractPremium $premium): static
 	{
 		// set the owning side of the relation if necessary
 		if ($premium->getUser() !== $this) {

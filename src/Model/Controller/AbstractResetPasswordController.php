@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 23:21
+ * Last modified by "IDMarinas" on 23/09/2026, 21:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -43,13 +43,13 @@ abstract class AbstractResetPasswordController extends AbstractController
 {
 	use ResetPasswordControllerTrait;
 
-	public function __construct (
+	public function __construct(
 		private readonly ResetPasswordHelperInterface $resetPasswordHelper,
 		private readonly EntityManagerInterface       $entityManager
 	) {}
 
 	#[Route('', name: 'forgot_password_request', methods: ['GET', 'POST'])]
-	public function request (
+	public function request(
 		Request             $request,
 		MailerInterface     $mailer,
 		TranslatorInterface $translator,
@@ -77,7 +77,7 @@ abstract class AbstractResetPasswordController extends AbstractController
 	 * Confirmation page after a user has requested a password reset.
 	 */
 	#[Route('/check-email', name: 'check_email', methods: ['GET'])]
-	public function checkEmail (): Response
+	public function checkEmail(): Response
 	{
 		if ($this->getUser() instanceof UserInterface) {
 			return $this->redirectToRoute('idm_user_profile_index');
@@ -98,7 +98,7 @@ abstract class AbstractResetPasswordController extends AbstractController
 	 * Validates and process the reset URL that the user clicked in their email.
 	 */
 	#[Route('/reset/{token}', name: 'reset_password', methods: ['GET', 'POST'])]
-	public function reset (
+	public function reset(
 		Request                     $request,
 		UserPasswordHasherInterface $passwordHasher,
 		?string                     $token = null
@@ -163,11 +163,11 @@ abstract class AbstractResetPasswordController extends AbstractController
 		]);
 	}
 
-	protected abstract function getResetPasswordRequestForm (?object $data = null, array $options = []): FormInterface;
+	protected abstract function getResetPasswordRequestForm(?object $data = null, array $options = []): FormInterface;
 
-	protected abstract function getResetPasswordForm (?object $data = null, array $options = []): FormInterface;
+	protected abstract function getResetPasswordForm(?object $data = null, array $options = []): FormInterface;
 
-	private function processSendingPasswordResetEmail (
+	private function processSendingPasswordResetEmail(
 		string              $emailFormData,
 		MailerInterface     $mailer,
 		TranslatorInterface $translator

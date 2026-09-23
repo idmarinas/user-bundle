@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:59
+ * Last modified by "IDMarinas" on 23/09/2026, 21:05
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -29,7 +29,7 @@ class ChangePasswordFormTypeTest extends TypeTestCase
 	use FakerTrait;
 	use ValidatorExtensionTrait;
 
-	public function testSubmitValidData (): void
+	public function testSubmitValidData(): void
 	{
 		$formData = [
 			'currentPassword' => $this->faker()->password(),

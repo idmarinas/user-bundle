@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:59
+ * Last modified by "IDMarinas" on 23/09/2026, 21:05
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -44,7 +44,7 @@ class UserRepositoryTest extends TestCase
 	/**
 	 * @throws ReflectionException
 	 */
-	public function testUpgradePasswordSuccess (): void
+	public function testUpgradePasswordSuccess(): void
 	{
 		/** @var User $userO */
 		$userO = $this->populateEntity(new User());
@@ -60,7 +60,7 @@ class UserRepositoryTest extends TestCase
 		$this->assertEquals($password, $user->getPassword());
 	}
 
-	public function testUpgradePasswordFail (): void
+	public function testUpgradePasswordFail(): void
 	{
 		$this->expectException(UnsupportedUserException::class);
 		$repository = $this->getRepository();
@@ -68,14 +68,14 @@ class UserRepositoryTest extends TestCase
 		$repository->upgradePassword(new FakeUser(), $password);
 	}
 
-	public function testUniqueUserEmailSuccess (): void
+	public function testUniqueUserEmailSuccess(): void
 	{
 		$repository = $this->getRepository();
 		$result = $repository->uniqueUserEmail(['email' => 'test@test.com']);
 		$this->assertEmpty($result);
 	}
 
-	public function testInactiveUsersFirstNotice (): void
+	public function testInactiveUsersFirstNotice(): void
 	{
 		$repository = $this->getRepository();
 
@@ -84,7 +84,7 @@ class UserRepositoryTest extends TestCase
 		$this->assertCount(3, $result);
 	}
 
-	public function testInactiveUsersSecondNotice (): void
+	public function testInactiveUsersSecondNotice(): void
 	{
 		$repository = $this->getRepository();
 
@@ -93,7 +93,7 @@ class UserRepositoryTest extends TestCase
 		$this->assertCount(3, $result);
 	}
 
-	public function testInactiveUsersLastNotice (): void
+	public function testInactiveUsersLastNotice(): void
 	{
 		$repository = $this->getRepository();
 
@@ -102,7 +102,7 @@ class UserRepositoryTest extends TestCase
 		$this->assertCount(3, $result);
 	}
 
-	public function testUserInactives (): void
+	public function testUserInactives(): void
 	{
 		$repository = $this->getRepository();
 
@@ -111,7 +111,7 @@ class UserRepositoryTest extends TestCase
 		$this->assertCount(3, $result);
 	}
 
-	public function testUserMarkedAsDeleted (): void
+	public function testUserMarkedAsDeleted(): void
 	{
 		$repository = $this->getRepository();
 
@@ -120,7 +120,7 @@ class UserRepositoryTest extends TestCase
 		$this->assertCount(3, $result);
 	}
 
-	public function testMarkUsersAsInactives (): void
+	public function testMarkUsersAsInactives(): void
 	{
 		$repository = $this->getRepository();
 
@@ -129,7 +129,7 @@ class UserRepositoryTest extends TestCase
 		$this->assertEquals(5, $result);
 	}
 
-	private function getRepository (): UserRepository
+	private function getRepository(): UserRepository
 	{
 		// Create mocks
 		$classMetadata = $this->getMockBuilder(ClassMetadata::class)->setConstructorArgs([User::class])->getMock();

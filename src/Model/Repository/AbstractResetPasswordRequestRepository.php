@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 09/01/2025, 19:20
+ * Last modified by "IDMarinas" on 23/09/2026, 21:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -35,7 +35,7 @@ class AbstractResetPasswordRequestRepository extends ServiceEntityRepository
 	/**
 	 * @param AbstractUser $user
 	 */
-	public function createResetPasswordRequest (
+	public function createResetPasswordRequest(
 		object            $user,
 		DateTimeInterface $expiresAt,
 		string            $selector,
@@ -45,7 +45,7 @@ class AbstractResetPasswordRequestRepository extends ServiceEntityRepository
 	}
 
 	/** @inheritDoc */
-	public function getMostRecentNonExpiredRequestDate (object $user): ?DateTimeInterface
+	public function getMostRecentNonExpiredRequestDate(object $user): ?DateTimeInterface
 	{
 		// Normally there is only 1 max request per use, but written to be flexible
 		/** @var ResetPasswordRequestInterface $resetPasswordRequest */

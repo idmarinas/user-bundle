@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 23:15
+ * Last modified by "IDMarinas" on 23/09/2026, 21:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -34,13 +34,13 @@ use function Symfony\Component\Translation\t;
 abstract class AbstractProfileController extends AbstractController
 {
 	#[Route(name: 'index', methods: ['GET'])]
-	public function index (): Response
+	public function index(): Response
 	{
 		return $this->render('@IdmUser/profile/index.html.twig');
 	}
 
 	#[Route(path: '/change/password', name: 'change_password', methods: ['GET', 'POST'])]
-	public function changePassword (
+	public function changePassword(
 		Request                     $request,
 		EntityManagerInterface      $entityManager,
 		UserPasswordHasherInterface $passwordHasher
@@ -64,7 +64,7 @@ abstract class AbstractProfileController extends AbstractController
 	}
 
 	#[Route(path: '/accept/terms_and_privacy', name: 'accept_terms_privacy', methods: ['GET'])]
-	public function acceptTermsPrivacy (): Response
+	public function acceptTermsPrivacy(): Response
 	{
 		/* @var AbstractUser $user */
 		$user = $this->getUser();
@@ -78,13 +78,13 @@ abstract class AbstractProfileController extends AbstractController
 	}
 
 	#[Route(path: '/delete', name: 'delete_user', methods: ['GET'])]
-	public function deleteUser (): Response
+	public function deleteUser(): Response
 	{
 		return $this->render('@IdmUser/profile/delete.html.twig');
 	}
 
 	#[Route(path: '/delete/confirm', name: 'delete_user_confirm', methods: ['POST'])]
-	public function deleteUserAccount (
+	public function deleteUserAccount(
 		Request                $request,
 		EntityManagerInterface $entityManager,
 		Security               $security
@@ -107,5 +107,5 @@ abstract class AbstractProfileController extends AbstractController
 		return $this->redirectToRoute('idm_user_profile_index');
 	}
 
-	protected abstract function getChangePasswordForm (?object $data = null, array $options = []): FormInterface;
+	protected abstract function getChangePasswordForm(?object $data = null, array $options = []): FormInterface;
 }

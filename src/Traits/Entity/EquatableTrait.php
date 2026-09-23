@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 16/02/2025, 19:11
+ * Last modified by "IDMarinas" on 23/09/2026, 21:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -33,12 +33,12 @@ trait EquatableTrait
 	#[ORM\Column(type: Types::STRING, length: 45)]
 	protected string $sessionId = '';
 
-	public function getSessionId (): string
+	public function getSessionId(): string
 	{
 		return $this->sessionId;
 	}
 
-	public function setSessionId (string $sessionId): static
+	public function setSessionId(string $sessionId): static
 	{
 		$this->sessionId = $sessionId;
 
@@ -46,13 +46,13 @@ trait EquatableTrait
 	}
 
 	/** @param AbstractUser $user */
-	public function isEqualTo (UserInterface $user): bool
+	public function isEqualTo(UserInterface $user): bool
 	{
 		if (!$user instanceof self
-		    || $this->getsessionId() !== $user->getsessionId() // Only 1 session active
-		    || $this->getPassword() !== $user->getPassword()
-		    || $this->getUserIdentifier() !== $user->getUserIdentifier()
-		    || $this->isInactive() !== $user->isInactive()
+			|| $this->getsessionId() !== $user->getsessionId() // Only 1 session active
+			|| $this->getPassword() !== $user->getPassword()
+			|| $this->getUserIdentifier() !== $user->getUserIdentifier()
+			|| $this->isInactive() !== $user->isInactive()
 		) {
 			return false;
 		}
@@ -60,7 +60,7 @@ trait EquatableTrait
 		$currentRoles = array_map('strval', $this->getRoles());
 		$newRoles = array_map('strval', $user->getRoles());
 		$rolesChanged = count($currentRoles) !== count($newRoles)
-		                || count($currentRoles) !== count(array_intersect($currentRoles, $newRoles));
+			|| count($currentRoles) !== count(array_intersect($currentRoles, $newRoles));
 
 		return !$rolesChanged;
 	}

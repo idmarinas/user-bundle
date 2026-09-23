@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 22:30
+ * Last modified by "IDMarinas" on 23/09/2026, 21:05
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -30,7 +30,7 @@ class RegistrationFormTypeTest extends TypeTestCase
 	use FakerTrait;
 	use ValidatorExtensionTrait;
 
-	public function testSubmitValidData (): void
+	public function testSubmitValidData(): void
 	{
 		$password = $this->faker()->password();
 		$formData = [

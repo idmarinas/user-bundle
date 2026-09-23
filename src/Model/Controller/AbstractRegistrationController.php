@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 23:07
+ * Last modified by "IDMarinas" on 23/09/2026, 21:33
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -39,7 +39,7 @@ abstract class AbstractRegistrationController extends AbstractController
 {
 	use RegistrationTrait;
 
-	public function __construct (
+	public function __construct(
 		private readonly EmailVerifier               $emailVerifier,
 		private readonly EntityManagerInterface      $entityManager,
 		private readonly TranslatorInterface         $translator,
@@ -47,7 +47,7 @@ abstract class AbstractRegistrationController extends AbstractController
 	) {}
 
 	#[Route('/register', name: 'register_web', methods: ['GET', 'POST'])]
-	public function registerWeb (
+	public function registerWeb(
 		Request  $request,
 		Security $security,
 	): Response {
@@ -73,7 +73,7 @@ abstract class AbstractRegistrationController extends AbstractController
 	}
 
 	#[Route(path: '/verify/email', name: 'verify_email', methods: ['GET'])]
-	public function verifyUserEmail (Request $request): Response
+	public function verifyUserEmail(Request $request): Response
 	{
 		$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
@@ -91,5 +91,5 @@ abstract class AbstractRegistrationController extends AbstractController
 		return $this->redirectToRoute('idm_user_profile_index');
 	}
 
-	protected abstract function getRegistrationForm (?object $data, array $options = []): FormInterface;
+	protected abstract function getRegistrationForm(?object $data, array $options = []): FormInterface;
 }

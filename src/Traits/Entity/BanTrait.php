@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 16/02/2025, 19:07
+ * Last modified by "IDMarinas" on 23/09/2026, 21:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -30,12 +30,12 @@ trait BanTrait
 	#[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
 	protected ?DateTimeInterface $bannedUntil = null;
 
-	public function getBannedUntil (): ?DateTimeInterface
+	public function getBannedUntil(): ?DateTimeInterface
 	{
 		return $this->bannedUntil;
 	}
 
-	public function setBannedUntil (?DateTimeInterface $bannedUntil): static
+	public function setBannedUntil(?DateTimeInterface $bannedUntil): static
 	{
 		$this->bannedUntil = $bannedUntil;
 
@@ -45,7 +45,7 @@ trait BanTrait
 	/**
 	 * Gets whether the user is locked out.
 	 */
-	public function isBanned (): bool
+	public function isBanned(): bool
 	{
 		if (!$this->bannedUntil instanceof DateTimeInterface || '-0001-11-30' === $this->bannedUntil->format('Y-m-d')) {
 			return false;

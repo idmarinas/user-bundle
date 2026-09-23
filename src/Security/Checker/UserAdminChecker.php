@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 31/12/2024, 11:24
+ * Last modified by "IDMarinas" on 23/09/2026, 21:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -26,7 +26,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 final class UserAdminChecker extends AbstractUserChecker
 {
-	public function checkPreAuth (UserInterface $user): void
+	public function checkPreAuth(UserInterface $user): void
 	{
 		$token = new PreAuthenticatedToken($user, 'admin', $user->getRoles());
 

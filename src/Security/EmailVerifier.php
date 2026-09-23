@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 31/12/2024, 15:18
+ * Last modified by "IDMarinas" on 23/09/2026, 21:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -32,14 +32,14 @@ use function Symfony\Component\Translation\t;
 
 final readonly class EmailVerifier
 {
-	public function __construct (
+	public function __construct(
 		private VerifyEmailHelperInterface $verifyEmailHelper,
 		private MailerInterface            $mailer,
 		private EntityManagerInterface     $entityManager,
 		private RequestStack               $requestStack,
 	) {}
 
-	public function sendEmailConfirmation (string $verifyEmailRouteName, AbstractUser $user, TemplatedEmail $email): void
+	public function sendEmailConfirmation(string $verifyEmailRouteName, AbstractUser $user, TemplatedEmail $email): void
 	{
 		$signatureComponents = $this->verifyEmailHelper->generateSignature(
 			$verifyEmailRouteName,
@@ -64,7 +64,7 @@ final readonly class EmailVerifier
 		}
 	}
 
-	public function handleEmailConfirmation (Request $request, AbstractUser|UserInterface $user): void
+	public function handleEmailConfirmation(Request $request, AbstractUser|UserInterface $user): void
 	{
 		$this->verifyEmailHelper->validateEmailConfirmationFromRequest($request, $user->getId(), $user->getEmail());
 

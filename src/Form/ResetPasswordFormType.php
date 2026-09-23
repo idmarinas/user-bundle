@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 22/12/2024, 22:36
+ * Last modified by "IDMarinas" on 23/09/2026, 21:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -29,7 +29,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 final class ResetPasswordFormType extends AbstractType
 {
-	public function buildForm (FormBuilderInterface $builder, array $options): void
+	public function buildForm(FormBuilderInterface $builder, array $options): void
 	{
 		$builder
 			->add('plainPassword', RepeatedType::class, [
@@ -56,7 +56,7 @@ final class ResetPasswordFormType extends AbstractType
 		;
 	}
 
-	public function configureOptions (OptionsResolver $resolver): void
+	public function configureOptions(OptionsResolver $resolver): void
 	{
 		$resolver->setDefaults([
 			'translation_domain' => 'IdmUserBundle',

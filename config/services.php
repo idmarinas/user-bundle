@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Copyright 2023-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2023-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 22:45
+ * Last modified by "IDMarinas" on 23/09/2026, 21:05
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle

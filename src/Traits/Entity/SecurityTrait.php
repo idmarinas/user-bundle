@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 16/02/2025, 20:00
+ * Last modified by "IDMarinas" on 23/09/2026, 21:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -33,12 +33,12 @@ trait SecurityTrait
 	/**
 	 * @see \Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface
 	 */
-	public function getPassword (): string
+	public function getPassword(): string
 	{
 		return $this->password;
 	}
 
-	public function setPassword (string $password): static
+	public function setPassword(string $password): static
 	{
 		$this->password = $password;
 
@@ -51,7 +51,7 @@ trait SecurityTrait
 	 *
 	 * @see \Symfony\Component\Security\Core\User\UserInterface
 	 */
-	public function getSalt (): ?string
+	public function getSalt(): ?string
 	{
 		return null;
 	}
@@ -59,7 +59,7 @@ trait SecurityTrait
 	/**
 	 * @see \Symfony\Component\Security\Core\User\UserInterface
 	 */
-	public function eraseCredentials (): void
+	public function eraseCredentials(): void
 	{
 		// If you store any temporary, sensitive data on the user, clear it here
 		// $this->plainPassword = '';

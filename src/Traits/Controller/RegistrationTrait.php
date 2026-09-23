@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 28/12/2024, 11:22
+ * Last modified by "IDMarinas" on 23/09/2026, 21:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -24,18 +24,18 @@ use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 
 trait RegistrationTrait
 {
-	protected function getUserObject (): AbstractUser
+	protected function getUserObject(): AbstractUser
 	{
 		$repository = $this->entityManager->getRepository(AbstractUser::class);
 
-		$displayName = 'User' . mt_rand();
+		$displayName = 'User'.mt_rand();
 		$user = new ($repository->getClassName())();
 		$user->setDisplayName($displayName);
 
 		return $user;
 	}
 
-	protected function registerUser (
+	protected function registerUser(
 		AbstractUser   $user,
 		TemplatedEmail $templatedEmail,
 		string         $plainPassword

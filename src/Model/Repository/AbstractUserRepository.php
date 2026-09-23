@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Copyright 2023-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2023-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 01/01/2025, 20:51
+ * Last modified by "IDMarinas" on 23/09/2026, 21:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -40,7 +40,7 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 	/**
 	 * Used to upgrade (rehash) the user's password automatically over time.
 	 */
-	public function upgradePassword (PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void
+	public function upgradePassword(PasswordAuthenticatedUserInterface $user, string $newHashedPassword): void
 	{
 		if (!$user instanceof AbstractUser) {
 			throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', $user::class));
@@ -56,7 +56,7 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 	 * Function to determine if there is another user with the same email address
 	 * by taking into account those marked as deleted.
 	 */
-	public function uniqueUserEmail ($value): array
+	public function uniqueUserEmail($value): array
 	{
 		$filters = $this->getEntityManager()->getFilters();
 
@@ -78,7 +78,7 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 	 *
 	 * @return AbstractUser[]
 	 */
-	public function getUserMarkedAsDeleted (): array
+	public function getUserMarkedAsDeleted(): array
 	{
 		$filters = $this->getEntityManager()->getFilters();
 
@@ -104,7 +104,7 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 	}
 
 	/** Mark users as inactive if they have not logged on for more than TWELVE MONTHS. */
-	public function markUsersAsInactives (): int
+	public function markUsersAsInactives(): int
 	{
 		$query = $this->createQueryBuilder('u');
 
@@ -123,7 +123,7 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 	 *
 	 * @return AbstractUser[]
 	 */
-	public function getInactiveUsersFirstNotice (): array
+	public function getInactiveUsersFirstNotice(): array
 	{
 		$query = $this->createQueryBuilder('u');
 
@@ -142,7 +142,7 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 	 *
 	 * @return AbstractUser[]
 	 */
-	public function getInactiveUsersSecondNotice (): array
+	public function getInactiveUsersSecondNotice(): array
 	{
 		$query = $this->createQueryBuilder('u');
 
@@ -161,7 +161,7 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 	 *
 	 * @return AbstractUser[]
 	 */
-	public function getInactiveUsersLastNotice (): array
+	public function getInactiveUsersLastNotice(): array
 	{
 		$query = $this->createQueryBuilder('u');
 
@@ -180,7 +180,7 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 	 *
 	 * @return AbstractUser[]
 	 */
-	public function getUserInactives (): array
+	public function getUserInactives(): array
 	{
 		$query = $this->createQueryBuilder('u');
 		$query

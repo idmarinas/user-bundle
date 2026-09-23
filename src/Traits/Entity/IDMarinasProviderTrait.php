@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Copyright 2024 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 18/12/2024, 21:55
+ * Last modified by "IDMarinas" on 23/09/2026, 21:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -37,36 +37,36 @@ trait IDMarinasProviderTrait
 	#[ORM\Column(type: Types::STRING, unique: true, nullable: true)]
 	protected ?string $idmarinasToken = null;
 
-	public function getIdmarinasToken (): ?string
+	public function getIdmarinasToken(): ?string
 	{
 		return $this->idmarinasToken;
 	}
 
-	public function setIdmarinasToken (string $idmarinasToken): static
+	public function setIdmarinasToken(string $idmarinasToken): static
 	{
 		$this->idmarinasToken = $idmarinasToken;
 
 		return $this;
 	}
 
-	public function getIdmarinasProfileUrl (): string
+	public function getIdmarinasProfileUrl(): string
 	{
 		return $this->idmarinasProfileUrl;
 	}
 
-	public function setIdmarinasProfileUrl (string $idmarinasProfileUrl): static
+	public function setIdmarinasProfileUrl(string $idmarinasProfileUrl): static
 	{
 		$this->idmarinasProfileUrl = $idmarinasProfileUrl;
 
 		return $this;
 	}
 
-	public function getIdmarinasId (): int
+	public function getIdmarinasId(): int
 	{
 		return $this->idmarinasId;
 	}
 
-	public function setIdmarinasId (int $idmarinasId): static
+	public function setIdmarinasId(int $idmarinasId): static
 	{
 		$this->idmarinasId = $idmarinasId;
 

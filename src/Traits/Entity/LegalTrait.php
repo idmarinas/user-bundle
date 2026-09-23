@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 16/02/2025, 19:39
+ * Last modified by "IDMarinas" on 23/09/2026, 21:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -32,24 +32,24 @@ trait LegalTrait
 	#[ORM\Column(type: Types::BOOLEAN)]
 	protected bool $termsAccepted = false;
 
-	public function getPrivacyAccepted (): bool
+	public function getPrivacyAccepted(): bool
 	{
 		return $this->privacyAccepted;
 	}
 
-	public function setPrivacyAccepted (bool $privacyAccepted): static
+	public function setPrivacyAccepted(bool $privacyAccepted): static
 	{
 		$this->privacyAccepted = $privacyAccepted;
 
 		return $this;
 	}
 
-	public function getTermsAccepted (): bool
+	public function getTermsAccepted(): bool
 	{
 		return $this->termsAccepted;
 	}
 
-	public function setTermsAccepted (bool $termsAccepted): static
+	public function setTermsAccepted(bool $termsAccepted): static
 	{
 		$this->termsAccepted = $termsAccepted;
 

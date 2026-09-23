@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2023-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2023-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/04/2025, 20:38
+ * Last modified by "IDMarinas" on 23/09/2026, 21:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -71,17 +71,17 @@ abstract class AbstractUser implements UserInterface, EquatableInterface, Passwo
 	#[ORM\Column(type: Types::BOOLEAN)]
 	protected bool $inactive = false;
 
-	public function __toString (): string
+	public function __toString(): string
 	{
 		return $this->getDisplayName();
 	}
 
-	public function getEmail (): ?string
+	public function getEmail(): ?string
 	{
 		return $this->email;
 	}
 
-	public function setEmail (string $email): static
+	public function setEmail(string $email): static
 	{
 		$this->email = $email;
 
@@ -93,7 +93,7 @@ abstract class AbstractUser implements UserInterface, EquatableInterface, Passwo
 	 *
 	 * @see UserInterface
 	 */
-	public function getUserIdentifier (): string
+	public function getUserIdentifier(): string
 	{
 		return (string)$this->email;
 	}
@@ -101,7 +101,7 @@ abstract class AbstractUser implements UserInterface, EquatableInterface, Passwo
 	/**
 	 * @see UserInterface
 	 */
-	public function getRoles (): array
+	public function getRoles(): array
 	{
 		$roles = $this->roles;
 		// guarantee every user at least has ROLE_USER
@@ -110,7 +110,7 @@ abstract class AbstractUser implements UserInterface, EquatableInterface, Passwo
 		return array_unique($roles);
 	}
 
-	public function setRoles (array $roles): static
+	public function setRoles(array $roles): static
 	{
 		$this->roles = $roles;
 
@@ -120,53 +120,53 @@ abstract class AbstractUser implements UserInterface, EquatableInterface, Passwo
 	/**
 	 * @deprecated since Symfony 5.3, use getUserIdentifier instead
 	 */
-	public function getUsername (): string
+	public function getUsername(): string
 	{
 		return $this->getUserIdentifier();
 	}
 
-	public function isVerified (): bool
+	public function isVerified(): bool
 	{
 		return $this->verified;
 	}
 
-	public function setVerified (bool $verified): static
+	public function setVerified(bool $verified): static
 	{
 		$this->verified = $verified;
 
 		return $this;
 	}
 
-	public function getDisplayName (): string
+	public function getDisplayName(): string
 	{
 		return $this->displayName;
 	}
 
-	public function setDisplayName (string $displayName): static
+	public function setDisplayName(string $displayName): static
 	{
 		$this->displayName = $displayName;
 
 		return $this;
 	}
 
-	public function getLastConnection (): ?DateTimeInterface
+	public function getLastConnection(): ?DateTimeInterface
 	{
 		return $this->lastConnection;
 	}
 
-	public function setLastConnection (DateTimeInterface $lastConnection): static
+	public function setLastConnection(DateTimeInterface $lastConnection): static
 	{
 		$this->lastConnection = $lastConnection;
 
 		return $this;
 	}
 
-	public function isInactive (): bool
+	public function isInactive(): bool
 	{
 		return $this->inactive;
 	}
 
-	public function setInactive (bool $inactive): static
+	public function setInactive(bool $inactive): static
 	{
 		$this->inactive = $inactive;
 

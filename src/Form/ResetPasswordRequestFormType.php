@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 22/05/2025, 14:09
+ * Last modified by "IDMarinas" on 23/09/2026, 21:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -28,7 +28,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 final class ResetPasswordRequestFormType extends AbstractType
 {
-	public function buildForm (FormBuilderInterface $builder, array $options): void
+	public function buildForm(FormBuilderInterface $builder, array $options): void
 	{
 		$builder
 			->add('email', EmailType::class, [
@@ -50,7 +50,7 @@ final class ResetPasswordRequestFormType extends AbstractType
 		;
 	}
 
-	public function configureOptions (OptionsResolver $resolver): void
+	public function configureOptions(OptionsResolver $resolver): void
 	{
 		$resolver->setDefaults([
 			'translation_domain' => 'IdmUserBundle',
