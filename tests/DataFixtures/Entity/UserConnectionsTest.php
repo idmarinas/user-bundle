@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/02/2025, 21:07
+ * Last modified by "IDMarinas" on 23/09/2026, 19:57
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -17,10 +17,10 @@
  * @since   2.0.0
  */
 
-namespace Idm\Bundle\User\Tests\Entity;
+namespace Idm\Bundle\User\Tests\DataFixtures\Entity;
 
 use App\Entity\User\Connections;
-use Factory\ConnectionsFactory;
+use Idm\Bundle\User\Tests\Factory\ConnectionsFactory;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Zenstruck\Foundry\Test\Factories;
@@ -29,13 +29,13 @@ class UserConnectionsTest extends KernelTestCase
 {
 	use Factories;
 
-	public function testEntity (): void
+	public function testEntity(): void
 	{
 		static::bootKernel();
 		$container = static::getContainer();
 		$serializer = $container->get('serializer');
 
-		$entity = ConnectionsFactory::new()->create()->_real();
+		$entity = ConnectionsFactory::new()->create();
 		$this->assertIsObject($entity);
 
 		$array = $serializer->normalize($entity, 'array', [

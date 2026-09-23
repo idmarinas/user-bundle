@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 16/02/2025, 20:01
+ * Last modified by "IDMarinas" on 23/09/2026, 19:56
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -17,12 +17,12 @@
  * @since   2.0.0
  */
 
-namespace Idm\Bundle\User\Tests\Entity;
+namespace Idm\Bundle\User\Tests\DataFixtures\Entity;
 
 use App\Entity\User\FakeUser;
 use App\Entity\User\User;
 use DateTime;
-use Factory\UserFactory;
+use Idm\Bundle\User\Tests\Factory\UserFactory;
 use ReflectionException;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
@@ -35,14 +35,14 @@ class UserTest extends KernelTestCase
 	/**
 	 * @throws ReflectionException
 	 */
-	public function testEntity (): void
+	public function testEntity(): void
 	{
 		static::bootKernel();
 		$container = static::getContainer();
 		$serializer = $container->get('serializer');
 
 		/** @var User $entity */
-		$entity = UserFactory::new()->create()->_real();
+		$entity = UserFactory::new()->create();
 		$this->assertIsObject($entity);
 
 		$this->assertEquals((string)$entity, $entity->getDisplayName());

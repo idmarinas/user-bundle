@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 13/02/2025, 20:21
+ * Last modified by "IDMarinas" on 23/09/2026, 19:57
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -17,11 +17,11 @@
  * @since   2.0.0
  */
 
-namespace Idm\Bundle\User\Tests\Entity;
+namespace Idm\Bundle\User\Tests\DataFixtures\Entity;
 
 use App\Entity\User\ResetPasswordRequest;
 use DateTime;
-use Factory\UserFactory;
+use Idm\Bundle\User\Tests\Factory\UserFactory;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Zenstruck\Foundry\Test\Factories;
@@ -31,13 +31,13 @@ class ResetPasswordRequestTest extends KernelTestCase
 {
 	use Factories;
 
-	public function testResetPasswordRequest (): void
+	public function testResetPasswordRequest(): void
 	{
 		self::bootKernel();
 		$container = static::getContainer();
 		$serializer = $container->get('serializer');
 
-		$user = UserFactory::new()->withoutPersisting()->create()->_real();
+		$user = UserFactory::new()->withoutPersisting()->create();
 		$entity = new ResetPasswordRequest($user, new DateTime(), faker()->sha1(), faker()->sha1());
 
 		$this->assertIsObject($entity);

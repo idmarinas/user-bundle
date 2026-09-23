@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 10:58
+ * Last modified by "IDMarinas" on 23/09/2026, 19:57
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -17,12 +17,12 @@
  * @since   2.0.0
  */
 
-namespace DataFixtures;
+namespace Idm\Bundle\User\Tests\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Persistence\ObjectManager;
-use Factory\UserFactory;
+use Idm\Bundle\User\Tests\Factory\UserFactory;
 use ReflectionException;
 
 final class UserFixtures extends Fixture implements FixtureGroupInterface
@@ -37,7 +37,7 @@ final class UserFixtures extends Fixture implements FixtureGroupInterface
 
 	public const USER_PASS = 'pass_1234_$%';
 
-	public static function getGroups (): array
+	public static function getGroups(): array
 	{
 		return ['test'];
 	}
@@ -45,7 +45,7 @@ final class UserFixtures extends Fixture implements FixtureGroupInterface
 	/**
 	 * @throws ReflectionException
 	 */
-	public function load (ObjectManager $manager): void
+	public function load(ObjectManager $manager): void
 	{
 		$opts = [
 			'banned_until' => null,
@@ -68,7 +68,7 @@ final class UserFixtures extends Fixture implements FixtureGroupInterface
 		$users = UserFactory::all();
 
 		foreach ($users as $key => $user) {
-			$this->addReference(self::KEY_USER . $key, $user->_real());
+			$this->addReference(self::KEY_USER.$key, $user);
 		}
 
 		$opts = [
@@ -95,7 +95,7 @@ final class UserFixtures extends Fixture implements FixtureGroupInterface
 			...$opts,
 		]);
 
-		$this->addReference('user', $user->_real());
-		$this->addReference('user_admin', $admin->_real());
+		$this->addReference('user', $user);
+		$this->addReference('user_admin', $admin);
 	}
 }

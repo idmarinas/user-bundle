@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2025-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 25/02/2025, 15:42
+ * Last modified by "IDMarinas" on 23/09/2026, 19:21
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -17,7 +17,7 @@
  * @since   2.0.0
  */
 
-namespace Factory;
+namespace Idm\Bundle\User\Tests\Factory;
 
 use App\Entity\User\Connections;
 use DateTimeImmutable;
@@ -28,7 +28,7 @@ use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
  */
 final class ConnectionsFactory extends PersistentProxyObjectFactory
 {
-	public static function class (): string
+	public static function class(): string
 	{
 		return Connections::class;
 	}
@@ -38,7 +38,7 @@ final class ConnectionsFactory extends PersistentProxyObjectFactory
 	 *
 	 * @todo add your default values here
 	 */
-	protected function defaults (): array|callable
+	protected function defaults(): array|callable
 	{
 		return [
 			'clientName'      => self::faker()->text(50),
@@ -57,7 +57,7 @@ final class ConnectionsFactory extends PersistentProxyObjectFactory
 	/**
 	 * @see https://symfony.com/bundles/ZenstruckFoundryBundle/current/index.html#initialization
 	 */
-	protected function initialize (): static
+	protected function initialize(): static
 	{
 		return $this// ->afterInstantiate(function(Connections $connections): void {})
 			;

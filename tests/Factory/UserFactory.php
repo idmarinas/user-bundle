@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 17:57
+ * Last modified by "IDMarinas" on 23/09/2026, 19:21
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -17,7 +17,7 @@
  * @since   2.0.0
  */
 
-namespace Factory;
+namespace Idm\Bundle\User\Tests\Factory;
 
 use App\Entity\User\User;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
@@ -25,7 +25,7 @@ use Zenstruck\Foundry\Persistence\PersistentProxyObjectFactory;
 
 final class UserFactory extends PersistentProxyObjectFactory
 {
-	public function __construct (private readonly UserPasswordHasherInterface $hasher)
+	public function __construct(private readonly UserPasswordHasherInterface $hasher)
 	{
 		parent::__construct();
 	}
@@ -33,12 +33,12 @@ final class UserFactory extends PersistentProxyObjectFactory
 	/**
 	 * @inheritDoc
 	 */
-	public static function class (): string
+	public static function class(): string
 	{
 		return User::class;
 	}
 
-	protected function defaults (): array|callable
+	protected function defaults(): array|callable
 	{
 		$createdAt = self::faker()->dateTime('-1 year');
 		$updatedAt = self::faker()->dateTimeBetween($createdAt, '-1 day');
@@ -63,7 +63,7 @@ final class UserFactory extends PersistentProxyObjectFactory
 		];
 	}
 
-	protected function initialize (): static
+	protected function initialize(): static
 	{
 		return parent::initialize()
 			->afterInstantiate(function (User $user): void {
