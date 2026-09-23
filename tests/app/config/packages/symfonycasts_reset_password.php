@@ -1,13 +1,13 @@
 <?php
 /**
- * Copyright $originalComment.match("Copyright (\d+)", 1, "-",$today.year)2026 (C) IDMarinas - All Rights Reserved
+ * Copyright 2025-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/01/2025, 11:35
+ * Last modified by "IDMarinas" on 23/09/2026, 19:59
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
  *
- * @file    reset_password.php
+ * @file    symfonycasts_reset_password.php
  * @date    09/01/2025
  * @time    19:23
  *
