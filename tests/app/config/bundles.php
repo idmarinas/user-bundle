@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright $originalComment.match("Copyright (\d+)", 1, "-",$today.year)2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 09/01/2025, 21:50
+ * Last modified by "IDMarinas" on 23/09/2026, 19:40
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -39,7 +39,6 @@ return [
 	TwigBundle::class                      => ['all' => true],
 	SecurityBundle::class                  => ['all' => true],
 	StofDoctrineExtensionsBundle::class    => ['all' => true],
-	IdmUserBundle::class                   => ['all' => true],
 	EasyAdminBundle::class                 => ['all' => true],
 
 	// Dev-Test Bundles
@@ -47,4 +46,7 @@ return [
 	DoctrineFixturesBundle::class          => ['all' => true],
 	DAMADoctrineTestBundle::class          => ['all' => true],
 	ZenstruckFoundryBundle::class          => ['all' => true],
+
+	// This Bundle
+	IdmUserBundle::class                   => ['all' => true],
 ];
