@@ -16,6 +16,7 @@
 * _Changed_ GitHub Actions workflow configuration to include `permissions` settings for pull requests
   * Added explicit `read` permission for `contents`
   * Added explicit `write` permission for `pull-requests`
+* _Changed_ Reorganized tests code
 
 ## 2.1.1 - (2025-04-13)
 
