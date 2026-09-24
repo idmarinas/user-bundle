@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright $originalComment.match("Copyright (\d+)", 1, "-",$today.year)2026 (C) IDMarinas - All Rights Reserved
+ * Copyright 2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 19:45
+ * Last modified by "IDMarinas" on 24/09/2026, 19:46
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,19 +19,25 @@
 
 use App\Controller\Admin\DashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminRouteLoader;
+use Symfony\Bundle\FrameworkBundle\Controller\TemplateController;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
 return function (RoutingConfigurator $routes): void {
-	// @formatter:off
 //	$routes->import('routes/web_profiler.php');
 	$routes->import('routes/login.php');
 	$routes->import('routes/profile.php');
 	$routes->import('routes/registration.php');
 	$routes->import('routes/reset_password.php');
 
-	//$routes->import('security.route_loader.logout', 'service')->methods(['GET']);
+	$routes->import('security.route_loader.logout', 'service')->methods(['GET']);
+	$routes->import(DashboardController::class, AdminRouteLoader::ROUTE_LOADER_TYPE);
 
-	$routes->import(DashboardController::class, AdminRouteLoader::ROUTE_LOADER_TYPE)
+	$routes
+		->add('app_home', '/')
+		->methods(['GET'])
+		->controller(TemplateController::class)
+		->defaults([
+			'template' => '@IdmUser/base.html.twig',
+		])
 	;
-	// @formatter:on
 };
