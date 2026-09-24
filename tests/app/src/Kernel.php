@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 19:35
+ * Last modified by "IDMarinas" on 24/09/2026, 19:31
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,6 +20,7 @@
 namespace App;
 
 use Exception;
+use Symfony\Bundle\FrameworkBundle\Controller\TemplateController;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -48,7 +49,7 @@ final class Kernel extends BaseKernel
 		parent::__construct($environment, $debug);
 
 		if ('test' === $this->environment) {
-			$this->testCachePrefix = '/'.uniqid('', true);
+			// $this->testCachePrefix = '/'.uniqid('', true);
 		}
 	}
 
@@ -84,6 +85,17 @@ final class Kernel extends BaseKernel
 			$this->getTestConfigDir().'/routes.php',
 		], $this->extraRoutes));
 		array_walk($extraRoutes, static fn(string $route) => file_exists($route) ? $routes->import($route) : null);
+
+		$routes->import('security.route_loader.logout', 'service')->methods(['GET']);
+
+		$routes
+			->add('app_home', '/')
+			->methods(['GET'])
+			->controller(TemplateController::class)
+			->defaults([
+				'template' => '@IdmUser/base.html.twig',
+			])
+		;
 	}
 
 	public function registerBundles(): iterable
