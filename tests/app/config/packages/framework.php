@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 24/09/2026, 18:35
+ * Last modified by "IDMarinas" on 24/09/2026, 19:35
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -28,6 +28,9 @@ return static function (ContainerConfigurator $container) {
 		'enabled_locales'       => ['en'],
 		'handle_all_throwables' => true,
 		'csrf_protection'       => [
+			'enabled' => true,
+		],
+		'assets'                => [
 			'enabled' => true,
 		],
 		'form'                  => [
