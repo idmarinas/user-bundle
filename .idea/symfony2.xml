@@ -14,8 +14,7 @@
     </option>
     <option name="containerFiles">
       <list>
-        <container_file path="var/cache/dev/Idm_Bundle_User_Tests_TestKernelDevDebugContainer.xml" />
-        <container_file path="var/cache/test/Idm_Bundle_User_Tests_TestKernelTestDebugContainer.xml" />
+        <container_file path="var/cache/dev/App_KernelDevDebugContainer.xml" />
       </list>
     </option>
     <option name="routingFiles">
