@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2026 (C) IDMarinas - All Rights Reserved
+ * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 20:10
+ * Last modified by "IDMarinas" on 23/09/2026, 21:45
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -34,6 +34,10 @@ use function Symfony\Component\String\u;
 return static function (ContainerConfigurator $container, ContainerBuilder $builder) {
 	$getDatabaseCache = function (string $projectDir, string $env): string {
 		$dir = $projectDir.'/var/cache/database';
+
+		if ($env !== 'dev') {
+			$env = 'test';
+		}
 
 		$filesystem = new Filesystem();
 
