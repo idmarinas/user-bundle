@@ -2,7 +2,7 @@
 /**
  * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:05
+ * Last modified by "IDMarinas" on 24/09/2026, 18:10
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -17,7 +17,7 @@
  * @since   2.0.0
  */
 
-namespace Idm\Bundle\User\Tests\DataFixtures\Entity;
+namespace Idm\Bundle\User\Tests\Entity;
 
 use App\Entity\User\FakeUser;
 use App\Entity\User\User;
