@@ -3,7 +3,7 @@
 /**
  * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 20:20
+ * Last modified by "IDMarinas" on 24/09/2026, 19:22
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -43,7 +43,7 @@ final class BundleRoutingTest extends KernelTestCase
 		$routeCollection = $router->getRouteCollection();
 		$routes = $routeCollection->all();
 
-		$this->assertCount(20, $routes);
+		$this->assertCount(22, $routes);
 		$this->assertInstanceOf(Route::class, $routeCollection->get('idm_user_login_web'));
 		$this->assertInstanceOf(Route::class, $routeCollection->get('idm_user_profile_index'));
 		$this->assertInstanceOf(Route::class, $routeCollection->get('idm_user_profile_change_password'));
