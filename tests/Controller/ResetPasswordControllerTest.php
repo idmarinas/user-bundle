@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 24/09/2026, 18:43
+ * Last modified by "IDMarinas" on 24/09/2026, 22:16
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,7 +20,6 @@
 namespace Idm\Bundle\User\Tests\Controller;
 
 use App\Controller\ResetPasswordController;
-use App\Kernel;
 use App\Repository\User\UserRepository;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -33,7 +32,6 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\DependencyInjection\Container;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Mailer\Exception\TransportException;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -45,15 +43,6 @@ use function Zenstruck\Foundry\faker;
 class ResetPasswordControllerTest extends WebTestCase
 {
 	use Factories;
-
-	protected static function createKernel(array $options = []): KernelInterface
-	{
-		/** @var Kernel $kernel */
-		$kernel = parent::createKernel(array_merge(['environment' => 'reset'], $options));
-		$kernel->handleOptions($options);
-
-		return $kernel;
-	}
 
 	public function testRecoverPassword(): void
 	{

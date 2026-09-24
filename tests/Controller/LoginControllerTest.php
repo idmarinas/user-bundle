@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 24/09/2026, 14:27
+ * Last modified by "IDMarinas" on 24/09/2026, 22:16
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,25 +19,14 @@
 
 namespace Idm\Bundle\User\Tests\Controller;
 
-use App\Kernel;
 use App\Repository\User\UserRepository;
 use Doctrine\Common\Collections\Criteria;
 use Idm\Bundle\User\Tests\DataFixtures\UserFixtures;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpKernel\KernelInterface;
 
 class LoginControllerTest extends WebTestCase
 {
-	protected static function createKernel(array $options = []): KernelInterface
-	{
-		/** @var Kernel $kernel */
-		$kernel = parent::createKernel(array_merge(['environment' => 'login'], $options));
-		$kernel->handleOptions($options);
-
-		return $kernel;
-	}
-
 	public function testLogin(): void
 	{
 		$client = static::createClient();
