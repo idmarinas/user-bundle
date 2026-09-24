@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2024-2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 11/02/2025, 23:00
+ * Last modified by "IDMarinas" on 24/09/2026, 14:27
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,15 +19,26 @@
 
 namespace Idm\Bundle\User\Tests\Controller;
 
+use App\Kernel;
 use App\Repository\User\UserRepository;
-use DataFixtures\UserFixtures;
 use Doctrine\Common\Collections\Criteria;
+use Idm\Bundle\User\Tests\DataFixtures\UserFixtures;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 class LoginControllerTest extends WebTestCase
 {
-	public function testLogin (): void
+	protected static function createKernel(array $options = []): KernelInterface
+	{
+		/** @var Kernel $kernel */
+		$kernel = parent::createKernel(array_merge(['environment' => 'login'], $options));
+		$kernel->handleOptions($options);
+
+		return $kernel;
+	}
+
+	public function testLogin(): void
 	{
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/login/web');
@@ -37,7 +48,7 @@ class LoginControllerTest extends WebTestCase
 		$this->assertPageTitleContains('Login');
 
 		$client->submitForm('Connect', [
-			'_username' => 'john.doe@example.com',
+			'_username' => UserFixtures::USER_ADMIN_EMAIL,
 			'_password' => UserFixtures::USER_PASS,
 		]);
 
@@ -52,7 +63,7 @@ class LoginControllerTest extends WebTestCase
 		$this->assertResponseRedirects('/user/profile');
 	}
 
-	public function testLoginInvalid (): void
+	public function testLoginInvalid(): void
 	{
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/login/web');
@@ -62,8 +73,8 @@ class LoginControllerTest extends WebTestCase
 		$this->assertPageTitleContains('Login');
 
 		$client->submitForm('Connect', [
-			'_username' => 'john.doe@example.com',
-			'_password' => UserFixtures::USER_PASS . 'dfDyt',
+			'_username' => UserFixtures::USER_ADMIN_EMAIL,
+			'_password' => UserFixtures::USER_PASS.'dfDyt',
 		]);
 
 		$this->assertResponseRedirects('/user/login/web');
@@ -72,7 +83,7 @@ class LoginControllerTest extends WebTestCase
 		$this->assertSelectorTextContains('form', 'Invalid credentials.');
 	}
 
-	public function testLoginAdmin (): void
+	public function testLoginAdmin(): void
 	{
 		$client = static::createClient([], [
 			'HTTP_HOST' => 'admin.localhost',
@@ -103,7 +114,7 @@ class LoginControllerTest extends WebTestCase
 		$this->assertResponseIsSuccessful();
 	}
 
-	public function testLoginChecker (): void
+	public function testLoginChecker(): void
 	{
 		$client = static::createClient();
 		/* @var UserRepository $repository */

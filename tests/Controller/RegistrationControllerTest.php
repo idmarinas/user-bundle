@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:05
+ * Last modified by "IDMarinas" on 24/09/2026, 14:28
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,14 +19,26 @@
 
 namespace Idm\Bundle\User\Tests\Controller;
 
+use App\Kernel;
 use Idm\Bundle\User\Tests\DataFixtures\UserFixtures;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 class RegistrationControllerTest extends WebTestCase
 {
+
+	protected static function createKernel(array $options = []): KernelInterface
+	{
+		/** @var Kernel $kernel */
+		$kernel = parent::createKernel(array_merge(['environment' => 'registration'], $options));
+		$kernel->handleOptions($options);
+
+		return $kernel;
+	}
+
 	public function testWebRegistration(): void
 	{
 		$client = static::createClient();
