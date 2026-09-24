@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 24/09/2026, 18:42
+ * Last modified by "IDMarinas" on 24/09/2026, 18:51
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,6 +19,7 @@
 
 namespace Idm\Bundle\User\Tests\Security;
 
+use App\Kernel;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Idm\Bundle\User\Security\EmailVerifier;
@@ -26,6 +27,7 @@ use Idm\Bundle\User\Tests\Factory\UserFactory;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Mailer\Exception\TransportException;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Translation\TranslatableMessage;
@@ -37,6 +39,15 @@ use function Zenstruck\Foundry\faker;
 class EmailVerifierTest extends WebTestCase
 {
 	use Factories;
+
+	protected static function createKernel(array $options = []): KernelInterface
+	{
+		/** @var Kernel $kernel */
+		$kernel = parent::createKernel(array_merge(['environment' => 'verifier'], $options));
+		$kernel->handleOptions($options);
+
+		return $kernel;
+	}
 
 	public function testEmailVerifier(): void
 	{
@@ -63,7 +74,7 @@ class EmailVerifierTest extends WebTestCase
 			->will($this->throwException(new TransportException()))
 		;
 
-		$user = UserFactory::createOne()->_real();
+		$user = UserFactory::createOne();
 		$templatedEmail = (new TemplatedEmail())
 			->locale('en')
 		;
