@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 20:04
+ * Last modified by "IDMarinas" on 24/09/2026, 18:35
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -47,7 +47,7 @@ return static function (ContainerConfigurator $container) {
 		'session'               => [
 			'enabled'            => true,
 			'handler_id'         => null,
-			'cookie_secure'      => true,
+			'cookie_secure'      => 'auto',
 			'cookie_samesite'    => 'lax',
 			'storage_factory_id' => 'session.storage.factory.mock_file',
 		],
