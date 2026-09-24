@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:32
+ * Last modified by "IDMarinas" on 24/09/2026, 18:42
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,8 +21,8 @@ namespace Idm\Bundle\User\Tests\Security;
 
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use Factory\UserFactory;
 use Idm\Bundle\User\Security\EmailVerifier;
+use Idm\Bundle\User\Tests\Factory\UserFactory;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
