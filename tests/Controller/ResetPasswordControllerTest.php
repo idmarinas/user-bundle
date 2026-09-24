@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 24/09/2026, 14:28
+ * Last modified by "IDMarinas" on 24/09/2026, 18:43
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -209,7 +209,7 @@ class ResetPasswordControllerTest extends WebTestCase
 			faker()->sha1(), new DateTime('+10 years'), (new DateTime('now'))->getTimestamp()
 		);
 		$helper->method('generateResetToken')->willReturn($token);
-		$repository->method('findOneBy')->willReturn(UserFactory::random()->_real());
+		$repository->method('findOneBy')->willReturn(UserFactory::random());
 		$entityManager->method('getRepository')->willReturn($repository);
 
 		$mailer
