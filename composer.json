@@ -76,16 +76,13 @@
 		}
 	},
 	"scripts": {
-		"test:fixtures:load": [
-			"php bin/console doctrine:schema:drop --env=test --force --ansi",
-			"php bin/console doctrine:schema:update --env=test --force --ansi",
-			"php bin/console doctrine:fixtures:load --env=test -n --ansi"
+		"fixtures:load": [
+			"php bin/console doctrine:schema:drop --force --ansi",
+			"php bin/console doctrine:schema:update --force --ansi",
+			"php bin/console doctrine:fixtures:load -n --ansi"
 		],
-		"dev:fixtures:load": [
-			"php bin/console doctrine:schema:drop --env=dev --force --ansi",
-			"php bin/console doctrine:schema:update --env=dev --force --ansi",
-			"php bin/console doctrine:fixtures:load --env=dev -n --ansi"
-		]
+		"test:fixtures:load": "@composer fixtures:load -- --env=test",
+		"dev:fixtures:load": "@composer fixtures:load -- --env=dev"
 	},
 	"config": {
 		"allow-plugins": {
