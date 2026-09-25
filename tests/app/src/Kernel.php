@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 24/09/2026, 19:45
+ * Last modified by "IDMarinas" on 25/09/2026, 17:40
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -41,15 +41,11 @@ final class Kernel extends BaseKernel
 
 	private string $testCachePrefix = '';
 
-	private bool $clearCache = true;
+	private bool $clearCache = false;
 
 	public function __construct(string $environment, bool $debug)
 	{
 		parent::__construct($environment, $debug);
-
-		if ('test' === $this->environment) {
-			$this->testCachePrefix = '/'.uniqid('', true);
-		}
 	}
 
 	public function addExtraBundle(string $bundleName): self
@@ -135,6 +131,22 @@ final class Kernel extends BaseKernel
 	public function notClearCacheAfterShutdown(): self
 	{
 		$this->clearCache = false;
+
+		return $this;
+	}
+
+	public function setTestCachePrefix(string $testCachePrefix): self
+	{
+		$testCachePrefix = str_starts_with($testCachePrefix, '/') ? $testCachePrefix : '/'.$testCachePrefix;
+
+		$this->testCachePrefix = $testCachePrefix;
+
+		return $this;
+	}
+
+	public function resetTestCachePrefix(): self
+	{
+		$this->testCachePrefix = '';
 
 		return $this;
 	}
