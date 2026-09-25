@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2026 (C) IDMarinas - All Rights Reserved
+ * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:04
+ * Last modified by "IDMarinas" on 25/09/2026, 18:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -26,7 +26,7 @@ abstract class AbstractPremium
 {
 	#[ORM\Id]
 	#[ORM\OneToOne(inversedBy: 'premium')]
-	#[ORM\JoinColumn(unique: true, nullable: false)]
+	#[ORM\JoinColumn(unique: true)]
 	protected AbstractUser $user;
 
 	public function getUser(): ?AbstractUser
