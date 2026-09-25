@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 24/09/2026, 22:16
+ * Last modified by "IDMarinas" on 25/09/2026, 18:15
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -117,7 +117,7 @@ class LoginControllerTest extends WebTestCase
 		 * User Banned
 		 */
 		$user = $repository->matching(
-			Criteria::create()
+			Criteria::create(true)
 				->where(Criteria::expr()->neq('bannedUntil', null))
 				->andWhere(Criteria::expr()->isNull('deletedAt'))
 				->setMaxResults(1)
@@ -137,7 +137,7 @@ class LoginControllerTest extends WebTestCase
 		 * User Deleted
 		 */
 		$user = $repository->matching(
-			Criteria::create()
+			Criteria::create(true)
 				->where(Criteria::expr()->neq('deletedAt', null))
 				->andWhere(Criteria::expr()->isNull('bannedUntil'))
 				->setMaxResults(1)
@@ -157,7 +157,7 @@ class LoginControllerTest extends WebTestCase
 		 * User Unverified
 		 */
 		$user = $repository->matching(
-			Criteria::create()
+			Criteria::create(true)
 				->where(Criteria::expr()->isNull('deletedAt'))
 				->andWhere(Criteria::expr()->isNull('bannedUntil'))
 				->andWhere(Criteria::expr()->eq('verified', false))

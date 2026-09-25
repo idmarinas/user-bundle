@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 24/09/2026, 22:16
+ * Last modified by "IDMarinas" on 25/09/2026, 18:13
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -64,7 +64,7 @@ class ProfileControllerTest extends WebTestCase
 
 		// User with accepted privacy and terms
 		$user = $repository->matching(
-			Criteria::create()
+			Criteria::create(true)
 				->where(Criteria::expr()->eq('termsAccepted', true))
 				->andWhere(Criteria::expr()->eq('privacyAccepted', true))
 				->setMaxResults(1)
@@ -81,7 +81,7 @@ class ProfileControllerTest extends WebTestCase
 
 		// User with unaccepted privacy and terms
 		$user = $repository->matching(
-			Criteria::create()
+			Criteria::create(true)
 				->where(Criteria::expr()->eq('termsAccepted', false))
 				->andWhere(Criteria::expr()->eq('privacyAccepted', false))
 				->setMaxResults(1)
