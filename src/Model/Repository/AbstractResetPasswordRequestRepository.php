@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:04
+ * Last modified by "IDMarinas" on 25/09/2026, 18:00
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -23,6 +23,7 @@ use App\Entity\User\ResetPasswordRequest;
 use DateTimeInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Idm\Bundle\User\Model\Entity\AbstractUser;
+use SortDirection;
 use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordRequestInterface;
 use SymfonyCasts\Bundle\ResetPassword\Persistence\Repository\ResetPasswordRequestRepositoryTrait;
 use SymfonyCasts\Bundle\ResetPassword\Persistence\ResetPasswordRequestRepositoryInterface;
@@ -53,7 +54,7 @@ class AbstractResetPasswordRequestRepository extends ServiceEntityRepository
 			->createQueryBuilder('t')
 			->where('t.user = :user')
 			->setParameter('user', $user->getId(), 'uuid')
-			->orderBy('t.requestedAt', 'DESC')
+			->orderBy('t.requestedAt', SortDirection::Descending)
 			->setMaxResults(1)
 			->getQuery()
 			->getOneOrNullResult()
