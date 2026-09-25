@@ -11,13 +11,6 @@ services:
       - ./:/var/www/html
       ## SSH
       - ssh_key:/root/.ssh
-  mailer:
-    image: axllent/mailpit
-    ports:
-      - "1080:8025"
-    environment:
-      MP_SMTP_AUTH_ACCEPT_ANY: 1
-      MP_SMTP_AUTH_ALLOW_INSECURE: 1
 
 volumes:
   ssh_key:
