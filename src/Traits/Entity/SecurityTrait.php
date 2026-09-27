@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:04
+ * Last modified by "IDMarinas" on 27/09/2026, 22:33
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,6 +19,7 @@
 
 namespace Idm\Bundle\User\Traits\Entity;
 
+use Deprecated;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -59,10 +60,24 @@ trait SecurityTrait
 	/**
 	 * @see \Symfony\Component\Security\Core\User\UserInterface
 	 */
+	#[Deprecated]
 	public function eraseCredentials(): void
 	{
 		// If you store any temporary, sensitive data on the user, clear it here
 		// $this->plainPassword = '';
 		$this->password = '';
+	}
+
+	/**
+	 * Prevents the hashed password from being put into the session storage.
+	 *
+	 * @see \Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface
+	 */
+	public function __serialize(): array
+	{
+		$data = (array)$this;
+		unset($data["\0".self::class."\0password"]);
+
+		return $data;
 	}
 }
