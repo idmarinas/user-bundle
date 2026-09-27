@@ -64,7 +64,7 @@ jobs:
         uses: ramsey/composer-install@v3
 
       - name: Create Database SQLite
-        run: 'php bin/console doctrine:schema:create --env=test && php bin/console doctrine:fixtures:load --env=test -n'
+        run: 'php bin/console doctrine:schema:update --env=test && php bin/console doctrine:fixtures:load --env=test -n'
 
       - name: Run test suite on PHP ${{ matrix.php }} and Symfony ${{ matrix.symfony }}
         run: ./vendor/bin/phpunit --exclude-group ignore
