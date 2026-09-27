@@ -58,7 +58,7 @@ jobs:
         env:
           SYMFONY_REQUIRE: ${{ matrix.symfony }}
           COMPOSER_NO_SECURITY_BLOCKING: 1
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
 
       - name: Create Database SQLite
         run: 'php bin/console doctrine:schema:update --force --env=test && php bin/console doctrine:fixtures:load --env=test -n'
