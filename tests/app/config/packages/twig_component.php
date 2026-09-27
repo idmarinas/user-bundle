@@ -2,7 +2,7 @@
 /**
  * Copyright 2025-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 19:38
+ * Last modified by "IDMarinas" on 27/09/2026, 20:06
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,7 +19,7 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-return static function (ContainerConfigurator $container) {
+return static function (ContainerConfigurator $container): void {
 	$container->extension('twig_component', [
 		'anonymous_template_directory' => dirname(__DIR__, 2).'/components/',
 	]);

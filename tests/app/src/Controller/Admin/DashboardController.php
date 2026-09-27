@@ -2,7 +2,7 @@
 /**
  * Copyright 2025-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 20:21
+ * Last modified by "IDMarinas" on 27/09/2026, 19:45
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,7 +19,6 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\User\User;
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -38,6 +37,6 @@ class DashboardController extends AbstractDashboardController
 	public function configureMenuItems(): iterable
 	{
 		yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-		yield MenuItem::linkToCrud('User', 'fas fa-list', User::class);
+		yield MenuItem::linkTo(UserCrudController::class, 'User', 'fas fa-list');
 	}
 }

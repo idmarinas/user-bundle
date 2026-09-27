@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:04
+ * Last modified by "IDMarinas" on 27/09/2026, 20:05
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -57,8 +57,8 @@ trait EquatableTrait
 			return false;
 		}
 
-		$currentRoles = array_map('strval', $this->getRoles());
-		$newRoles = array_map('strval', $user->getRoles());
+		$currentRoles = array_map(strval(...), $this->getRoles());
+		$newRoles = array_map(strval(...), $user->getRoles());
 		$rolesChanged = count($currentRoles) !== count($newRoles)
 			|| count($currentRoles) !== count(array_intersect($currentRoles, $newRoles));
 

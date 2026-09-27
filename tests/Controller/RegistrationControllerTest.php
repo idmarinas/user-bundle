@@ -1,5 +1,25 @@
 <?php
 /**
+ * Copyright 2026 (C) IDMarinas - All Rights Reserved
+ *
+ * Last modified by "IDMarinas" on 27/09/2026, 20:08
+ *
+ * @project IDMarinas User Bundle
+ * @see     https://github.com/idmarinas/user-bundle
+ *
+ * @file    RegistrationControllerTest.php
+ * @date    27/09/2026
+ * @time    20:11
+ *
+ * @author  Iván Diaz Marinas (IDMarinas)
+ * @license BSD 3-Clause License
+ *
+ * @since   2.2.0
+ */
+
+declare(strict_types=1);
+
+/**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
  * Last modified by "IDMarinas" on 24/09/2026, 22:16
@@ -25,7 +45,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpFoundation\Request;
 
-class RegistrationControllerTest extends WebTestCase
+final class RegistrationControllerTest extends WebTestCase
 {
 	public function testWebRegistration(): void
 	{

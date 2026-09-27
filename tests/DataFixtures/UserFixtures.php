@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:05
+ * Last modified by "IDMarinas" on 27/09/2026, 20:03
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -27,15 +27,15 @@ use ReflectionException;
 
 final class UserFixtures extends Fixture implements FixtureGroupInterface
 {
-	public const USER_TEST_EMAIL = 'jonny.doe@example.com';
+	public const string USER_TEST_EMAIL = 'jonny.doe@example.com';
 
-	public const USER_ADMIN_EMAIL = 'john.doe@example.com';
+	public const string USER_ADMIN_EMAIL = 'john.doe@example.com';
 
-	public const USER_EMAIL = 'jane.doe@example.com';
+	public const string USER_EMAIL = 'jane.doe@example.com';
 
-	public const KEY_USER = 'normal_user_';
+	public const string KEY_USER = 'normal_user_';
 
-	public const USER_PASS = 'pass_1234_$%';
+	public const string USER_PASS = 'pass_1234_$%';
 
 	public static function getGroups(): array
 	{

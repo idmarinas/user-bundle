@@ -1,5 +1,25 @@
 <?php
 /**
+ * Copyright 2026 (C) IDMarinas - All Rights Reserved
+ *
+ * Last modified by "IDMarinas" on 27/09/2026, 20:08
+ *
+ * @project IDMarinas User Bundle
+ * @see     https://github.com/idmarinas/user-bundle
+ *
+ * @file    UserPremiumTest.php
+ * @date    27/09/2026
+ * @time    20:11
+ *
+ * @author  Iván Diaz Marinas (IDMarinas)
+ * @license BSD 3-Clause License
+ *
+ * @since   2.2.0
+ */
+
+declare(strict_types=1);
+
+/**
  * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
  * Last modified by "IDMarinas" on 24/09/2026, 18:10
@@ -25,12 +45,9 @@ use Idm\Bundle\User\Tests\Factory\UserFactory;
 use ReflectionException;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
-use Zenstruck\Foundry\Test\Factories;
 
-class UserPremiumTest extends KernelTestCase
+final class UserPremiumTest extends KernelTestCase
 {
-	use Factories;
-
 	/**
 	 * @throws ReflectionException
 	 */

@@ -2,7 +2,7 @@
 /**
  * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:45
+ * Last modified by "IDMarinas" on 27/09/2026, 20:10
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,6 +19,7 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
+use Doctrine\DBAL\Types\JsonType;
 use App\Entity\User\Connections;
 use App\Entity\User\Premium;
 use App\Entity\User\User;
@@ -31,7 +32,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Filesystem\Filesystem;
 use function Symfony\Component\String\u;
 
-return static function (ContainerConfigurator $container, ContainerBuilder $builder) {
+return static function (ContainerConfigurator $container, ContainerBuilder $builder): void {
 	$getDatabaseCache = function (string $projectDir, string $env): string {
 		$dir = $projectDir.'/var/cache/database';
 
@@ -56,7 +57,7 @@ return static function (ContainerConfigurator $container, ContainerBuilder $buil
 			'driver' => 'pdo_sqlite',
 			'url'    => $getDatabaseCache($builder->getParameter('kernel.project_dir'), $container->env()),
 			'types'  => [
-				'array' => 'Doctrine\DBAL\Types\JsonType',
+				'array' => JsonType::class,
 			],
 		],
 		'orm'  => [

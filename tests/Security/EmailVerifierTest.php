@@ -1,5 +1,25 @@
 <?php
 /**
+ * Copyright 2026 (C) IDMarinas - All Rights Reserved
+ *
+ * Last modified by "IDMarinas" on 27/09/2026, 20:07
+ *
+ * @project IDMarinas User Bundle
+ * @see     https://github.com/idmarinas/user-bundle
+ *
+ * @file    EmailVerifierTest.php
+ * @date    27/09/2026
+ * @time    20:11
+ *
+ * @author  Iván Diaz Marinas (IDMarinas)
+ * @license BSD 3-Clause License
+ *
+ * @since   2.2.0
+ */
+
+declare(strict_types=1);
+
+/**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
  * Last modified by "IDMarinas" on 25/09/2026, 17:42
@@ -31,13 +51,10 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Translation\TranslatableMessage;
 use SymfonyCasts\Bundle\VerifyEmail\Model\VerifyEmailSignatureComponents;
 use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
-use Zenstruck\Foundry\Test\Factories;
 use function Zenstruck\Foundry\faker;
 
-class EmailVerifierTest extends WebTestCase
+final class EmailVerifierTest extends WebTestCase
 {
-	use Factories;
-
 	public function testEmailVerifier(): void
 	{
 		$client = static::createClient();
@@ -48,7 +65,7 @@ class EmailVerifierTest extends WebTestCase
 
 		$verifyHelper = $this->createMock(VerifyEmailHelperInterface::class);
 		$mailer = $this->createMock(MailerInterface::class);
-		$entityManager = $this->createMock(EntityManagerInterface::class);
+		$entityManager = $this->createStub(EntityManagerInterface::class);
 
 		$signature = new VerifyEmailSignatureComponents(
 			new DateTime('+2 days'),
@@ -60,7 +77,7 @@ class EmailVerifierTest extends WebTestCase
 
 		$mailer
 			->method('send')
-			->will($this->throwException(new TransportException()))
+			->willThrowException(new TransportException())
 		;
 
 		$user = UserFactory::createOne();

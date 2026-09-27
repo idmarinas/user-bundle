@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 24/09/2026, 19:35
+ * Last modified by "IDMarinas" on 27/09/2026, 20:10
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,7 +19,9 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-return static function (ContainerConfigurator $container) {
+use Symfony\Component\Mailer\Messenger\SendEmailMessage;
+
+return static function (ContainerConfigurator $container): void {
 	$container->extension('framework', [
 		'secret'                => 'test',
 		'http_method_override'  => false,
@@ -70,7 +72,7 @@ return static function (ContainerConfigurator $container) {
 		'messenger'             => [
 			'enabled'    => false,
 			'routing'    => [
-				'Symfony\Component\Mailer\Messenger\SendEmailMessage' => [
+				SendEmailMessage::class => [
 					'senders' => ['sync'],
 				],
 			],

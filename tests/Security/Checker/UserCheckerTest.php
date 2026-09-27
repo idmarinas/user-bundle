@@ -1,5 +1,25 @@
 <?php
 /**
+ * Copyright 2026 (C) IDMarinas - All Rights Reserved
+ *
+ * Last modified by "IDMarinas" on 27/09/2026, 20:07
+ *
+ * @project IDMarinas User Bundle
+ * @see     https://github.com/idmarinas/user-bundle
+ *
+ * @file    UserCheckerTest.php
+ * @date    27/09/2026
+ * @time    20:11
+ *
+ * @author  Iván Diaz Marinas (IDMarinas)
+ * @license BSD 3-Clause License
+ *
+ * @since   2.2.0
+ */
+
+declare(strict_types=1);
+
+/**
  * Copyright 2025 (C) IDMarinas - All Rights Reserved
  *
  * Last modified by "IDMarinas" on 03/01/2025, 16:08
@@ -27,15 +47,15 @@ use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface;
 
-class UserCheckerTest extends TestCase
+final class UserCheckerTest extends TestCase
 {
 
-	public function testCheckFail (): void
+	public function testCheckFail(): void
 	{
-		$access = $this->createMock(AccessDecisionManagerInterface::class);
+		$access = $this->createStub(AccessDecisionManagerInterface::class);
 		$requestStack = $this->createMock(RequestStack::class);
 		$session = $this->createMock(Session::class);
-		$flashBag = $this->createMock(FlashBagInterface::class);
+		$flashBag = $this->createStub(FlashBagInterface::class);
 
 		$session->method('getFlashBag')->willReturn($flashBag);
 		$requestStack->method('getSession')->willReturn($session);

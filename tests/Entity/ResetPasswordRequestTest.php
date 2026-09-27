@@ -1,5 +1,25 @@
 <?php
 /**
+ * Copyright 2026 (C) IDMarinas - All Rights Reserved
+ *
+ * Last modified by "IDMarinas" on 27/09/2026, 20:08
+ *
+ * @project IDMarinas User Bundle
+ * @see     https://github.com/idmarinas/user-bundle
+ *
+ * @file    ResetPasswordRequestTest.php
+ * @date    27/09/2026
+ * @time    20:11
+ *
+ * @author  Iván Diaz Marinas (IDMarinas)
+ * @license BSD 3-Clause License
+ *
+ * @since   2.2.0
+ */
+
+declare(strict_types=1);
+
+/**
  * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
  * Last modified by "IDMarinas" on 24/09/2026, 18:10
@@ -24,13 +44,10 @@ use DateTime;
 use Idm\Bundle\User\Tests\Factory\UserFactory;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
-use Zenstruck\Foundry\Test\Factories;
 use function Zenstruck\Foundry\faker;
 
-class ResetPasswordRequestTest extends KernelTestCase
+final class ResetPasswordRequestTest extends KernelTestCase
 {
-	use Factories;
-
 	public function testResetPasswordRequest(): void
 	{
 		self::bootKernel();

@@ -1,5 +1,25 @@
 <?php
 /**
+ * Copyright 2026 (C) IDMarinas - All Rights Reserved
+ *
+ * Last modified by "IDMarinas" on 27/09/2026, 20:08
+ *
+ * @project IDMarinas User Bundle
+ * @see     https://github.com/idmarinas/user-bundle
+ *
+ * @file    ResetPasswordControllerTest.php
+ * @date    27/09/2026
+ * @time    20:11
+ *
+ * @author  Iván Diaz Marinas (IDMarinas)
+ * @license BSD 3-Clause License
+ *
+ * @since   2.2.0
+ */
+
+declare(strict_types=1);
+
+/**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
  * Last modified by "IDMarinas" on 24/09/2026, 22:16
@@ -37,13 +57,10 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordToken;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
-use Zenstruck\Foundry\Test\Factories;
 use function Zenstruck\Foundry\faker;
 
-class ResetPasswordControllerTest extends WebTestCase
+final class ResetPasswordControllerTest extends WebTestCase
 {
-	use Factories;
-
 	public function testRecoverPassword(): void
 	{
 		$client = static::createClient();
@@ -189,7 +206,7 @@ class ResetPasswordControllerTest extends WebTestCase
 		$client->request(Request::METHOD_GET, '/user/registration/register');
 
 		$mailer = $this->createMock(MailerInterface::class);
-		$translator = $this->createMock(TranslatorInterface::class);
+		$translator = $this->createStub(TranslatorInterface::class);
 		$entityManager = $this->createMock(EntityManagerInterface::class);
 		$repository = $this->createMock(UserRepository::class);
 		$helper = $this->createMock(ResetPasswordHelperInterface::class);
@@ -203,7 +220,7 @@ class ResetPasswordControllerTest extends WebTestCase
 
 		$mailer
 			->method('send')
-			->will($this->throwException(new TransportException()))
+			->willThrowException(new TransportException())
 		;
 
 		$requestStack = static::getContainer()->get('request_stack');
@@ -223,6 +240,6 @@ class ResetPasswordControllerTest extends WebTestCase
 		$response = $method->invoke($controller, 'test@example.com', $mailer, $translator);
 
 		$this->assertInstanceOf(RedirectResponse::class, $response);
-		$this->assertEquals('/user/reset-password/reset', $response->getTargetUrl());
+		$this->assertSame('/user/reset-password/reset', $response->getTargetUrl());
 	}
 }

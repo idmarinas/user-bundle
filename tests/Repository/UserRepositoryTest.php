@@ -1,5 +1,25 @@
 <?php
 /**
+ * Copyright 2026 (C) IDMarinas - All Rights Reserved
+ *
+ * Last modified by "IDMarinas" on 27/09/2026, 20:07
+ *
+ * @project IDMarinas User Bundle
+ * @see     https://github.com/idmarinas/user-bundle
+ *
+ * @file    UserRepositoryTest.php
+ * @date    27/09/2026
+ * @time    20:11
+ *
+ * @author  Iván Diaz Marinas (IDMarinas)
+ * @license BSD 3-Clause License
+ *
+ * @since   2.2.0
+ */
+
+declare(strict_types=1);
+
+/**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
  * Last modified by "IDMarinas" on 23/09/2026, 21:05
@@ -37,7 +57,7 @@ use PHPUnit\Framework\TestCase;
 use ReflectionException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 
-class UserRepositoryTest extends TestCase
+final class UserRepositoryTest extends TestCase
 {
 	use FakerTrait;
 
@@ -126,7 +146,7 @@ class UserRepositoryTest extends TestCase
 
 		$result = $repository->markUsersAsInactives();
 
-		$this->assertEquals(5, $result);
+		$this->assertSame(5, $result);
 	}
 
 	private function getRepository(): UserRepository
@@ -135,12 +155,10 @@ class UserRepositoryTest extends TestCase
 		$classMetadata = $this->getMockBuilder(ClassMetadata::class)->setConstructorArgs([User::class])->getMock();
 		$entityManager = $this->createMock(EntityManagerInterface::class);
 		$managerRegistry = $this->createMock(ManagerRegistry::class);
-		$entityRepository = $this->createMock(EntityRepository::class);
 		$filters = $this->createMock(FilterCollection::class);
 		$persister = $this->createMock(EntityPersister::class);
 		$unitOfWork = $this->createMock(UnitOfWork::class);
 		$queryBuilder = $this->createMock(QueryBuilder::class);
-		$expr = $this->createMock(Expr::class);
 		$query = $this->createMock(Query::class);
 
 		// Configure FilterCollection
@@ -157,7 +175,7 @@ class UserRepositoryTest extends TestCase
 		$queryBuilder->method('where')->willReturn($queryBuilder);
 		$queryBuilder->method('orWhere')->willReturn($queryBuilder);
 		$queryBuilder->method('andWhere')->willReturn($queryBuilder);
-		$queryBuilder->method('expr')->willReturn($expr);
+		$queryBuilder->method('expr')->willReturn($this->createStub(Expr::class));
 		$queryBuilder->method('getQuery')->willReturn($query);
 
 		// Configure Query
@@ -174,7 +192,7 @@ class UserRepositoryTest extends TestCase
 		$unitOfWork->method('getEntityPersister')->willReturn($persister);
 
 		//Configure ManagerRegistry
-		$managerRegistry->method('getRepository')->willReturn($entityRepository);
+		$managerRegistry->method('getRepository')->willReturn($this->createStub(EntityRepository::class));
 		$managerRegistry->method('getManagerForClass')->willReturn($entityManager);
 
 		return new UserRepository($managerRegistry, User::class);

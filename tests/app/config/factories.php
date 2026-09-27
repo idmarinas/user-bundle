@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright $originalComment.match("Copyright (\d+)", 1, "-",$today.year)2026 (C) IDMarinas - All Rights Reserved
+ * Copyright 2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 19:45
+ * Last modified by "IDMarinas" on 27/09/2026, 20:05
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,7 +21,7 @@ use Idm\Bundle\User\IdmUserBundle;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 
-return static function (ContainerConfigurator $container, ContainerBuilder $builder) {
+return static function (ContainerConfigurator $container, ContainerBuilder $builder): void {
 	$namespace = (new ReflectionClass(IdmUserBundle::class))->getNamespaceName();
 
 	// @formatter:off

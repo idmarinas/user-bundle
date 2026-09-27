@@ -1,5 +1,25 @@
 <?php
 /**
+ * Copyright 2026 (C) IDMarinas - All Rights Reserved
+ *
+ * Last modified by "IDMarinas" on 27/09/2026, 20:07
+ *
+ * @project IDMarinas User Bundle
+ * @see     https://github.com/idmarinas/user-bundle
+ *
+ * @file    RegistrationFormTypeTest.php
+ * @date    27/09/2026
+ * @time    20:11
+ *
+ * @author  Iván Diaz Marinas (IDMarinas)
+ * @license BSD 3-Clause License
+ *
+ * @since   2.2.0
+ */
+
+declare(strict_types=1);
+
+/**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
  * Last modified by "IDMarinas" on 23/09/2026, 21:05
@@ -25,7 +45,7 @@ use Idm\Bundle\Common\Traits\Tool\FakerTrait;
 use Symfony\Component\Form\Test\Traits\ValidatorExtensionTrait;
 use Symfony\Component\Form\Test\TypeTestCase;
 
-class RegistrationFormTypeTest extends TypeTestCase
+final class RegistrationFormTypeTest extends TypeTestCase
 {
 	use FakerTrait;
 	use ValidatorExtensionTrait;

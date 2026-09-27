@@ -2,7 +2,7 @@
 /**
  * Copyright 2025-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 19:38
+ * Last modified by "IDMarinas" on 27/09/2026, 20:05
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,7 +19,7 @@
 
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
-return function (RoutingConfigurator $routes) {
+return function (RoutingConfigurator $routes): void {
 	// @formatter:off
 	$routes->import('@WebProfilerBundle/Resources/config/routing/wdt.xml')->prefix('/_wdt');
 	$routes->import('@WebProfilerBundle/Resources/config/routing/profiler.xml')->prefix('/_profiler');
