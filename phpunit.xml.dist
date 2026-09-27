@@ -10,6 +10,7 @@
          cacheDirectory=".phpunit.cache"
 >
 	<php>
+		<env name="SYMFONY_DEPRECATIONS_HELPER" value="weak" />
 		<ini name="display_errors" value="1" />
 		<ini name="error_reporting" value="-1" />
 		<server name="KERNEL_CLASS" value="App\Kernel" />
