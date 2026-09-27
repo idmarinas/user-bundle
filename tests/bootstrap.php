@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:05
+ * Last modified by "IDMarinas" on 27/09/2026, 20:18
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -17,4 +17,18 @@
  * @since   2.0.0
  */
 
+use App\Kernel;
+use Symfony\Component\Filesystem\Filesystem;
+
 require dirname(__DIR__).'/vendor/autoload.php';
+
+$kernel = new Kernel('test', true);
+$filesystem = new Filesystem();
+
+if ($filesystem->exists($kernel->getCacheDir())) {
+	$filesystem->remove($kernel->getCacheDir());
+}
+
+if ($filesystem->exists($kernel->getLogDir())) {
+	$filesystem->remove($kernel->getLogDir());
+}
