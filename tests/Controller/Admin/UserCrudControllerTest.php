@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2026 (C) IDMarinas - All Rights Reserved
+ * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/09/2026, 20:08
+ * Last modified by "IDMarinas" on 27/09/2026, 20:13
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -42,9 +42,10 @@ namespace Idm\Bundle\User\Tests\Controller\Admin;
 use App\Controller\Admin\DashboardController;
 use App\Controller\Admin\UserCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Test\AbstractCrudTestCase;
+use PHPUnit\Framework\Attributes\Group;
 use Symfony\Component\HttpFoundation\Request;
 
-/** @group ignore */
+#[Group('ignore')]
 final class UserCrudControllerTest extends AbstractCrudTestCase
 {
 	public function testIndexPage()
