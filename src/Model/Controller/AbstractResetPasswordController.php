@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:04
+ * Last modified by "IDMarinas" on 27/09/2026, 23:04
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -101,6 +101,7 @@ abstract class AbstractResetPasswordController extends AbstractController
 	public function reset(
 		Request                     $request,
 		UserPasswordHasherInterface $passwordHasher,
+		TranslatorInterface         $translator,
 		?string                     $token = null
 	): Response {
 		if ($this->getUser() instanceof UserInterface) {
@@ -129,8 +130,8 @@ abstract class AbstractResetPasswordController extends AbstractController
 				'reset_password_error',
 				sprintf(
 					'%s - %s',
-					t(ResetPasswordExceptionInterface::MESSAGE_PROBLEM_VALIDATE, [], 'ResetPasswordBundle'),
-					t($resetPasswordException->getReason(), [], 'ResetPasswordBundle')
+					$translator->trans(ResetPasswordExceptionInterface::MESSAGE_PROBLEM_VALIDATE, [], 'ResetPasswordBundle'),
+					$translator->trans($resetPasswordException->getReason(), [], 'ResetPasswordBundle')
 				)
 			);
 
