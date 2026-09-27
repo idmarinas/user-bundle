@@ -53,9 +53,7 @@
 	</source>
 
 	<extensions>
-		<bootstrap class="Zenstruck\Foundry\PHPUnit\FoundryExtension">
-			<parameter name="enabled-auto-reset" value="true" />
-		</bootstrap>
+		<bootstrap class="Zenstruck\Foundry\PHPUnit\FoundryExtension" />
 		<bootstrap class="DAMA\DoctrineTestBundle\PHPUnit\PHPUnitExtension" />
 	</extensions>
 </phpunit>
