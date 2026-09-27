@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright $originalComment.match("Copyright (\d+)", 1, "-",$today.year)2026 (C) IDMarinas - All Rights Reserved
+ * Copyright 2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 18:02
+ * Last modified by "IDMarinas" on 27/09/2026, 20:02
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -20,18 +20,16 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
+use Zenstruck\Foundry\Utils\Rector\FoundrySetList;
 
 return RectorConfig::configure()
 	->withPaths([
-		__DIR__.'/app',
 		__DIR__.'/config',
-		__DIR__.'/factories',
-		__DIR__.'/fixtures',
 		__DIR__.'/src',
 		__DIR__.'/tests',
 	])
 	// uncomment to reach your current PHP version
-	->withPhpSets(php82: true)
+	->withPhpSets(php83: true)
 	->withPreparedSets(
 		phpunitCodeQuality : true,
 		doctrineCodeQuality: true,
@@ -44,6 +42,9 @@ return RectorConfig::configure()
 	->withImportNames(importDocBlockNames: false)
 	->withComposerBased(twig: true, doctrine: true, symfony: true)
 	->withSymfonyContainerXml(__DIR__.'/var/cache/web/dev/Core_KernelDevDebugContainer.xml')
+	->withSets([
+		FoundrySetList::FOUNDRY_2_9,
+	])
 	->withSkip([
 		__DIR__.'/app/config/bundles.php',
 	])
