@@ -1,9 +1,11 @@
 ###> idmarinas/user-bundle ###
 **/*.dist
+/config/reference.php
 /build/
 /vendor/
 /var/
 /phpunit.xml
-/.phpunit.result.cache
+!/phpunit.xml.dist
+/.phpunit.cache/
 /composer.lock
 ###< idmarinas/user-bundle ###
