@@ -2,7 +2,7 @@
 /**
  * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/09/2026, 20:10
+ * Last modified by "IDMarinas" on 27/09/2026, 22:25
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,10 +19,10 @@
 
 namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
-use Doctrine\DBAL\Types\JsonType;
 use App\Entity\User\Connections;
 use App\Entity\User\Premium;
 use App\Entity\User\User;
+use Doctrine\DBAL\Types\JsonType;
 use Idm\Bundle\User\IdmUserBundle;
 use Idm\Bundle\User\Model\Entity\AbstractConnections;
 use Idm\Bundle\User\Model\Entity\AbstractPremium;
@@ -62,9 +62,6 @@ return static function (ContainerConfigurator $container, ContainerBuilder $buil
 		],
 		'orm'  => [
 			'auto_mapping'            => false,
-			'controller_resolver'     => [
-				'auto_mapping' => false,
-			],
 			'mappings'                => [
 				'Tests' => [
 					'is_bundle' => false,
