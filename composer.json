@@ -59,7 +59,7 @@
 		"symfony/maker-bundle": "^1.61",
 		"symfony/phpunit-bridge": "^6.0",
 		"symfony/runtime": "^6.4 | ^7.0 | ^8.0",
-		"zenstruck/foundry": "^2.7"
+		"zenstruck/foundry": "^2.9"
 	},
 	"conflict": {
 		"idmarinas/common-bundle": "<=3.0.0"
