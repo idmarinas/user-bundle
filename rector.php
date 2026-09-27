@@ -2,7 +2,7 @@
 /**
  * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/09/2026, 22:18
+ * Last modified by "IDMarinas" on 27/09/2026, 23:19
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -42,11 +42,11 @@ return RectorConfig::configure()
 	->withDeadCodeLevel(0)
 	->withCodeQualityLevel(0)
 	->withComposerBased(twig: true, doctrine: true, phpunit: true, symfony: true)
-	->withSymfonyContainerXml(__DIR__.'/var/cache/web/dev/Core_KernelDevDebugContainer.xml')
+	->withSymfonyContainerXml(__DIR__.'/var/cache/dev/App_KernelDevDebugContainer.xml')
 	->withSets([
 		FoundrySetList::FOUNDRY_2_9,
 	])
 	->withSkip([
-		__DIR__.'/app/config/bundles.php',
+		__DIR__.'/tests/app/config/bundles.php',
 	])
 ;
