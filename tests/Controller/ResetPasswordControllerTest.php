@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2026 (C) IDMarinas - All Rights Reserved
+ * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/09/2026, 20:08
+ * Last modified by "IDMarinas" on 27/09/2026, 22:11
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -205,11 +205,11 @@ final class ResetPasswordControllerTest extends WebTestCase
 		$client = static::createClient();
 		$client->request(Request::METHOD_GET, '/user/registration/register');
 
-		$mailer = $this->createMock(MailerInterface::class);
+		$mailer = $this->createStub(MailerInterface::class);
 		$translator = $this->createStub(TranslatorInterface::class);
-		$entityManager = $this->createMock(EntityManagerInterface::class);
-		$repository = $this->createMock(UserRepository::class);
-		$helper = $this->createMock(ResetPasswordHelperInterface::class);
+		$entityManager = $this->createStub(EntityManagerInterface::class);
+		$repository = $this->createStub(UserRepository::class);
+		$helper = $this->createStub(ResetPasswordHelperInterface::class);
 
 		$token = new ResetPasswordToken(
 			faker()->sha1(), new DateTime('+10 years'), (new DateTime('now'))->getTimestamp()

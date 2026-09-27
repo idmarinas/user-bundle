@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright $originalComment.match("Copyright (\d+)", 1, "-",$today.year)2026 (C) IDMarinas - All Rights Reserved
+ * Copyright 2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 19:43
+ * Last modified by "IDMarinas" on 27/09/2026, 22:17
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -32,8 +32,8 @@ return static function (ContainerConfigurator $container): void {
 	// @formatter:off
 	$container
 		->services()
-			->set(UserRepository::class)->public()->autoconfigure()->autowire()
-			->set(ResetPasswordRequestRepository::class, ResetPasswordRequestRepository::class)->public()->autoconfigure()->autowire()
+			->set(UserRepository::class)->autoconfigure()->autowire()
+			->set(ResetPasswordRequestRepository::class, ResetPasswordRequestRepository::class)->autoconfigure()->autowire()
 
 			// Register ResetPasswordController
 			->set(ResetPasswordController::class, ResetPasswordController::class)->autoconfigure()->autowire()
@@ -47,8 +47,8 @@ return static function (ContainerConfigurator $container): void {
 				->autoconfigure()
 				->autowire()
 			// Admin controllers
-			->set(DashboardController::class)->public()->autoconfigure()->autowire()
-			->set(UserCrudController::class)->public()->autoconfigure()->autowire()
+			->set(DashboardController::class)->autoconfigure()->autowire()
+			->set(UserCrudController::class)->autoconfigure()->autowire()
 	;
 	// @formatter:on
 };

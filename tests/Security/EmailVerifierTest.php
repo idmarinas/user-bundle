@@ -3,7 +3,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/09/2026, 20:26
+ * Last modified by "IDMarinas" on 27/09/2026, 22:13
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -46,8 +46,8 @@ final class EmailVerifierTest extends WebTestCase
 		$requestStack = static::getContainer()->get('request_stack');
 		$requestStack->push($client->getRequest());
 
-		$verifyHelper = $this->createMock(VerifyEmailHelperInterface::class);
-		$mailer = $this->createMock(MailerInterface::class);
+		$verifyHelper = $this->createStub(VerifyEmailHelperInterface::class);
+		$mailer = $this->createStub(MailerInterface::class);
 		$entityManager = $this->createStub(EntityManagerInterface::class);
 
 		$signature = new VerifyEmailSignatureComponents(

@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:05
+ * Last modified by "IDMarinas" on 27/09/2026, 22:17
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -35,17 +35,14 @@ class ResetPasswordRequest implements ResetPasswordRequestInterface
 	use UuidTrait;
 	use ResetPasswordRequestTrait;
 
-	#[ORM\ManyToOne]
-	#[ORM\JoinColumn(nullable: false)]
-	private ?User $user;
-
 	public function __construct(
-		User              $user,
+		#[ORM\ManyToOne]
+		#[ORM\JoinColumn(nullable: false)]
+		private User      $user,
 		DateTimeInterface $expiresAt,
 		string            $selector,
 		string            $hashedToken
 	) {
-		$this->user = $user;
 		$this->initialize($expiresAt, $selector, $hashedToken);
 	}
 

@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2026 (C) IDMarinas - All Rights Reserved
+ * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/09/2026, 20:07
+ * Last modified by "IDMarinas" on 27/09/2026, 22:14
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -153,13 +153,13 @@ final class UserRepositoryTest extends TestCase
 	{
 		// Create mocks
 		$classMetadata = $this->getMockBuilder(ClassMetadata::class)->setConstructorArgs([User::class])->getMock();
-		$entityManager = $this->createMock(EntityManagerInterface::class);
-		$managerRegistry = $this->createMock(ManagerRegistry::class);
-		$filters = $this->createMock(FilterCollection::class);
-		$persister = $this->createMock(EntityPersister::class);
-		$unitOfWork = $this->createMock(UnitOfWork::class);
-		$queryBuilder = $this->createMock(QueryBuilder::class);
-		$query = $this->createMock(Query::class);
+		$entityManager = $this->createStub(EntityManagerInterface::class);
+		$managerRegistry = $this->createStub(ManagerRegistry::class);
+		$filters = $this->createStub(FilterCollection::class);
+		$persister = $this->createStub(EntityPersister::class);
+		$unitOfWork = $this->createStub(UnitOfWork::class);
+		$queryBuilder = $this->createStub(QueryBuilder::class);
+		$query = $this->createStub(Query::class);
 
 		// Configure FilterCollection
 		$filters->method('isEnabled')->with('softdeleteable')->willReturn(true, false);

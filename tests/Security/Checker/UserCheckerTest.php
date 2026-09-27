@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2026 (C) IDMarinas - All Rights Reserved
+ * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/09/2026, 20:07
+ * Last modified by "IDMarinas" on 27/09/2026, 22:14
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -53,8 +53,8 @@ final class UserCheckerTest extends TestCase
 	public function testCheckFail(): void
 	{
 		$access = $this->createStub(AccessDecisionManagerInterface::class);
-		$requestStack = $this->createMock(RequestStack::class);
-		$session = $this->createMock(Session::class);
+		$requestStack = $this->createStub(RequestStack::class);
+		$session = $this->createStub(Session::class);
 		$flashBag = $this->createStub(FlashBagInterface::class);
 
 		$session->method('getFlashBag')->willReturn($flashBag);

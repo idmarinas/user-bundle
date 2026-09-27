@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:05
+ * Last modified by "IDMarinas" on 27/09/2026, 22:20
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -29,7 +29,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface;
 use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
 
-return static function (ContainerConfigurator $container) {
+return static function (ContainerConfigurator $container): void {
 	// @formatter:off
 	$container
 		->services()
@@ -41,15 +41,15 @@ return static function (ContainerConfigurator $container) {
 					service(EntityManagerInterface::class),
 					service(RequestStack::class),
 				])
-				->alias(EmailVerifier::class, 'idm_user.service.email_verifier')->public()
+				->alias(EmailVerifier::class, 'idm_user.service.email_verifier')
 			// Register UserChecker
-			->set(UserChecker::class, UserChecker::class)->public()
+			->set(UserChecker::class, UserChecker::class)
 				->args([
 					service(AccessDecisionManagerInterface::class),
 					service(RequestStack::class),
 				])
 			// Register UserAdminChecker
-			->set(UserAdminChecker::class, UserAdminChecker::class)->public()
+			->set(UserAdminChecker::class, UserAdminChecker::class)
 				->args([
 					service(AccessDecisionManagerInterface::class),
 					service(RequestStack::class),
