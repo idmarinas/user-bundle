@@ -18,6 +18,10 @@
   * Added explicit `write` permission for `pull-requests`
 * _Changed_ Reorganized tests code
 
+## Breaking Changes {id="breaking-changes_1"}
+
+* _Drop_ support for PHP `8.2` version
+
 ## 2.1.1 - (2025-04-13)
 
 ### Deleted {id="deleted_2.1.1"}
