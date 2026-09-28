@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/09/2026, 20:10
+ * Last modified by "IDMarinas" on 28/09/2026, 14:19
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -72,9 +72,7 @@ return static function (ContainerConfigurator $container): void {
 		'messenger'             => [
 			'enabled'    => false,
 			'routing'    => [
-				SendEmailMessage::class => [
-					'senders' => ['sync'],
-				],
+				SendEmailMessage::class => 'sync',
 			],
 			'transports' => [
 				'sync' => 'in-memory://',
