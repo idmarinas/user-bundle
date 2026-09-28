@@ -6,12 +6,12 @@
 
 * _Added_ support for Symfony `^8.0`
 
-### Fixed {id="fixed_2.1.2"}
+### Fixed {id="fixed_2.2.0"}
 
 * _Fixed_ help text key in `ResetPasswordRequestFormType` from `form.reset_password_request.email.help` to
   `form.forgot_password.email.help`
 
-### Changed {id="changed_2.1.2"}
+### Changed {id="changed_2.2.0"}
 
 * _Changed_ GitHub Actions workflow configuration to include `permissions` settings for pull requests
   * Added explicit `read` permission for `contents`
