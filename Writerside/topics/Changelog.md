@@ -1,26 +1,40 @@
 # Changelog
 
-## 2.2.0 - (2025-05-22)
+## 2.2.0 - (2026-09-28)
 
 ### Added {id="added_2.2.0"}
 
 * _Added_ support for Symfony `^8.0`
+* _Added_ method `__serialize()` to `SecurityTrait` to keep the hashed password out of the session storage
 
 ### Fixed {id="fixed_2.2.0"}
 
 * _Fixed_ help text key in `ResetPasswordRequestFormType` from `form.reset_password_request.email.help` to
   `form.forgot_password.email.help`
+* _Fixed_ `TranslatableMessage::__toString()` deprecation when building the `reset_password_error` flash message
 
 ### Changed {id="changed_2.2.0"}
 
 * _Changed_ GitHub Actions workflow configuration to include `permissions` settings for pull requests
   * Added explicit `read` permission for `contents`
   * Added explicit `write` permission for `pull-requests`
+* _Changed_ method `eraseCredentials()` of `SecurityTrait` is now marked with `#[\Deprecated]`
+  * Since Symfony `7.3` the framework no longer calls it, credentials are erased in `__serialize()` instead
+* _Changed_ method `reset()` of `AbstractResetPasswordController` receives a `TranslatorInterface` to translate the
+  `reset_password_error` flash message
 * _Changed_ Reorganized tests code
+* _Changed_ tests application configuration to remove deprecated options
+  * Removed `doctrine.orm.controller_resolver.auto_mapping`
+  * Flattened the `senders` level of the `messenger` routing
+  * Set `zenstruck_foundry.enable_auto_refresh_with_lazy_objects` only on PHP `8.4+`
 
 ## Breaking Changes {id="breaking-changes_1"}
 
 * _Drop_ support for PHP `8.2` version
+* _Changed_ signature of `AbstractResetPasswordController::reset()`, a `TranslatorInterface` argument has been added
+  * Only required if you override the method or call it directly
+* _Changed_ `SecurityTrait` now declares `__serialize()`
+  * If your entity already implements it, your implementation takes precedence and the password is no longer excluded
 
 ## 2.1.1 - (2025-04-13)
 
