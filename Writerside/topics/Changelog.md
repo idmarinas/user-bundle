@@ -28,7 +28,7 @@
   * Flattened the `senders` level of the `messenger` routing
   * Set `zenstruck_foundry.enable_auto_refresh_with_lazy_objects` only on PHP `8.4+`
 
-## Breaking Changes {id="breaking-changes_1"}
+### Breaking Changes {id="breaking-changes_1"}
 
 * _Drop_ support for PHP `8.2` version
 * _Changed_ signature of `AbstractResetPasswordController::reset()`, a `TranslatorInterface` argument has been added
