@@ -1,28 +1,9 @@
 <?php
-/**
- * Copyright 2026 (C) IDMarinas - All Rights Reserved
- *
- * Last modified by "IDMarinas" on 27/09/2026, 20:08
- *
- * @project IDMarinas User Bundle
- * @see     https://github.com/idmarinas/user-bundle
- *
- * @file    ProfileControllerTest.php
- * @date    27/09/2026
- * @time    20:11
- *
- * @author  Iván Diaz Marinas (IDMarinas)
- * @license BSD 3-Clause License
- *
- * @since   2.2.0
- */
-
-declare(strict_types=1);
 
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 25/09/2026, 18:13
+ * Last modified by "IDMarinas" on 05/10/2026, 19:53
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -36,6 +17,8 @@ declare(strict_types=1);
  *
  * @since   2.0.0
  */
+
+declare(strict_types=1);
 
 namespace Idm\Bundle\User\Tests\Controller;
 
