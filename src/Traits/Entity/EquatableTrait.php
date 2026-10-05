@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/09/2026, 20:05
+ * Last modified by "IDMarinas" on 05/10/2026, 19:34
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -26,7 +26,13 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use function count;
 
 /**
- * https://symfony.com/doc/5.4/security.html#comparing-users-manually-with-equatableinterface.
+ * Implements UserInterface::isEqualTo() to compare users manually as described in
+ * https://symfony.com/doc/current/security.html#comparing-users-manually-with-equatableinterface.
+ *
+ * Two users are only considered equal when every security relevant attribute matches:
+ * password, user identifier, inactive flag and roles. Comparing the session id as well
+ * limits each user to a single active session per device and firewall, so logging in
+ * again from somewhere else invalidates the previous session.
  */
 trait EquatableTrait
 {
