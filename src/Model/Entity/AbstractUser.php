@@ -2,7 +2,7 @@
 /**
  * Copyright 2023-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/10/2026, 19:22
+ * Last modified by "IDMarinas" on 05/10/2026, 19:42
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -22,11 +22,8 @@ namespace Idm\Bundle\User\Model\Entity;
 use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\IpTraceable\Traits\IpTraceableEntity;
-use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Idm\Bundle\User\Traits\Entity\BanTrait;
-use Idm\Bundle\User\Traits\Entity\EquatableTrait;
 use Idm\Bundle\User\Traits\Entity\LegalTrait;
 use Idm\Bundle\User\Traits\Entity\SecurityTrait;
 use Stringable;
@@ -38,12 +35,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
 abstract class AbstractUser implements UserInterface, EquatableInterface, PasswordAuthenticatedUserInterface, Stringable
 {
 	use BanTrait;
-	use EquatableTrait;
 	use LegalTrait;
 	use SecurityTrait;
 	use TimestampableEntity;
-	use IpTraceableEntity;
-	use SoftDeleteableEntity;
 
 	#[ORM\Column(length: 180, unique: true)]
 	protected ?string $email = null;
