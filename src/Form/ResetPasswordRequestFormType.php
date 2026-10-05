@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:04
+ * Last modified by "IDMarinas" on 05/10/2026, 19:49
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,41 +19,6 @@
 
 namespace Idm\Bundle\User\Form;
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints as Assert;
+use Idm\Bundle\User\Model\Form\AbstractResetPasswordRequestFormType;
 
-final class ResetPasswordRequestFormType extends AbstractType
-{
-	public function buildForm(FormBuilderInterface $builder, array $options): void
-	{
-		$builder
-			->add('email', EmailType::class, [
-				'required'    => true,
-				'label'       => false,
-				'help'        => 'form.forgot_password.email.help',
-				'attr'        => [
-					'autocomplete' => 'email',
-					'placeholder'  => 'form.forgot_password.email.label',
-				],
-				'constraints' => [
-					new Assert\NotBlank(allowNull: false),
-					new Assert\Email(),
-				],
-			])
-			->add('button', SubmitType::class, [
-				'label' => 'form.forgot_password.button',
-			])
-		;
-	}
-
-	public function configureOptions(OptionsResolver $resolver): void
-	{
-		$resolver->setDefaults([
-			'translation_domain' => 'IdmUserBundle',
-		]);
-	}
-}
+final class ResetPasswordRequestFormType extends AbstractResetPasswordRequestFormType {}
