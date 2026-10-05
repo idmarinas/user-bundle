@@ -2,7 +2,7 @@
 /**
  * Copyright 2023-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/10/2026, 19:42
+ * Last modified by "IDMarinas" on 05/10/2026, 20:16
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -27,12 +27,11 @@ use Idm\Bundle\User\Traits\Entity\BanTrait;
 use Idm\Bundle\User\Traits\Entity\LegalTrait;
 use Idm\Bundle\User\Traits\Entity\SecurityTrait;
 use Stringable;
-use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\MappedSuperclass]
-abstract class AbstractUser implements UserInterface, EquatableInterface, PasswordAuthenticatedUserInterface, Stringable
+abstract class AbstractUser implements UserInterface, PasswordAuthenticatedUserInterface, Stringable
 {
 	use BanTrait;
 	use LegalTrait;
