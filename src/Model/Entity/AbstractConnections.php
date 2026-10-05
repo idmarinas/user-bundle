@@ -3,7 +3,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:04
+ * Last modified by "IDMarinas" on 05/10/2026, 19:22
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -24,13 +24,10 @@ use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
-use Idm\Bundle\Common\Traits\Entity\UuidTrait;
 
 #[ORM\MappedSuperclass]
 abstract class AbstractConnections
 {
-	use UuidTrait;
-
 	#[ORM\ManyToOne]
 	#[ORM\JoinColumn(nullable: false)]
 	#[Gedmo\Blameable(on: 'create')]

@@ -2,7 +2,7 @@
 /**
  * Copyright 2023-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:04
+ * Last modified by "IDMarinas" on 05/10/2026, 19:22
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -25,7 +25,6 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\IpTraceable\Traits\IpTraceableEntity;
 use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Gedmo\Timestampable\Traits\TimestampableEntity;
-use Idm\Bundle\Common\Traits\Entity\UuidTrait;
 use Idm\Bundle\User\Traits\Entity\BanTrait;
 use Idm\Bundle\User\Traits\Entity\EquatableTrait;
 use Idm\Bundle\User\Traits\Entity\LegalTrait;
@@ -38,7 +37,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[ORM\MappedSuperclass]
 abstract class AbstractUser implements UserInterface, EquatableInterface, PasswordAuthenticatedUserInterface, Stringable
 {
-	use UuidTrait;
 	use BanTrait;
 	use EquatableTrait;
 	use LegalTrait;
