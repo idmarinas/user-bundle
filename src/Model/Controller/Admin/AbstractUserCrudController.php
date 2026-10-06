@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2025 (C) IDMarinas - All Rights Reserved
+ * Copyright 2025-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 12/04/2025, 12:36
+ * Last modified by "IDMarinas" on 06/10/2026, 13:38
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -34,17 +34,21 @@ use function Symfony\Component\Translation\t;
 
 abstract class AbstractUserCrudController extends AbstractCrudController
 {
-	public function configureFields (string $pageName): iterable
+	public function configureFields(string $pageName): iterable
 	{
 		$t = fn($message) => t($message, [], 'IdmUserBundle');
+		$entityClass = static::getEntityFqcn();
 
 		yield 'id' => IdField::new('id', $t('crud.common.uuid'))->onlyOnDetail();
 		yield 'display_name' => TextField::new('displayName', $t('crud.user.display_name'));
 		yield 'email' => EmailField::new('email', $t('crud.common.email'));
-		yield 'is_deleted' => BooleanField::new('isDeleted', $t('crud.common.is_deleted'))
-			->hideOnForm()->renderAsSwitch(false)->setVirtual(true)
-		;
-		yield 'deleted_at' => DateTimeField::new('deletedAt', $t('crud.common.deleted_at'))->hideOnIndex();
+
+		if (method_exists($entityClass, 'isDeleted') && property_exists($entityClass, 'deletedAt')) {
+			yield 'is_deleted' => BooleanField::new('isDeleted', $t('crud.common.is_deleted'))
+				->hideOnForm()->renderAsSwitch(false)->setVirtual(true)
+			;
+			yield 'deleted_at' => DateTimeField::new('deletedAt', $t('crud.common.deleted_at'))->hideOnIndex();
+		}
 
 		yield 'roles' => ChoiceField::new('roles', $t('crud.common.roles'))
 			->hideOnIndex()->allowMultipleChoices()
@@ -60,7 +64,7 @@ abstract class AbstractUserCrudController extends AbstractCrudController
 		;
 	}
 
-	public function configureCrud (Crud $crud): Crud
+	public function configureCrud(Crud $crud): Crud
 	{
 		$t = fn($message) => t($message, [], 'IdmUserBundle');
 
@@ -72,7 +76,7 @@ abstract class AbstractUserCrudController extends AbstractCrudController
 		;
 	}
 
-	public function configureFilters (Filters $filters): Filters
+	public function configureFilters(Filters $filters): Filters
 	{
 		return $filters
 			->add('email')
