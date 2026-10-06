@@ -3,7 +3,7 @@
 /**
  * Copyright 2023-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:04
+ * Last modified by "IDMarinas" on 06/10/2026, 14:01
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -59,14 +59,15 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 	public function uniqueUserEmail($value): array
 	{
 		$filters = $this->getEntityManager()->getFilters();
+		$softDeleteableEnabled = $filters->isEnabled('softdeleteable');
 
-		if ($filters->isEnabled('softdeleteable')) {
+		if ($softDeleteableEnabled) {
 			$filters->disable('softdeleteable');
 		}
 
 		$result = $this->findBy(criteria: $value, limit: 1);
 
-		if (!$filters->isEnabled('softdeleteable')) {
+		if ($softDeleteableEnabled) {
 			$filters->enable('softdeleteable');
 		}
 
@@ -80,10 +81,15 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 	 */
 	public function getUserMarkedAsDeleted(): array
 	{
+		if (!property_exists($this->getClassName(), 'deletedAt')) {
+			return [];
+		}
+
 		$filters = $this->getEntityManager()->getFilters();
+		$softDeleteableEnabled = $filters->isEnabled('softdeleteable');
 
 		// -- Disable softDeleteable filtering
-		if ($filters->isEnabled('softdeleteable')) {
+		if ($softDeleteableEnabled) {
 			$filters->disable('softdeleteable');
 		}
 
@@ -96,7 +102,7 @@ abstract class AbstractUserRepository extends ServiceEntityRepository implements
 		$result = $query->getQuery()->getResult();
 
 		// -- Enable softDeleteable filtering
-		if (!$filters->isEnabled('softdeleteable')) {
+		if ($softDeleteableEnabled) {
 			$filters->enable('softdeleteable');
 		}
 
