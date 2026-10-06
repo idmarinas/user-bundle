@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 05/10/2026, 19:34
+ * Last modified by "IDMarinas" on 06/10/2026, 15:57
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -55,7 +55,7 @@ trait EquatableTrait
 	public function isEqualTo(UserInterface $user): bool
 	{
 		if (!$user instanceof self
-			|| $this->getsessionId() !== $user->getsessionId() // Only 1 session active
+			|| $this->getSessionId() !== $user->getSessionId() // Only 1 session active
 			|| $this->getPassword() !== $user->getPassword()
 			|| $this->getUserIdentifier() !== $user->getUserIdentifier()
 			|| $this->isInactive() !== $user->isInactive()
