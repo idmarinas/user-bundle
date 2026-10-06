@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 25/09/2026, 18:00
+ * Last modified by "IDMarinas" on 06/10/2026, 13:57
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -53,7 +53,7 @@ class AbstractResetPasswordRequestRepository extends ServiceEntityRepository
 		$resetPasswordRequest = $this
 			->createQueryBuilder('t')
 			->where('t.user = :user')
-			->setParameter('user', $user->getId(), 'uuid')
+			->setParameter('user', $user->getId())
 			->orderBy('t.requestedAt', SortDirection::Descending)
 			->setMaxResults(1)
 			->getQuery()
