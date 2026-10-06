@@ -1,5 +1,93 @@
 # Changelog
 
+## 2.3.0 - (2026-10-06)
+
+### Added {id="added_2.3.0"}
+
+**Forms**
+
+* _Added_ `Idm\Bundle\User\Model\Form\AbstractChangePasswordFormType` base of
+  `Idm\Bundle\User\Form\ChangePasswordFormType`
+* _Added_ `Idm\Bundle\User\Model\Form\AbstractResetPasswordFormType` base of
+  `Idm\Bundle\User\Form\ResetPasswordFormType`
+* _Added_ `Idm\Bundle\User\Model\Form\AbstractResetPasswordRequestFormType` base of
+  `Idm\Bundle\User\Form\ResetPasswordRequestFormType`
+* _Added_ `Idm\Bundle\User\Form\RegistrationFormType` extending
+  `Idm\Bundle\User\Model\Form\AbstractRegistrationFormType`
+
+### Changed {id="changed_2.3.0"}
+
+**Entities**
+
+* _Changed_ `Idm\Bundle\User\Model\Entity\AbstractUser` and `Idm\Bundle\User\Model\Entity\AbstractConnections` now
+  no use trait `Idm\Bundle\Common\Traits\Entity\UuidTrait` by default; you can add the trait `UuidTrait` or
+  `IdTrait` to your entity class.
+* _Changed_ `Idm\Bundle\User\Model\Entity\AbstractUser`
+  * `Idm\Bundle\User\Traits\Entity\EquatableTrait` is now optional; you can add the trait `EquatableTrait` to your
+    entity class.
+  * `Gedmo\IpTraceable\Traits\IpTraceableEntity` is now optional; you can add the trait `IpTraceableEntity` to your
+    entity class.
+  * `Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity` is now optional; you can add the trait `SoftDeleteableEntity` to
+    your entity class.
+  * `AbstractUser` no longer implements `Symfony\Component\Security\Core\User\EquatableInterface`; if you use
+    `EquatableTrait`, your entity class must declare it (`implements EquatableInterface`), otherwise Symfony no longer
+    compares the session user with `isEqualTo()`.
+
+**Forms**
+
+* _Changed_ the form types of `Idm\Bundle\User\Form` no longer declare `buildForm()` and `configureOptions()`, the
+  shared logic was moved to their new abstract base class in `Idm\Bundle\User\Model\Form`
+  * `Idm\Bundle\User\Form\ChangePasswordFormType` extends `AbstractChangePasswordFormType`
+  * `Idm\Bundle\User\Form\ResetPasswordFormType` extends `AbstractResetPasswordFormType`
+  * `Idm\Bundle\User\Form\ResetPasswordRequestFormType` extends `AbstractResetPasswordRequestFormType`
+
+**Admin**
+
+* _Changed_ method `configureFields()` of `AbstractUserCrudController` now only displays the `is_deleted` and
+  `deleted_at` fields when the entity class has the `isDeleted()` method and the `deletedAt` property (i.e. it uses
+  `SoftDeleteableEntity`).
+
+**Security**
+
+* _Changed_ method `checkPreAuth()` of `AbstractUserChecker` now checks that the `isDeleted()` method exists before
+  calling it.
+
+**Repository**
+
+* _Changed_ method `getUserMarkedAsDeleted()` of `AbstractUserRepository` now returns an empty array when the entity
+  class has no `deletedAt` property.
+* _Changed_ methods `uniqueUserEmail()` and `getUserMarkedAsDeleted()` of `AbstractUserRepository` now restore the
+  `softdeleteable` filter only if it was enabled before.
+
+**Tests**
+
+* _Changed_ tests code, removed redundant docblocks from test classes
+* _Changed_ tests application configuration now registers `TwigComponentBundle` and `TwigExtraBundle`, required by the
+  EasyAdmin templates that use `<twig:...>` component syntax
+
+### Fixed {id="fixed_2.3.0"}
+
+* _Fixed_ method `getMostRecentNonExpiredRequestDate()` of `AbstractResetPasswordRequestRepository` no longer forces
+  the `uuid` parameter type, so it also works with entities that use `IdTrait`.
+* _Fixed_ method `isEqualTo()` of `EquatableTrait` called `getSessionId()` with the wrong casing.
+
+### Breaking Changes {id="breaking-changes_2.3.0"}
+
+* _Changed_ `Idm\Bundle\User\Model\Entity\AbstractUser` no longer uses traits `EquatableTrait`, `IpTraceableEntity` and
+  `SoftDeleteableEntity`
+  * Add the traits you need to your entity class; without `EquatableTrait` the user is no longer compared against the
+    user stored in the session
+* _Changed_ `Idm\Bundle\User\Model\Entity\AbstractUser` no longer implements
+  `Symfony\Component\Security\Core\User\EquatableInterface`
+  * If you use `EquatableTrait`, declare `implements EquatableInterface` in your entity class; otherwise `isEqualTo()`
+    is never called and the session user is not compared
+* _Changed_ `Idm\Bundle\User\Model\Entity\AbstractUser` and `Idm\Bundle\User\Model\Entity\AbstractConnections` no longer
+  use trait `UuidTrait`
+  * Add the trait `UuidTrait` or `IdTrait` to your entity class to keep the identifier column
+* _Changed_ `Idm\Bundle\User\Form\ChangePasswordFormType`, `Idm\Bundle\User\Form\ResetPasswordFormType` and
+  `Idm\Bundle\User\Form\ResetPasswordRequestFormType` no longer extend `Symfony\Component\Form\AbstractType`
+  * If you override `buildForm()` or `configureOptions()`, your class must extend the new abstract base class
+
 ## 2.2.0 - (2026-09-28)
 
 ### Added {id="added_2.2.0"}
@@ -9,7 +97,7 @@
 
 ### Fixed {id="fixed_2.2.0"}
 
-* _Fixed_ help text key in `ResetPasswordRequestFormType` from `form.reset_password_request.email.help` to
+* _Fixed_ help text key in `AbstractResetPasswordRequestFormType` from `form.reset_password_request.email.help` to
   `form.forgot_password.email.help`
 * _Fixed_ `TranslatableMessage::__toString()` deprecation when building the `reset_password_error` flash message
 
@@ -95,7 +183,7 @@
 
 * Translations
   * Changed form `forgot_password` include a help for email field.
-* Changed form `ResetPasswordRequestFormType` include help for field email
+* Changed form `AbstractResetPasswordRequestFormType` include help for field email
 
 ## 2.0.3 - (2025-02-20)
 
@@ -144,9 +232,9 @@ more.
 **Forms**
 
 * _Added_ `AbstractRegistrationFormType` Basic registration form.
-* _Added_ `ChangePasswordFormType` Form for change password.
-* _Added_ `ResetPasswordFormType` Form for reset password.
-* _Added_ `ResetPasswordRequestFormType` Form to request a reset password.
+* _Added_ `AbstractChangePasswordFormType` Form for change password.
+* _Added_ `AbstractResetPasswordFormType` Form for reset password.
+* _Added_ `AbstractResetPasswordRequestFormType` Form to request a reset password.
 
 **Entities**
 
