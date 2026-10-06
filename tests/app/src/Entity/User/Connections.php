@@ -2,7 +2,7 @@
 /**
  * Copyright 2025-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:05
+ * Last modified by "IDMarinas" on 05/10/2026, 20:17
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -21,9 +21,13 @@ namespace App\Entity\User;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Idm\Bundle\Common\Traits\Entity\UuidTrait;
 use Idm\Bundle\User\Model\Entity\AbstractConnections;
 
 #[ORM\Entity]
 #[ORM\Table(name: 'idm_user_connections')]
 #[Gedmo\Loggable(logEntryClass: ConnectionsLog::class)]
-class Connections extends AbstractConnections {}
+class Connections extends AbstractConnections
+{
+	use UuidTrait;
+}
