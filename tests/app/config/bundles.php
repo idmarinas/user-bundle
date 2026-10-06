@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright $originalComment.match("Copyright (\d+)", 1, "-",$today.year)2026 (C) IDMarinas - All Rights Reserved
+ * Copyright 2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 19:40
+ * Last modified by "IDMarinas" on 06/10/2026, 15:31
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -27,8 +27,10 @@ use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\MakerBundle\MakerBundle;
 use Symfony\Bundle\SecurityBundle\SecurityBundle;
 use Symfony\Bundle\TwigBundle\TwigBundle;
+use Symfony\UX\TwigComponent\TwigComponentBundle;
 use SymfonyCasts\Bundle\ResetPassword\SymfonyCastsResetPasswordBundle;
 use SymfonyCasts\Bundle\VerifyEmail\SymfonyCastsVerifyEmailBundle;
+use Twig\Extra\TwigExtraBundle\TwigExtraBundle;
 use Zenstruck\Foundry\ZenstruckFoundryBundle;
 
 return [
@@ -40,6 +42,8 @@ return [
 	SecurityBundle::class                  => ['all' => true],
 	StofDoctrineExtensionsBundle::class    => ['all' => true],
 	EasyAdminBundle::class                 => ['all' => true],
+	TwigComponentBundle::class             => ['all' => true],
+	TwigExtraBundle::class                 => ['all' => true],
 
 	// Dev-Test Bundles
 	MakerBundle::class                     => ['all' => true],
