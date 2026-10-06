@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2026 (C) IDMarinas - All Rights Reserved
+ * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:04
+ * Last modified by "IDMarinas" on 06/10/2026, 13:33
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -49,7 +49,7 @@ abstract class AbstractUserChecker implements UserCheckerInterface
 			return;
 		}
 
-		if ($user->isDeleted()) {
+		if (method_exists($user, 'isDeleted') && $user->isDeleted()) {
 			throw new CustomUserMessageAccountStatusException('idm_user_bundle.account.no_exist');
 		}
 
