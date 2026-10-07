@@ -2,7 +2,7 @@
 /**
  * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 07/10/2026, 13:09
+ * Last modified by "IDMarinas" on 07/10/2026, 14:16
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,7 +19,7 @@
 
 namespace Idm\Bundle\User\Controller;
 
-use App\Form\RegistrationFormType;
+use Idm\Bundle\User\Form\RegistrationFormType;
 use Idm\Bundle\User\Model\Controller\AbstractRegistrationController;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Routing\Attribute\Route;
