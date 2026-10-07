@@ -3,7 +3,7 @@
 /**
  * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 24/09/2026, 19:22
+ * Last modified by "IDMarinas" on 07/10/2026, 13:53
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -22,6 +22,15 @@ declare(strict_types=1);
 
 namespace Idm\Bundle\User\Tests;
 
+use App\Controller\LoginController as AppLoginController;
+use App\Controller\ProfileController as AppProfileController;
+use App\Controller\RegistrationController as AppRegistrationController;
+use App\Controller\ResetPasswordController as AppResetPasswordController;
+use App\Kernel;
+use Idm\Bundle\User\Controller\LoginController;
+use Idm\Bundle\User\Controller\ProfileController;
+use Idm\Bundle\User\Controller\RegistrationController;
+use Idm\Bundle\User\Controller\ResetPasswordController;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouterInterface;
@@ -44,8 +53,58 @@ final class BundleRoutingTest extends KernelTestCase
 		$routes = $routeCollection->all();
 
 		$this->assertCount(22, $routes);
-		$this->assertInstanceOf(Route::class, $routeCollection->get('idm_user_login_web'));
-		$this->assertInstanceOf(Route::class, $routeCollection->get('idm_user_profile_index'));
-		$this->assertInstanceOf(Route::class, $routeCollection->get('idm_user_profile_change_password'));
+
+		$routeLogin = $routeCollection->get('idm_user_login_web');
+		$routeProfile = $routeCollection->get('idm_user_profile_index');
+		$routeReset = $routeCollection->get('idm_user_forgot_password_request');
+		$routeCreate = $routeCollection->get('idm_user_registration_register_web');
+
+		$this->assertInstanceOf(Route::class, $routeLogin);
+		$this->assertInstanceOf(Route::class, $routeProfile);
+		$this->assertInstanceOf(Route::class, $routeReset);
+		$this->assertInstanceOf(Route::class, $routeCreate);
+
+		$this->assertStringStartsWith(LoginController::class, $routeLogin->getDefault('_controller'));
+		$this->assertStringStartsWith(ProfileController::class, $routeProfile->getDefault('_controller'));
+		$this->assertStringStartsWith(ResetPasswordController::class, $routeReset->getDefault('_controller'));
+		$this->assertStringStartsWith(RegistrationController::class, $routeCreate->getDefault('_controller'));
+	}
+
+	public function testChangeRoutes(): void
+	{
+		$kernel = self::bootKernel([
+			'config' => static function (Kernel $kernel): void {
+				$kernel->addExtraRoutesFile(__DIR__.'/app/config/routes/login.php');
+				$kernel->addExtraRoutesFile(__DIR__.'/app/config/routes/profile.php');
+				$kernel->addExtraRoutesFile(__DIR__.'/app/config/routes/registration.php');
+				$kernel->addExtraRoutesFile(__DIR__.'/app/config/routes/reset_password.php');
+			},
+		]);
+
+		$container = $kernel->getContainer();
+		$container = $container->get('test.service_container');
+		/**
+		 * @var RouterInterface $router
+		 */
+		$router = $container->get(RouterInterface::class);
+		$routeCollection = $router->getRouteCollection();
+		$routes = $routeCollection->all();
+
+		$this->assertCount(22, $routes);
+
+		$routeLogin = $routeCollection->get('idm_user_login_web');
+		$routeProfile = $routeCollection->get('idm_user_profile_index');
+		$routeReset = $routeCollection->get('idm_user_forgot_password_request');
+		$routeCreate = $routeCollection->get('idm_user_registration_register_web');
+
+		$this->assertInstanceOf(Route::class, $routeLogin);
+		$this->assertInstanceOf(Route::class, $routeProfile);
+		$this->assertInstanceOf(Route::class, $routeReset);
+		$this->assertInstanceOf(Route::class, $routeCreate);
+
+		$this->assertStringStartsWith(AppLoginController::class, $routeLogin->getDefault('_controller'));
+		$this->assertStringStartsWith(AppProfileController::class, $routeProfile->getDefault('_controller'));
+		$this->assertStringStartsWith(AppResetPasswordController::class, $routeReset->getDefault('_controller'));
+		$this->assertStringStartsWith(AppRegistrationController::class, $routeCreate->getDefault('_controller'));
 	}
 }
