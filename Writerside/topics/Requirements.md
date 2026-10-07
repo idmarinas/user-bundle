@@ -5,7 +5,7 @@
 
 | **%project% <br/>Version** | **PHP <br/>Compatibility** | **Symfony <br/>Compatibility** | **Status**                 |
 |----------------------------|:--------------------------:|:------------------------------:|----------------------------|
-| `2.x`                      |      `8.2`  or higher      |        `6.4` and `7.x`         | New features and bug fixes |
+| `2.x`                      |      `8.2`  or higher      |     `6.4` `7.x` and `8.x`      | New features and bug fixes |
 | `1.x`                      |      `8.0` or higher       |     `5.4` `^6.1` and `7.x`     | No longer maintained       |
 
 <seealso>
