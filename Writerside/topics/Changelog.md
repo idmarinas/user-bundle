@@ -96,8 +96,11 @@
 * _Changed_ the test application now uses the default controllers of the bundle; its `login.php`, `profile.php`,
   `registration.php` and `reset_password.php` routing files are only enabled in the override tests
 * _Changed_ `BundleRoutingTest` now also verifies the routes `idm_user_profile_index`, `idm_user_change_password`,
-  `idm_user_forgot_password_request` and `idm_user_registration_register_web`, and covers the override mechanism (the
-  application controllers win when their routing file is imported after the bundle's)
+  `idm_user_forgot_password_request` and `idm_user_registration_register_web`, and covers the override mechanism
+  (the application controllers win when their routing file is imported after the bundle's)
+* _Changed_ `UserCrudControllerTest` is skipped on Symfony 7.0: the `symfony/twig-bridge` 7.0 line does not include the
+  fix for `Twig\Node\EmptyNode` (symfony/symfony#58964, only in 5.4.48, 6.4.16 and 7.1.9), so EasyAdmin cannot compile
+  its templates with `twig/twig >= 3.16`; the rest of the Symfony 7.0 suite keeps running.
 
 ### Fixed {id="fixed_2.3.0"}
 
