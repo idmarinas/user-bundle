@@ -1,8 +1,8 @@
 <?php
 /**
- * Copyright 2026 (C) IDMarinas - All Rights Reserved
+ * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 24/09/2026, 19:46
+ * Last modified by "IDMarinas" on 07/10/2026, 13:19
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -24,10 +24,7 @@ use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
 
 return function (RoutingConfigurator $routes): void {
 //	$routes->import('routes/web_profiler.php');
-	$routes->import('routes/login.php');
-	$routes->import('routes/profile.php');
-	$routes->import('routes/registration.php');
-	$routes->import('routes/reset_password.php');
+	$routes->import('@IdmUserBundle/config/routes.php');
 
 	$routes->import('security.route_loader.logout', 'service')->methods(['GET']);
 	$routes->import(DashboardController::class, AdminRouteLoader::ROUTE_LOADER_TYPE);
