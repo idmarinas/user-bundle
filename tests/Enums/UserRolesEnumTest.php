@@ -2,7 +2,7 @@
 /**
  * Copyright 2026-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 27/09/2026, 22:25
+ * Last modified by "IDMarinas" on 07/10/2026, 13:14
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -81,7 +81,7 @@ final class UserRolesEnumTest extends TestCase
 
 		foreach (UserRolesEnum::toTranslatableChoices() as $message) {
 			$this->assertInstanceOf(TranslatableMessage::class, $message);
-			$this->assertEquals('IdmUserBundle', $message->getDomain());
+			$this->assertSame('IdmUserBundle', $message->getDomain());
 			$this->assertEmpty($message->getParameters());
 		}
 	}
