@@ -22,7 +22,7 @@
 
 <br />
 
-![Github commits (since latest release)](https://img.shields.io/github/commits-since/idmarinas/user-bundle/latest/2.x?style=for-the-badge)
+![Github commits (since latest release)](https://img.shields.io/github/commits-since/idmarinas/user-bundle/latest/3.x?style=for-the-badge)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/idmarinas/user-bundle/3.x?style=for-the-badge)
 ![GitHub last commit](https://img.shields.io/github/last-commit/idmarinas/user-bundle/3.x?style=for-the-badge)
 
