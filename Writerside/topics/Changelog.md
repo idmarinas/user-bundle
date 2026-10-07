@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.3.0 - (2026-10-06)
+## 2.3.0 - (2026-10-07)
 
 ### Added {id="added_2.3.0"}
 
@@ -14,6 +14,35 @@
   `Idm\Bundle\User\Form\ResetPasswordRequestFormType`
 * _Added_ `Idm\Bundle\User\Form\RegistrationFormType` extending
   `Idm\Bundle\User\Model\Form\AbstractRegistrationFormType`
+
+**Controllers**
+
+* _Added_ concrete controllers `Idm\Bundle\User\Controller\LoginController`,
+  `Idm\Bundle\User\Controller\ProfileController`, `Idm\Bundle\User\Controller\RegistrationController` and
+  `Idm\Bundle\User\Controller\ResetPasswordController`, extending the corresponding `Abstract*Controller` base
+  classes. The bundle now works out of the box: import `@IdmUserBundle/config/routes.php` in your application to get
+  all user routes.
+
+**Routing**
+
+* _Added_ `config/routes.php` importing the four default controllers with the `/user` path prefix and the `idm_user_`
+  route name prefix (`idm_user_login_web`, `idm_user_profile_index`, `idm_user_registration_register_web`,
+  `idm_user_forgot_password_request`, ...)
+
+**Services**
+
+* _Added_ explicit service definitions for the default controllers in `config/services.php`, following the Symfony
+  best practices for bundles (no autowiring/autoconfiguration):
+  * private services identified by the class, made public by the `controller.service_arguments` tag
+  * `container.service_subscriber` tag and a `setContainer(ContainerInterface)` method call, so the controller receives
+    the service subscriber locator instead of the raw container
+  * action arguments (`AuthenticationUtils`, `EntityManagerInterface`, ...) are still injected by type thanks to the
+    controller argument locators
+
+**Tests**
+
+* _Added_ `App\Controller\LoginController` in the test application is kept as an example that overrides the default
+  controller (importing `routes/login.php` after `@IdmUserBundle/config/routes.php` wins over the bundle route)
 
 ### Changed {id="changed_2.3.0"}
 
@@ -44,7 +73,7 @@
 **Admin**
 
 * _Changed_ method `configureFields()` of `AbstractUserCrudController` now only displays the `is_deleted` and
-  `deleted_at` fields when the entity class has the `isDeleted()` method and the `deletedAt` property (i.e. it uses
+  `deleted_at` fields when the entity class has the `isDeleted()` method and the `deletedAt` property (i.e., it uses
   `SoftDeleteableEntity`).
 
 **Security**
@@ -61,9 +90,14 @@
 
 **Tests**
 
-* _Changed_ tests code, removed redundant docblocks from test classes
+* _Changed_ test code, removed redundant docblocks from test classes
 * _Changed_ tests application configuration now registers `TwigComponentBundle` and `TwigExtraBundle`, required by the
   EasyAdmin templates that use `<twig:...>` component syntax
+* _Changed_ the test application now uses the default controllers of the bundle; its `login.php`, `profile.php`,
+  `registration.php` and `reset_password.php` routing files are only enabled in the override tests
+* _Changed_ `BundleRoutingTest` now also verifies the routes `idm_user_profile_index`, `idm_user_change_password`,
+  `idm_user_forgot_password_request` and `idm_user_registration_register_web`, and covers the override mechanism (the
+  application controllers win when their routing file is imported after the bundle's)
 
 ### Fixed {id="fixed_2.3.0"}
 
@@ -82,7 +116,7 @@
   * If you use `EquatableTrait`, declare `implements EquatableInterface` in your entity class; otherwise `isEqualTo()`
     is never called and the session user is not compared
 * _Changed_ `Idm\Bundle\User\Model\Entity\AbstractUser` and `Idm\Bundle\User\Model\Entity\AbstractConnections` no longer
-  use trait `UuidTrait`
+  use the trait `UuidTrait`
   * Add the trait `UuidTrait` or `IdTrait` to your entity class to keep the identifier column
 * _Changed_ `Idm\Bundle\User\Form\ChangePasswordFormType`, `Idm\Bundle\User\Form\ResetPasswordFormType` and
   `Idm\Bundle\User\Form\ResetPasswordRequestFormType` no longer extend `Symfony\Component\Form\AbstractType`
@@ -97,7 +131,7 @@
 
 ### Fixed {id="fixed_2.2.0"}
 
-* _Fixed_ help text key in `AbstractResetPasswordRequestFormType` from `form.reset_password_request.email.help` to
+* _Fixed_ a help text key in `AbstractResetPasswordRequestFormType` from `form.reset_password_request.email.help` to
   `form.forgot_password.email.help`
 * _Fixed_ `TranslatableMessage::__toString()` deprecation when building the `reset_password_error` flash message
 
@@ -196,7 +230,7 @@
 ### Fixed {id="fixed_2.0.2"}
 
 * _Fixed_ `translations/IdmUserBundle+intl-icu.{es,en}.yaml` name of roles (now use lowercase)
-* _Fixed_ `src/Enums/TranslatableChoicesEnumTrait.php` now use a `TranslatableMessage` object for translate choices
+* _Fixed_ `src/Enums/TranslatableChoicesEnumTrait.php` now use a `TranslatableMessage` object for translation choices
 
 ## 2.0.1 - (2025-02-19)
 
@@ -209,7 +243,7 @@
 
 ### Fixed
 
-* _Fixed_ problem with service not being found `idm_user.service.email_verifier`
+* _Fixed_ a problem with service not being found `idm_user.service.email_verifier`
 * _Fixed_ Implicitly marking parameter `$param` as nullable is deprecated
   * Files: `AbstractProfileController`, `AbstractRegistrationController` and `AbstractResetPasswordController`
 
@@ -253,7 +287,7 @@ more.
 
 **Validators**
 
-* _Added_ `Passwordrequirements` Constraint for a consistent password across the
+* _Added_ `PasswordRequirements` Constraint for a consistent password across the
   App. [Read Docs](PasswordRequirements.md)
 
 **Traits**
