@@ -1,28 +1,9 @@
 <?php
-/**
- * Copyright 2026 (C) IDMarinas - All Rights Reserved
- *
- * Last modified by "IDMarinas" on 27/09/2026, 20:07
- *
- * @project IDMarinas User Bundle
- * @see     https://github.com/idmarinas/user-bundle
- *
- * @file    RegistrationFormTypeTest.php
- * @date    27/09/2026
- * @time    20:11
- *
- * @author  Iván Diaz Marinas (IDMarinas)
- * @license BSD 3-Clause License
- *
- * @since   2.2.0
- */
-
-declare(strict_types=1);
 
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 23/09/2026, 21:05
+ * Last modified by "IDMarinas" on 07/10/2026, 14:18
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -37,11 +18,13 @@ declare(strict_types=1);
  * @since   2.0.0
  */
 
+declare(strict_types=1);
+
 namespace Idm\Bundle\User\Tests\Form;
 
 use App\Entity\User\User;
-use App\Form\RegistrationFormType;
 use Idm\Bundle\Common\Traits\Tool\FakerTrait;
+use Idm\Bundle\User\Form\RegistrationFormType;
 use Symfony\Component\Form\Test\Traits\ValidatorExtensionTrait;
 use Symfony\Component\Form\Test\TypeTestCase;
 
