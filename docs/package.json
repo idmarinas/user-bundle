@@ -1,0 +1,19 @@
+{
+	"scripts": {
+		"dev": "nuxt dev",
+		"build": "nuxt build",
+		"generate": "nuxt generate --preset github_pages",
+		"postinstall": "nuxt prepare"
+	},
+	"type": "module",
+	"dependencies": {
+		"@takumi-rs/core": "^1.8.7",
+		"better-sqlite3": "^12.11.1",
+		"docus": "^5.14.0",
+		"nuxt": "^4.6.0",
+		"nuxt-seo-utils": "^7.0.19"
+	},
+	"devDependencies": {
+		"nuxtseo-layer-devtools": "^5.3.16"
+	}
+}
