@@ -1,0 +1,10 @@
+branch: 3.x
+title: 3.x Releases
+description: |
+  Browse all minor versions in the 2.x release line. Each release includes the publication date, a summary of changes, and the responsible author.
+  Select any version to view the complete changelog.
+security: true
+requirements:
+  php: ['^8.3']
+  symfony: ['^6.4', '^7.1', '^8.0']
+  support: features
