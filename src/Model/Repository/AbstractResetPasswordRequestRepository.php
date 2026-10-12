@@ -2,7 +2,7 @@
 /**
  * Copyright 2024-2026 (C) IDMarinas - All Rights Reserved
  *
- * Last modified by "IDMarinas" on 06/10/2026, 13:57
+ * Last modified by "IDMarinas" on 12/10/2026, 20:20
  *
  * @project IDMarinas User Bundle
  * @see     https://github.com/idmarinas/user-bundle
@@ -19,7 +19,6 @@
 
 namespace Idm\Bundle\User\Model\Repository;
 
-use App\Entity\User\ResetPasswordRequest;
 use DateTimeInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Idm\Bundle\User\Model\Entity\AbstractUser;
@@ -28,7 +27,7 @@ use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordRequestInterface;
 use SymfonyCasts\Bundle\ResetPassword\Persistence\Repository\ResetPasswordRequestRepositoryTrait;
 use SymfonyCasts\Bundle\ResetPassword\Persistence\ResetPasswordRequestRepositoryInterface;
 
-class AbstractResetPasswordRequestRepository extends ServiceEntityRepository
+abstract class AbstractResetPasswordRequestRepository extends ServiceEntityRepository
 	implements ResetPasswordRequestRepositoryInterface
 {
 	use ResetPasswordRequestRepositoryTrait;
@@ -42,7 +41,9 @@ class AbstractResetPasswordRequestRepository extends ServiceEntityRepository
 		string            $selector,
 		string            $hashedToken
 	): ResetPasswordRequestInterface {
-		return new ResetPasswordRequest($user, $expiresAt, $selector, $hashedToken);
+		$class = $this->getClassName();
+
+		return new $class($user, $expiresAt, $selector, $hashedToken);
 	}
 
 	/** @inheritDoc */

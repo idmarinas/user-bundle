@@ -1,5 +1,19 @@
 # Changelog
 
+## 2.3.1 - (2026-10-12)
+
+### Changed {id="changed_2.3.1"}
+
+**Repository**
+
+* _Changed_ `Idm\Bundle\User\Model\Repository\AbstractResetPasswordRequestRepository` is now an `abstract` class.
+
+### Fixed {id="fixed_2.3.1"}
+
+* _Fixed_ method `createResetPasswordRequest()` of `AbstractResetPasswordRequestRepository` now creates the entity
+  through `getClassName()` instead of the hardcoded `App\Entity\User\ResetPasswordRequest`, so it no longer depends on
+  an application-specific class.
+
 ## 2.3.0 - (2026-10-07)
 
 ### Added {id="added_2.3.0"}
