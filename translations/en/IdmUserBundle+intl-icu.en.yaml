@@ -129,6 +129,7 @@ crud:
     deleted_at: Deleted at
     created_at: Created at
     is_deleted: Deleted
+    is_banned: Banned
     value: Value
     user: User
   social:

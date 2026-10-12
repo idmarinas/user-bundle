@@ -129,6 +129,7 @@ crud:
     deleted_at: Fecha borrado
     created_at: Fecha creación
     is_deleted: Borrado
+    is_banned: Baneado
     value: Valor
     user: Usuario
   social:
